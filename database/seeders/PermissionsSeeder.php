@@ -47,11 +47,6 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'ایجاد بکاپ دیتابیس']);
         Permission::create(['name' => 'دسترسی به منوی بکاپ دیتابیس']);
 
-        //Website settings
-        Permission::create(['name' => 'دسترسی به منوی تنظیمات سایت']);
-        Permission::create(['name' => 'لیست تنظیمات سایت']);
-        Permission::create(['name' => 'ویرایش تنظیمات سایت']);
-
         Permission::create(['name' => 'telescope']);
 
         $superAdminRole = Role::create(['name' => 'ادمین کل']);

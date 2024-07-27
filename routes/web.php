@@ -49,7 +49,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
     Route::middleware(NTCPMiddleware::class)->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        //Search Route
+
         //User Manager
         Route::get('/UserManager', [UserManager::class, 'index'])->name('UserManager');
         Route::get('/GetUserInfo', [UserManager::class, 'getUserInfo'])->name('GetUserInfo');
