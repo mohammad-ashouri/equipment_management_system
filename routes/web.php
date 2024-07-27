@@ -63,6 +63,10 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Roles', RoleController::class);
         Route::resource('/Permissions', PermissionController::class);
 
+        //Catalogs
+        Route::resource('/Buildings', PermissionController::class);
+
+
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
             Route::get('/', [DatabaseBackupController::class, 'index']);
