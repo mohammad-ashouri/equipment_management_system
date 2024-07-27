@@ -66,7 +66,7 @@ $('#loginForm').submit(function (e) {
                 });
             } else {
                 swalFire('خطای ناشناخته', 'ارتباط با سرور برقرار نشد.', 'error', 'تلاش مجدد');
-                console.clear();
+                // console.clear();
             }
             loaderSpinner();
 
