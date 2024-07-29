@@ -16,13 +16,13 @@
                         <div class="mt-4 mb-4 flex items-center">
                             <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="newUserModal">
                                 <div
-                                        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0">
+                                    class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0">
                                     <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                                         <div class="absolute inset-0 bg-gray-500 opacity-75 add"></div>
                                     </div>
 
                                     <div
-                                            class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:max-w-[550px]">
+                                        class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:max-w-[550px]">
                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                             <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
                                                 تعریف کاربر جدید
@@ -57,6 +57,27 @@
                                                            id="password"
                                                            class="border rounded-md w-full mb-4 px-3 py-2 text-left"
                                                            placeholder="رمزعبور">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label for="building"
+                                                           class="block text-gray-700 text-sm font-bold mb-2">ساختمان:</label>
+                                                    <select id="building" class="border rounded-md w-full px-3 py-2"
+                                                            name="building">
+                                                        <option value="" disabled selected>انتخاب کنید</option>
+                                                        @foreach($buildings as $building)
+                                                            <option
+                                                                value="{{$building->id}}">{{$building->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label for="roomNumber"
+                                                           class="block text-gray-700 text-sm font-bold mb-2">شماره
+                                                        اتاق:</label>
+                                                    <input type="text" id="roomNumber" name="roomNumber"
+                                                           autocomplete="off"
+                                                           class="border rounded-md w-full mb-4 px-3 py-2 text-right"
+                                                           placeholder="شماره اتاق">
                                                 </div>
                                                 <div class="mb-4">
                                                     <label for="type"
@@ -99,13 +120,13 @@
                         <div class="mt-4 mb-4 flex items-center">
                             <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="editUserModal">
                                 <div
-                                        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0">
+                                    class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center  sm:block sm:p-0">
                                     <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                                         <div class="absolute inset-0 bg-gray-500 opacity-75 edit"></div>
                                     </div>
 
                                     <div
-                                            class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:max-w-[550px]">
+                                        class="inline-block align-bottom bg-white rounded-lg text-right overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full sm:max-w-[550px]">
                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                             <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
                                                 ویرایش کاربر
@@ -120,7 +141,7 @@
                                                         <option value="" selected disabled>انتخاب کنید</option>
                                                         @foreach($userList as $user)
                                                             <option
-                                                                    value="{{ $user->id }}">{{ $user->name.' '.$user->family . ' ('.$user->username.')'}}</option>
+                                                                value="{{ $user->id }}">{{ $user->name.' '.$user->family . ' ('.$user->username.')'}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -140,6 +161,28 @@
                                                            autocomplete="off"
                                                            class="border rounded-md w-full mb-4 px-3 py-2 text-right"
                                                            placeholder="نام خانوادگی کاربر">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label for="editedBuilding"
+                                                           class="block text-gray-700 text-sm font-bold mb-2">ساختمان:</label>
+                                                    <select id="editedBuilding"
+                                                            class="border rounded-md w-full px-3 py-2"
+                                                            name="editedBuilding">
+                                                        <option value="" disabled selected>انتخاب کنید</option>
+                                                        @foreach($buildings as $building)
+                                                            <option
+                                                                value="{{$building->id}}">{{$building->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="mb-4">
+                                                    <label for="editedRoomNumber"
+                                                           class="block text-gray-700 text-sm font-bold mb-2">شماره
+                                                        اتاق:</label>
+                                                    <input type="text" id="editedRoomNumber" name="editedRoomNumber"
+                                                           autocomplete="off"
+                                                           class="border rounded-md w-full mb-4 px-3 py-2 text-right"
+                                                           placeholder="شماره اتاق">
                                                 </div>
                                                 <div class="mb-4">
                                                     <label for="editedType"
@@ -202,6 +245,8 @@
                             <th class=" px-6 py-3  font-bold ">کد کاربری</th>
                             <th class=" px-6 py-3  font-bold ">مشخصات</th>
                             <th class=" px-3 py-3  font-bold ">نوع کاربری</th>
+                            <th class=" px-3 py-3  font-bold ">ساختمان</th>
+                            <th class=" px-3 py-3  font-bold ">اتاق</th>
                             <th class=" px-3 py-3  font-bold ">فعال/غیرفعال</th>
                             <th class=" px-3 py-3  font-bold ">نیازمند تغییر رمز عبور</th>
                             <th class=" px-3 py-3  font-bold ">بازنشانی رمز عبور</th>
@@ -213,56 +258,53 @@
                                 <td class="px-6 py-4">{{ $user->username }}</td>
                                 <td class="px-6 py-4">{{ $user->name . ' ' . $user->family  }}</td>
                                 <td class="px-3 py-4">
-                                    @php
-                                        $roles=$user->roles
-                                    @endphp
-                                    @foreach ($roles as $role)
+                                    @foreach ($user->roles as $role)
                                         {{ $role->name }}
                                     @endforeach
                                 </td>
                                 <td class="px-3 py-4">
+                                    {{ $user->buildingInfo?->name }}
+                                </td>
+                                <td class="px-3 py-4">
+                                    {{ $user->room_number }}
+                                </td>
+                                <td class="px-3 py-4">
                                     @can('تغییر وضعیت کاربر')
                                         <button type="submit" data-username="{{ $user->username }}"
-                                                @php
-                                                    if ($user->active==1){
-                                                        echo "class='px-2 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 ASUM'";
-                                                        echo "data-active=1";
-                                                    }elseif ($user->active==0){
-                                                        echo "class='px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300 ASUM'";
-                                                        echo "data-active=0";
-                                                    }
-                                                @endphp
-                                        >
                                             @php
                                                 if ($user->active==1){
-                                                    echo 'غیرفعال‌سازی';
+                                                    echo "class='px-2 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 ASUM'";
+                                                    echo "data-active=1";
                                                 }elseif ($user->active==0){
-                                                    echo 'فعال‌سازی';
+                                                    echo "class='px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300 ASUM'";
+                                                    echo "data-active=0";
                                                 }
                                             @endphp
+                                        >
+                                            @if ($user->active==1)
+                                                غیرفعال‌سازی
+                                            @elseif ($user->active==0)
+                                                فعال‌سازی
+                                            @endif
                                         </button>
                                     @endcan
                                 </td>
                                 <td class="px-3 py-4">
                                     @can('تغییر وضعیت نیازمند به تغییر رمز عبور')
                                         <button type="button" data-ntcp-username="{{ $user->username }}"
-                                                @php
-                                                    if ($user->ntcp==1){
-                                                        echo "class='px-2 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 ntcp'";
-                                                        echo "data-ntcp=1";
-                                                    }elseif ($user->ntcp==0){
-                                                        echo "class='px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300 ntcp'";
-                                                        echo "data-ntcp=0";
-                                                }
-                                                @endphp
+                                                @if ($user->ntcp==1)
+                                                    class='px-2 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 ntcp'
+                                                data-ntcp='1'
+                                                @elseif ($user->ntcp==0)
+                                                    class='px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300 ntcp'
+                                                data-ntcp='0'
+                                            @endif
                                         >
-                                            @php
-                                                if ($user->NTCP==1){
-                                                    echo 'می باشد';
-                                                }elseif ($user->NTCP==0){
-                                                    echo 'نمی باشد';
-                                                }
-                                            @endphp
+                                            @if ($user->NTCP==1)
+                                                می باشد
+                                            @elseif ($user->NTCP==0)
+                                                نمی باشد
+                                            @endif
                                         </button>
                                     @endcan
                                 </td>

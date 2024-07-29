@@ -483,9 +483,10 @@ $(document).ready(function () {
                             if (response.errors && response.errors.userFounded) {
                                 swalFire('خطا!', response.errors.userFounded[0], 'error', 'تلاش مجدد');
                             } else if (response.success) {
-                                swalFire('عملیات موفقیت آمیز بود!', response.message.userAdded[0], 'success', 'بستن');
-                                toggleModal(newUserModal.id);
-                                resetFields();
+                                // swalFire('عملیات موفقیت آمیز بود!', response.message.userAdded[0], 'success', 'بستن');
+                                // toggleModal(newUserModal.id);
+                                // resetFields();
+                                location.reload();
                             }
 
                         }
@@ -506,6 +507,8 @@ $(document).ready(function () {
                             editedName.value = response.name;
                             editedFamily.value = response.family;
                             editedType.value = response.type;
+                            editedBuilding.value = response.building;
+                            editedRoomNumber.value = response.room_number;
                         }
                     });
                 }
@@ -534,6 +537,7 @@ $(document).ready(function () {
                     let form = $(this);
                     let data = form.serialize();
 
+                    showLoadingPopup();
                     $.ajax({
                         type: 'POST', url: '/EditUser', data: data, headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -541,9 +545,10 @@ $(document).ready(function () {
                             if (response.errors && response.errors.userFounded) {
                                 swalFire('خطا!', response.errors.userFounded[0], 'error', 'تلاش مجدد');
                             } else if (response.success) {
-                                swalFire('عملیات موفقیت آمیز بود!', response.message.userEdited[0], 'success', 'بستن');
-                                toggleModal(editUserModal.id);
-                                resetFields();
+                                // swalFire('عملیات موفقیت آمیز بود!', response.message.userEdited[0], 'success', 'بستن');
+                                // toggleModal(editUserModal.id);
+                                // resetFields();
+                                location.reload();
                             }
 
                         }

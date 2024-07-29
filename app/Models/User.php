@@ -49,4 +49,9 @@ class User extends Authenticatable
     ];
 
     protected $primaryKey='id';
+
+    public function buildingInfo()
+    {
+        return $this->belongsTo(Building::class, 'building', 'id');
+    }
 }
