@@ -22,18 +22,18 @@ class MenuMiddleware
                     'title' => 'مقادیر اولیه',
                     'link' => '',
                     'icon' => 'las la-cogs',
-                    'permission' => "دسترسی به منوی مقادیر اولیه",
+                    'permission' => "لیست مقادیر اولیه",
                     'childs' => [
                         1 => [
                             'title' => 'دسترسی ها',
                             'link' => '/Permissions',
-                            'permission' => "دسترسی به منوی دسترسی ها",
+                            'permission' => "لیست دسترسی ها",
                             'icon' => 'las la-user-shield',
                         ],
                         2 => [
                             'title' => 'نقش های کاربری',
                             'link' => '/Roles',
-                            'permission' => "دسترسی به منوی نقش های کاربری",
+                            'permission' => "لیست نقش ها",
                             'icon' => 'las la-user-tag',
                         ],
                         3 => [
@@ -47,14 +47,14 @@ class MenuMiddleware
                 9 => [
                     'title' => 'مدیریت کاربران',
                     'link' => '/UserManager',
-                    'permission' => "دسترسی به منوی مدیریت کاربران",
+                    'permission' => "لیست مدیریت کاربران",
                     'icon' => 'las la-users',
                     'childs' => []
                 ],
                 10 => [
                     'title' => 'بکاپ دیتابیس',
                     'link' => '/BackupDatabase',
-                    'permission' => "دسترسی به منوی بکاپ دیتابیس",
+                    'permission' => "لیست بکاپ دیتابیس",
                     'icon' => 'las la-hdd',
                     'childs' => []
                 ],

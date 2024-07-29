@@ -15,49 +15,51 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        //catalogs
-        Permission::create(['name' => 'دسترسی به منوی مقادیر اولیه']);
+        // Preparing the array of permissions
+        $permissions = [
+            ['name' => 'لیست مقادیر اولیه','guard_name' => 'web'],
 
-        Permission::create(['name' => 'لیست نقش ها']);
-        Permission::create(['name' => 'ایجاد نقش']);
-        Permission::create(['name' => 'ویرایش نقش']);
-        Permission::create(['name' => 'نمایش جزئیات نقش']);
-        Permission::create(['name' => 'حذف نقش']);
-        Permission::create(['name' => 'دسترسی به منوی نقش های کاربری']);
+            ['name' => 'لیست نقش ها','guard_name' => 'web'],
+            ['name' => 'ایجاد نقش','guard_name' => 'web'],
+            ['name' => 'ویرایش نقش','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات نقش','guard_name' => 'web'],
+            ['name' => 'حذف نقش','guard_name' => 'web'],
 
-        Permission::create(['name' => 'لیست دسترسی ها']);
-        Permission::create(['name' => 'ایجاد دسترسی']);
-        Permission::create(['name' => 'ویرایش دسترسی']);
-        Permission::create(['name' => 'نمایش جزئیات دسترسی']);
-        Permission::create(['name' => 'حذف دسترسی']);
-        Permission::create(['name' => 'دسترسی به منوی دسترسی ها']);
+            ['name' => 'لیست دسترسی ها','guard_name' => 'web'],
+            ['name' => 'ایجاد دسترسی','guard_name' => 'web'],
+            ['name' => 'ویرایش دسترسی','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دسترسی','guard_name' => 'web'],
+            ['name' => 'حذف دسترسی','guard_name' => 'web'],
 
-        Permission::create(['name' => 'لیست ساختمان']);
-        Permission::create(['name' => 'ایجاد ساختمان']);
-        Permission::create(['name' => 'ویرایش ساختمان']);
-        Permission::create(['name' => 'نمایش جزئیات ساختمان']);
-        Permission::create(['name' => 'حذف ساختمان']);
+            ['name' => 'لیست ساختمان','guard_name' => 'web'],
+            ['name' => 'ایجاد ساختمان','guard_name' => 'web'],
+            ['name' => 'ویرایش ساختمان','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات ساختمان','guard_name' => 'web'],
+            ['name' => 'حذف ساختمان','guard_name' => 'web'],
 
-        //Users Manager
-        Permission::create(['name' => 'لیست کاربران']);
-        Permission::create(['name' => 'ایجاد کاربر']);
-        Permission::create(['name' => 'ویرایش کاربر']);
-        Permission::create(['name' => 'تغییر وضعیت کاربر']);
-        Permission::create(['name' => 'تغییر وضعیت نیازمند به تغییر رمز عبور']);
-        Permission::create(['name' => 'بازنشانی رمز عبور کاربر']);
-        Permission::create(['name' => 'جستجوی کاربر']);
-        Permission::create(['name' => 'دسترسی به منوی مدیریت کاربران']);
+            // Users Manager
+            ['name' => 'لیست کاربران','guard_name' => 'web'],
+            ['name' => 'ایجاد کاربر','guard_name' => 'web'],
+            ['name' => 'ویرایش کاربر','guard_name' => 'web'],
+            ['name' => 'تغییر وضعیت کاربر','guard_name' => 'web'],
+            ['name' => 'تغییر وضعیت نیازمند به تغییر رمز عبور','guard_name' => 'web'],
+            ['name' => 'بازنشانی رمز عبور کاربر','guard_name' => 'web'],
+            ['name' => 'جستجوی کاربر','guard_name' => 'web'],
 
-        //Users Manager
-        Permission::create(['name' => 'لیست بکاپ دیتابیس']);
-        Permission::create(['name' => 'ایجاد بکاپ دیتابیس']);
-        Permission::create(['name' => 'دسترسی به منوی بکاپ دیتابیس']);
+            // Database Backup
+            ['name' => 'لیست بکاپ دیتابیس','guard_name' => 'web'],
+            ['name' => 'ایجاد بکاپ دیتابیس','guard_name' => 'web'],
 
-        Permission::create(['name' => 'telescope']);
+            ['name' => 'telescope','guard_name' => 'web']
+        ];
+
+        // Inserting the permissions into the database
+        Permission::insert($permissions);
 
         $superAdminRole = Role::create(['name' => 'ادمین کل']);
         $superAdminRole->givePermissionTo([
             'telescope',
+            'لیست مقادیر اولیه',
             'لیست نقش ها',
             'ایجاد نقش',
             'ویرایش نقش',
@@ -82,11 +84,6 @@ class PermissionsSeeder extends Seeder
             'جستجوی کاربر',
             'لیست بکاپ دیتابیس',
             'ایجاد بکاپ دیتابیس',
-            'دسترسی به منوی مقادیر اولیه',
-            'دسترسی به منوی مدیریت کاربران',
-            'دسترسی به منوی دسترسی ها',
-            'دسترسی به منوی نقش های کاربری',
-            'دسترسی به منوی بکاپ دیتابیس',
         ]);
 
         $role = Role::where('name', 'ادمین کل')->first();
