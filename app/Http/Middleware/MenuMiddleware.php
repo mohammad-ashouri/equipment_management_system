@@ -44,6 +44,20 @@ class MenuMiddleware
                         ],
                     ]
                 ],
+                2 => [
+                    'title' => 'تجهیزات سخت افزاری',
+                    'link' => '/HardwareEquipments',
+                    'permission' => "لیست تجهیزات سخت افزاری",
+                    'icon' => 'las la-microchip',
+                    'childs' => []
+                ],
+                3 => [
+                    'title' => 'تجهیزات پشتیبانی',
+                    'link' => '/SupportEquipments',
+                    'permission' => "لیست تجهیزات پشتیبانی",
+                    'icon' => 'las la-chair',
+                    'childs' => []
+                ],
                 9 => [
                     'title' => 'مدیریت کاربران',
                     'link' => '/UserManager',

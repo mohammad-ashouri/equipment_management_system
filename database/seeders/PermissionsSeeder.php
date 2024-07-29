@@ -18,6 +18,8 @@ class PermissionsSeeder extends Seeder
         // Preparing the array of permissions
         $permissions = [
             ['name' => 'لیست مقادیر اولیه','guard_name' => 'web'],
+            ['name' => 'لیست تجهیزات سخت افزاری','guard_name' => 'web'],
+            ['name' => 'لیست تجهیزات پشتیبانی','guard_name' => 'web'],
 
             ['name' => 'لیست نقش ها','guard_name' => 'web'],
             ['name' => 'ایجاد نقش','guard_name' => 'web'],
