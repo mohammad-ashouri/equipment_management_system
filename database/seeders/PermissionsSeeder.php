@@ -62,6 +62,8 @@ class PermissionsSeeder extends Seeder
         $superAdminRole->givePermissionTo([
             'telescope',
             'لیست مقادیر اولیه',
+            'لیست تجهیزات پشتیبانی',
+            'لیست تجهیزات سخت افزاری',
             'لیست نقش ها',
             'ایجاد نقش',
             'ویرایش نقش',
