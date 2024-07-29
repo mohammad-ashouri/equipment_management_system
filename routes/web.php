@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
@@ -64,7 +65,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Permissions', PermissionController::class);
 
         //Catalogs
-        Route::resource('/Buildings', PermissionController::class);
+        Route::resource('/Buildings', BuildingController::class);
 
 
         //Reports

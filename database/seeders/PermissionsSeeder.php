@@ -32,12 +32,11 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'حذف دسترسی']);
         Permission::create(['name' => 'دسترسی به منوی دسترسی ها']);
 
-        Permission::create(['name' => 'لیست ساختمان ها']);
+        Permission::create(['name' => 'لیست ساختمان']);
         Permission::create(['name' => 'ایجاد ساختمان']);
         Permission::create(['name' => 'ویرایش ساختمان']);
         Permission::create(['name' => 'نمایش جزئیات ساختمان']);
         Permission::create(['name' => 'حذف ساختمان']);
-        Permission::create(['name' => 'دسترسی به منوی ساختمان ها']);
 
         //Users Manager
         Permission::create(['name' => 'لیست کاربران']);
@@ -69,6 +68,11 @@ class PermissionsSeeder extends Seeder
             'ویرایش دسترسی',
             'نمایش جزئیات دسترسی',
             'حذف دسترسی',
+            'لیست ساختمان',
+            'ایجاد ساختمان',
+            'ویرایش ساختمان',
+            'نمایش جزئیات ساختمان',
+            'حذف ساختمان',
             'لیست کاربران',
             'ایجاد کاربر',
             'ویرایش کاربر',

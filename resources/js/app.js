@@ -135,6 +135,40 @@ $(document).ready(function () {
     $('#backward_page').on('click', function () {
         window.history.back();
     });
+
+    $('#create-catalog').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'آیا مطمئن هستید؟',
+            text: 'این مورد ثبت خواهد شد!',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'خیر',
+            confirmButtonText: 'بله',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).off('submit');
+                $(this).submit();
+            }
+        });
+    });
+    $('#edit-catalog').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'آیا مطمئن هستید؟',
+            text: 'این مورد ویرایش خواهد شد!',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'خیر',
+            confirmButtonText: 'بله',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).off('submit');
+                $(this).submit();
+            }
+        });
+    });
+
     let pathname = window.location.pathname;
     switch (pathname) {
         case '/dashboard':

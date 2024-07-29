@@ -36,6 +36,12 @@ class MenuMiddleware
                             'permission' => "دسترسی به منوی نقش های کاربری",
                             'icon' => 'las la-user-tag',
                         ],
+                        3 => [
+                            'title' => 'ساختمان ها',
+                            'link' => '/Buildings',
+                            'permission' => "لیست ساختمان",
+                            'icon' => 'las la-user-tag',
+                        ],
                     ]
                 ],
                 9 => [
