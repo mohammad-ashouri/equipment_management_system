@@ -5,13 +5,12 @@ namespace App\Models\Catalogs;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class SubjectFormat extends Model
+class Building extends Model
 {
-    public $table = 'subject_formats';
+    protected $table = 'buildings';
     protected $fillable = [
-        'name','status','adder','editor'
+        'name', 'status', 'address', 'adder', 'editor'
     ];
-
     public function adderInfo()
     {
         return $this->belongsTo(User::class, 'adder', 'id');

@@ -1,15 +1,18 @@
 <?php
 
-namespace App\Models\Catalogs;
+namespace App\Models;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PersonAdjective extends Model
+class Personnel extends Model
 {
-    public $table = 'person_adjectives';
+    use SoftDeletes;
+    protected $table = 'personnels';
     protected $fillable = [
-        'name', 'status', 'adder', 'editor'
+        'id', 'name', 'status', 'building', 'room_number', 'adder', 'editor'
     ];
 
     public function adderInfo()

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Catalogs;
 
 use App\Http\Controllers\Controller;
-use App\Models\Building;
+use App\Models\Catalogs\Building;
 use Illuminate\Http\Request;
 
 class BuildingController extends Controller

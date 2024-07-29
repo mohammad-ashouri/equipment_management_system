@@ -1,9 +1,7 @@
 <?php
 
-use App\Models\Catalogs\Building;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -12,18 +10,19 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('buildings', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('address')->nullable();
-            $table->tinyInteger('status')->default(1);
+        Schema::create('personnels', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->foreignId('building')->constrained('buildings');
+            $table->string('room_number');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
             $table->unsignedBigInteger('editor')->nullable();
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
-
     }
 
     /**
@@ -31,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('buildings');
+        Schema::dropIfExists('personnels');
     }
 };
