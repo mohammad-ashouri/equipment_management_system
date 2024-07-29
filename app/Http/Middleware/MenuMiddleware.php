@@ -40,7 +40,7 @@ class MenuMiddleware
                             'title' => 'ساختمان ها',
                             'link' => '/Buildings',
                             'permission' => "لیست ساختمان",
-                            'icon' => 'las la-user-tag',
+                            'icon' => 'las la-building',
                         ],
                     ]
                 ],
