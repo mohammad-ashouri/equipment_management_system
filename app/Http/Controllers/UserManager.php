@@ -46,7 +46,6 @@ class UserManager extends Controller
 
             $user->active = $status;
             $user->save();
-            $this->logActivity('User => ' . $username . ' ' . $subject, request()->ip(), request()->userAgent(), session('id'));
             return $this->success(true, 'changedUserActivation', 'کاربر با موفقیت ' . $subject2 . ' شد.');
         } else {
             return $this->alerts(false, 'changedUserActivationFailed', 'خطا در انجام عملیات');
@@ -70,7 +69,6 @@ class UserManager extends Controller
 
             $user->NTCP = $status;
             $user->save();
-            $this->logActivity('User => ' . $username . ' ' . $subject, request()->ip(), request()->userAgent(), session('id'));
             return $this->success(true, 'changedUserNTCP', 'عملیات با موفقیت انجام شد.');
         } else {
             return $this->alerts(false, 'changedUserNTCPFailed', 'خطا در انجام عملیات');
@@ -86,10 +84,8 @@ class UserManager extends Controller
             $user->NTCP = 1;
             $user->save();
             $subject = 'Password Resetted';
-            $this->logActivity('User => ' . $username . ' ' . $subject, request()->ip(), request()->userAgent(), session('id'));
             return $this->success(true, 'passwordResetted', 'عملیات با موفقیت انجام شد.');
         } else {
-            $this->logActivity('Reset Password Failed', request()->ip(), request()->userAgent(), session('id'));
             return $this->alerts(false, 'resetPasswordFailed', 'خطا در انجام عملیات');
         }
     }
@@ -123,7 +119,6 @@ class UserManager extends Controller
         $user->subject = Role::findById($type)->name;
         $user->save();
         $user->assignRole(Role::findById($type)->name);
-        $this->logActivity('Added User With Name => ' . $username, request()->ip(), request()->userAgent(), session('id'));
         return $this->success(true, 'userAdded', 'کاربر با موفقیت تعریف شد. برای نمایش اطلاعات جدید، لطفا صفحه را رفرش نمایید.');
     }
 
@@ -146,14 +141,12 @@ class UserManager extends Controller
         }
         $user->syncRoles(Role::findById($type)->name);
         $user->save();
-        $this->logActivity('Edited User With ID => ' . $userID, request()->ip(), request()->userAgent(), session('id'));
         return $this->success(true, 'userEdited', 'کاربر با موفقیت ویرایش شد. برای نمایش اطلاعات ویرایش شده، صفحه را رفرش نمایید.');
     }
 
     public function getUserInfo(Request $request)
     {
         $user = User::find($request->userID);
-        $this->logActivity('Getting User Information With ID => ' . $request->userID, request()->ip(), request()->userAgent(), session('id'));
         return $user;
     }
 }

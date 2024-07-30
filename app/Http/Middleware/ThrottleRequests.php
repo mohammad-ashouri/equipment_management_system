@@ -29,7 +29,6 @@ class ThrottleRequests extends Controller
         $currentTime = Carbon::now();
 
         if ($lastUpdatedAt->diffInSeconds($currentTime) > 1200) {
-            $this->logActivity('Unblock IP=> ' . request()->ip(), request()->ip(), request()->userAgent());
             $blacklist->attempts_count = 30;
             $blacklist->active = 1;
             $blacklist->save();
