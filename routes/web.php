@@ -5,6 +5,7 @@ use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\MonitorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
@@ -72,6 +73,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
         //Hardware Equipments
         Route::resource('/Monitors', MonitorController::class);
+        Route::resource('/Cases', CaseController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {

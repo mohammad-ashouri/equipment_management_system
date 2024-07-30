@@ -5,12 +5,12 @@ namespace App\Models\HardwareEquipments;
 use App\Traits\ModelRelations;
 use Illuminate\Database\Eloquent\Model;
 
-class Monitor extends Model
+class Cases extends Model
 {
     use ModelRelations;
 
-    protected $table = 'monitors';
+    protected $table = 'cases';
     protected $fillable = [
-        'model', 'size', 'brand', 'status', 'adder', 'editor'
+        'model', 'brand', 'status', 'adder', 'editor'
     ];
 }
