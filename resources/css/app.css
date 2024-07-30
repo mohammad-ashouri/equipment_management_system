@@ -359,3 +359,9 @@ input[type="file"].hidden {
         transform: translate(100%, 100%);
     }
 }
+
+
+/* change menu direction */
+[dir="rtl"] .drawer-side > *:not(.drawer-overlay) {
+    transform: translateX(400px);
+}

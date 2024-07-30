@@ -144,7 +144,7 @@
                                     ->first();
                         @endphp
                         <ul id="menu"
-                            class="menu pr-8 pl-0 w-72 bg-cu-blue text-transparent pt-5 overflow-x-hidden rounded-se-3xl block">
+                            class="menu pl-0 w-72 bg-cu-blue text-transparent pt-5 overflow-x-hidden rounded-se-3xl block">
 
                             <div class="ml-7 mb-6 text-center mt-5">
                                 <div class="avatar flex justify-center ">
@@ -176,17 +176,13 @@
                                     <span class="">صفحه اصلی</span>
                                 </a>
                             </li>
-                            @php
-                                $menus = session('menus');
-                            @endphp
-
-                            @foreach ($menus as $menu)
+                            @foreach (session('menus') as $menu)
                                 <li>
                                     @if (isset($menu['childs']) && count($menu['childs']) > 0)
                                         @can($menu['permission'])
                                             <details id="{{ 'details-' . $menu['title'] }}">
                                                 <summary
-                                                    class="flex items-center my-1 text-cu-light rounded-s-full dark:text-white hover:bg-gray-100 light:hover:bg-gray-700 group">
+                                                    class="flex items-center my-1 text-cu-light rounded-s-full dark:text-white hover:bg-gray-100 light:hover:bg-gray-700 group text-nowrap">
                                                     <i style="font-size: 24px" class="{{$menu['icon']}}"></i>
                                                     {{ $menu['title'] }}
                                                 </summary>
