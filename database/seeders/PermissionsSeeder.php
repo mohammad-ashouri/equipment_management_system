@@ -59,6 +59,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات کیس','guard_name' => 'web'],
             ['name' => 'حذف کیس','guard_name' => 'web'],
 
+            ['name' => 'لیست پردازنده','guard_name' => 'web'],
+            ['name' => 'ایجاد پردازنده','guard_name' => 'web'],
+            ['name' => 'ویرایش پردازنده','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات پردازنده','guard_name' => 'web'],
+            ['name' => 'حذف پردازنده','guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران','guard_name' => 'web'],
             ['name' => 'ایجاد کاربر','guard_name' => 'web'],
@@ -122,6 +128,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش کیس',
             'نمایش جزئیات کیس',
             'حذف کیس',
+
+            'لیست پردازنده',
+            'ایجاد پردازنده',
+            'ویرایش پردازنده',
+            'نمایش جزئیات پردازنده',
+            'حذف پردازنده',
 
             'لیست کاربران',
             'ایجاد کاربر',
