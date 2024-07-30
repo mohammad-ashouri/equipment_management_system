@@ -56,11 +56,11 @@ class BrandController extends Controller
             'id' => 'required|integer|exists:brands,id',
         ]);
 
-        $brands = Brand::find($id);
-        $brands->name = $request->input('name');
-        $brands->status = $request->input('status');
-        $brands->editor = $this->getMyUserId();
-        $brands->save();
+        $brand = Brand::find($id);
+        $brand->name = $request->input('name');
+        $brand->status = $request->input('status');
+        $brand->editor = $this->getMyUserId();
+        $brand->save();
 
         return redirect()->route('Brands.index')->with('success', 'برند با موفقیت ویرایش شد.');
     }

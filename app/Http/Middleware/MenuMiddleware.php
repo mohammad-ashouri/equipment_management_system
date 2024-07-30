@@ -60,7 +60,7 @@ class MenuMiddleware
                             'title' => 'مانیتور',
                             'link' => '/Monitors',
                             'permission' => "لیست مانیتور",
-                            'icon' => 'las la-database',
+                            'icon' => 'las la-desktop',
                         ],
                         [
                             'title' => 'کیس',
@@ -116,6 +116,24 @@ class MenuMiddleware
                             'permission' => "لیست هارد اینترنال",
                             'icon' => 'las la-hdd',
                         ],
+                        [
+                            'title' => 'موس',
+                            'link' => '/Mouses',
+                            'permission' => "لیست موس",
+                            'icon' => 'las la-mouse',
+                        ],
+                        [
+                            'title' => 'کیبورد',
+                            'link' => '/Keyboards',
+                            'permission' => "لیست کیبورد",
+                            'icon' => 'las la-keyboard',
+                        ],
+                        [
+                            'title' => 'هدست',
+                            'link' => '/Headsets',
+                            'permission' => "لیست هدست",
+                            'icon' => 'las la-headset',
+                        ],
                     ]
                 ],
                 3 => [
@@ -162,24 +180,6 @@ class MenuMiddleware
                     'permission' => "لیست تجهیزات دیجیتال",
                     'icon' => 'las la-digital-tachograph',
                     'childs' => [
-                        [
-                            'title' => 'هدست',
-                            'link' => '/Headsets',
-                            'permission' => "لیست هدست",
-                            'icon' => 'las la-headset',
-                        ],
-                        [
-                            'title' => 'موس',
-                            'link' => '/Mouses',
-                            'permission' => "لیست موس",
-                            'icon' => 'las la-mouse',
-                        ],
-                        [
-                            'title' => 'کیبورد',
-                            'link' => '/Keyboards',
-                            'permission' => "لیست کیبورد",
-                            'icon' => 'las la-keyboard',
-                        ],
                         [
                             'title' => 'هارد اکسترنال',
                             'link' => '/ExternalHards',

@@ -47,6 +47,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات برند','guard_name' => 'web'],
             ['name' => 'حذف برند','guard_name' => 'web'],
 
+            ['name' => 'لیست مانیتور','guard_name' => 'web'],
+            ['name' => 'ایجاد مانیتور','guard_name' => 'web'],
+            ['name' => 'ویرایش مانیتور','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات مانیتور','guard_name' => 'web'],
+            ['name' => 'حذف مانیتور','guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران','guard_name' => 'web'],
             ['name' => 'ایجاد کاربر','guard_name' => 'web'],
@@ -98,6 +104,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش برند',
             'نمایش جزئیات برند',
             'حذف برند',
+
+            'لیست مانیتور',
+            'ایجاد مانیتور',
+            'ویرایش مانیتور',
+            'نمایش جزئیات مانیتور',
+            'حذف مانیتور',
 
             'لیست کاربران',
             'ایجاد کاربر',

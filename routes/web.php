@@ -5,6 +5,7 @@ use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HardwareEquipments\MonitorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
@@ -69,6 +70,8 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Buildings', BuildingController::class);
         Route::resource('/Brands', BrandController::class);
 
+        //Hardware Equipments
+        Route::resource('/Monitors', MonitorController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
