@@ -9,12 +9,6 @@
         {{ env('APP_PERSIAN_NAME') }}
     </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{--    <link href="http://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">--}}
-    {{--    <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>--}}
-    {{--    <script--}}
-    {{--        src="https://code.jquery.com/jquery-3.7.1.js"--}}
-    {{--        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="--}}
-    {{--        crossorigin="anonymous"></script>--}}
     <script src="/build/plugins/jquery/dist/jquery.js"></script>
     <link href="/build/plugins/select2/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="/build/plugins/select2/dist/js/select2.min.js"></script>
@@ -24,14 +18,9 @@
         $(document).ready(function () {
             $('.select2').select2({
                 placeholder: 'یک گزینه را انتخاب کنید',
+                width: '100%',
+                height: '100%'
             });
-            // tinymce.init({
-            //     selector: '#body',
-            //     plugins: 'table fullscreen autoresize',
-            //     max_height: 1000,
-            //     skin: false,
-            //     content_css: false,
-            // });
         });
     </script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
