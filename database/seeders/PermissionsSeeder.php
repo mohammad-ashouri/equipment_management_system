@@ -20,6 +20,8 @@ class PermissionsSeeder extends Seeder
             ['name' => 'لیست مقادیر اولیه','guard_name' => 'web'],
             ['name' => 'لیست تجهیزات سخت افزاری','guard_name' => 'web'],
             ['name' => 'لیست تجهیزات پشتیبانی','guard_name' => 'web'],
+            ['name' => 'لیست تجهیزات دیجیتال','guard_name' => 'web'],
+            ['name' => 'لیست تجهیزات شبکه','guard_name' => 'web'],
 
             ['name' => 'لیست نقش ها','guard_name' => 'web'],
             ['name' => 'ایجاد نقش','guard_name' => 'web'],
@@ -64,6 +66,8 @@ class PermissionsSeeder extends Seeder
             'لیست مقادیر اولیه',
             'لیست تجهیزات پشتیبانی',
             'لیست تجهیزات سخت افزاری',
+            'لیست تجهیزات دیجیتال',
+            'لیست تجهیزات شبکه',
             'لیست نقش ها',
             'ایجاد نقش',
             'ویرایش نقش',
