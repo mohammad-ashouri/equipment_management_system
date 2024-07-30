@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Catalogs\PostType;
+use App\Models\Catalogs\Brand;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -25,5 +25,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useTailwind();
+        View::composer('*', function ($view) {
+            $view->with('brands', Brand::whereStatus(1)->orderBy('name')->get());
+        });
     }
 }
