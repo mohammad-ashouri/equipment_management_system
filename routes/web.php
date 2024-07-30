@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Catalogs\BrandController;
 use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
@@ -66,6 +67,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
         //Catalogs
         Route::resource('/Buildings', BuildingController::class);
+        Route::resource('/Brands', BrandController::class);
 
 
         //Reports

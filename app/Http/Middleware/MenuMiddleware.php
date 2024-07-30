@@ -42,6 +42,12 @@ class MenuMiddleware
                             'permission' => "لیست ساختمان",
                             'icon' => 'las la-building',
                         ],
+                        [
+                            'title' => 'برند',
+                            'link' => '/Brands',
+                            'permission' => "لیست برند",
+                            'icon' => 'las la-copyright',
+                        ],
                     ]
                 ],
                 2 => [
@@ -50,12 +56,6 @@ class MenuMiddleware
                     'permission' => "لیست تجهیزات سخت افزاری",
                     'icon' => 'las la-microchip',
                     'childs' => [
-                        [
-                            'title' => 'برند',
-                            'link' => '/Brands',
-                            'permission' => "لیست برندها",
-                            'icon' => 'las la-copyright',
-                        ],
                         [
                             'title' => 'مانیتور',
                             'link' => '/Monitors',

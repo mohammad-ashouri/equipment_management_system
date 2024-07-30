@@ -41,7 +41,6 @@ class DashboardController extends Controller
             $user->password = bcrypt($newPass);
             $user->NTCP = 0;
             $user->save();
-            $this->logActivity('Password Changed', request()->ip(), request()->userAgent(), session('id'));
             return $this->alerts(true, 'passwordChanged', 'رمز عبور با موفقیت تغییر کرد!');
         }
     }
