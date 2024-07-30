@@ -12,7 +12,7 @@ class RoleController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست نقش ها', ['only' => ['index']]);
+        $this->middleware('permission:لیست نقش', ['only' => ['index']]);
         $this->middleware('permission:ایجاد نقش', ['only' => ['create', 'store']]);
         $this->middleware('permission:ویرایش نقش', ['only' => ['update']]);
         $this->middleware('permission:نمایش جزئیات نقش', ['only' => ['edit']]);

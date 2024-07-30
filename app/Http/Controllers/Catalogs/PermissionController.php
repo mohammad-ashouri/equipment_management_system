@@ -10,7 +10,7 @@ class PermissionController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست دسترسی ها', ['only' => ['index']]);
+        $this->middleware('permission:لیست دسترسی', ['only' => ['index']]);
         $this->middleware('permission:ایجاد دسترسی', ['only' => ['create', 'store']]);
         $this->middleware('permission:ویرایش دسترسی', ['only' => ['update']]);
         $this->middleware('permission:نمایش جزئیات دسترسی', ['only' => ['edit']]);

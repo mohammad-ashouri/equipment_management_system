@@ -23,13 +23,13 @@ class PermissionsSeeder extends Seeder
             ['name' => 'لیست تجهیزات دیجیتال','guard_name' => 'web'],
             ['name' => 'لیست تجهیزات شبکه','guard_name' => 'web'],
 
-            ['name' => 'لیست نقش ها','guard_name' => 'web'],
+            ['name' => 'لیست نقش','guard_name' => 'web'],
             ['name' => 'ایجاد نقش','guard_name' => 'web'],
             ['name' => 'ویرایش نقش','guard_name' => 'web'],
             ['name' => 'نمایش جزئیات نقش','guard_name' => 'web'],
             ['name' => 'حذف نقش','guard_name' => 'web'],
 
-            ['name' => 'لیست دسترسی ها','guard_name' => 'web'],
+            ['name' => 'لیست دسترسی','guard_name' => 'web'],
             ['name' => 'ایجاد دسترسی','guard_name' => 'web'],
             ['name' => 'ویرایش دسترسی','guard_name' => 'web'],
             ['name' => 'نمایش جزئیات دسترسی','guard_name' => 'web'],
@@ -75,13 +75,13 @@ class PermissionsSeeder extends Seeder
             'لیست تجهیزات دیجیتال',
             'لیست تجهیزات شبکه',
 
-            'لیست نقش ها',
+            'لیست نقش',
             'ایجاد نقش',
             'ویرایش نقش',
             'نمایش جزئیات نقش',
             'حذف نقش',
 
-            'لیست دسترسی ها',
+            'لیست دسترسی',
             'ایجاد دسترسی',
             'ویرایش دسترسی',
             'نمایش جزئیات دسترسی',
