@@ -47,7 +47,7 @@ class RoleController extends Controller
 
     public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
             ->where("role_has_permissions.role_id", $id)
             ->get();
@@ -57,7 +57,7 @@ class RoleController extends Controller
 
     public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $permission = Permission::orderBy('name')->get();
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
@@ -73,7 +73,7 @@ class RoleController extends Controller
             'permission' => 'required',
         ]);
 
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $role->name = $request->input('name');
         $role->save();
 

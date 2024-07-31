@@ -45,7 +45,7 @@ class MonitorController extends Controller
 
     public function edit($id)
     {
-        $monitor = Monitor::find($id);
+        $monitor = Monitor::findOrFail($id);
 
         return view('HardwareEquipments.Monitors.edit', compact('monitor'));
     }
@@ -60,7 +60,7 @@ class MonitorController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $monitor = Monitor::find($id);
+        $monitor = Monitor::findOrFail($id);
         $monitor->brand = $request->input('brand');
         $monitor->model = $request->input('model');
         $monitor->status = $request->input('status');

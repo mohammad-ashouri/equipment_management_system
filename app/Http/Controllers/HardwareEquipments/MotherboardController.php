@@ -57,7 +57,7 @@ class MotherboardController extends Controller
 
     public function edit($id)
     {
-        $motherboard = Motherboard::find($id);
+        $motherboard = Motherboard::findOrFail($id);
 
         return view('HardwareEquipments.Motherboards.edit', compact('motherboard'));
     }
@@ -76,7 +76,7 @@ class MotherboardController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $motherboard = Motherboard::find($id);
+        $motherboard = Motherboard::findOrFail($id);
         $motherboard->brand = $request->input('brand');
         $motherboard->model = $request->input('model');
         $motherboard->generation = $request->input('generation');

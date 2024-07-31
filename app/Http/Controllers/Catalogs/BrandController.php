@@ -43,7 +43,7 @@ class BrandController extends Controller
 
     public function edit($id)
     {
-        $brand = Brand::find($id);
+        $brand = Brand::findOrFail($id);
 
         return view('Catalogs.Brands.edit', compact('brand'));
     }
@@ -56,7 +56,7 @@ class BrandController extends Controller
             'id' => 'required|integer|exists:brands,id',
         ]);
 
-        $brand = Brand::find($id);
+        $brand = Brand::findOrFail($id);
         $brand->name = $request->input('name');
         $brand->status = $request->input('status');
         $brand->editor = $this->getMyUserId();

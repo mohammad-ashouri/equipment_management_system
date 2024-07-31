@@ -43,7 +43,7 @@ class BuildingController extends Controller
 
     public function edit($id)
     {
-        $building = building::find($id);
+        $building = building::findOrFail($id);
 
         return view('Catalogs.Buildings.edit', compact('building'));
     }
@@ -56,7 +56,7 @@ class BuildingController extends Controller
             'id' => 'required|integer|exists:buildings,id',
         ]);
 
-        $building = building::find($id);
+        $building = building::findOrFail($id);
         $building->name = $request->input('name');
         $building->status = $request->input('status');
         $building->editor = $this->getMyUserId();

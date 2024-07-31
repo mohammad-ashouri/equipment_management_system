@@ -130,7 +130,7 @@ class UserManager extends Controller
         $type = $request->input('editedType');
         $building = $request->input('editedBuilding');
         $roomNumber = $request->input('editedRoomNumber');
-        $user = User::find($userID);
+        $user = User::findOrFail($userID);
         if ($user) {
             $user->name = $name;
             $user->family = $family;
@@ -146,7 +146,7 @@ class UserManager extends Controller
 
     public function getUserInfo(Request $request)
     {
-        $user = User::find($request->userID);
+        $user = User::findOrFail($request->userID);
         return $user;
     }
 }

@@ -45,7 +45,7 @@ class CpuController extends Controller
 
     public function edit($id)
     {
-        $cpu = Cpu::find($id);
+        $cpu = Cpu::findOrFail($id);
 
         return view('HardwareEquipments.Cpus.edit', compact('cpu'));
     }
@@ -60,7 +60,7 @@ class CpuController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $cpu = Cpu::find($id);
+        $cpu = Cpu::findOrFail($id);
         $cpu->brand = $request->input('brand');
         $cpu->model = $request->input('model');
         $cpu->generation = $request->input('generation');

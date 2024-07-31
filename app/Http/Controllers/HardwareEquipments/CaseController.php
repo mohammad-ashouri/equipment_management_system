@@ -44,7 +44,7 @@ class CaseController extends Controller
 
     public function edit($id)
     {
-        $case = Cases::find($id);
+        $case = Cases::findOrFail($id);
 
         return view('HardwareEquipments.Cases.edit', compact('case'));
     }
@@ -58,7 +58,7 @@ class CaseController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $case = Cases::find($id);
+        $case = Cases::findOrFail($id);
         $case->brand = $request->input('brand');
         $case->model = $request->input('model');
         $case->status = $request->input('status');

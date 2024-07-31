@@ -58,7 +58,7 @@ class DashboardController extends Controller
             $folderName = str_replace(array('/', '\\'), '', bcrypt($file_src->getClientOriginalName()));
             $postFilePath = $file_src->storeAs('public/UserImages/' . $folderName, $file_src->getClientOriginalName());
             if ($postFilePath){
-                $user=User::find(session('id'));
+                $user=User::findOrFail(session('id'));
                 $user->user_image=$postFilePath;
                 $user->save();
                 return $this->alerts(true, 'imageChanged', 'رمز عبور با موفقیت تغییر کرد!');
