@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
 use App\Http\Controllers\HardwareEquipments\MonitorController;
+use App\Http\Controllers\HardwareEquipments\MotherboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
@@ -76,6 +77,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Monitors', MonitorController::class);
         Route::resource('/Cases', CaseController::class);
         Route::resource('/Cpus', CpuController::class);
+        Route::resource('/Motherboards', MotherboardController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
