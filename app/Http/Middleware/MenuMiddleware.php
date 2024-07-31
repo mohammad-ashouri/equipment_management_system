@@ -93,9 +93,9 @@ class MenuMiddleware
                             'icon' => 'las la-random',
                         ],
                         [
-                            'title' => 'گرافیک',
+                            'title' => 'کارت گرافیک',
                             'link' => '/GraphicCards',
-                            'permission' => "لیست گرافیک",
+                            'permission' => "لیست کارت گرافیک",
                             'icon' => 'las la-images',
                         ],
                         [

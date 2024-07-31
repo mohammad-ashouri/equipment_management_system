@@ -83,6 +83,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات رم', 'guard_name' => 'web'],
             ['name' => 'حذف رم', 'guard_name' => 'web'],
 
+            ['name' => 'لیست کارت گرافیک', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کارت گرافیک', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کارت گرافیک', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات کارت گرافیک', 'guard_name' => 'web'],
+            ['name' => 'حذف کارت گرافیک', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -170,6 +176,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش رم',
             'نمایش جزئیات رم',
             'حذف رم',
+
+            'لیست کارت گرافیک',
+            'ایجاد کارت گرافیک',
+            'ویرایش کارت گرافیک',
+            'نمایش جزئیات کارت گرافیک',
+            'حذف کارت گرافیک',
 
             'لیست کاربران',
             'ایجاد کاربر',
