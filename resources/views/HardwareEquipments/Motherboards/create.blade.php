@@ -36,10 +36,10 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     name="generation">
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="ATX">ATX</option>
-                                <option value="E-ATX">E-ATX</option>
-                                <option value="Mini-ITX">Mini-ITX</option>
-                                <option value="Micro-ATX">Micro-ATX</option>
+                                <option @if(old('generation')=='ATX') selected @endif value="ATX">ATX</option>
+                                <option @if(old('generation')=='E-ATX') selected @endif value="E-ATX">E-ATX</option>
+                                <option @if(old('generation')=='Mini-ITX') selected @endif value="Mini-ITX">Mini-ITX</option>
+                                <option @if(old('generation')=='Micro-ATX') selected @endif value="Micro-ATX">Micro-ATX</option>
                             </select>
                         </div>
                         <div>
