@@ -71,6 +71,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات مادربورد','guard_name' => 'web'],
             ['name' => 'حذف مادربورد','guard_name' => 'web'],
 
+            ['name' => 'لیست منبع تغذیه','guard_name' => 'web'],
+            ['name' => 'ایجاد منبع تغذیه','guard_name' => 'web'],
+            ['name' => 'ویرایش منبع تغذیه','guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات منبع تغذیه','guard_name' => 'web'],
+            ['name' => 'حذف منبع تغذیه','guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران','guard_name' => 'web'],
             ['name' => 'ایجاد کاربر','guard_name' => 'web'],
@@ -146,6 +152,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش مادربورد',
             'نمایش جزئیات مادربورد',
             'حذف مادربورد',
+
+            'لیست منبع تغذیه',
+            'ایجاد منبع تغذیه',
+            'ویرایش منبع تغذیه',
+            'نمایش جزئیات منبع تغذیه',
+            'حذف منبع تغذیه',
 
             'لیست کاربران',
             'ایجاد کاربر',
