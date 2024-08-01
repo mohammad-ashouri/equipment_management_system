@@ -99,10 +99,10 @@ class MenuMiddleware
                             'icon' => 'las la-images',
                         ],
                         [
-                            'title' => 'گیرنده ماهواره',
-                            'link' => '/SatelliteDishes',
-                            'permission' => "لیست گیرنده ماهواره",
-                            'icon' => 'las la-satellite-dish',
+                            'title' => 'هارد اینترنال',
+                            'link' => '/InternalHardDisks',
+                            'permission' => "لیست هارد اینترنال",
+                            'icon' => 'las la-hdd',
                         ],
                         [
                             'title' => 'کارت شبکه',
@@ -111,10 +111,10 @@ class MenuMiddleware
                             'icon' => 'las la-ethernet',
                         ],
                         [
-                            'title' => 'هارد اینترنال',
-                            'link' => '/InternalHards',
-                            'permission' => "لیست هارد اینترنال",
-                            'icon' => 'las la-hdd',
+                            'title' => 'درایو نوری',
+                            'link' => '/ODDs',
+                            'permission' => "لیست درایو نوری",
+                            'icon' => 'las la-ethernet',
                         ],
                         [
                             'title' => 'موس',
@@ -132,6 +132,30 @@ class MenuMiddleware
                             'title' => 'هدست',
                             'link' => '/Headsets',
                             'permission' => "لیست هدست",
+                            'icon' => 'las la-headset',
+                        ],
+                        [
+                            'title' => 'پرینتر',
+                            'link' => '/Printers',
+                            'permission' => "لیست پرینتر",
+                            'icon' => 'las la-headset',
+                        ],
+                        [
+                            'title' => 'اسکنر',
+                            'link' => '/Scanners',
+                            'permission' => "لیست اسکنر",
+                            'icon' => 'las la-headset',
+                        ],
+                        [
+                            'title' => 'دستگاه کپی',
+                            'link' => '/CopyMachines',
+                            'permission' => "لیست دستگاه کپی",
+                            'icon' => 'las la-headset',
+                        ],
+                        [
+                            'title' => 'VOIP',
+                            'link' => '/VOIPs',
+                            'permission' => "لیست VOIP",
                             'icon' => 'las la-headset',
                         ],
                     ]
@@ -221,6 +245,18 @@ class MenuMiddleware
                             'link' => '/Mobiles',
                             'permission' => "لیست موبایل",
                             'icon' => 'las la-mobile',
+                        ],
+                        [
+                            'title' => 'کارت DVB',
+                            'link' => '/DVBs',
+                            'permission' => "لیست کارت DVB",
+                            'icon' => 'las la-satellite-dish',
+                        ],
+                        [
+                            'title' => 'کارت LAN TV',
+                            'link' => '/LanTvs',
+                            'permission' => "لیست LanTvs",
+                            'icon' => 'las la-satellite-dish',
                         ],
                     ]
                 ],
