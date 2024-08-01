@@ -1,12 +1,12 @@
 <?php
 
+use App\Models\Catalogs\Brand;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -22,6 +22,8 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+        Brand::insert(['id' => 0, 'name' => 'onboard', 'adder' => 1]);
+
         $query = "
 INSERT INTO brands (name, adder)
 VALUES
