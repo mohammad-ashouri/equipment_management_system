@@ -113,6 +113,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات صفحه کلید', 'guard_name' => 'web'],
             ['name' => 'حذف صفحه کلید', 'guard_name' => 'web'],
 
+            ['name' => 'لیست هدست', 'guard_name' => 'web'],
+            ['name' => 'ایجاد هدست', 'guard_name' => 'web'],
+            ['name' => 'ویرایش هدست', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات هدست', 'guard_name' => 'web'],
+            ['name' => 'حذف هدست', 'guard_name' => 'web'],
+
             ['name' => 'لیست کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ایجاد کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ویرایش کارت شبکه', 'guard_name' => 'web'],
@@ -236,6 +242,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش صفحه کلید',
             'نمایش جزئیات صفحه کلید',
             'حذف صفحه کلید',
+
+            'لیست هدست',
+            'ایجاد هدست',
+            'ویرایش هدست',
+            'نمایش جزئیات هدست',
+            'حذف هدست',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',

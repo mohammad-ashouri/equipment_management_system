@@ -4,17 +4,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تعاریف اولیه - مدیریت بر اطلاعات موس</h1>
+            <h1 class="text-2xl font-bold mb-4">تعاریف اولیه - مدیریت بر اطلاعات هدست</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد موس')
-                    <a type="button" href="{{route('Mouses.create')}}"
+                @can('ایجاد هدست')
+                    <a type="button" href="{{route('Headsets.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        موس جدید
+                        هدست جدید
                     </a>
                 @endcan
-                @if(empty($mouses) or $mouses->isEmpty())
+                @if(empty($headsets) or $headsets->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -36,20 +36,20 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($mouses as $mouse)
+                        @foreach ($headsets as $headset)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $mouse->brandInfo->name }}
+                                    {{ $headset->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $mouse->model }}
+                                    {{ $headset->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $mouse->connectivity_type }}
+                                    {{ $headset->connectivity_type }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @switch($mouse->status)
+                                    @switch($headset->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -59,23 +59,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $mouse->adderInfo->name }} {{ $mouse->adderInfo->family }}
+                                    {{ $headset->adderInfo->name }} {{ $headset->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($mouse->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($headset->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($mouse->editorInfo!=null)
-                                        {{ $mouse->editorInfo->name }} {{ $mouse->editorInfo->family }}
+                                    @if($headset->editorInfo!=null)
+                                        {{ $headset->editorInfo->name }} {{ $headset->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($mouse->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($headset->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش موس')
-                                        <a href="{{ route('Mouses.edit',$mouse->id) }}">
-                                            <button type="button" data-id="{{ $mouse->id }}"
+                                    @can('ویرایش هدست')
+                                        <a href="{{ route('Headsets.edit',$headset->id) }}">
+                                            <button type="button" data-id="{{ $headset->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>
@@ -88,7 +88,7 @@
                     </table>
 
                     <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $mouses->links() }}
+                        {{ $headsets->links() }}
                     </div>
                 @endif
             </div>

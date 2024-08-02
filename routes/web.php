@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
 use App\Http\Controllers\HardwareEquipments\GraphicCardController;
+use App\Http\Controllers\HardwareEquipments\HeadsetController;
 use App\Http\Controllers\HardwareEquipments\InternalHardDiskController;
 use App\Http\Controllers\HardwareEquipments\KeyboardController;
 use App\Http\Controllers\HardwareEquipments\MonitorController;
@@ -93,6 +94,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Odds', OddController::class);
         Route::resource('/Mouses', MouseController::class);
         Route::resource('/Keyboards', KeyboardController::class);
+        Route::resource('/Headsets', HeadsetController::class);
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);
