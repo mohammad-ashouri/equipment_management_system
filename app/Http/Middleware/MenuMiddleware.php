@@ -138,7 +138,7 @@ class MenuMiddleware
                             'title' => 'اسکنر',
                             'link' => '/Scanners',
                             'permission' => "لیست اسکنر",
-                            'icon' => 'las la-headset',
+                            'icon' => 'las la-print',
                         ],
                         [
                             'title' => 'دستگاه کپی',

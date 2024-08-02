@@ -18,6 +18,7 @@ use App\Http\Controllers\HardwareEquipments\OddController;
 use App\Http\Controllers\HardwareEquipments\PowerController;
 use App\Http\Controllers\HardwareEquipments\PrinterController;
 use App\Http\Controllers\HardwareEquipments\RamController;
+use App\Http\Controllers\HardwareEquipments\ScannerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
@@ -97,6 +98,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Keyboards', KeyboardController::class);
         Route::resource('/Headsets', HeadsetController::class);
         Route::resource('/Printers', PrinterController::class);
+        Route::resource('/Scanners', ScannerController::class);
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);

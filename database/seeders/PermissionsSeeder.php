@@ -131,6 +131,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات پرینتر', 'guard_name' => 'web'],
             ['name' => 'حذف پرینتر', 'guard_name' => 'web'],
 
+            ['name' => 'لیست اسکنر', 'guard_name' => 'web'],
+            ['name' => 'ایجاد اسکنر', 'guard_name' => 'web'],
+            ['name' => 'ویرایش اسکنر', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات اسکنر', 'guard_name' => 'web'],
+            ['name' => 'حذف اسکنر', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -260,6 +266,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش پرینتر',
             'نمایش جزئیات پرینتر',
             'حذف پرینتر',
+
+            'لیست اسکنر',
+            'ایجاد اسکنر',
+            'ویرایش اسکنر',
+            'نمایش جزئیات اسکنر',
+            'حذف اسکنر',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',
