@@ -95,6 +95,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات هارد اینترنال', 'guard_name' => 'web'],
             ['name' => 'حذف هارد اینترنال', 'guard_name' => 'web'],
 
+            ['name' => 'لیست کارت شبکه', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کارت شبکه', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کارت شبکه', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات کارت شبکه', 'guard_name' => 'web'],
+            ['name' => 'حذف کارت شبکه', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -194,6 +200,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش هارد اینترنال',
             'نمایش جزئیات هارد اینترنال',
             'حذف هارد اینترنال',
+
+            'لیست کارت شبکه',
+            'ایجاد کارت شبکه',
+            'ویرایش کارت شبکه',
+            'نمایش جزئیات کارت شبکه',
+            'حذف کارت شبکه',
 
             'لیست کاربران',
             'ایجاد کاربر',

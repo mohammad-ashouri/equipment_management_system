@@ -105,12 +105,6 @@ class MenuMiddleware
                             'icon' => 'las la-hdd',
                         ],
                         [
-                            'title' => 'کارت شبکه',
-                            'link' => '/LanCards',
-                            'permission' => "لیست کارت شبکه",
-                            'icon' => 'las la-ethernet',
-                        ],
-                        [
                             'title' => 'درایو نوری',
                             'link' => '/ODDs',
                             'permission' => "لیست درایو نوری",
@@ -166,6 +160,12 @@ class MenuMiddleware
                     'permission' => "لیست تجهیزات شبکه",
                     'icon' => 'las la-globe-americas',
                     'childs' => [
+                        [
+                            'title' => 'کارت شبکه',
+                            'link' => '/NetworkCards',
+                            'permission' => "لیست کارت شبکه",
+                            'icon' => 'las la-ethernet',
+                        ],
                         [
                             'title' => 'روتر',
                             'link' => '/Routers',

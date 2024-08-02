@@ -14,6 +14,7 @@ use App\Http\Controllers\HardwareEquipments\MotherboardController;
 use App\Http\Controllers\HardwareEquipments\PowerController;
 use App\Http\Controllers\HardwareEquipments\RamController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\CheckLoginMiddleware;
@@ -86,6 +87,9 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Rams', RamController::class);
         Route::resource('/GraphicCards', GraphicCardController::class);
         Route::resource('/InternalHardDisks', InternalHardDiskController::class);
+
+        //Network Equipments
+        Route::resource('/NetworkCards', NetworkCardController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
