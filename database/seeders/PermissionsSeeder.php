@@ -101,6 +101,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات درایو نوری', 'guard_name' => 'web'],
             ['name' => 'حذف درایو نوری', 'guard_name' => 'web'],
 
+            ['name' => 'لیست موس', 'guard_name' => 'web'],
+            ['name' => 'ایجاد موس', 'guard_name' => 'web'],
+            ['name' => 'ویرایش موس', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات موس', 'guard_name' => 'web'],
+            ['name' => 'حذف موس', 'guard_name' => 'web'],
+
             ['name' => 'لیست کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ایجاد کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ویرایش کارت شبکه', 'guard_name' => 'web'],
@@ -212,6 +218,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش درایو نوری',
             'نمایش جزئیات درایو نوری',
             'حذف درایو نوری',
+
+            'لیست موس',
+            'ایجاد موس',
+            'ویرایش موس',
+            'نمایش جزئیات موس',
+            'حذف موس',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',

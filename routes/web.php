@@ -11,6 +11,7 @@ use App\Http\Controllers\HardwareEquipments\GraphicCardController;
 use App\Http\Controllers\HardwareEquipments\InternalHardDiskController;
 use App\Http\Controllers\HardwareEquipments\MonitorController;
 use App\Http\Controllers\HardwareEquipments\MotherboardController;
+use App\Http\Controllers\HardwareEquipments\MouseController;
 use App\Http\Controllers\HardwareEquipments\OddController;
 use App\Http\Controllers\HardwareEquipments\PowerController;
 use App\Http\Controllers\HardwareEquipments\RamController;
@@ -89,6 +90,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/GraphicCards', GraphicCardController::class);
         Route::resource('/InternalHardDisks', InternalHardDiskController::class);
         Route::resource('/Odds', OddController::class);
+        Route::resource('/Mouses', MouseController::class);
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);
