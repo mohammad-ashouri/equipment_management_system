@@ -16,6 +16,7 @@ use App\Http\Controllers\HardwareEquipments\MotherboardController;
 use App\Http\Controllers\HardwareEquipments\MouseController;
 use App\Http\Controllers\HardwareEquipments\OddController;
 use App\Http\Controllers\HardwareEquipments\PowerController;
+use App\Http\Controllers\HardwareEquipments\PrinterController;
 use App\Http\Controllers\HardwareEquipments\RamController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
@@ -95,6 +96,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Mouses', MouseController::class);
         Route::resource('/Keyboards', KeyboardController::class);
         Route::resource('/Headsets', HeadsetController::class);
+        Route::resource('/Printers', PrinterController::class);
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);

@@ -132,7 +132,7 @@ class MenuMiddleware
                             'title' => 'پرینتر',
                             'link' => '/Printers',
                             'permission' => "لیست پرینتر",
-                            'icon' => 'las la-headset',
+                            'icon' => 'las la-print',
                         ],
                         [
                             'title' => 'اسکنر',
