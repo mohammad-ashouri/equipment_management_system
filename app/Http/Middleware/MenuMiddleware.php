@@ -106,7 +106,7 @@ class MenuMiddleware
                         ],
                         [
                             'title' => 'درایو نوری',
-                            'link' => '/ODDs',
+                            'link' => '/Odds',
                             'permission' => "لیست درایو نوری",
                             'icon' => 'las la-ethernet',
                         ],
