@@ -6,6 +6,7 @@ use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
+use App\Http\Controllers\HardwareEquipments\CopyMachineController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
 use App\Http\Controllers\HardwareEquipments\GraphicCardController;
 use App\Http\Controllers\HardwareEquipments\HeadsetController;
@@ -99,6 +100,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Headsets', HeadsetController::class);
         Route::resource('/Printers', PrinterController::class);
         Route::resource('/Scanners', ScannerController::class);
+        Route::resource('/CopyMachines', CopyMachineController::class);
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);

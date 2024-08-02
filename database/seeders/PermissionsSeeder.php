@@ -137,6 +137,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات اسکنر', 'guard_name' => 'web'],
             ['name' => 'حذف اسکنر', 'guard_name' => 'web'],
 
+            ['name' => 'لیست دستگاه کپی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دستگاه کپی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دستگاه کپی', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دستگاه کپی', 'guard_name' => 'web'],
+            ['name' => 'حذف دستگاه کپی', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -272,6 +278,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش اسکنر',
             'نمایش جزئیات اسکنر',
             'حذف اسکنر',
+
+            'لیست دستگاه کپی',
+            'ایجاد دستگاه کپی',
+            'ویرایش دستگاه کپی',
+            'نمایش جزئیات دستگاه کپی',
+            'حذف دستگاه کپی',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',

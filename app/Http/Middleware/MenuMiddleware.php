@@ -144,13 +144,13 @@ class MenuMiddleware
                             'title' => 'دستگاه کپی',
                             'link' => '/CopyMachines',
                             'permission' => "لیست دستگاه کپی",
-                            'icon' => 'las la-headset',
+                            'icon' => 'las la-print',
                         ],
                         [
                             'title' => 'VOIP',
                             'link' => '/VOIPs',
                             'permission' => "لیست VOIP",
-                            'icon' => 'las la-headset',
+                            'icon' => 'las la-phone-volume',
                         ],
                     ]
                 ],
