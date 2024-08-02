@@ -107,6 +107,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات موس', 'guard_name' => 'web'],
             ['name' => 'حذف موس', 'guard_name' => 'web'],
 
+            ['name' => 'لیست صفحه کلید', 'guard_name' => 'web'],
+            ['name' => 'ایجاد صفحه کلید', 'guard_name' => 'web'],
+            ['name' => 'ویرایش صفحه کلید', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات صفحه کلید', 'guard_name' => 'web'],
+            ['name' => 'حذف صفحه کلید', 'guard_name' => 'web'],
+
             ['name' => 'لیست کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ایجاد کارت شبکه', 'guard_name' => 'web'],
             ['name' => 'ویرایش کارت شبکه', 'guard_name' => 'web'],
@@ -224,6 +230,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش موس',
             'نمایش جزئیات موس',
             'حذف موس',
+
+            'لیست صفحه کلید',
+            'ایجاد صفحه کلید',
+            'ویرایش صفحه کلید',
+            'نمایش جزئیات صفحه کلید',
+            'حذف صفحه کلید',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',

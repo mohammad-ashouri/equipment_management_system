@@ -117,9 +117,9 @@ class MenuMiddleware
                             'icon' => 'las la-mouse',
                         ],
                         [
-                            'title' => 'کیبورد',
+                            'title' => 'صفحه کلید',
                             'link' => '/Keyboards',
-                            'permission' => "لیست کیبورد",
+                            'permission' => "لیست صفحه کلید",
                             'icon' => 'las la-keyboard',
                         ],
                         [
