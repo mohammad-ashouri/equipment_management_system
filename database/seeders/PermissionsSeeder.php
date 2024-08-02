@@ -143,6 +143,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات دستگاه کپی', 'guard_name' => 'web'],
             ['name' => 'حذف دستگاه کپی', 'guard_name' => 'web'],
 
+            ['name' => 'لیست VOIP', 'guard_name' => 'web'],
+            ['name' => 'ایجاد VOIP', 'guard_name' => 'web'],
+            ['name' => 'ویرایش VOIP', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات VOIP', 'guard_name' => 'web'],
+            ['name' => 'حذف VOIP', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -284,6 +290,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش دستگاه کپی',
             'نمایش جزئیات دستگاه کپی',
             'حذف دستگاه کپی',
+
+            'لیست VOIP',
+            'ایجاد VOIP',
+            'ویرایش VOIP',
+            'نمایش جزئیات VOIP',
+            'حذف VOIP',
 
             'لیست کارت شبکه',
             'ایجاد کارت شبکه',

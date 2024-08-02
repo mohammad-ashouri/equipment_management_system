@@ -148,7 +148,7 @@ class MenuMiddleware
                         ],
                         [
                             'title' => 'VOIP',
-                            'link' => '/VOIPs',
+                            'link' => '/Voips',
                             'permission' => "لیست VOIP",
                             'icon' => 'las la-phone-volume',
                         ],
