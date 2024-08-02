@@ -31,10 +31,11 @@ class KeyboardController extends Controller
     {
         $this->validate($request, [
             'model' => 'required|string',
+            'connectivity_type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $keyboard = Keyboard::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'adder' => $this->getMyUserId()]);
+        $keyboard = Keyboard::create(['model' => $request->input('model'), 'connectivity_type' => $request->input('connectivity_type'), 'brand' => $request->input('brand'), 'adder' => $this->getMyUserId()]);
 
         if ($keyboard) {
             return redirect()->route('Keyboards.index')->with('success', 'صفحه کلید با موفقیت ایجاد شد.');
@@ -55,12 +56,14 @@ class KeyboardController extends Controller
             'status' => 'required|integer|in:0,1',
             'id' => 'required|integer|exists:keyboards,id',
             'model' => 'required|string',
+            'connectivity_type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
         $keyboard = Keyboard::findOrFail($id);
         $keyboard->brand = $request->input('brand');
         $keyboard->model = $request->input('model');
+        $keyboard->connectivity_type = $request->input('connectivity_type');
         $keyboard->status = $request->input('status');
         $keyboard->editor = $this->getMyUserId();
         $keyboard->save();

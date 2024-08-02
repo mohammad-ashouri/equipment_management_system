@@ -12,6 +12,6 @@ class Mouse extends Model
 
     protected $table = 'mouses';
     protected $fillable = [
-        'model', 'brand', 'status', 'adder', 'editor'
+        'model', 'connectivity_type', 'brand', 'status', 'adder', 'editor'
     ];
 }

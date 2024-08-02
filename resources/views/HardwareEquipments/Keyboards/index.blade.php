@@ -26,6 +26,7 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">برند</th>
                             <th class="px-6 py-3  font-bold ">مدل</th>
+                            <th class="px-6 py-3  font-bold ">نوع اتصال</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -43,6 +44,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $keyboard->model }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $keyboard->connectivity_type }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($keyboard->status)

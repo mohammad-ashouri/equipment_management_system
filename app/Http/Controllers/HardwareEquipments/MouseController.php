@@ -31,10 +31,11 @@ class MouseController extends Controller
     {
         $this->validate($request, [
             'model' => 'required|string',
+            'connectivity_type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $mouse = Mouse::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'adder' => $this->getMyUserId()]);
+        $mouse = Mouse::create(['model' => $request->input('model'), 'brand' => $request->input('brand'),'connectivity_type' => $request->input('connectivity_type'), 'adder' => $this->getMyUserId()]);
 
         if ($mouse) {
             return redirect()->route('Mouses.index')->with('success', 'موس با موفقیت ایجاد شد.');
@@ -55,12 +56,14 @@ class MouseController extends Controller
             'status' => 'required|integer|in:0,1',
             'id' => 'required|integer|exists:mouses,id',
             'model' => 'required|string',
+            'connectivity_type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
         $mouse = Mouse::findOrFail($id);
         $mouse->brand = $request->input('brand');
         $mouse->model = $request->input('model');
+        $mouse->connectivity_type = $request->input('connectivity_type');
         $mouse->status = $request->input('status');
         $mouse->editor = $this->getMyUserId();
         $mouse->save();

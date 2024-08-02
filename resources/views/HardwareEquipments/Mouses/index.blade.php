@@ -45,6 +45,9 @@
                                     {{ $mouse->model }}
                                 </td>
                                 <td class="px-6 py-4">
+                                    {{ $mouse->connectivity_type }}
+                                </td>
+                                <td class="px-6 py-4">
                                     @switch($mouse->status)
                                         @case(1)
                                             فعال

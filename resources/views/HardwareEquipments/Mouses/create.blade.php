@@ -28,6 +28,20 @@
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="" required>
                         </div>
+                        <div>
+                            <label for="connectivity_type"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع
+                                اتصال </label>
+                            <select name="connectivity_type"
+                                    class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                                <option value="" disabled selected>انتخاب کنید</option>
+                                <option value="Bluetooth/Wlan" @if(old('connectivity_type')=='Bluetooth/Wlan') selected @endif>
+                                    Bluetooth/Wlan
+                                </option>
+                                <option value="USB" @if(old('connectivity_type')=='USB') selected @endif>USB</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">

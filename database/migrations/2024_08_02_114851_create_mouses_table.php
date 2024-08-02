@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('brand');
             $table->foreign('brand')->references('id')->on('brands');
             $table->string('model');
+            $table->string('connectivity_type');
             $table->boolean('status')->default(1)->comment('1 => active , 0 => deactive');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');

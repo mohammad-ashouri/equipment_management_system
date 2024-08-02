@@ -12,6 +12,6 @@ class Keyboard extends Model
 
     protected $table = 'keyboards';
     protected $fillable = [
-        'model', 'brand', 'status', 'adder', 'editor'
+        'model', 'connectivity_type', 'brand', 'status', 'adder', 'editor'
     ];
 }
