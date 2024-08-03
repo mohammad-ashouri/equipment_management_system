@@ -22,10 +22,10 @@ use App\Http\Controllers\HardwareEquipments\RamController;
 use App\Http\Controllers\HardwareEquipments\ScannerController;
 use App\Http\Controllers\HardwareEquipments\VoipController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
-use App\Http\Middleware\CheckLoginMiddleware;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
 use App\Http\Middleware\ThrottleRequests;
@@ -106,6 +106,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);
+        Route::resource('/Modems', ModemController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {

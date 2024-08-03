@@ -167,12 +167,6 @@ class MenuMiddleware
                             'icon' => 'las la-ethernet',
                         ],
                         [
-                            'title' => 'روتر',
-                            'link' => '/Routers',
-                            'permission' => "لیست روتر",
-                            'icon' => 'las la-route',
-                        ],
-                        [
                             'title' => 'سوییچ',
                             'link' => '/Switches',
                             'permission' => "لیست سوییچ",

@@ -149,6 +149,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات VOIP', 'guard_name' => 'web'],
             ['name' => 'حذف VOIP', 'guard_name' => 'web'],
 
+            ['name' => 'لیست مودم', 'guard_name' => 'web'],
+            ['name' => 'ایجاد مودم', 'guard_name' => 'web'],
+            ['name' => 'ویرایش مودم', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات مودم', 'guard_name' => 'web'],
+            ['name' => 'حذف مودم', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -302,6 +308,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش کارت شبکه',
             'نمایش جزئیات کارت شبکه',
             'حذف کارت شبکه',
+
+            'لیست مودم',
+            'ایجاد مودم',
+            'ویرایش مودم',
+            'نمایش جزئیات مودم',
+            'حذف مودم',
 
             'لیست کاربران',
             'ایجاد کاربر',
