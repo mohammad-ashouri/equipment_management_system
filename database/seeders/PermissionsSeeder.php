@@ -155,6 +155,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات مودم', 'guard_name' => 'web'],
             ['name' => 'حذف مودم', 'guard_name' => 'web'],
 
+            ['name' => 'لیست سوییچ', 'guard_name' => 'web'],
+            ['name' => 'ایجاد سوییچ', 'guard_name' => 'web'],
+            ['name' => 'ویرایش سوییچ', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات سوییچ', 'guard_name' => 'web'],
+            ['name' => 'حذف سوییچ', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -314,6 +320,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش مودم',
             'نمایش جزئیات مودم',
             'حذف مودم',
+
+            'لیست سوییچ',
+            'ایجاد سوییچ',
+            'ویرایش سوییچ',
+            'نمایش جزئیات سوییچ',
+            'حذف سوییچ',
 
             'لیست کاربران',
             'ایجاد کاربر',

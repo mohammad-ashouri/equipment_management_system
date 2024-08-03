@@ -24,6 +24,7 @@ use App\Http\Controllers\HardwareEquipments\VoipController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
+use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
@@ -107,6 +108,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         //Network Equipments
         Route::resource('/NetworkCards', NetworkCardController::class);
         Route::resource('/Modems', ModemController::class);
+        Route::resource('/Switches', SwitchController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
