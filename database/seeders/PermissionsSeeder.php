@@ -191,6 +191,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات تلوزیون', 'guard_name' => 'web'],
             ['name' => 'حذف تلوزیون', 'guard_name' => 'web'],
 
+            ['name' => 'لیست تلفن همراه', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تلفن همراه', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تلفن همراه', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات تلفن همراه', 'guard_name' => 'web'],
+            ['name' => 'حذف تلفن همراه', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -386,6 +392,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش تلوزیون',
             'نمایش جزئیات تلوزیون',
             'حذف تلوزیون',
+
+            'لیست تلفن همراه',
+            'ایجاد تلفن همراه',
+            'ویرایش تلفن همراه',
+            'نمایش جزئیات تلفن همراه',
+            'حذف تلفن همراه',
 
             'لیست کاربران',
             'ایجاد کاربر',
