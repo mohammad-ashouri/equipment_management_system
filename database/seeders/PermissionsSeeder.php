@@ -167,6 +167,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات رک', 'guard_name' => 'web'],
             ['name' => 'حذف رک', 'guard_name' => 'web'],
 
+            ['name' => 'لیست دانگل', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دانگل', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دانگل', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دانگل', 'guard_name' => 'web'],
+            ['name' => 'حذف دانگل', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -338,6 +344,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش رک',
             'نمایش جزئیات رک',
             'حذف رک',
+
+            'لیست دانگل',
+            'ایجاد دانگل',
+            'ویرایش دانگل',
+            'نمایش جزئیات دانگل',
+            'حذف دانگل',
 
             'لیست کاربران',
             'ایجاد کاربر',
