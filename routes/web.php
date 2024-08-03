@@ -5,6 +5,7 @@ use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
@@ -125,6 +126,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Televisions', TelevisionController::class);
         Route::resource('/Mobiles', MobileController::class);
         Route::resource('/Tablets', TabletController::class);
+        Route::resource('/DVBs', DVBController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {

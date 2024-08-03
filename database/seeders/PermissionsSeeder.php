@@ -203,6 +203,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات تبلت', 'guard_name' => 'web'],
             ['name' => 'حذف تبلت', 'guard_name' => 'web'],
 
+            ['name' => 'لیست کارت DVB', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کارت DVB', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کارت DVB', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات کارت DVB', 'guard_name' => 'web'],
+            ['name' => 'حذف کارت DVB', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -410,6 +416,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش تبلت',
             'نمایش جزئیات تبلت',
             'حذف تبلت',
+
+            'لیست کارت DVB',
+            'ایجاد کارت DVB',
+            'ویرایش کارت DVB',
+            'نمایش جزئیات کارت DVB',
+            'حذف کارت DVB',
 
             'لیست کاربران',
             'ایجاد کاربر',
