@@ -161,6 +161,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات سوییچ', 'guard_name' => 'web'],
             ['name' => 'حذف سوییچ', 'guard_name' => 'web'],
 
+            ['name' => 'لیست رک', 'guard_name' => 'web'],
+            ['name' => 'ایجاد رک', 'guard_name' => 'web'],
+            ['name' => 'ویرایش رک', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات رک', 'guard_name' => 'web'],
+            ['name' => 'حذف رک', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -326,6 +332,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش سوییچ',
             'نمایش جزئیات سوییچ',
             'حذف سوییچ',
+
+            'لیست رک',
+            'ایجاد رک',
+            'ویرایش رک',
+            'نمایش جزئیات رک',
+            'حذف رک',
 
             'لیست کاربران',
             'ایجاد کاربر',
