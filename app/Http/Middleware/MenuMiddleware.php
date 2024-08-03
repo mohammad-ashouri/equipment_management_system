@@ -247,18 +247,6 @@ class MenuMiddleware
                             'icon' => 'las la-tv',
                         ],
                         [
-                            'title' => 'تلفن',
-                            'link' => '/Phones',
-                            'permission' => "لیست تلفن",
-                            'icon' => 'las la-phone-volume',
-                        ],
-                        [
-                            'title' => 'موبایل',
-                            'link' => '/Mobiles',
-                            'permission' => "لیست موبایل",
-                            'icon' => 'las la-mobile',
-                        ],
-                        [
                             'title' => 'کارت DVB',
                             'link' => '/DVBs',
                             'permission' => "لیست کارت DVB",
