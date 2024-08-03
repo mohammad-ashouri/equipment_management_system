@@ -197,6 +197,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات تلفن همراه', 'guard_name' => 'web'],
             ['name' => 'حذف تلفن همراه', 'guard_name' => 'web'],
 
+            ['name' => 'لیست تبلت', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تبلت', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تبلت', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات تبلت', 'guard_name' => 'web'],
+            ['name' => 'حذف تبلت', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -398,6 +404,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش تلفن همراه',
             'نمایش جزئیات تلفن همراه',
             'حذف تلفن همراه',
+
+            'لیست تبلت',
+            'ایجاد تبلت',
+            'ویرایش تبلت',
+            'نمایش جزئیات تبلت',
+            'حذف تبلت',
 
             'لیست کاربران',
             'ایجاد کاربر',
