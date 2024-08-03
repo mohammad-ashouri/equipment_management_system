@@ -200,15 +200,33 @@ class MenuMiddleware
                     'childs' => [
                         [
                             'title' => 'هارد اکسترنال',
-                            'link' => '/ExternalHards',
+                            'link' => '/ExternalHardDisks',
                             'permission' => "لیست هارد اکسترنال",
                             'icon' => 'las la-hdd',
                         ],
                         [
-                            'title' => 'دوربین',
-                            'link' => '/Cameras',
-                            'permission' => "لیست دوربین",
-                            'icon' => 'las la-camera',
+                            'title' => 'لپ تاپ',
+                            'link' => '/Laptops',
+                            'permission' => "لیست لپ تاپ",
+                            'icon' => 'las la-laptop',
+                        ],
+                        [
+                            'title' => 'تبلت',
+                            'link' => '/Tablets',
+                            'permission' => "لیست تبلت",
+                            'icon' => 'las la-tablet',
+                        ],
+                        [
+                            'title' => 'تلفن رومیزی',
+                            'link' => '/Phones',
+                            'permission' => "لیست تلفن رومیزی",
+                            'icon' => 'las la-phone',
+                        ],
+                        [
+                            'title' => 'تلفن همراه',
+                            'link' => '/Mobiles',
+                            'permission' => "لیست تلفن همراه",
+                            'icon' => 'las la-mobile',
                         ],
                         [
                             'title' => 'دوربین',

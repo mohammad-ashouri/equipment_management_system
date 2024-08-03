@@ -173,6 +173,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات دانگل', 'guard_name' => 'web'],
             ['name' => 'حذف دانگل', 'guard_name' => 'web'],
 
+            ['name' => 'لیست هارد اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'ایجاد هارد اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'ویرایش هارد اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات هارد اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'حذف هارد اکسترنال', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -350,6 +356,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش دانگل',
             'نمایش جزئیات دانگل',
             'حذف دانگل',
+
+            'لیست هارد اکسترنال',
+            'ایجاد هارد اکسترنال',
+            'ویرایش هارد اکسترنال',
+            'نمایش جزئیات هارد اکسترنال',
+            'حذف هارد اکسترنال',
 
             'لیست کاربران',
             'ایجاد کاربر',
