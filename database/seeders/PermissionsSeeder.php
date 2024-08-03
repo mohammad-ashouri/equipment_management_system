@@ -179,6 +179,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات هارد اکسترنال', 'guard_name' => 'web'],
             ['name' => 'حذف هارد اکسترنال', 'guard_name' => 'web'],
 
+            ['name' => 'لیست تلفن رومیزی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تلفن رومیزی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تلفن رومیزی', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات تلفن رومیزی', 'guard_name' => 'web'],
+            ['name' => 'حذف تلفن رومیزی', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -362,6 +368,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش هارد اکسترنال',
             'نمایش جزئیات هارد اکسترنال',
             'حذف هارد اکسترنال',
+
+            'لیست تلفن رومیزی',
+            'ایجاد تلفن رومیزی',
+            'ویرایش تلفن رومیزی',
+            'نمایش جزئیات تلفن رومیزی',
+            'حذف تلفن رومیزی',
 
             'لیست کاربران',
             'ایجاد کاربر',

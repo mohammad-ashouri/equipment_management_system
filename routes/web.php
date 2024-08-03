@@ -6,6 +6,7 @@ use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
+use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CopyMachineController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
@@ -117,6 +118,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
+        Route::resource('/Phones', PhoneController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
