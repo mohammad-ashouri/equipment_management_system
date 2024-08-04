@@ -11,11 +11,13 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('personnels', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->id();
+            $table->unsignedBigInteger('personnel_code');
             $table->string('first_name');
             $table->string('last_name');
             $table->foreignId('building')->constrained('buildings');
             $table->string('room_number');
+            $table->boolean('status')->default(1)->comment('1 => active , 0 => deactive');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
             $table->unsignedBigInteger('editor')->nullable();

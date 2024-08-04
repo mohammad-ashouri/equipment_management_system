@@ -280,6 +280,13 @@ class MenuMiddleware
                         ],
                     ]
                 ],
+                6 => [
+                    'title' => 'مدیریت پرسنل',
+                    'link' => '/Personnels',
+                    'permission' => "لیست پرسنل",
+                    'icon' => 'las la-users',
+                    'childs' => []
+                ],
                 9 => [
                     'title' => 'مدیریت کاربران',
                     'link' => '/UserManager',

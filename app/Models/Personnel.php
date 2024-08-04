@@ -2,26 +2,23 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Catalogs\Building;
+use App\Traits\ModelRelations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Personnel extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,ModelRelations;
+
     protected $table = 'personnels';
     protected $fillable = [
-        'id', 'name', 'status', 'building', 'room_number', 'adder', 'editor'
+        'personnel_code', 'first_name', 'last_name', 'building', 'room_number', 'adder', 'editor'
     ];
 
-    public function adderInfo()
+    public function buildingInfo()
     {
-        return $this->belongsTo(User::class, 'adder', 'id');
+        return $this->belongsTo(Building::class, 'building', 'id');
     }
 
-    public function editorInfo()
-    {
-        return $this->belongsTo(User::class, 'editor', 'id');
-    }
 }

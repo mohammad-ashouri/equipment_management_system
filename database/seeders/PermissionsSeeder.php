@@ -215,6 +215,13 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات پایه دوربین', 'guard_name' => 'web'],
             ['name' => 'حذف پایه دوربین', 'guard_name' => 'web'],
 
+            ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
+            ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
+            ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات تجهیزات پرسنل', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تجهیزات پرسنل', 'guard_name' => 'web'],
+            ['name' => 'انتقال تجهیزات پرسنل', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -434,6 +441,13 @@ class PermissionsSeeder extends Seeder
             'ویرایش پایه دوربین',
             'نمایش جزئیات پایه دوربین',
             'حذف پایه دوربین',
+
+            'لیست پرسنل',
+            'ایجاد پرسنل',
+            'ویرایش پرسنل',
+            'نمایش جزئیات تجهیزات پرسنل',
+            'ویرایش تجهیزات پرسنل',
+            'انتقال تجهیزات پرسنل',
 
             'لیست کاربران',
             'ایجاد کاربر',

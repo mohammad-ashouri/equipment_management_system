@@ -34,6 +34,7 @@ use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
+use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
@@ -129,6 +130,9 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::resource('/Tablets', TabletController::class);
         Route::resource('/DVBs', DVBController::class);
         Route::resource('/CameraHolders', CameraHolderController::class);
+
+        //Personnels
+        Route::resource('/Personnels', PersonnelController::class);
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {

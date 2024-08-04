@@ -3,17 +3,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تعاریف اولیه - مدیریت بر اطلاعات دسترسی ها</h1>
+            <h1 class="text-2xl font-bold mb-4">مدیریت پرسنل</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد دسترسی')
-                    <a type="button" href="{{route('Permissions.create')}}"
+                @can('ایجاد پرسنل')
+                    <a type="button" href="{{route('Personnels.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        دسترسی جدید
+                        پرسنل جدید
                     </a>
                 @endcan
-                @if(empty($permissions) or $permissions->isEmpty())
+                @if(empty($personnels) or $personnels->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -23,23 +23,33 @@
                         <thead>
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class="px-6 py-3  font-bold ">ردیف</th>
-                            <th class="px-6 py-3  font-bold ">عنوان</th>
+                            <th class="px-6 py-3  font-bold ">کد پرسنلی</th>
+                            <th class="px-6 py-3  font-bold ">مشخصات</th>
+                            <th class="px-6 py-3  font-bold ">ساختمان</th>
+                            <th class="px-6 py-3  font-bold ">شماره اتاق</th>
                             <th class="px-6 py-3  font-bold ">عملیات</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($permissions as $permission)
+                        @foreach ($personnels as $personnel)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
+                                <td class="px-6 py-4">{{ $personnel->personnel_code }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $permission->name }}
+                                    {{ $personnel->first_name }} {{ $personnel->last_name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('نمایش جزئیات دسترسی')
-                                        <a href="{{ route('Permissions.edit',$permission->id) }}">
-                                            <button type="button" data-id="{{ $permission->id }}"
+                                    {{ $personnel->buildingInfo->name }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $personnel->room_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @can('ویرایش پرسنل')
+                                        <a href="{{ route('Personnels.edit',$personnel->id) }}">
+                                            <button type="button" data-id="{{ $personnel->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
-                                                جزئیات
+                                                ویرایش
                                             </button>
                                         </a>
                                     @endcan
@@ -50,7 +60,7 @@
                     </table>
 
                     <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $permissions->links() }}
+                        {{ $personnels->links() }}
                     </div>
                 @endif
             </div>
