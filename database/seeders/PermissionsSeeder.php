@@ -209,6 +209,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات کارت DVB', 'guard_name' => 'web'],
             ['name' => 'حذف کارت DVB', 'guard_name' => 'web'],
 
+            ['name' => 'لیست پایه دوربین', 'guard_name' => 'web'],
+            ['name' => 'ایجاد پایه دوربین', 'guard_name' => 'web'],
+            ['name' => 'ویرایش پایه دوربین', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات پایه دوربین', 'guard_name' => 'web'],
+            ['name' => 'حذف پایه دوربین', 'guard_name' => 'web'],
+
             // Users Manager
             ['name' => 'لیست کاربران', 'guard_name' => 'web'],
             ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
@@ -422,6 +428,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش کارت DVB',
             'نمایش جزئیات کارت DVB',
             'حذف کارت DVB',
+
+            'لیست پایه دوربین',
+            'ایجاد پایه دوربین',
+            'ویرایش پایه دوربین',
+            'نمایش جزئیات پایه دوربین',
+            'حذف پایه دوربین',
 
             'لیست کاربران',
             'ایجاد کاربر',
