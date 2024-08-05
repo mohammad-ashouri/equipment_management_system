@@ -57,7 +57,7 @@ class PersonnelController extends Controller
         $personnel = Personnel::findOrFail($id);
         $buildings = Building::whereStatus(1)->orderBy('name')->get();
 
-        return view('Personnels.edit', compact('personnel','buildings'));
+        return view('Personnels.edit', compact('personnel', 'buildings'));
     }
 
     public function update(Request $request, $id)
@@ -81,5 +81,17 @@ class PersonnelController extends Controller
         $personnel->save();
 
         return redirect()->route('Personnels.index')->with('success', 'پرسنل با موفقیت ویرایش شد.');
+    }
+
+    public function equipments($personnel)
+    {
+        $personnel = Personnel::findOrFail($personnel);
+        return view('Personnels.equipments', compact('personnel'));
+    }
+
+    public function newEquipment($personnel, $equipmentType)
+    {
+        $personnel = Personnel::findOrFail($personnel);
+        return view('Personnels.Equipments.new', compact('personnel', 'equipmentType'));
     }
 }
