@@ -75,7 +75,7 @@
                         <input type="hidden" name="role_id" value="{{ $personnel->id }}">
                         <button type="submit"
                                 class="px-4 py-2 mr-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                            ویرایش نقش
+                            ویرایش پرسنل
                         </button>
                     @endcan
                     <button id="backward_page" type="button"

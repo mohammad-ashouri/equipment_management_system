@@ -4,7 +4,7 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تعاریف اولیه - مدیریت بر اطلاعات رم</h1>
+            <h1 class="text-2xl font-bold mb-4">تجهیزات سخت افزاری - مدیریت بر اطلاعات رم</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
