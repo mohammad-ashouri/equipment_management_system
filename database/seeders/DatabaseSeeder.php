@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionsSeeder::class,
             ShenakhtDefaultValuesSeeder::class,
+            FakePersonnel::class,
         ]);
 
     }

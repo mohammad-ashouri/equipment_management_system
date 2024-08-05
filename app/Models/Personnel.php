@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Models\Catalogs\Building;
 use App\Traits\ModelRelations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Personnel extends Model
 {
-    use SoftDeletes,ModelRelations;
+    use SoftDeletes,ModelRelations,HasFactory;
 
     protected $table = 'personnels';
     protected $fillable = [

@@ -218,7 +218,6 @@ class PermissionsSeeder extends Seeder
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تجهیزات پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش تجهیزات پرسنل', 'guard_name' => 'web'],
             ['name' => 'انتقال تجهیزات پرسنل', 'guard_name' => 'web'],
 
@@ -445,7 +444,6 @@ class PermissionsSeeder extends Seeder
             'لیست پرسنل',
             'ایجاد پرسنل',
             'ویرایش پرسنل',
-            'نمایش جزئیات تجهیزات پرسنل',
             'ویرایش تجهیزات پرسنل',
             'انتقال تجهیزات پرسنل',
 
