@@ -19,6 +19,6 @@ trait ModelRelations
 
     public function brandInfo()
     {
-        return $this->belongsTo(Brand::class, 'brand', 'id');
+        return $this->belongsTo(Brand::class, 'brand', 'id')->orderBy('name','asc');
     }
 }

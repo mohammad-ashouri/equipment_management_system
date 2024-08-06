@@ -94,4 +94,9 @@ class PersonnelController extends Controller
         $personnel = Personnel::findOrFail($personnel);
         return view('Personnels.Equipments.new', compact('personnel', 'equipmentType'));
     }
+
+    public function storeEquipment(Request $request)
+    {
+        dd(request()->all());
+    }
 }
