@@ -22,7 +22,6 @@ return new class extends Migration {
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        Brand::insert(['id' => 0, 'name' => 'onboard', 'adder' => 1]);
 
         $query = "
 INSERT INTO brands (name, adder)
