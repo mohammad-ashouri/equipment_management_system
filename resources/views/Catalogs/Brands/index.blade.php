@@ -34,7 +34,7 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($brands as $brand)
+                        @foreach ($brands1 as $brand)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
@@ -80,7 +80,7 @@
                     </table>
 
                     <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $brands->links() }}
+                        {{ $brands1->links() }}
                     </div>
                 @endif
             </div>
