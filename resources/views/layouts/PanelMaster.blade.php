@@ -14,6 +14,8 @@
     <script src="/build/plugins/select2/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">
     <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>
+    <script src="/build/plugins/persian-date/dist/persian-date.js"></script>
+    <script src="/build/plugins/persian-datepicker/dist/js/persian-datepicker.js"></script>
     <script>
         $(document).ready(function () {
             $('.select2').select2({
