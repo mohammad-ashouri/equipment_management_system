@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Catalogs\Building;
+use App\Models\Equipment;
+use App\Models\EquipmentType;
 use App\Models\Personnel;
 use Illuminate\Http\Request;
 
@@ -86,17 +88,31 @@ class PersonnelController extends Controller
     public function equipments($personnel)
     {
         $personnel = Personnel::findOrFail($personnel);
-        return view('Personnels.equipments', compact('personnel'));
+        $equipmentTypes = EquipmentType::orderBy('persian_name')->get();
+        return view('Personnels.equipments', compact('personnel', 'equipmentTypes'));
     }
 
     public function newEquipment($personnel, $equipmentType)
     {
         $personnel = Personnel::findOrFail($personnel);
+        $equipmentType = EquipmentType::findOrFail($equipmentType);
         return view('Personnels.Equipments.new', compact('personnel', 'equipmentType'));
     }
 
     public function storeEquipment(Request $request)
     {
-        dd(request()->all());
+        $equipment = new Equipment();
+        $equipment->personnel = $request->personnel;
+        $equipment->property_code = $request->property_code;
+        $equipment->delivery_date = $request->delivery_date;
+        $equipment->equipment_type = $request->equipment_type;
+        $allRequestValues = $request->all();
+        unset($allRequestValues['personnel'], $allRequestValues['property_code'], $allRequestValues['equipment_type'], $allRequestValues['_token']);
+        $equipment->info = json_encode($allRequestValues, true);
+        $equipment->adder = $this->getMyUserId();
+        $equipment->save();
+
+        $equipmentType = EquipmentType::find($request->equipment_type);
+        return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', "$equipmentType->persian_name  با موفقیت ایجاد شد.");
     }
 }

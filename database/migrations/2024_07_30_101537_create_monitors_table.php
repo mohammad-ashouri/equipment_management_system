@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\EquipmentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,8 @@ return new class extends Migration {
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+        EquipmentType::create(['name'=>'monitor','persian_name'=>'مانیتور']);
+
         $query = "INSERT INTO monitors (brand, model, size,adder)
 VALUES
 (63, '.', 24,1),

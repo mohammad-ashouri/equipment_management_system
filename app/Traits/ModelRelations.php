@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\EquipmentType;
 use App\Models\User;
 use App\Models\Catalogs\Brand;
 
@@ -20,5 +21,10 @@ trait ModelRelations
     public function brandInfo()
     {
         return $this->belongsTo(Brand::class, 'brand', 'id')->orderBy('name','asc');
+    }
+
+    public function equipmentType()
+    {
+        return $this->belongsTo(EquipmentType::class, 'equipment_type', 'id');
     }
 }

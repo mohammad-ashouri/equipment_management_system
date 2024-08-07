@@ -8,14 +8,14 @@
     <title>
         {{ env('APP_PERSIAN_NAME') }}
     </title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="/build/plugins/jquery/dist/jquery.js"></script>
     <link href="/build/plugins/select2/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="/build/plugins/select2/dist/js/select2.min.js"></script>
-    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">
-    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>
+{{--    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">--}}
+{{--    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>--}}
     <script src="/build/plugins/persian-date/dist/persian-date.js"></script>
     <script src="/build/plugins/persian-datepicker/dist/js/persian-datepicker.js"></script>
+    <link rel="stylesheet" href="/build/plugins/persian-datepicker/dist/css/persian-datepicker.css"/>
     <script>
         $(document).ready(function () {
             $('.select2').select2({
@@ -25,6 +25,7 @@
             });
         });
     </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 @component('components.loader-spinner') @endcomponent

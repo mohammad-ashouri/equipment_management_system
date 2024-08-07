@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Equipment;
+use App\Models\EquipmentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,17 +17,19 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('personnel');
             $table->foreign('personnel')->references('id')->on('personnels');
-            $table->string('equipment_type');
+            $table->unsignedBigInteger('equipment_type');
+            $table->foreign('equipment_type')->references('id')->on('equipment_types');
             $table->string('property_code');
-            $table->string('seal_code')->nullable();
+            $table->string('delivery_date');
             $table->json('info');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
-            $table->unsignedBigInteger('editor');
+            $table->unsignedBigInteger('editor')->nullable();
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+
     }
 
     /**

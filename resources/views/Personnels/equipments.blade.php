@@ -5,6 +5,7 @@
             <h1 class="text-2xl font-bold mb-4">تمامی تجهیزات {{ $personnel->first_name }} {{ $personnel->last_name }}
                 با کد پرسنلی {{ $personnel->personnel_code }}</h1>
             @include('layouts.components.errors')
+            @include('layouts.components.success')
             <div class="bg-white rounded shadow flex flex-col ">
                 <div class="bg-white rounded shadow flex flex-col p-4">
                     <button type="button" id="new-equipment"
@@ -31,12 +32,11 @@
                 html: `
             <select id="equipment-select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option disabled selected value="">انتخاب کنید</option>
-                <option value="کیس">کیس</option>
-                <option value="مانیتور">مانیتور</option>
-                <option value="موس">موس</option>
-                <option value="کیبورد">کیبورد</option>
-            </select>
-        `,
+                @foreach ($equipmentTypes as $equipmentType)
+                    <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
+                @endforeach
+                </select>
+`,
                 showCancelButton: true,
                 confirmButtonText: 'تایید',
                 cancelButtonText: 'لغو',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\EquipmentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+        EquipmentType::create(['name'=>'copy_machine','persian_name'=>'دستگاه کپی']);
     }
 
     /**

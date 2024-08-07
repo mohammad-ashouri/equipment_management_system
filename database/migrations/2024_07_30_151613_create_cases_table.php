@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\EquipmentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+        EquipmentType::create(['name'=>'case','persian_name'=>'کیس']);
         $query="INSERT INTO cases (brand, model,adder) VALUES
 	(11, 'No Model',1),
 	(12, 'No Model',1),
