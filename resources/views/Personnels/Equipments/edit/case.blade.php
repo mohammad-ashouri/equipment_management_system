@@ -159,18 +159,30 @@
     <div class="hdd-container mx-auto p-4">
         <div id="hdd-select-container">
             @foreach($equipmentInfo['hdd'] as $index=>$hddEquipment)
-                <div class="mt-2 hdd-select-wrapper">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">هارد 1</label>
-                    <select name="hdd[]" required
-                            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" disabled selected>انتخاب کنید</option>
-                        @foreach($internalHards as $internalHard)
-                            <option value="{{ $internalHard->id }}"
-                                    @if($hddEquipment==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
-                                - {{ $internalHard->model}} - {{ $internalHard->capacity }}
-                                - {{ $internalHard->connectivity_type }}</option>
-                        @endforeach
-                    </select>
+                <div class="grid grid-cols-2 mt-2 hdd-select-wrapper">
+                    <div class="hdd-select-wrapper">
+                        <label
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">هارد {{++$index}}</label>
+                        <select name="hdd[]" required
+                                class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="" disabled selected>انتخاب کنید</option>
+                            @foreach($internalHards as $internalHard)
+                                <option value="{{ $internalHard->id }}"
+                                        @if($hddEquipment==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
+                                    - {{ $internalHard->model}} - {{ $internalHard->capacity }}
+                                    - {{ $internalHard->connectivity_type }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mr-2">
+                        <label for=""
+                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد اموال
+                            هارد {{$index}}</label>
+                        <input type="text" name="hdd_property_code[]"
+                               value="{{ $equipmentInfo['hdd_property_code'][--$index] }}"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               placeholder="">
+                    </div>
                 </div>
             @endforeach
         </div>
