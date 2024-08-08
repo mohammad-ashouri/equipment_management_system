@@ -102,6 +102,7 @@ class PersonnelController extends Controller
 
     public function storeEquipment(Request $request)
     {
+        $input = $request->all();
         if (isset($input['hdd'])) {
             $input['hdd'] = array_filter($input['hdd'], function ($value) {
                 return !is_null($value);

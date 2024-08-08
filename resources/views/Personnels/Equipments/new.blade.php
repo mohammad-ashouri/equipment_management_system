@@ -1,4 +1,4 @@
-@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Ram; @endphp
+@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Ram; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     <script>
@@ -111,6 +111,11 @@
                 $internalHards=InternalHardDisk::whereStatus(1)->get();
                 $odds=Odd::whereStatus(1)->get();
                 $graphicCards=GraphicCard::whereStatus(1)->get();
+            @endphp
+            @break
+        @case('monitor')
+            @php
+                $monitors=Monitor::whereStatus(1)->get();
             @endphp
             @break
     @endswitch
