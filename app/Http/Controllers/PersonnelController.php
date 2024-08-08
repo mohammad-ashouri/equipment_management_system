@@ -102,14 +102,23 @@ class PersonnelController extends Controller
 
     public function storeEquipment(Request $request)
     {
+        if (isset($input['hdd'])) {
+            $input['hdd'] = array_filter($input['hdd'], function ($value) {
+                return !is_null($value);
+            });
+        }
+        if (isset($input['ram'])) {
+            $input['ram'] = array_filter($input['ram'], function ($value) {
+                return !is_null($value);
+            });
+        }
         $equipment = new Equipment();
         $equipment->personnel = $request->personnel;
         $equipment->property_code = $request->property_code;
         $equipment->delivery_date = $request->delivery_date;
         $equipment->equipment_type = $request->equipment_type;
-        $allRequestValues = $request->all();
-        unset($allRequestValues['personnel'], $allRequestValues['property_code'], $allRequestValues['equipment_type'], $allRequestValues['_token']);
-        $equipment->info = json_encode($allRequestValues, true);
+        unset($input['personnel'], $input['property_code'], $input['equipment_type'], $input['_token']);
+        $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();
         $equipment->save();
 
@@ -129,15 +138,26 @@ class PersonnelController extends Controller
         $this->validate($request, [
             'equipmentId' => 'required|integer|exists:equipments,id',
         ]);
+        $input = $request->all();
+
+        if (isset($input['hdd'])) {
+            $input['hdd'] = array_filter($input['hdd'], function ($value) {
+                return !is_null($value);
+            });
+        }
+        if (isset($input['ram'])) {
+            $input['ram'] = array_filter($input['ram'], function ($value) {
+                return !is_null($value);
+            });
+        }
         $equipment = Equipment::find($request->equipmentId);
         $equipment->delivery_date = $request->delivery_date;
-        $allRequestValues = $request->all();
-        unset($allRequestValues['_token']);
-        $equipment->info = json_encode($allRequestValues, true);
+        unset($input['_token']);
+        $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();
         $equipment->save();
 
-        return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', $equipment->equipmentType->persian_name."  با موفقیت ویرایش شد.");
+        return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', $equipment->equipmentType->persian_name . "  با موفقیت ویرایش شد.");
 
     }
 }
