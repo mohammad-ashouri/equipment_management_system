@@ -1,4 +1,4 @@
-@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Ram; @endphp
+@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Ram; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     <script>
@@ -116,6 +116,16 @@
         @case('monitor')
             @php
                 $monitors=Monitor::whereStatus(1)->get();
+            @endphp
+            @break
+        @case('mouse')
+            @php
+                $mouses=Mouse::whereStatus(1)->get();
+            @endphp
+            @break
+        @case('keyboard')
+            @php
+                $keyboards=Keyboard::whereStatus(1)->get();
             @endphp
             @break
     @endswitch
