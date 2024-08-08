@@ -89,7 +89,8 @@ class PersonnelController extends Controller
     {
         $personnel = Personnel::findOrFail($personnel);
         $equipmentTypes = EquipmentType::orderBy('persian_name')->get();
-        return view('Personnels.equipments', compact('personnel', 'equipmentTypes'));
+        $equipments = Equipment::wherePersonnel($personnel->id)->get();
+        return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments'));
     }
 
     public function newEquipment($personnel, $equipmentType)
@@ -114,5 +115,29 @@ class PersonnelController extends Controller
 
         $equipmentType = EquipmentType::find($request->equipment_type);
         return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', "$equipmentType->persian_name  با موفقیت ایجاد شد.");
+    }
+
+    public function editEquipment($personnel, $equipmentId)
+    {
+        $personnel = Personnel::findOrFail($personnel);
+        $equipment = Equipment::findOrFail($equipmentId);
+        return view('Personnels.Equipments.edit', compact('personnel', 'equipment'));
+    }
+
+    public function updateEquipment(Request $request)
+    {
+        $this->validate($request, [
+            'equipmentId' => 'required|integer|exists:equipments,id',
+        ]);
+        $equipment = Equipment::find($request->equipmentId);
+        $equipment->delivery_date = $request->delivery_date;
+        $allRequestValues = $request->all();
+        unset($allRequestValues['_token']);
+        $equipment->info = json_encode($allRequestValues, true);
+        $equipment->adder = $this->getMyUserId();
+        $equipment->save();
+
+        return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', $equipment->equipmentType->persian_name."  با موفقیت ویرایش شد.");
+
     }
 }

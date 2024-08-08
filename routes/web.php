@@ -136,6 +136,8 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
         Route::get('/Personnels/{personnel}/equipments', [PersonnelController::class, 'equipments'])->name('Personnels.equipments');
         Route::get('/Personnels/{personnel}/equipments/new/{equipmentType}', [PersonnelController::class, 'newEquipment'])->name('Personnels.equipments.new');
         Route::post('/Personnels/equipments/new', [PersonnelController::class, 'storeEquipment'])->name('Personnels.equipments.store');
+        Route::get('/Personnels/{personnel}/equipments/edit/{equipmentId}', [PersonnelController::class, 'editEquipment'])->name('Personnels.equipments.edit');
+        Route::post('/Personnels/equipments/update', [PersonnelController::class, 'updateEquipment'])->name('Personnels.equipments.update');
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
