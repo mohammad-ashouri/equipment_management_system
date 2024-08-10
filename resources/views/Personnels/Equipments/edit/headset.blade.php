@@ -11,7 +11,7 @@
         @foreach($headsets as $headset)
             <option value="{{ $headset->id }}"
                     @if($equipmentInfo['headset']==$headset->id) selected @endif>{{ $headset->brandInfo->name}}
-                - {{ $headset->model}}</option>
+                - {{ $headset->model}} - {{ $headset->connectivity_type}}</option>
         @endforeach
     </select>
 </div>

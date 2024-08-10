@@ -11,7 +11,7 @@
         @foreach($printers as $printer)
             <option value="{{ $printer->id }}"
                     @if($equipmentInfo['printer']==$printer->id) selected @endif>{{ $printer->brandInfo->name}}
-                - {{ $printer->model}}</option>
+                - {{ $printer->model}} - {{ $printer->function_type}}</option>
         @endforeach
     </select>
 </div>
