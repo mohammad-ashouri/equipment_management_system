@@ -11,9 +11,17 @@ function swalFire(title = null, text, icon, confirmButtonText) {
     });
 }
 
+function reloadCaptcha() {
+    var captchaImg = document.getElementById('captchaImg');
+    var captchaUrl = "/captcha";
+    captchaImg.src = captchaUrl + '?' + Date.now();
+}
+
 function loaderSpinner() {
     $('#loader').toggleClass('hidden');
 }
+
+reloadCaptcha();
 
 //Check Login Form
 $('#loginForm').submit(function (e) {

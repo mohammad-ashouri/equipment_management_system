@@ -52,13 +52,5 @@
         </div>
     </div>
 </div>
-<script src="./build/plugins/jquery/dist/jquery.js"></script>
-<script>
-    function reloadCaptcha() {
-        var captchaImg = document.getElementById('captchaImg');
-        var captchaUrl = "/captcha";
-        captchaImg.src = captchaUrl + '?' + Date.now();
-    }
-</script>
 </body>
 </html>
