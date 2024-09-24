@@ -16,7 +16,7 @@ class NTCPMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $NTCPFieldValue = User::where('username', session('username'))->value('NTCP');
+        $NTCPFieldValue = User::where('username', session('username'))->value('ntcp');
 
         if ($NTCPFieldValue === 1) {
             return redirect()->route('Profile');
