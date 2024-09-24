@@ -102,6 +102,10 @@ class PersonnelController extends Controller
 
     public function storeEquipment(Request $request)
     {
+        $this->validate($request, [
+            'property_code' => 'required|string|unique:equipments,property_code',
+        ]);
+
         $input = $request->all();
         if (isset($input['hdd'])) {
             $input['hdd'] = array_filter($input['hdd'], function ($value) {

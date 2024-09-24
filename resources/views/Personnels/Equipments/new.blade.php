@@ -1,103 +1,9 @@
-@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner; @endphp
+@php use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     <script>
         $(document).ready(function () {
-            $(".delivery_date").pDatepicker(
-                {
-                    "format": "LLLL",
-                    "viewMode": "day",
-                    "initialValue": true,
-                    "minDate": null,
-                    "maxDate": null,
-                    "autoClose": false,
-                    "position": "auto",
-                    "altFormat": "lll",
-                    "altField": "#altfieldExample",
-                    "onlyTimePicker": false,
-                    "onlySelectOnDate": true,
-                    "calendarType": "persian",
-                    "inputDelay": 800,
-                    "observer": false,
-                    "calendar": {
-                        "persian": {
-                            "locale": "fa",
-                            "showHint": true,
-                            "leapYearMode": "algorithmic"
-                        },
-                        "gregorian": {
-                            "locale": "en",
-                            "showHint": false
-                        }
-                    },
-                    "navigator": {
-                        "enabled": true,
-                        "scroll": {
-                            "enabled": true
-                        },
-                        "text": {
-                            "btnNextText": "<",
-                            "btnPrevText": ">"
-                        }
-                    },
-                    "toolbox": {
-                        "enabled": true,
-                        "calendarSwitch": {
-                            "enabled": false,
-                            "format": "MMMM"
-                        },
-                        "todayButton": {
-                            "enabled": true,
-                            "text": {
-                                "fa": "امروز",
-                                "en": "Today"
-                            }
-                        },
-                        "submitButton": {
-                            "enabled": false,
-                            "text": {
-                                "fa": "تایید",
-                                "en": "Submit"
-                            }
-                        },
-                        "text": {
-                            "btnToday": "امروز"
-                        }
-                    },
-                    "timePicker": {
-                        "enabled": false,
-                        "step": 1,
-                        "hour": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "minute": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "second": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "meridian": {
-                            "enabled": false
-                        }
-                    },
-                    "dayPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY MMMM"
-                    },
-                    "monthPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY"
-                    },
-                    "yearPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY"
-                    },
-                    "responsive": true
-                }
-            );
+
         });
     </script>
     @switch($equipmentType->name)
@@ -146,6 +52,11 @@
         @case('copy_machine')
             @php
                 $copyMachines=CopyMachine::whereStatus(1)->get();
+            @endphp
+            @break
+        @case('voip')
+            @php
+                $voips=Voip::whereStatus(1)->get();
             @endphp
             @break
     @endswitch
