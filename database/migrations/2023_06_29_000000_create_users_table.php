@@ -32,7 +32,7 @@ return new class extends Migration {
         });
 
         $password = bcrypt(12345678);
-        $query = "INSERT INTO `users` (`id`, `username`, `password`, `name`, `family`, type, subject, active, ntcp)
+        $query = "INSERT INTO users (id, username, password, name, family, type, subject, active, ntcp)
 VALUES (1, 'admin', '$password', 'Super',
         'Admin', 1, 'ادمین کل', 1, 0);";
 
