@@ -1,4 +1,4 @@
-@php use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Tablet;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\Switches; @endphp
+@php use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Tablet;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\Switches; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     @switch($equipmentType->name)
@@ -92,6 +92,11 @@
         @case('mobile')
             @php
                 $mobiles=Mobile::get();
+            @endphp
+            @break
+        @case('camera_holder')
+            @php
+                $camera_holders=CameraHolder::get();
             @endphp
             @break
     @endswitch
