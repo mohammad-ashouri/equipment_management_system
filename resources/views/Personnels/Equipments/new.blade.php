@@ -4,94 +4,94 @@
     @switch($equipmentType->name)
         @case('case')
             @php
-                $cases=Cases::whereStatus(1)->get();
-                $powers=Power::whereStatus(1)->get();
-                $cpus=Cpu::whereStatus(1)->get();
-                $rams=Ram::whereStatus(1)->get();
-                $motherboards=Motherboard::whereStatus(1)->get();
-                $internalHards=InternalHardDisk::whereStatus(1)->get();
-                $odds=Odd::whereStatus(1)->get();
-                $graphicCards=GraphicCard::whereStatus(1)->get();
+                $cases=Cases::get();
+                $powers=Power::get();
+                $cpus=Cpu::get();
+                $rams=Ram::get();
+                $motherboards=Motherboard::get();
+                $internalHards=InternalHardDisk::get();
+                $odds=Odd::get();
+                $graphicCards=GraphicCard::get();
             @endphp
             @break
         @case('monitor')
             @php
-                $monitors=Monitor::whereStatus(1)->get();
+                $monitors=Monitor::get();
             @endphp
             @break
         @case('mouse')
             @php
-                $mouses=Mouse::whereStatus(1)->get();
+                $mouses=Mouse::get();
             @endphp
             @break
         @case('keyboard')
             @php
-                $keyboards=Keyboard::whereStatus(1)->get();
+                $keyboards=Keyboard::get();
             @endphp
             @break
         @case('headset')
             @php
-                $headsets=Headset::whereStatus(1)->get();
+                $headsets=Headset::get();
             @endphp
             @break
         @case('printer')
             @php
-                $printers=Printer::whereStatus(1)->get();
+                $printers=Printer::get();
             @endphp
             @break
         @case('scanner')
             @php
-                $scanners=Scanner::whereStatus(1)->get();
+                $scanners=Scanner::get();
             @endphp
             @break
         @case('copy_machine')
             @php
-                $copyMachines=CopyMachine::whereStatus(1)->get();
+                $copyMachines=CopyMachine::get();
             @endphp
             @break
         @case('voip')
             @php
-                $voips=Voip::whereStatus(1)->get();
+                $voips=Voip::get();
             @endphp
             @break
         @case('switch')
             @php
-                $switches=Switches::whereStatus(1)->get();
+                $switches=Switches::get();
             @endphp
             @break
         @case('modem')
             @php
-                $modems=Modem::whereStatus(1)->get();
+                $modems=Modem::get();
             @endphp
             @break
         @case('rack')
             @php
-                $racks=Rack::whereStatus(1)->get();
+                $racks=Rack::get();
             @endphp
             @break
         @case('dongle')
             @php
-                $dongles=Dongle::whereStatus(1)->get();
+                $dongles=Dongle::get();
             @endphp
             @break
         @case('external_hard_disk')
             @php
-                $external_hard_disks=ExternalHardDisk::whereStatus(1)->get();
+                $external_hard_disks=ExternalHardDisk::get();
             @endphp
             @break
         @case('tablet')
             @php
-                $tablets=Tablet::whereStatus(1)->get();
+                $tablets=Tablet::get();
             @endphp
             @break
         @case('phone')
             @php
-                $phones=Phone::whereStatus(1)->get();
+                $phones=Phone::get();
             @endphp
             @break
         @case('mobile')
             @php
-                $mobiles=Mobile::whereStatus(1)->get();
+                $mobiles=Mobile::get();
             @endphp
             @break
     @endswitch
