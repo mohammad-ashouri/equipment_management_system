@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('personnel')->references('id')->on('personnels');
             $table->unsignedBigInteger('equipment_type');
             $table->foreign('equipment_type')->references('id')->on('equipment_types');
-            $table->string('property_code');
+            $table->string('property_code')->nullable();
             $table->string('delivery_date');
             $table->json('info');
             $table->text('description')->nullable();
