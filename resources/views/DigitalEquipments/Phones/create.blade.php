@@ -2,7 +2,7 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">ایجاد کارت شبکه</h1>
+            <h1 class="text-2xl font-bold mb-4">ایجاد تلفن رومیزی</h1>
             @include('layouts.components.errors')
             <div class="bg-white rounded shadow flex flex-col ">
                 {{ html()->form('POST')->route('Phones.store')->acceptsFiles()->id('create-catalog')->open() }}
