@@ -11,7 +11,7 @@
         @foreach($switches as $switch)
             <option value="{{ $switch->id }}"
                     @if($equipmentInfo['switch']==$switch->id) selected @endif>{{ $switch->brandInfo->name}}
-                - {{ $switch->model}} - {{ $switch->ports_number}}</option>
+                - {{ $switch->model}} - تعداد پورت: {{ $switch->ports_number}}</option>
         @endforeach
     </select>
 </div>
