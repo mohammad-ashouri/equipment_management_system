@@ -12,6 +12,7 @@ use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
+use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CopyMachineController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
@@ -133,11 +134,11 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
-        Route::get('/Personnels/{personnel}/equipments', [PersonnelController::class, 'equipments'])->name('Personnels.equipments');
-        Route::get('/Personnels/{personnel}/equipments/new/{equipmentType}', [PersonnelController::class, 'newEquipment'])->name('Personnels.equipments.new');
-        Route::post('/Personnels/equipments/new', [PersonnelController::class, 'storeEquipment'])->name('Personnels.equipments.store');
-        Route::get('/Personnels/{personnel}/equipments/edit/{equipmentId}', [PersonnelController::class, 'editEquipment'])->name('Personnels.equipments.edit');
-        Route::post('/Personnels/equipments/update', [PersonnelController::class, 'updateEquipment'])->name('Personnels.equipments.update');
+        Route::get('/Personnels/{personnel}/equipments', [EquipmentsController::class, 'equipments'])->name('Personnels.equipments');
+        Route::get('/Personnels/{personnel}/equipments/new/{equipmentType}', [EquipmentsController::class, 'newEquipment'])->name('Personnels.equipments.new');
+        Route::post('/Personnels/equipments/new', [EquipmentsController::class, 'storeEquipment'])->name('Personnels.equipments.store');
+        Route::get('/Personnels/{personnel}/equipments/edit/{equipmentId}', [EquipmentsController::class, 'editEquipment'])->name('Personnels.equipments.edit');
+        Route::post('/Personnels/equipments/update', [EquipmentsController::class, 'updateEquipment'])->name('Personnels.equipments.update');
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
