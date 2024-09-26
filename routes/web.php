@@ -37,6 +37,7 @@ use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
+use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -145,6 +146,7 @@ Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::c
             Route::get('/', [DatabaseBackupController::class, 'index']);
             Route::post('/', [DatabaseBackupController::class, 'createBackup']);
         });
+        Route::get('/ChangeHistory', [HistoryController::class, 'index'])->name('History.index');
     });
 });
 

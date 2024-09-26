@@ -69,7 +69,6 @@ class EquipmentsController extends Controller
             'equipmentId' => 'required|integer|exists:equipments,id',
         ]);
         $input = $request->all();
-
         if (isset($input['hdd'])) {
             $input['hdd'] = array_filter($input['hdd'], function ($value) {
                 return !is_null($value);
