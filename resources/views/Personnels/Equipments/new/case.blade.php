@@ -147,17 +147,17 @@
     </script>
 </div>
 <div>
-    <div class="hdd-container mx-auto p-4">
-        <div id="hdd-select-container">
-            <div class="grid grid-cols-2 mt-2 hdd-select-wrapper">
+    <div class="internalHardDisk-container mx-auto p-4">
+        <div id="internalHardDisk-select-container">
+            <div class="grid grid-cols-2 mt-2 internalHardDisk-select-wrapper">
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">هارد 1</label>
-                    <select name="hdd[]" required
+                    <select name="internalHardDisk[]" required
                             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="" disabled selected>انتخاب کنید</option>
                         @foreach($internalHards as $internalHard)
                             <option value="{{ $internalHard->id }}"
-                                    @if(old('hdd')==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
+                                    @if(old('internalHardDisk')==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
                                 - {{ $internalHard->model}} - {{ $internalHard->capacity }}
                                 - {{ $internalHard->connectivity_type }}</option>
                         @endforeach
@@ -166,27 +166,27 @@
                 <div class="mr-2">
                     <label for=""
                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد اموال هارد 1</label>
-                    <input type="text" name="hdd_property_code[]" value="{{ old('hdd_property_code') }}"
+                    <input type="text" name="internalHardDisk_property_code[]" value="{{ old('internalHardDisk_property_code') }}"
                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                            placeholder="">
                 </div>
             </div>
         </div>
         <div class="text-center">
-            <button type="button" id="add-hdd-select" class="mt-4 bg-blue-500 text-white p-2 rounded">افزودن هارد جدید
+            <button type="button" id="add-internalHardDisk-select" class="mt-4 bg-blue-500 text-white p-2 rounded">افزودن هارد جدید
             </button>
         </div>
     </div>
 
     <script>
         $(document).ready(function () {
-            $('#add-hdd-select').on('click', function () {
-                const selectContainer = document.getElementById('hdd-select-container');
-                const selectWrappers = selectContainer.getElementsByClassName('hdd-select-wrapper');
+            $('#add-internalHardDisk-select').on('click', function () {
+                const selectContainer = document.getElementById('internalHardDisk-select-container');
+                const selectWrappers = selectContainer.getElementsByClassName('internalHardDisk-select-wrapper');
                 const newIndex = selectWrappers.length + 1;
 
                 const newSelectWrapper = document.createElement('div');
-                newSelectWrapper.classList.add('grid', 'grid-cols-2', 'mt-2', 'hdd-select-wrapper');
+                newSelectWrapper.classList.add('grid', 'grid-cols-2', 'mt-2', 'internalHardDisk-select-wrapper');
 
                 // Create new select and copy options from the first select
                 const firstSelect = selectWrappers[0].getElementsByTagName('select')[0];
@@ -197,7 +197,7 @@
                 newLabel.innerText = 'هارد ' + newIndex;
 
                 const newSelect = document.createElement('select');
-                newSelect.name = 'hdd[]';
+                newSelect.name = 'internalHardDisk[]';
                 newSelect.required = true;
                 newSelect.classList.add('select2', 'bg-gray-50', 'border', 'border-gray-300', 'text-gray-900', 'text-sm', 'rounded-lg', 'focus:ring-blue-500', 'focus:border-blue-500', 'block', 'w-full', 'p-3', 'dark:bg-gray-700', 'dark:border-gray-600', 'dark:placeholder-gray-400', 'dark:text-white', 'dark:focus:ring-blue-500', 'dark:focus:border-blue-500');
 
@@ -211,7 +211,7 @@
                 newSelectDiv.appendChild(newLabel);
                 newSelectDiv.appendChild(newSelect);
 
-                // Create new input for hdd_property_code
+                // Create new input for internalHardDisk_property_code
                 const firstInput = selectWrappers[0].getElementsByTagName('input')[0];
                 const newInputDiv = document.createElement('div');
                 newInputDiv.classList.add('mr-2');
@@ -222,7 +222,7 @@
 
                 const newInput = document.createElement('input');
                 newInput.type = 'text';
-                newInput.name = 'hdd_property_code[]';
+                newInput.name = 'internalHardDisk_property_code[]';
                 newInput.value = '';
                 newInput.classList.add('bg-gray-50', 'border', 'border-gray-300', 'text-gray-900', 'text-sm', 'rounded-lg', 'focus:ring-blue-500', 'focus:border-blue-500', 'block', 'w-full', 'p-2', 'dark:bg-gray-700', 'dark:border-gray-600', 'dark:placeholder-gray-400', 'dark:text-white', 'dark:focus:ring-blue-500', 'dark:focus:border-blue-500');
 
