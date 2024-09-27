@@ -71,7 +71,7 @@ Route::get('/captcha', [LoginController::class, 'getCaptcha'])->name('captcha');
 
 
 //Panel Routes
-Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::class)->group(function () {
+Route::middleware(['auth', MenuMiddleware::class])->group(function () {
     Route::get('/dateandtime', [DashboardController::class, 'jalaliDateAndTime']);
     Route::get('/date', [DashboardController::class, 'jalaliDate']);
     Route::get('/Profile', [DashboardController::class, 'Profile'])->name('Profile');
