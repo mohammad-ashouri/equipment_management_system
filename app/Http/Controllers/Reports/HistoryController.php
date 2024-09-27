@@ -9,7 +9,7 @@ class HistoryController extends Controller
 {
     public function index()
     {
-        $history = ChangeHistory::where('equipment_id', 1)->get();
+        $history = ChangeHistory::with('userInfo')->where('equipment_id', 1)->select('changes','created_at','user')->get();
         return view('Reports.ChangesHistory', compact('history'));
     }
 }

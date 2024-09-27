@@ -93,6 +93,7 @@ class Equipment extends Model
                 ChangeHistory::create([
                     'equipment_id' => $equipment->id,
                     'changes' => json_encode($differences),
+                    'user' => auth()->user()->id,
                     'updated_at' => now(),
                 ]);
             }

@@ -43,6 +43,12 @@
                                             ویرایش
                                         </button>
                                     </a>
+                                    <a href="{{ route('History.index',['personnel'=>$personnel->id,'equipmentId'=>$equipment->id]) }}">
+                                        <button type="button"
+                                                class="px-4 py-2 mr-3 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300 ">
+                                            تاریخچه
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -66,13 +72,13 @@
             Swal.fire({
                 title: 'انتخاب تجهیزات',
                 html: `
-            <select id="equipment-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option disabled selected value="">انتخاب کنید</option>
-                @foreach ($equipmentTypes as $equipmentType)
-                <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
-                @endforeach
-                </select>
-`,
+                    <select id="equipment-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option disabled selected value="">انتخاب کنید</option>
+                        @foreach ($equipmentTypes as $equipmentType)
+                        <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
+                        @endforeach
+                    </select>
+                `,
                 showCancelButton: true,
                 confirmButtonText: 'تایید',
                 cancelButtonText: 'لغو',

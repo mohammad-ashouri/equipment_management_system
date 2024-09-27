@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('equipment_id');
             $table->json('changes');
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
         });
     }
