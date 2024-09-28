@@ -146,7 +146,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             Route::get('/', [DatabaseBackupController::class, 'index']);
             Route::post('/', [DatabaseBackupController::class, 'createBackup']);
         });
-        Route::get('/ChangeHistory', [HistoryController::class, 'index'])->name('History.index');
+        Route::get('/ChangeHistory/{personnel}/{equipmentId}', [HistoryController::class, 'index'])->name('History.index');
     });
 });
 

@@ -5,6 +5,7 @@ if (!function_exists('translateJsonKeysToPersian')) {
     {
         $translations = [
             'delivery_date'=>'تاریخ تحویل',
+            'property_code'=>'کد اموال',
             'original'=>'از',
             'changed'=>'به',
             'added'=>'اضافه شده',

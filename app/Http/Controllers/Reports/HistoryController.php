@@ -7,9 +7,15 @@ use App\Models\ChangeHistory;
 
 class HistoryController extends Controller
 {
-    public function index()
+    public function index($personnelId, $equipmentId)
     {
-        $history = ChangeHistory::with('userInfo')->where('equipment_id', 1)->select('changes','created_at','user')->get();
+        $history = ChangeHistory::with('userInfo', 'equipmentInfo')
+            ->where('equipment_id', $equipmentId)
+            ->whereHas('equipmentInfo', function ($query) use ($personnelId) {
+                $query->where('personnel', $personnelId);
+            })
+            ->orderByDesc('created_at')
+            ->get();
         return view('Reports.ChangesHistory', compact('history'));
     }
 }

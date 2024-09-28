@@ -14,7 +14,10 @@ class Equipment extends Model
         'personnel', 'equipment_type', 'property_code', 'delivery_date', 'info', 'description', 'status', 'adder', 'editor'
     ];
 
-
+    public function equipmentType()
+    {
+        return $this->belongsTo(EquipmentType::class, 'equipment_type', 'id');
+    }
     protected static function booted()
     {
         static::updating(function ($equipment) {

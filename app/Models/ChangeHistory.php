@@ -12,4 +12,9 @@ class ChangeHistory extends Model
     {
         return $this->belongsTo(User::class, 'user', 'id');
     }
+
+    public function equipmentInfo()
+    {
+        return $this->belongsTo(Equipment::class, 'equipment_id', 'id');
+    }
 }
