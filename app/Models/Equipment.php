@@ -18,88 +18,73 @@ class Equipment extends Model
     {
         return $this->belongsTo(EquipmentType::class, 'equipment_type', 'id');
     }
+
+    public function personnelInfo()
+    {
+        return $this->belongsTo(Personnel::class, 'personnel', 'id');
+    }
+
     protected static function booted()
     {
+        static::created(function ($equipment) {
+            $data = [
+                'status' => 'created',
+                'personnel' => $equipment->personnel,
+                'property_code' => $equipment->property_code,
+                'delivery_date' => $equipment->delivery_date,
+                'info' => $equipment->info,
+            ];
+            ChangeHistory::create([
+                'equipment_id' => $equipment->id,
+                'new' => json_encode($data),
+                'user' => auth()->user()->id,
+                'updated_at' => now(),
+            ]);
+        });
         static::updating(function ($equipment) {
+            // گرفتن داده‌های اصلی قبل از تغییر
             $originalData = $equipment->getOriginal();
-            unset($originalData['id'],
-                $originalData['personnel'],
-                $originalData['equipment_type'],
-                $originalData['property_code'],
-                $originalData['adder'],
-                $originalData['editor'],
-                $originalData['created_at'],
-                $originalData['updated_at']
-            );
-            $info = json_decode($originalData['info'], true);
-            unset($info['equipmentId']);
-            $originalData['info'] = json_encode($info);
+            unset($originalData['id'], $originalData['personnel'], $originalData['equipment_type'], $originalData['property_code'], $originalData['adder'], $originalData['editor'], $originalData['created_at'], $originalData['updated_at']);
 
-            $changes = $equipment->getDirty();
-            $info = json_decode($changes['info'], true);
-            unset($info['description'], $info['equipmentId']);
-            $changes['info'] = json_encode($info);
+            // حذف فیلدهای اضافی از JSON اصلی
+            $originalInfo = json_decode($originalData['info'], true);
+            unset($originalInfo['equipmentId']);
+            $originalData['info'] = json_encode($originalInfo);
 
+            // گرفتن تغییرات جدید
+            $changedData = $equipment->getDirty();
+            $changedInfo = json_decode($changedData['info'], true);
+            unset($changedInfo['description'], $changedInfo['equipmentId']);
+            $changedData['info'] = json_encode($changedInfo);
+
+            // تبدیل JSON ها به آرایه برای مقایسه
             $original = json_decode($originalData['info'], true);
-            $changes = json_decode($changes['info'], true);
+            $changes = json_decode($changedData['info'], true);
 
-            function recursiveArrayDiff($array1, $array2)
-            {
-                $result = [];
+            // مقایسه برای یافتن داده‌های جدید، ویرایش‌شده و حذف‌شده
+            $addedParts = array_diff_key($changes, $original); // قطعات جدید
+            $deletedParts = array_diff_key($original, $changes); // قطعات حذف‌شده
+            $modifiedParts = [];
 
-                foreach ($array1 as $key => $value) {
-                    if (array_key_exists($key, $array2)) {
-                        if (is_array($value) && is_array($array2[$key])) {
-                            $diff = recursiveArrayDiff($value, $array2[$key]);
-
-                            $addedItems = array_diff($array2[$key], $value);
-                            $removedItems = array_diff($value, $array2[$key]);
-
-                            if (!empty($diff) || !empty($addedItems) || !empty($removedItems)) {
-                                $result[$key] = [
-                                    'added' => !empty($addedItems) ? $addedItems : null,
-                                    'removed' => !empty($removedItems) ? $removedItems : null,
-                                    'modified' => !empty($diff) ? $diff : null,
-                                ];
-                            }
-                        } else {
-                            if ($value != $array2[$key]) {
-                                $result[$key] = [
-                                    'original' => $value,
-                                    'changed' => $array2[$key]
-                                ];
-                            }
-                        }
-                    } else {
-                        $result[$key] = [
-                            'original' => $value,
-                            'changed' => null
-                        ];
-                    }
+            // بررسی تغییرات در قطعات
+            foreach ($original as $key => $value) {
+                if (isset($changes[$key]) && $changes[$key] != $value) {
+                    $modifiedParts[$key] = [
+                        'from' => $value,
+                        'to' => $changes[$key]
+                    ];
                 }
-
-                foreach ($array2 as $key => $value) {
-                    if (!array_key_exists($key, $array1)) {
-                        $result[$key] = [
-                            'original' => null,
-                            'changed' => $value
-                        ];
-                    }
-                }
-
-                return $result;
             }
 
-            $differences = recursiveArrayDiff($original, $changes);
-
-            if (!empty($differences)) {
-                ChangeHistory::create([
-                    'equipment_id' => $equipment->id,
-                    'changes' => json_encode($differences),
-                    'user' => auth()->user()->id,
-                    'updated_at' => now(),
-                ]);
-            }
+            // ذخیره‌سازی تغییرات در تاریخچه
+            ChangeHistory::create([
+                'equipment_id' => $equipment->id,
+                'new' => json_encode($addedParts),
+                'edit' => json_encode($modifiedParts),
+                'delete' => json_encode($deletedParts),
+                'user' => auth()->user()->id,
+                'updated_at' => now(),
+            ]);
         });
     }
 }

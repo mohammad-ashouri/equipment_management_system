@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChangeHistory extends Model
 {
-    protected $fillable = ['equipment_id', 'changes', 'user', 'updated_at'];
+    protected $fillable = ['equipment_id', 'new', 'edit', 'delete', 'user', 'updated_at'];
 
     public function userInfo()
     {

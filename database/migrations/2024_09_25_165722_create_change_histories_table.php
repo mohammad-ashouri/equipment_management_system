@@ -13,7 +13,9 @@ return new class extends Migration {
         Schema::create('change_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('equipment_id');
-            $table->json('changes');
+            $table->json('new')->nullable();
+            $table->json('edit')->nullable();
+            $table->json('delete')->nullable();
             $table->unsignedBigInteger('user');
             $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
