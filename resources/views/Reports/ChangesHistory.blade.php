@@ -28,10 +28,22 @@
                                     {{ Jalalian::fromDateTime($items->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 @php
-                                    $changes=translateJsonKeysToPersian(json_decode($items->new,true));
-                                    $changesNew=translateJsonKeysToPersian(json_decode($items->new,true));
-                                    $changesEdit=translateJsonKeysToPersian(json_decode($items->edit,true));
-                                    $changesDelete=translateJsonKeysToPersian(json_decode($items->delete,true));
+                                    $directory = app_path('Models');
+                                    $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
+                                    $paths=$modelPath=[];
+                                    foreach ($files as $file) {
+                                        if ($file->isFile()) {
+                                            $relativePath = str_replace(app_path() . DIRECTORY_SEPARATOR, '', $file->getRealPath());
+                                            $relativePath = str_replace('/', '\\', $relativePath);
+                                            $relativePath = str_replace('.php', '', $relativePath);
+
+                                            $paths[] = 'App\\' . $relativePath;
+                                        }
+                                    }
+                                    $changes=translateKeysToPersian(json_decode($items->new,true));
+                                    $changesNew=translateKeysToPersian(json_decode($items->new,true));
+                                    $changesEdit=translateKeysToPersian(json_decode($items->edit,true));
+                                    $changesDelete=translateKeysToPersian(json_decode($items->delete,true));
                                 @endphp
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
@@ -43,6 +55,9 @@
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
                                                     تاریخ تحویل
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
+                                                    کد اموال
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
                                                     اطلاعات
@@ -61,23 +76,14 @@
                                                     {{ $changes['تاریخ تحویل'] }}
                                                 </td>
                                                 <td class="px-2 py-2">
+                                                    {{ $changes['کد اموال'] }}
+                                                </td>
+                                                <td class="px-2 py-2">
                                                     @php
-                                                        $directory = app_path('Models');
-                                                        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
-                                                        $paths=$modelPath=[];
-                                                        foreach ($files as $file) {
-                                                            if ($file->isFile()) {
-                                                                $relativePath = str_replace(app_path() . DIRECTORY_SEPARATOR, '', $file->getRealPath());
-                                                                $relativePath = str_replace('/', '\\', $relativePath);
-                                                                $relativePath = str_replace('.php', '', $relativePath);
-
-                                                                $paths[] = 'App\\' . $relativePath;
-                                                            }
-                                                        }
                                                         $originalArray=json_decode($changes['اطلاعات'],true);
 
                                                         $translatedArray = [];
-                                                        foreach (translateJsonKeysToPersian($originalArray) as $key => $value) {
+                                                        foreach (translateKeysToPersian($originalArray) as $key => $value) {
                                                             $translatedArray[] = $key;
                                                         }
                                                     @endphp
@@ -97,7 +103,20 @@
                                                                 }
                                                             @endphp
                                                             {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }}
-                                                            = {{ $equipmentInfo->brandInfo->name }} {{ $equipmentInfo->model }} {{ $equipmentInfo->capacity }} {{ $equipmentInfo->generation }} {{ $equipmentInfo->ram_size }}
+                                                            = {{ $equipmentInfo->brandInfo->name }}
+                                                            {{ $equipmentInfo->model }}
+                                                            {{ $equipmentInfo->capacity }}
+                                                            {{ $equipmentInfo->generation }}
+                                                            {{ $equipmentInfo->ram_size }}
+                                                            {{ $equipmentInfo->connectivity_type }}
+                                                            {{ $equipmentInfo->cpu_slot_type }}
+                                                            {{ $equipmentInfo->cpu_slots_number }}
+                                                            {{ $equipmentInfo->ram_slot_type }}
+                                                            {{ $equipmentInfo->type }}
+                                                            {{ $equipmentInfo->size }}
+                                                            {{ $equipmentInfo->frequency }}
+                                                            {{ $equipmentInfo->channels ? 'تعداد کانال: '.$equipmentInfo->channels : '' }}
+                                                            {{ $equipmentInfo->voltage ? $equipmentInfo->voltage.'w' : '' }}
                                                             <br>
                                                         @endif
                                                     @endforeach
@@ -137,6 +156,10 @@
                                             <!-- Edited Data -->
 
                                             @if(!empty($changesEdit) and is_array($changesEdit))
+                                                @php
+                                                    $englishKeys = array_keys(translateKeysToEnglish($changesEdit));
+                                                    $counter=0;
+                                                @endphp
                                                 @foreach($changesEdit as $key => $modified)
                                                     <tr>
                                                         <td class="px-2 py-2">{{ $key }}</td>
@@ -150,14 +173,83 @@
                                                                         <th class="px-2 py-1 font-bold">به</th>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="px-2 py-2">{{ is_array($modified['from']) ? implode(', ', $modified['from']) : $modified['from'] }}</td>
-                                                                        <td class="px-2 py-2">{{ is_array($modified['to']) ? implode(', ', $modified['to']) : $modified['to'] }}</td>
+                                                                        @php
+                                                                            $equipmentInfoFrom=$equipmentInfoTo=null;
+                                                                                $result = array_filter($paths, function ($path) use ($englishKeys,$counter) {
+                                                                                    if ($englishKeys[$counter]!='delivery_date'){
+                                                                                            return stripos($path, Str::studly($englishKeys[$counter++])) !== false;
+                                                                                    }
+                                                                                });
+                                                                        @endphp
+                                                                        @if(!empty($result))
+                                                                            @php
+                                                                                if (is_array($modified['from'])){
+                                                                                    $equipmentInfoFrom=reset($result)::with('brandInfo')->whereIn('id',$modified['from'])->get()->toArray();
+                                                                                }else{
+                                                                                    $equipmentInfoFrom=reset($result)::with('brandInfo')->whereId($modified['from'])->first();
+                                                                                }
+
+                                                                                if (is_array($modified['to'])){
+                                                                                    $equipmentInfoTo=reset($result)::with('brandInfo')->whereIn('id',$modified['to'])->get()->toArray();
+                                                                                }else{
+                                                                                    $equipmentInfoTo=reset($result)::with('brandInfo')->whereId($modified['to'])->first();
+                                                                                }
+                                                                            @endphp
+                                                                        @endif
+                                                                        <td class="px-2 py-2">
+                                                                            @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date')
+                                                                                @foreach($equipmentInfoFrom as $from)
+                                                                                    {{ $from['brand_info']['name'] }}
+                                                                                    {{ $from['model'] }}
+                                                                                    {{ isset($from['capacity']) ? $from['capacity'] : '' }}
+                                                                                    {{ isset($from['generation']) ? $from['generation'] : '' }}
+                                                                                    {{ isset($from['ram_size']) ? $from['ram_size'] : '' }}
+                                                                                    {{ isset($from['connectivity_type']) ? $from['connectivity_type'] : '' }}
+                                                                                    {{ isset($from['cpu_slot_type']) ? $from['cpu_slot_type'] : '' }}
+                                                                                    {{ isset($from['cpu_slots_number']) ? $from['cpu_slots_number'] : '' }}
+                                                                                    {{ isset($from['ram_slot_type']) ? $from['ram_slot_type'] : '' }}
+                                                                                    {{ isset($from['type']) ? $from['type'] : '' }}
+                                                                                    {{ isset($from['size']) ? $from['size'] : '' }}
+                                                                                    {{ isset($from['frequency']) ? $from['frequency'] : '' }}
+                                                                                    {{ isset($from['channels']) ? 'تعداد کانال: '.$from['channels'] : '' }}
+                                                                                    {{ isset($from['voltage']) ? $from['voltage'].'w' : '' }}
+                                                                                    <br>
+                                                                                @endforeach
+                                                                            @else
+                                                                                {{ is_array($modified['from']) ? implode(', ', $modified['from']) : $modified['from'] }}
+                                                                            @endif
+                                                                        </td>
+                                                                        <td class="px-2 py-2">
+                                                                            @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date')
+                                                                                @foreach($equipmentInfoTo as $to)
+                                                                                    {{ $to['brand_info']['name'] }}
+                                                                                    {{ $to['model'] }}
+                                                                                    {{ isset($to['capacity']) ? $to['capacity'] : '' }}
+                                                                                    {{ isset($to['generation']) ? $to['generation'] : '' }}
+                                                                                    {{ isset($to['ram_size']) ? $to['ram_size'] : '' }}
+                                                                                    {{ isset($to['connectivity_type']) ? $to['connectivity_type'] : '' }}
+                                                                                    {{ isset($to['cpu_slot_type']) ? $to['cpu_slot_type'] : '' }}
+                                                                                    {{ isset($to['cpu_slots_number']) ? $to['cpu_slots_number'] : '' }}
+                                                                                    {{ isset($to['ram_slot_type']) ? $to['ram_slot_type'] : '' }}
+                                                                                    {{ isset($to['type']) ? $to['type'] : '' }}
+                                                                                    {{ isset($to['size']) ? $to['size'] : '' }}
+                                                                                    {{ isset($to['frequency']) ? $to['frequency'] : '' }}
+                                                                                    {{ isset($to['channels']) ? 'تعداد کانال: '.$to['channels'] : '' }}
+                                                                                    {{ isset($to['voltage']) ? $to['voltage'].'w' : '' }}
+                                                                                    <br>
+                                                                        @endforeach
+                                                                        @else
+                                                                            {{ is_array($modified['to']) ? implode(', ', $modified['to']) : $modified['to'] }}
+                                                                        @endif
                                                                     </tr>
                                                                 </table>
                                                             @endif
                                                         </td>
                                                         <td class="px-2 py-2">-</td>
                                                     </tr>
+                                                    @php
+                                                        $counter++;
+                                                    @endphp
                                                 @endforeach
                                             @endif
 
