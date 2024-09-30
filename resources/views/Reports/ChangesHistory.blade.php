@@ -196,7 +196,7 @@
                                                                                     }
                                                                                 });
                                                                         @endphp
-                                                                        @if(!empty($result))
+                                                                        @if(!empty($result) and $englishKeys[$counter]!='internalHardDisk')
                                                                             @php
                                                                                 if (is_array($modified['from'])){
                                                                                     $equipmentInfoFrom=reset($result)::with('brandInfo')->whereIn('id',$modified['from'])->get()->toArray();
@@ -210,9 +210,10 @@
                                                                                     $equipmentInfoTo=reset($result)::with('brandInfo')->whereId($modified['to'])->first();
                                                                                 }
                                                                             @endphp
+
                                                                         @endif
                                                                         <td class="px-2 py-2">
-                                                                            @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date')
+                                                                            @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date' and $englishKeys[$counter]!='internalHardDisk')
                                                                                 @foreach($equipmentInfoFrom as $from)
                                                                                     {{ $from['brand_info']['name'] }}
                                                                                     {{ $from['model'] }}
@@ -230,12 +231,28 @@
                                                                                     {{ isset($from['voltage']) ? $from['voltage'].'w' : '' }}
                                                                                     <br>
                                                                                 @endforeach
+                                                                            @elseif($englishKeys[$counter]=='internalHardDisk')
+                                                                                @foreach($modified['from'] as $key=>$internalHardDisk)
+                                                                                    @php
+                                                                                        $equipmentInfo=InternalHardDisk::with('brandInfo')->whereId($internalHardDisk['id'])->first();
+                                                                                    @endphp
+                                                                                    {{ $equipmentInfo->brandInfo->name }}
+                                                                                    {{ $equipmentInfo->model }}
+                                                                                    {{ $equipmentInfo->capacity }}
+                                                                                    {{ $equipmentInfo->connectivity_type }}
+                                                                                    {{ $equipmentInfo->type }}
+                                                                                    {{ $equipmentInfo->size }}
+                                                                                    ( کد
+                                                                                    اموال: {{ $internalHardDisk['کد اموال'] }}
+                                                                                    )
+                                                                                    <br/>
+                                                                                @endforeach
                                                                             @else
                                                                                 {{ is_array($modified['from']) ? implode(', ', $modified['from']) : $modified['from'] }}
                                                                             @endif
                                                                         </td>
                                                                         <td class="px-2 py-2">
-                                                                            @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date')
+                                                                            @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date' and $key!='internalHardDisk')
                                                                                 @foreach($equipmentInfoTo as $to)
                                                                                     {{ $to['brand_info']['name'] }}
                                                                                     {{ $to['model'] }}
@@ -252,6 +269,22 @@
                                                                                     {{ isset($to['channels']) ? 'تعداد کانال: '.$to['channels'] : '' }}
                                                                                     {{ isset($to['voltage']) ? $to['voltage'].'w' : '' }}
                                                                                     <br>
+                                                                                @endforeach
+                                                                            @elseif($englishKeys[$counter]=='internalHardDisk')
+                                                                                @foreach($modified['to'] as $key=>$internalHardDisk)
+                                                                                    @php
+                                                                                        $equipmentInfo=InternalHardDisk::with('brandInfo')->whereId($internalHardDisk['id'])->first();
+                                                                                    @endphp
+                                                                                    {{ $equipmentInfo->brandInfo->name }}
+                                                                                    {{ $equipmentInfo->model }}
+                                                                                    {{ $equipmentInfo->capacity }}
+                                                                                    {{ $equipmentInfo->connectivity_type }}
+                                                                                    {{ $equipmentInfo->type }}
+                                                                                    {{ $equipmentInfo->size }}
+                                                                                    ( کد
+                                                                                    اموال: {{ $internalHardDisk['کد اموال'] }}
+                                                                                    )
+                                                                                    <br/>
                                                                         @endforeach
                                                                         @else
                                                                             {{ is_array($modified['to']) ? implode(', ', $modified['to']) : $modified['to'] }}

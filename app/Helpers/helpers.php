@@ -13,6 +13,8 @@ if (!defined('TRANSLATIONS')) {
         'added' => 'اضافه شده',
         'removed' => 'حذف شده',
         'modified' => 'تغییر یافته',
+        'internalHardDisks' => 'هارد اینترنال',
+        'internalHardDisk' => 'هارد اینترنال',
         'internalHardDisk_property_code' => 'کد اموال هارد اینترنال',
         'case' => 'کیس',
         'power' => 'منبع تغذیه',
@@ -20,7 +22,6 @@ if (!defined('TRANSLATIONS')) {
         'cpu' => 'پردازنده',
         'graphicCard' => 'کارت گرافیک',
         'ram' => 'رم',
-        'internalHardDisk' => 'هارد اینترنال',
         'monitor' => 'مانیتور',
     ]);
 }
