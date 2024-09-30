@@ -97,7 +97,7 @@
                                                                 }
                                                             @endphp
                                                             {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }}
-                                                            = {{ $equipmentInfo->brandInfo->name }} {{ $equipmentInfo->model }}
+                                                            = {{ $equipmentInfo->brandInfo->name }} {{ $equipmentInfo->model }} {{ $equipmentInfo->capacity }} {{ $equipmentInfo->generation }} {{ $equipmentInfo->ram_size }}
                                                             <br>
                                                         @endif
                                                     @endforeach
@@ -105,7 +105,8 @@
                                             </tr>
                                         </table>
                                     @else
-                                        <table class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                        <table
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1 font-bold">نوع</th>
                                                 <th class="px-2 py-1 font-bold">اضافه شده</th>
@@ -142,7 +143,8 @@
                                                         <td class="px-2 py-2">-</td>
                                                         <td class="px-2 py-2">
                                                             @if(is_array($modified))
-                                                                <table class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                                <table
+                                                                    class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                                                     <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                                         <th class="px-2 py-1 font-bold">از</th>
                                                                         <th class="px-2 py-1 font-bold">به</th>
