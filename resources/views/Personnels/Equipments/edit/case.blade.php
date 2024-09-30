@@ -158,7 +158,7 @@
 <div>
     <div class="internalHardDisk-container mx-auto p-4">
         <div id="internalHardDisk-select-container">
-            @foreach($equipmentInfo['internalHardDisk'] as $index=>$internalHardDiskEquipment)
+            @foreach($equipmentInfo['internalHardDisks'] as $index=>$internalHardDiskEquipment)
                 <div class="grid grid-cols-2 mt-2 internalHardDisk-select-wrapper">
                     <div class="internalHardDisk-select-wrapper">
                         <label
@@ -168,7 +168,7 @@
                             <option value="" disabled selected>انتخاب کنید</option>
                             @foreach($internalHards as $internalHard)
                                 <option value="{{ $internalHard->id }}"
-                                        @if($internalHardDiskEquipment==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
+                                        @if($internalHardDiskEquipment['id']==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
                                     - {{ $internalHard->model}} - {{ $internalHard->capacity }}
                                     - {{ $internalHard->connectivity_type }}</option>
                             @endforeach
@@ -179,7 +179,7 @@
                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد اموال
                             هارد {{$loop->iteration}}</label>
                         <input type="text" name="internalHardDisk_property_code[]"
-                               value="{{ $equipmentInfo['internalHardDisk_property_code'][$index] }}"
+                               value="{{ $internalHardDiskEquipment['property_code'] }}"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                placeholder="">
                     </div>
