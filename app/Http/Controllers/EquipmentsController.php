@@ -32,10 +32,22 @@ class EquipmentsController extends Controller
         ]);
 
         $input = $request->all();
-        if (isset($input['hdd'])) {
-            $input['hdd'] = array_filter($input['hdd'], function ($value) {
+        if (isset($input['internalHardDisk'])) {
+            $input['internalHardDisk'] = array_filter($input['internalHardDisk'], function ($value) {
                 return !is_null($value);
             });
+            $internalHardDisks = array_filter($input['internalHardDisk']);
+            $propertyCodes = array_filter($input['internalHardDisk_property_code']);
+
+            foreach ($internalHardDisks as $key => $internalHardDiskId) {
+                $propertyCode = $propertyCodes[$key] ?? null;
+
+                $input['internalHardDisks'][] = [
+                    'id' => $internalHardDiskId,
+                    'property_code' => $propertyCode
+                ];
+            }
+            unset($input['internalHardDisk'],$input['internalHardDisk_property_code']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {

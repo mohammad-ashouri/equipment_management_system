@@ -1,4 +1,4 @@
-@php use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
+@php use App\Models\HardwareEquipments\InternalHardDisk;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
 @php @endphp
 @extends('layouts.PanelMaster')
 
@@ -48,7 +48,7 @@
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
                                         <table
-                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1  font-bold ">
                                                     وضعیت
@@ -118,6 +118,21 @@
                                                             {{ $equipmentInfo->channels ? 'تعداد کانال: '.$equipmentInfo->channels : '' }}
                                                             {{ $equipmentInfo->voltage ? $equipmentInfo->voltage.'w' : '' }}
                                                             <br>
+                                                        @elseif($searchTerm=='InternalHardDisks')
+                                                            @foreach($info as $key=>$internalHardDisk)
+                                                                @php
+                                                                    $equipmentInfo=InternalHardDisk::with('brandInfo')->whereId($internalHardDisk['id'])->first();
+                                                                @endphp
+                                                                هارد اینترنال
+                                                                = {{ $equipmentInfo->brandInfo->name }}
+                                                                {{ $equipmentInfo->model }}
+                                                                {{ $equipmentInfo->capacity }}
+                                                                {{ $equipmentInfo->connectivity_type }}
+                                                                {{ $equipmentInfo->type }}
+                                                                {{ $equipmentInfo->size }}
+                                                                ( کد اموال: {{ $info[$key]['property_code'] }} )
+                                                                <br/>
+                                                            @endforeach
                                                         @endif
                                                     @endforeach
                                                 </td>
@@ -125,7 +140,7 @@
                                         </table>
                                     @else
                                         <table
-                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1 font-bold">نوع</th>
                                                 <th class="px-2 py-1 font-bold">اضافه شده</th>
@@ -167,7 +182,7 @@
                                                         <td class="px-2 py-2">
                                                             @if(is_array($modified))
                                                                 <table
-                                                                    class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                                        class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                                                     <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                                         <th class="px-2 py-1 font-bold">از</th>
                                                                         <th class="px-2 py-1 font-bold">به</th>
