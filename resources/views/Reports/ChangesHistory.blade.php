@@ -48,7 +48,7 @@
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
                                         <table
-                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1  font-bold ">
                                                     وضعیت
@@ -140,12 +140,12 @@
                                         </table>
                                     @else
                                         <table
-                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1 font-bold">نوع</th>
-                                                <th class="px-2 py-1 font-bold">اضافه شده</th>
+                                                {{--                                                <th class="px-2 py-1 font-bold">اضافه شده</th>--}}
                                                 <th class="px-2 py-1 font-bold">تغییر یافته</th>
-                                                <th class="px-2 py-1 font-bold">حذف شده</th>
+                                                {{--                                                <th class="px-2 py-1 font-bold">حذف شده</th>--}}
                                             </tr>
 
                                             <!-- Added Data -->
@@ -153,15 +153,15 @@
                                                 @foreach($changesNew as $key => $added)
                                                     <tr>
                                                         <td class="px-2 py-2">{{ $key }}</td>
-                                                        <td class="px-2 py-2">
-                                                            @if(is_array($added))
-                                                                @foreach($added as $value)
-                                                                    {{ $value }}
-                                                                @endforeach
-                                                            @else
-                                                                {{ $added }}
-                                                            @endif
-                                                        </td>
+                                                        {{--                                                        <td class="px-2 py-2">--}}
+                                                        {{--                                                            @if(is_array($added))--}}
+                                                        {{--                                                                @foreach($added as $value)--}}
+                                                        {{--                                                                    {{ $value }}--}}
+                                                        {{--                                                                @endforeach--}}
+                                                        {{--                                                            @else--}}
+                                                        {{--                                                                {{ $added }}--}}
+                                                        {{--                                                            @endif--}}
+                                                        {{--                                                        </td>--}}
                                                         <td class="px-2 py-2">-</td>
                                                         <td class="px-2 py-2">-</td>
                                                     </tr>
@@ -178,11 +178,11 @@
                                                 @foreach($changesEdit as $key => $modified)
                                                     <tr>
                                                         <td class="px-2 py-2">{{ $key }}</td>
-                                                        <td class="px-2 py-2">-</td>
+                                                        {{--                                                        <td class="px-2 py-2">-</td>--}}
                                                         <td class="px-2 py-2">
                                                             @if(is_array($modified))
                                                                 <table
-                                                                        class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                                    class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                                                     <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                                         <th class="px-2 py-1 font-bold">از</th>
                                                                         <th class="px-2 py-1 font-bold">به</th>
@@ -308,15 +308,15 @@
                                                         <td class="px-2 py-2">{{ $key }}</td>
                                                         <td class="px-2 py-2">-</td>
                                                         <td class="px-2 py-2">-</td>
-                                                        <td class="px-2 py-2">
-                                                            @if(is_array($removed))
-                                                                @foreach($removed as $value)
-                                                                    {{ $value }}
-                                                                @endforeach
-                                                            @else
-                                                                {{ $removed }}
-                                                            @endif
-                                                        </td>
+                                                        {{--                                                        <td class="px-2 py-2">--}}
+                                                        {{--                                                            @if(is_array($removed))--}}
+                                                        {{--                                                                @foreach($removed as $value)--}}
+                                                        {{--                                                                    {{ $value }}--}}
+                                                        {{--                                                                @endforeach--}}
+                                                        {{--                                                            @else--}}
+                                                        {{--                                                                {{ $removed }}--}}
+                                                        {{--                                                            @endif--}}
+                                                        {{--                                                        </td>--}}
                                                     </tr>
                                                 @endforeach
                                             @endif
