@@ -97,26 +97,36 @@
                                                         @endphp
                                                         @if(!empty($result))
                                                             @php
-                                                                $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first() ;
+
+                                                                $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first()->toArray();
                                                                 if (array_key_exists($index,$originalArray)){
                                                                     $keyIndex = array_search($index, array_keys($originalArray));
                                                                 }
                                                             @endphp
                                                             {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }}
-                                                            = {{ $equipmentInfo->brandInfo->name }}
-                                                            {{ $equipmentInfo->model }}
-                                                            {{ $equipmentInfo->capacity }}
-                                                            {{ $equipmentInfo->generation }}
-                                                            {{ $equipmentInfo->ram_size }}
-                                                            {{ $equipmentInfo->connectivity_type }}
-                                                            {{ $equipmentInfo->cpu_slot_type }}
-                                                            {{ $equipmentInfo->cpu_slots_number }}
-                                                            {{ $equipmentInfo->ram_slot_type }}
-                                                            {{ $equipmentInfo->type }}
-                                                            {{ $equipmentInfo->size }}
-                                                            {{ $equipmentInfo->frequency }}
-                                                            {{ $equipmentInfo->channels ? 'تعداد کانال: '.$equipmentInfo->channels : '' }}
-                                                            {{ $equipmentInfo->voltage ? $equipmentInfo->voltage.'w' : '' }}
+                                                            = {{ $equipmentInfo['brand_info']['name'] }}
+                                                            @php
+                                                                unset(
+                                                                    $equipmentInfo['id'],
+                                                                    $equipmentInfo['brand'],
+                                                                    $equipmentInfo['status'],
+                                                                    $equipmentInfo['adder'],
+                                                                    $equipmentInfo['editor'],
+                                                                    $equipmentInfo['created_at'],
+                                                                    $equipmentInfo['updated_at'],
+                                                                    $equipmentInfo['brand_info']['id'],
+                                                                    $equipmentInfo['brand_info']['status'],
+                                                                    $equipmentInfo['brand_info']['adder'],
+                                                                    $equipmentInfo['brand_info']['editor'],
+                                                                    );
+                                                            @endphp
+                                                            @foreach(translateKeysToPersian($equipmentInfo) as $key=>$item)
+                                                                @if($key=='برند')
+                                                                    @continue
+                                                                @endif
+                                                                {{ $key }}: {{ $item }}
+                                                                <br>
+                                                            @endforeach
                                                             <br>
                                                         @elseif($searchTerm=='InternalHardDisks')
                                                             @foreach($info as $key=>$internalHardDisk)
@@ -215,20 +225,29 @@
                                                                         <td class="px-2 py-2">
                                                                             @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date' and $englishKeys[$counter]!='internalHardDisk')
                                                                                 @foreach($equipmentInfoFrom as $from)
+                                                                                    @php
+                                                                                        unset(
+                                                                                            $from['id'],
+                                                                                            $from['brand'],
+                                                                                            $from['status'],
+                                                                                            $from['adder'],
+                                                                                            $from['editor'],
+                                                                                            $from['created_at'],
+                                                                                            $from['updated_at'],
+                                                                                            $from['brand_info']['id'],
+                                                                                            $from['brand_info']['status'],
+                                                                                            $from['brand_info']['adder'],
+                                                                                            $from['brand_info']['editor'],
+                                                                                            );
+                                                                                    @endphp
                                                                                     {{ $from['brand_info']['name'] }}
                                                                                     {{ $from['model'] }}
-                                                                                    {{ isset($from['capacity']) ? $from['capacity'] : '' }}
-                                                                                    {{ isset($from['generation']) ? $from['generation'] : '' }}
-                                                                                    {{ isset($from['ram_size']) ? $from['ram_size'] : '' }}
-                                                                                    {{ isset($from['connectivity_type']) ? $from['connectivity_type'] : '' }}
-                                                                                    {{ isset($from['cpu_slot_type']) ? $from['cpu_slot_type'] : '' }}
-                                                                                    {{ isset($from['cpu_slots_number']) ? $from['cpu_slots_number'] : '' }}
-                                                                                    {{ isset($from['ram_slot_type']) ? $from['ram_slot_type'] : '' }}
-                                                                                    {{ isset($from['type']) ? $from['type'] : '' }}
-                                                                                    {{ isset($from['size']) ? $from['size'] : '' }}
-                                                                                    {{ isset($from['frequency']) ? $from['frequency'] : '' }}
-                                                                                    {{ isset($from['channels']) ? 'تعداد کانال: '.$from['channels'] : '' }}
-                                                                                    {{ isset($from['voltage']) ? $from['voltage'].'w' : '' }}
+                                                                                    @foreach(translateKeysToPersian($from) as $key=>$item)
+                                                                                        @if($key=='برند')
+                                                                                            @continue
+                                                                                        @endif
+                                                                                        {{ $key }}: {{ $item }}
+                                                                                    @endforeach
                                                                                     <br>
                                                                                 @endforeach
                                                                             @elseif($englishKeys[$counter]=='internalHardDisk')
@@ -256,18 +275,27 @@
                                                                                 @foreach($equipmentInfoTo as $to)
                                                                                     {{ $to['brand_info']['name'] }}
                                                                                     {{ $to['model'] }}
-                                                                                    {{ isset($to['capacity']) ? $to['capacity'] : '' }}
-                                                                                    {{ isset($to['generation']) ? $to['generation'] : '' }}
-                                                                                    {{ isset($to['ram_size']) ? $to['ram_size'] : '' }}
-                                                                                    {{ isset($to['connectivity_type']) ? $to['connectivity_type'] : '' }}
-                                                                                    {{ isset($to['cpu_slot_type']) ? $to['cpu_slot_type'] : '' }}
-                                                                                    {{ isset($to['cpu_slots_number']) ? $to['cpu_slots_number'] : '' }}
-                                                                                    {{ isset($to['ram_slot_type']) ? $to['ram_slot_type'] : '' }}
-                                                                                    {{ isset($to['type']) ? $to['type'] : '' }}
-                                                                                    {{ isset($to['size']) ? $to['size'] : '' }}
-                                                                                    {{ isset($to['frequency']) ? $to['frequency'] : '' }}
-                                                                                    {{ isset($to['channels']) ? 'تعداد کانال: '.$to['channels'] : '' }}
-                                                                                    {{ isset($to['voltage']) ? $to['voltage'].'w' : '' }}
+                                                                                    @php
+                                                                                        unset(
+                                                                                            $to['id'],
+                                                                                            $to['brand'],
+                                                                                            $to['status'],
+                                                                                            $to['adder'],
+                                                                                            $to['editor'],
+                                                                                            $to['created_at'],
+                                                                                            $to['updated_at'],
+                                                                                            $to['brand_info']['id'],
+                                                                                            $to['brand_info']['status'],
+                                                                                            $to['brand_info']['adder'],
+                                                                                            $to['brand_info']['editor'],
+                                                                                            );
+                                                                                    @endphp
+                                                                                    @foreach(translateKeysToPersian($to) as $key=>$item)
+                                                                                        @if($key=='برند')
+                                                                                            @continue
+                                                                                        @endif
+                                                                                        {{ $key }}: {{ $item }}
+                                                                                    @endforeach
                                                                                     <br>
                                                                                 @endforeach
                                                                             @elseif($englishKeys[$counter]=='internalHardDisk')

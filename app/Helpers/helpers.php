@@ -22,7 +22,20 @@ if (!defined('TRANSLATIONS')) {
         'cpu' => 'پردازنده',
         'graphicCard' => 'کارت گرافیک',
         'ram' => 'رم',
+        'ram_size' => 'سایز رم',
+        'generation' => 'نسل',
+        'cpu_slot_type' => 'نوع اسلات پردازنده',
+        'cpu_slots_number' => 'تعداد اسلات پردازنده',
+        'ram_slots_number' => 'تعداد اسلات رم',
+        'ram_slot_type' => 'نوع اسلات رم',
+        'voltage' => 'ولتاژ',
         'monitor' => 'مانیتور',
+        'model' => 'مدل',
+        'type' => 'نوع',
+        'size' => 'سایز',
+        'frequency' => 'فرکانس',
+        'channels' => 'کانال',
+        'brand_info' => 'برند',
     ]);
 }
 
