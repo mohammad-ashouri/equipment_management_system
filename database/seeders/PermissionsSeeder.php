@@ -227,6 +227,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات آچار پانچ', 'guard_name' => 'web'],
             ['name' => 'حذف آچار پانچ', 'guard_name' => 'web'],
 
+            ['name' => 'لیست آچار سوکت', 'guard_name' => 'web'],
+            ['name' => 'ایجاد آچار سوکت', 'guard_name' => 'web'],
+            ['name' => 'ویرایش آچار سوکت', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات آچار سوکت', 'guard_name' => 'web'],
+            ['name' => 'حذف آچار سوکت', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -464,6 +470,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش آچار پانچ',
             'نمایش جزئیات آچار پانچ',
             'حذف آچار پانچ',
+
+            'لیست آچار سوکت',
+            'ایجاد آچار سوکت',
+            'ویرایش آچار سوکت',
+            'نمایش جزئیات آچار سوکت',
+            'حذف آچار سوکت',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

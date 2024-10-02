@@ -196,6 +196,12 @@ class MenuMiddleware
                             'permission' => "لیست آچار پانچ",
                             'icon' => 'las la-tools',
                         ],
+                        [
+                            'title' => 'آچار سوکت',
+                            'link' => '/SocketWrenches',
+                            'permission' => "لیست آچار سوکت",
+                            'icon' => 'las la-tools',
+                        ],
                     ]
                 ],
                 4 => [
