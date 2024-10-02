@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\EquipmentType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +16,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('brand');
             $table->foreign('brand')->references('id')->on('brands');
-            $table->string('number');
+            $table->string('number')->unique();
             $table->string('puk');
             $table->string('pin')->nullable();
             $table->string('serial');
-            $table->string('type');
+            $table->string('type_use');
             $table->boolean('status')->default(1)->comment('1 => active , 0 => deactive');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
+        EquipmentType::create(['name'=>'simcard','persian_name'=>'سیمکارت']);
     }
 
     /**

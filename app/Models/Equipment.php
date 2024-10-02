@@ -44,7 +44,7 @@ class Equipment extends Model
         static::updating(function ($equipment) {
             // گرفتن داده‌های اصلی قبل از تغییر
             $originalData = $equipment->getOriginal();
-            unset($originalData['id'], $originalData['personnel'], $originalData['equipment_type'], $originalData['property_code'], $originalData['adder'], $originalData['editor'], $originalData['created_at'], $originalData['updated_at']);
+            unset($originalData['id'], $originalData['personnel'], $originalData['equipment_type'], $originalData['adder'], $originalData['editor'], $originalData['created_at'], $originalData['updated_at']);
 
             // حذف فیلدهای اضافی از JSON اصلی
             $originalInfo = json_decode($originalData['info'], true);

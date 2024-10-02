@@ -188,7 +188,7 @@ class MenuMiddleware
                             'title' => 'دانگل',
                             'link' => '/Dongles',
                             'permission' => "لیست دانگل",
-                            'icon' => 'las la-usb',
+                            'icon' => 'lab la-usb',
                         ],
                     ]
                 ],
@@ -257,6 +257,12 @@ class MenuMiddleware
                             'link' => '/LanTvs',
                             'permission' => "لیست LanTvs",
                             'icon' => 'las la-satellite-dish',
+                        ],
+                        [
+                            'title' => 'سیمکارت',
+                            'link' => '/Simcards',
+                            'permission' => "لیست سیمکارت",
+                            'icon' => 'las la-sim-card',
                         ],
                     ]
                 ],

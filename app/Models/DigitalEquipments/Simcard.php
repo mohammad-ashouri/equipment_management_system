@@ -11,6 +11,6 @@ class Simcard extends Model
 
     protected $table = 'simcards';
     protected $fillable = [
-        'type', 'number', 'puk', 'pin', 'serial', 'brand', 'status', 'adder', 'editor'
+        'type_use', 'number', 'puk', 'pin', 'serial', 'brand', 'status', 'adder', 'editor'
     ];
 }

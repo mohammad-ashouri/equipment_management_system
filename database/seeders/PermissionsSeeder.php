@@ -215,6 +215,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات پایه دوربین', 'guard_name' => 'web'],
             ['name' => 'حذف پایه دوربین', 'guard_name' => 'web'],
 
+            ['name' => 'لیست سیمکارت', 'guard_name' => 'web'],
+            ['name' => 'ایجاد سیمکارت', 'guard_name' => 'web'],
+            ['name' => 'ویرایش سیمکارت', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات سیمکارت', 'guard_name' => 'web'],
+            ['name' => 'حذف سیمکارت', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -440,6 +446,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش پایه دوربین',
             'نمایش جزئیات پایه دوربین',
             'حذف پایه دوربین',
+
+            'لیست سیمکارت',
+            'ایجاد سیمکارت',
+            'ویرایش سیمکارت',
+            'نمایش جزئیات سیمکارت',
+            'حذف سیمکارت',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
