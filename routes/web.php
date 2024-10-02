@@ -34,6 +34,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NetworkEquipments\DongleController;
 use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
+use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
@@ -124,6 +125,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Switches', SwitchController::class);
         Route::resource('/Racks', RackControllers::class);
         Route::resource('/Dongles', DongleController::class);
+        Route::resource('/PunchWrenches', PunchWrenchController::class);
 
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);

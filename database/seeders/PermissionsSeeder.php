@@ -221,6 +221,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات سیمکارت', 'guard_name' => 'web'],
             ['name' => 'حذف سیمکارت', 'guard_name' => 'web'],
 
+            ['name' => 'لیست آچار پانچ', 'guard_name' => 'web'],
+            ['name' => 'ایجاد آچار پانچ', 'guard_name' => 'web'],
+            ['name' => 'ویرایش آچار پانچ', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات آچار پانچ', 'guard_name' => 'web'],
+            ['name' => 'حذف آچار پانچ', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -452,6 +458,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش سیمکارت',
             'نمایش جزئیات سیمکارت',
             'حذف سیمکارت',
+
+            'لیست آچار پانچ',
+            'ایجاد آچار پانچ',
+            'ویرایش آچار پانچ',
+            'نمایش جزئیات آچار پانچ',
+            'حذف آچار پانچ',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

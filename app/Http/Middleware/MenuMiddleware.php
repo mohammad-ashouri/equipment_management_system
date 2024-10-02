@@ -190,6 +190,12 @@ class MenuMiddleware
                             'permission' => "لیست دانگل",
                             'icon' => 'lab la-usb',
                         ],
+                        [
+                            'title' => 'آچار پانچ',
+                            'link' => '/PunchWrenches',
+                            'permission' => "لیست آچار پانچ",
+                            'icon' => 'las la-tools',
+                        ],
                     ]
                 ],
                 4 => [
