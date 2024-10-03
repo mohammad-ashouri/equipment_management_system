@@ -202,6 +202,12 @@ class MenuMiddleware
                             'permission' => "لیست آچار سوکت",
                             'icon' => 'las la-tools',
                         ],
+                        [
+                            'title' => 'آچار استریپر',
+                            'link' => '/StripperWrenches',
+                            'permission' => "لیست آچار استریپر",
+                            'icon' => 'las la-tools',
+                        ],
                     ]
                 ],
                 4 => [
