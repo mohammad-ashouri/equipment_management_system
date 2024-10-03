@@ -67,35 +67,43 @@
     </main>
 
     <script>
-        $('#new-equipment').click(function (e) {
-            e.preventDefault();
-            Swal.fire({
-                title: 'انتخاب تجهیزات',
-                html: `
-                    <select id="equipment-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option disabled selected value="">انتخاب کنید</option>
-                        @foreach ($equipmentTypes as $equipmentType)
-                        <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
-                        @endforeach
+        $(document).ready(function () {
+            $('#new-equipment').click(function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'انتخاب تجهیزات',
+                    html: `
+                <select id="equipment-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option disabled selected value="">انتخاب کنید</option>
+                    @foreach ($equipmentTypes as $equipmentType)
+                    <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
+                    @endforeach
                     </select>
-                `,
-                showCancelButton: true,
-                confirmButtonText: 'تایید',
-                cancelButtonText: 'لغو',
-                preConfirm: () => {
-                    const selectedOption = document.getElementById('equipment-select').value;
-                    if (!selectedOption) {
-                        Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
+`,
+                    showCancelButton: true,
+                    confirmButtonText: 'تایید',
+                    cancelButtonText: 'لغو',
+                    didOpen: () => {
+                        // اینجا Select2 را اعمال می‌کنیم
+                        $('#equipment-select').select2({
+                            dropdownParent: $('.swal2-popup') // تعیین والد برای dropdown
+                        });
+                    },
+                    preConfirm: () => {
+                        const selectedOption = document.getElementById('equipment-select').value;
+                        if (!selectedOption) {
+                            Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
+                        }
+                        return selectedOption;
                     }
-                    return selectedOption;
-                }
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const url = result.value;
-                    if (url) {
-                        window.location.href = 'equipments/new/' + url;
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const url = result.value;
+                        if (url) {
+                            window.location.href = 'equipments/new/' + url;
+                        }
                     }
-                }
+                });
             });
         });
     </script>

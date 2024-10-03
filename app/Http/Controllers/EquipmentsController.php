@@ -28,7 +28,7 @@ class EquipmentsController extends Controller
     public function storeEquipment(Request $request)
     {
         $this->validate($request, [
-            'property_code' => 'string|unique:equipments,property_code',
+            'property_code' => 'nullable|string|unique:equipments,property_code',
         ]);
 
         $input = $request->all();
@@ -79,7 +79,7 @@ class EquipmentsController extends Controller
     {
         $this->validate($request, [
             'equipmentId' => 'required|integer|exists:equipments,id',
-            'property_code' => "nullable|required|string|unique:equipments,property_code,$request->equipmentId,id",
+            'property_code' => "nullable|string|unique:equipments,property_code,$request->equipmentId,id",
         ]);
         $input = $request->all();
         if (isset($input['internalHardDisk'])) {
