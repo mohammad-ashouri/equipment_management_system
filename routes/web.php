@@ -31,6 +31,7 @@ use App\Http\Controllers\HardwareEquipments\RamController;
 use App\Http\Controllers\HardwareEquipments\ScannerController;
 use App\Http\Controllers\HardwareEquipments\VoipController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NetworkEquipments\CableTesterController;
 use App\Http\Controllers\NetworkEquipments\DongleController;
 use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
@@ -130,6 +131,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/PunchWrenches', PunchWrenchController::class);
         Route::resource('/SocketWrenches', SocketWrenchController::class);
         Route::resource('/StripperWrenches', StripperWrenchController::class);
+        Route::resource('/CableTesters', CableTesterController::class);
 
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);

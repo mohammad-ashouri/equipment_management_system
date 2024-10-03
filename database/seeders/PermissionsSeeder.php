@@ -239,6 +239,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات آچار استریپر', 'guard_name' => 'web'],
             ['name' => 'حذف آچار استریپر', 'guard_name' => 'web'],
 
+            ['name' => 'لیست تستر شبکه', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تستر شبکه', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تستر شبکه', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات تستر شبکه', 'guard_name' => 'web'],
+            ['name' => 'حذف تستر شبکه', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -488,6 +494,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش آچار استریپر',
             'نمایش جزئیات آچار استریپر',
             'حذف آچار استریپر',
+
+            'لیست تستر شبکه',
+            'ایجاد تستر شبکه',
+            'ویرایش تستر شبکه',
+            'نمایش جزئیات تستر شبکه',
+            'حذف تستر شبکه',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

@@ -28,7 +28,7 @@ class EquipmentsController extends Controller
     public function storeEquipment(Request $request)
     {
         $this->validate($request, [
-            'property_code' => 'string|unique:equipments,property_code,'.null,
+            'property_code' => 'string|unique:equipments,property_code',
         ]);
 
         $input = $request->all();

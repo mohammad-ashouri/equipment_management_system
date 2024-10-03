@@ -208,6 +208,12 @@ class MenuMiddleware
                             'permission' => "لیست آچار استریپر",
                             'icon' => 'las la-tools',
                         ],
+                        [
+                            'title' => 'تستر شبکه',
+                            'link' => '/CableTesters',
+                            'permission' => "لیست تستر شبکه",
+                            'icon' => 'las la-tools',
+                        ],
                     ]
                 ],
                 4 => [
