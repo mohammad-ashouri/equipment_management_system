@@ -220,6 +220,12 @@ class MenuMiddleware
                             'permission' => "لیست kvm",
                             'icon' => 'lab la-usb',
                         ],
+                        [
+                            'title' => 'Lan TV',
+                            'link' => '/Lantvs',
+                            'permission' => "لیست lantv",
+                            'icon' => 'las la-tv',
+                        ],
                     ]
                 ],
                 4 => [

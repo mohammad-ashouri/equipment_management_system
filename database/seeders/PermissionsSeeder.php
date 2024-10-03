@@ -251,6 +251,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات kvm', 'guard_name' => 'web'],
             ['name' => 'حذف kvm', 'guard_name' => 'web'],
 
+            ['name' => 'لیست lantv', 'guard_name' => 'web'],
+            ['name' => 'ایجاد lantv', 'guard_name' => 'web'],
+            ['name' => 'ویرایش lantv', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات lantv', 'guard_name' => 'web'],
+            ['name' => 'حذف lantv', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -512,6 +518,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش kvm',
             'نمایش جزئیات kvm',
             'حذف kvm',
+
+            'لیست lantv',
+            'ایجاد lantv',
+            'ویرایش lantv',
+            'نمایش جزئیات lantv',
+            'حذف lantv',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
