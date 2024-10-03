@@ -40,7 +40,7 @@
                                         @if($odd->connectivity_type=='SATA') selected @endif>
                                     SATA
                                 </option>
-                                <option value="IDE" @if($odd->connectivity_type=='IDE') selected @endif>USB
+                                <option value="IDE" @if($odd->connectivity_type=='IDE') selected @endif>IDE
                                 <option value="USB" @if($odd->connectivity_type=='USB') selected @endif>USB
                                 </option>
                             </select>
