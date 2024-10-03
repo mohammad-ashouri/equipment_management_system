@@ -245,6 +245,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات تستر شبکه', 'guard_name' => 'web'],
             ['name' => 'حذف تستر شبکه', 'guard_name' => 'web'],
 
+            ['name' => 'لیست kvm', 'guard_name' => 'web'],
+            ['name' => 'ایجاد kvm', 'guard_name' => 'web'],
+            ['name' => 'ویرایش kvm', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات kvm', 'guard_name' => 'web'],
+            ['name' => 'حذف kvm', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -500,6 +506,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش تستر شبکه',
             'نمایش جزئیات تستر شبکه',
             'حذف تستر شبکه',
+
+            'لیست kvm',
+            'ایجاد kvm',
+            'ویرایش kvm',
+            'نمایش جزئیات kvm',
+            'حذف kvm',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

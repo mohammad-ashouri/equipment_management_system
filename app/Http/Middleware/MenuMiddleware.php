@@ -214,6 +214,12 @@ class MenuMiddleware
                             'permission' => "لیست تستر شبکه",
                             'icon' => 'las la-tools',
                         ],
+                        [
+                            'title' => 'Kvm',
+                            'link' => '/Kvms',
+                            'permission' => "لیست kvm",
+                            'icon' => 'lab la-usb',
+                        ],
                     ]
                 ],
                 4 => [

@@ -1,4 +1,4 @@
-@php use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches; @endphp
+@php use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Kvm;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     @switch($equipmentType->name)
@@ -140,6 +140,11 @@
                 $cableTesters=CableTester::get();
             @endphp
             @break
+        @case('kvm')
+            @php
+                $kvms=Kvm::get();
+            @endphp
+            @break
     @endswitch
 
     <main class="flex-1 bg-gray-100 py-6 px-8">
@@ -159,7 +164,7 @@
                                 اموال </label>
                             <input type="text" name="property_code" value="{{ old('property_code') }}"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                   placeholder="" >
+                                   placeholder="">
                         </div>
                         <div>
                             <label for="delivery_date"

@@ -2,10 +2,10 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">ایجاد مودم</h1>
+            <h1 class="text-2xl font-bold mb-4">جزئیات و ویرایش kvm</h1>
             @include('layouts.components.errors')
             <div class="bg-white rounded shadow flex flex-col ">
-                {{ html()->form('POST')->route('Modems.store')->acceptsFiles()->id('create-catalog')->open() }}
+                {{ html()->form('PATCH')->route('Kvms.update',$Kvm->id)->acceptsFiles()->id('edit-catalog')->open() }}
                 <div class="bg-white rounded shadow flex flex-col p-4">
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
                         <div>
@@ -17,78 +17,60 @@
                                 <option value="" disabled selected>انتخاب کنید</option>
                                 @foreach($brands as $brand)
                                     <option value="{{ $brand->id }}"
-                                            @if(old('brand')==$brand->id) selected @endif>{{ $brand->name}}</option>
+                                            @if($Kvm->brand==$brand->id) selected @endif>{{ $brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="model"
                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">مدل </label>
-                            <input type="text" name="model" value="{{ old('model') }}"
+                            <input type="text" name="model" value="{{ $Kvm->model }}"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="" required>
-                        </div>
-                        <div>
-                            <label for="connectivity_type"
-                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع
-                                اتصال </label>
-                            <select name="connectivity_type"
-                                    class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    required>
-                                <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="wired" @if(old('connectivity_type')=='wired') selected @endif>
-                                    wired
-                                </option>
-                                <option value="wireless" @if(old('connectivity_type')=='wireless') selected @endif>
-                                    wireless
-                                </option>
-                            </select>
                         </div>
                         <div>
                             <label for="ports_number"
                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تعداد
                                 پورت </label>
-                            <input type="number" name="ports_number" value="{{ old('ports_number') }}"
+                            <input type="number" name="ports_number" value="{{ $Kvm->ports_number }}"
                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="" required>
                         </div>
                         <div>
                             <label for="type"
                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نوع
-                                مودم </label>
+                            </label>
                             <select name="type"
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="ADSL2+" @if(old('type')=='ADSL2+') selected @endif>
-                                    ADSL2+
+                                <option value="Display" @if($Kvm->type=='Display') selected @endif>
+                                    Display
                                 </option>
-                                <option value="ADSL2+/VDSL" @if(old('type')=='ADSL2+/VDSL') selected @endif>
-                                    ADSL2+/VDSL
+                                <option value="Printer" @if($Kvm->type=='Printer') selected @endif>
+                                    Printer
                                 </option>
                             </select>
                         </div>
                         <div>
-                            <label for="antennas_number"
-                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تعداد
-                                آنتن </label>
-                            <select name="antennas_number"
-                                    class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            <label for="status"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">وضعیت</label>
+                            <select name="status"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
-                                <option value="" disabled selected>انتخاب کنید</option>
-                                @for($i=1;$i<5;$i++)
-                                    <option value="{{$i}}"
-                                            @if(old('antennas_number')==$i) selected @endif>{{$i}}</option>
-                                @endfor
+                                <option value="1" {{$Kvm->status ? 'selected' : ''}}>فعال</option>
+                                <option value="0" {{!$Kvm->status ? 'selected' : ''}}>غیر فعال</option>
                             </select>
                         </div>
                     </div>
                 </div>
+
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    @can('ایجاد مودم')
+                    @can('ویرایش kvm')
+                        <input type="hidden" name="id" value="{{ $Kvm->id }}">
                         <button type="submit"
                                 class="px-4 py-2 mr-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                            ایجاد مودم
+                            ویرایش kvm
                         </button>
                     @endcan
                     <button id="backward_page" type="button"
