@@ -163,15 +163,15 @@
                                                 @foreach($changesNew as $key => $added)
                                                     <tr>
                                                         <td class="px-2 py-2">{{ $key }}</td>
-                                                        {{--                                                        <td class="px-2 py-2">--}}
-                                                        {{--                                                            @if(is_array($added))--}}
-                                                        {{--                                                                @foreach($added as $value)--}}
-                                                        {{--                                                                    {{ $value }}--}}
-                                                        {{--                                                                @endforeach--}}
-                                                        {{--                                                            @else--}}
-                                                        {{--                                                                {{ $added }}--}}
-                                                        {{--                                                            @endif--}}
-                                                        {{--                                                        </td>--}}
+                                                        <td class="px-2 py-2">
+                                                            @if(is_array($added))
+                                                                @foreach($added as $value)
+                                                                    {{ $value }}
+                                                                @endforeach
+                                                            @else
+                                                                {{ $added }}
+                                                            @endif
+                                                        </td>
                                                         <td class="px-2 py-2">-</td>
                                                         <td class="px-2 py-2">-</td>
                                                     </tr>
@@ -333,18 +333,18 @@
                                             @if(!empty($changesDelete) and is_array($changesDelete))
                                                 @foreach($changesDelete as $key => $removed)
                                                     <tr>
-                                                        <td class="px-2 py-2">{{ $key }}</td>
-                                                        <td class="px-2 py-2">-</td>
-                                                        <td class="px-2 py-2">-</td>
-                                                        {{--                                                        <td class="px-2 py-2">--}}
-                                                        {{--                                                            @if(is_array($removed))--}}
-                                                        {{--                                                                @foreach($removed as $value)--}}
-                                                        {{--                                                                    {{ $value }}--}}
-                                                        {{--                                                                @endforeach--}}
-                                                        {{--                                                            @else--}}
-                                                        {{--                                                                {{ $removed }}--}}
-                                                        {{--                                                            @endif--}}
-                                                        {{--                                                        </td>--}}
+{{--                                                        <td class="px-2 py-2">{{ $key }}</td>--}}
+{{--                                                        <td class="px-2 py-2">-</td>--}}
+{{--                                                        <td class="px-2 py-2">-</td>--}}
+{{--                                                        <td class="px-2 py-2">--}}
+{{--                                                            @if(is_array($removed))--}}
+{{--                                                                @foreach($removed as $value)--}}
+{{--                                                                    {{ $value }}--}}
+{{--                                                                @endforeach--}}
+{{--                                                            @else--}}
+{{--                                                                {{ $removed }}--}}
+{{--                                                            @endif--}}
+{{--                                                        </td>--}}
                                                     </tr>
                                                 @endforeach
                                             @endif

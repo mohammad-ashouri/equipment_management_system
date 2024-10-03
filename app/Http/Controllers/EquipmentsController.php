@@ -28,7 +28,7 @@ class EquipmentsController extends Controller
     public function storeEquipment(Request $request)
     {
         $this->validate($request, [
-            'property_code' => 'string|unique:equipments,property_code',
+            'property_code' => 'string|unique:equipments,property_code,'.null,
         ]);
 
         $input = $request->all();
@@ -79,6 +79,7 @@ class EquipmentsController extends Controller
     {
         $this->validate($request, [
             'equipmentId' => 'required|integer|exists:equipments,id',
+            'property_code' => "nullable|required|string|unique:equipments,property_code,$request->equipmentId,id",
         ]);
         $input = $request->all();
         if (isset($input['internalHardDisk'])) {
@@ -104,6 +105,7 @@ class EquipmentsController extends Controller
             });
         }
         $equipment = Equipment::find($request->equipmentId);
+        $equipment->property_code = $request->property_code;
         $equipment->delivery_date = $request->delivery_date;
         unset($input['_token']);
         $equipment->info = json_encode($input, true);
