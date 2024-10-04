@@ -48,11 +48,15 @@ class EquipmentsController extends Controller
                 ];
             }
             unset($input['internalHardDisk'], $input['internalHardDisk_property_code']);
+        } else {
+            return redirect()->back()->withErrors(['errors' => 'مقدار هارد وارد نشده است']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {
                 return !is_null($value);
             });
+        } else {
+            return redirect()->back()->withErrors(['errors' => 'مقدار رم وارد نشده است']);
         }
         $equipment = new Equipment();
         $equipment->personnel = $request->personnel;
