@@ -1,4 +1,4 @@
-@php use App\Models\HardwareEquipments\InternalHardDisk;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
+@php use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
 @php @endphp
 @extends('layouts.PanelMaster')
 
@@ -48,7 +48,7 @@
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
                                         <table
-                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1  font-bold ">
                                                     وضعیت
@@ -148,9 +148,46 @@
                                                 </td>
                                             </tr>
                                         </table>
+
+                                    @elseif(isset($changesEdit['وضعیت']) and $changesEdit['وضعیت']=='moved')
+                                        <table
+                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
+                                                <th class="px-2 py-1  font-bold ">
+                                                    وضعیت
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
+                                                    اطلاعات
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
+                                                    عملیات
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-2 py-2">
+                                                    منتقل شده
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    {{ $changesEdit['اطلاعات'][0] }}
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    @php
+                                                        $secondPersonnelInfo=Personnel::find($changesEdit['second_personnel']);
+                                                    @endphp
+                                                    <a href="{{ route('Personnels.equipments',['personnel'=>$secondPersonnelInfo->id]) }}">
+                                                        <button id="backward_page" type="button"
+                                                                class="mt-3 w-full inline-flex justify-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 sm:mt-0 sm:w-auto">
+                                                            تمامی تجهیزات
+                                                            {{ $secondPersonnelInfo->first_name }} {{ $secondPersonnelInfo->last_name }}
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+
                                     @else
                                         <table
-                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1 font-bold">نوع</th>
                                                 {{--                                                <th class="px-2 py-1 font-bold">اضافه شده</th>--}}
@@ -192,7 +229,7 @@
                                                         <td class="px-2 py-2">
                                                             @if(is_array($modified))
                                                                 <table
-                                                                    class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                                        class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                                                     <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                                         <th class="px-2 py-1 font-bold">از</th>
                                                                         <th class="px-2 py-1 font-bold">به</th>
@@ -333,18 +370,18 @@
                                             @if(!empty($changesDelete) and is_array($changesDelete))
                                                 @foreach($changesDelete as $key => $removed)
                                                     <tr>
-{{--                                                        <td class="px-2 py-2">{{ $key }}</td>--}}
-{{--                                                        <td class="px-2 py-2">-</td>--}}
-{{--                                                        <td class="px-2 py-2">-</td>--}}
-{{--                                                        <td class="px-2 py-2">--}}
-{{--                                                            @if(is_array($removed))--}}
-{{--                                                                @foreach($removed as $value)--}}
-{{--                                                                    {{ $value }}--}}
-{{--                                                                @endforeach--}}
-{{--                                                            @else--}}
-{{--                                                                {{ $removed }}--}}
-{{--                                                            @endif--}}
-{{--                                                        </td>--}}
+                                                        {{--                                                        <td class="px-2 py-2">{{ $key }}</td>--}}
+                                                        {{--                                                        <td class="px-2 py-2">-</td>--}}
+                                                        {{--                                                        <td class="px-2 py-2">-</td>--}}
+                                                        {{--                                                        <td class="px-2 py-2">--}}
+                                                        {{--                                                            @if(is_array($removed))--}}
+                                                        {{--                                                                @foreach($removed as $value)--}}
+                                                        {{--                                                                    {{ $value }}--}}
+                                                        {{--                                                                @endforeach--}}
+                                                        {{--                                                            @else--}}
+                                                        {{--                                                                {{ $removed }}--}}
+                                                        {{--                                                            @endif--}}
+                                                        {{--                                                        </td>--}}
                                                     </tr>
                                                 @endforeach
                                             @endif
