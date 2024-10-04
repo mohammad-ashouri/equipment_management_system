@@ -118,7 +118,7 @@
                 <select id="personnel-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option disabled selected value="">انتخاب کنید</option>
                     @foreach ($allPersonnels->get() as $personnel)
-                    <option value="{{ $personnel->id }}">{{ $personnel->first_name }} {{ $personnel->last_name }}</option>
+                    <option value="{{ $personnel->id }}">{{ $personnel->first_name }} {{ $personnel->last_name }} - {{ $personnel->personnel_code }}</option>
                     @endforeach
                     </select>
 `,
