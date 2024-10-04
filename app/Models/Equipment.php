@@ -53,38 +53,56 @@ class Equipment extends Model
 
             // گرفتن تغییرات جدید
             $changedData = $equipment->getDirty();
-            $changedInfo = json_decode($changedData['info'], true);
-            unset($changedInfo['description'], $changedInfo['equipmentId']);
-            $changedData['info'] = json_encode($changedInfo);
 
-            // تبدیل JSON ها به آرایه برای مقایسه
-            $original = json_decode($originalData['info'], true);
-            $changes = json_decode($changedData['info'], true);
+            //اگر برای انتقال تجهیزات بود
+            if (isset($changedData['personnel'])) {
+                $firstPersonnelInfo = Personnel::find($equipment->getOriginal()['personnel']);
+                $secondPersonnelInfo = Personnel::find($equipment->getDirty()['personnel']);
+                $data = [
+                    'status' => 'moved',
+                    'first_personnel' => $firstPersonnelInfo->id,
+                    'second_personnel' => $secondPersonnelInfo->id,
+                    'info' => ["این دستگاه منتقل شد به: $secondPersonnelInfo->first_name $secondPersonnelInfo->last_name"],
+                ];
+                ChangeHistory::create([
+                    'equipment_id' => $equipment->id,
+                    'edit' => json_encode($data),
+                    'user' => auth()->user()->id,
+                    'updated_at' => now(),
+                ]);
+            } else {
+                $changedInfo = json_decode($changedData['info'], true);
+                unset($changedInfo['description'], $changedInfo['equipmentId']);
+                $changedData['info'] = json_encode($changedInfo);
 
-            // مقایسه برای یافتن داده‌های جدید، ویرایش‌شده و حذف‌شده
-            $addedParts = array_diff_key($changes, $original); // قطعات جدید
-            $deletedParts = array_diff_key($original, $changes); // قطعات حذف‌شده
-            $modifiedParts = [];
+                // تبدیل JSON ها به آرایه برای مقایسه
+                $original = json_decode($originalData['info'], true);
+                $changes = json_decode($changedData['info'], true);
 
-            // بررسی تغییرات در قطعات
-            foreach ($original as $key => $value) {
-                if (isset($changes[$key]) && $changes[$key] != $value) {
-                    $modifiedParts[$key] = [
-                        'from' => $value,
-                        'to' => $changes[$key]
-                    ];
+                // مقایسه برای یافتن داده‌های جدید، ویرایش‌شده و حذف‌شده
+                $addedParts = array_diff_key($changes, $original); // قطعات جدید
+                $deletedParts = array_diff_key($original, $changes); // قطعات حذف‌شده
+                $modifiedParts = [];
+
+                // بررسی تغییرات در قطعات
+                foreach ($original as $key => $value) {
+                    if (isset($changes[$key]) && $changes[$key] != $value) {
+                        $modifiedParts[$key] = [
+                            'from' => $value,
+                            'to' => $changes[$key]
+                        ];
+                    }
                 }
-            }
 
-            // ذخیره‌سازی تغییرات در تاریخچه
-            ChangeHistory::create([
-                'equipment_id' => $equipment->id,
-                'new' => json_encode($addedParts),
-                'edit' => json_encode($modifiedParts),
-                'delete' => json_encode($deletedParts),
-                'user' => auth()->user()->id,
-                'updated_at' => now(),
-            ]);
+                ChangeHistory::create([
+                    'equipment_id' => $equipment->id,
+                    'new' => json_encode($addedParts),
+                    'edit' => json_encode($modifiedParts),
+                    'delete' => json_encode($deletedParts),
+                    'user' => auth()->user()->id,
+                    'updated_at' => now(),
+                ]);
+            }
         });
     }
 }

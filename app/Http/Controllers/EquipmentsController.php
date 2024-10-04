@@ -6,6 +6,7 @@ use App\Models\Equipment;
 use App\Models\EquipmentType;
 use App\Models\Personnel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EquipmentsController extends Controller
 {
@@ -15,7 +16,8 @@ class EquipmentsController extends Controller
         $personnel = Personnel::findOrFail($personnel);
         $equipmentTypes = EquipmentType::orderBy('persian_name')->get();
         $equipments = Equipment::wherePersonnel($personnel->id)->get();
-        return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments'));
+        $allPersonnels = Personnel::whereStatus(1)->orderBy('last_name')->orderBy('first_name');
+        return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments', 'allPersonnels'));
     }
 
     public function newEquipment($personnel, $equipmentType)
@@ -29,9 +31,10 @@ class EquipmentsController extends Controller
     {
         $this->validate($request, [
             'property_code' => 'nullable|string|unique:equipments,property_code',
+            'equipment_type' => 'required|integer|exists:equipment_types,id',
         ]);
-
         $input = $request->all();
+        $equipmentTypeInfo = EquipmentType::find($request->equipment_type)->value('name');
         if (isset($input['internalHardDisk'])) {
             $input['internalHardDisk'] = array_filter($input['internalHardDisk'], function ($value) {
                 return !is_null($value);
@@ -48,14 +51,15 @@ class EquipmentsController extends Controller
                 ];
             }
             unset($input['internalHardDisk'], $input['internalHardDisk_property_code']);
-        } else {
+        } elseif ($equipmentTypeInfo == 'case' and !isset($input['internalHardDisk'])) {
             return redirect()->back()->withErrors(['errors' => 'مقدار هارد وارد نشده است']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {
                 return !is_null($value);
             });
-        } else {
+        } elseif ($equipmentTypeInfo == 'case' and isset($input['ram'])) {
+
             return redirect()->back()->withErrors(['errors' => 'مقدار رم وارد نشده است']);
         }
         $equipment = new Equipment();
@@ -86,6 +90,8 @@ class EquipmentsController extends Controller
             'property_code' => "nullable|string|unique:equipments,property_code,$request->equipmentId,id",
         ]);
         $input = $request->all();
+        $equipment = Equipment::find($request->equipmentId);
+        $equipmentTypeInfo = EquipmentType::find($equipment->equipment_type)->value('name');
         if (isset($input['internalHardDisk'])) {
             $input['internalHardDisk'] = array_filter($input['internalHardDisk'], function ($value) {
                 return !is_null($value);
@@ -102,14 +108,14 @@ class EquipmentsController extends Controller
                 ];
             }
             unset($input['internalHardDisk'], $input['internalHardDisk_property_code']);
-        } else {
+        } elseif ($equipmentTypeInfo == 'case' and !isset($input['internalHardDisk'])) {
             return redirect()->back()->withErrors(['errors' => 'مقدار هارد وارد نشده است']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {
                 return !is_null($value);
             });
-        } else {
+        } elseif ($equipmentTypeInfo == 'case' and !isset($input['ram'])) {
             return redirect()->back()->withErrors(['errors' => 'مقدار رم وارد نشده است']);
         }
         $equipment = Equipment::find($request->equipmentId);
@@ -121,5 +127,20 @@ class EquipmentsController extends Controller
         $equipment->save();
 
         return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', $equipment->equipmentType->persian_name . "  با موفقیت ویرایش شد.");
+    }
+
+    public function moveEquipment(Request $request)
+    {
+        $equipmentInfo = Equipment::find($request->equipment_id);
+        $personnelInfo = Personnel::find($request->personnel);
+        if (empty($equipmentInfo) or empty($personnelInfo)) {
+            Session::flash('errors', 'انتقال تجهیزات با خطا مواجه شد');
+            return response()->json(['error'], 200);
+        }
+        $equipmentInfo->personnel = $personnelInfo->id;
+        if ($equipmentInfo->save()) {
+            Session::flash('success', 'تجهیزات با موفقیت منتقل شد');
+            return response()->json(['success'], 200);
+        }
     }
 }

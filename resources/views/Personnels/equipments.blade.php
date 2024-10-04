@@ -36,19 +36,23 @@
                                 <td class="px-6 py-4">
                                     {{ Jalalian::fromDateTime($equipment->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="flex px-6 py-4">
                                     <a href="{{ route('Personnels.equipments.edit',['personnel'=>$personnel->id,'equipmentId'=>$equipment->id]) }}">
                                         <button type="button"
-                                                class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ">
+                                                class="px-4 py-2 mr-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ">
                                             ویرایش
                                         </button>
                                     </a>
                                     <a href="{{ route('History.index',['personnel'=>$personnel->id,'equipmentId'=>$equipment->id]) }}">
                                         <button type="button"
-                                                class="px-4 py-2 mr-3 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300 ">
+                                                class="px-4 py-2 mr-1 bg-gray-500 text-white rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300 ">
                                             تاریخچه
                                         </button>
                                     </a>
+                                    <button type="button" data-equipment-id="{{ $equipment->id }}"
+                                            class="px-4 py-2 mr-1 bg-orange-500 text-white rounded-md hover:bg-orange-600 focus:outline-none focus:ring focus:border-orange-300 move-equipment">
+                                        انتقال
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -102,6 +106,55 @@
                         if (url) {
                             window.location.href = 'equipments/new/' + url;
                         }
+                    }
+                });
+            });
+
+            $('.move-equipment').click(function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'انتخاب پرسنل',
+                    html: `
+                <select id="personnel-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option disabled selected value="">انتخاب کنید</option>
+                    @foreach ($allPersonnels->get() as $personnel)
+                    <option value="{{ $personnel->id }}">{{ $personnel->first_name }} {{ $personnel->last_name }}</option>
+                    @endforeach
+                    </select>
+`,
+                    showCancelButton: true,
+                    confirmButtonText: 'تایید',
+                    cancelButtonText: 'لغو',
+                    didOpen: () => {
+                        $('#personnel-select').select2({
+                            dropdownParent: $('.swal2-popup')
+                        });
+                    },
+                    preConfirm: () => {
+                        const selectedOption = document.getElementById('personnel-select').value;
+                        if (!selectedOption) {
+                            Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
+                        }
+                        return selectedOption;
+                    }
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: "/Personnels/equipments/move",
+                            data: {
+                                'equipment_id': $(this).data('equipment-id'),
+                                'personnel': result.value
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                location.reload();
+                            }, error: function (xhr, textStatus, errorThrown) {
+                                // console.log(xhr);
+                            }
+                        });
                     }
                 });
             });
