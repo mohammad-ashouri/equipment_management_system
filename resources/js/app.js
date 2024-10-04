@@ -188,6 +188,14 @@ $(document).ready(function () {
                 }
             });
         });
+        // حذف کردن رم
+        $(document).on('click', '.remove-ram', function () {
+            $(this).closest('.ram-select-wrapper').remove();
+        });
+        // حذف ردیف هارد
+        $(document).on('click', '.remove-internalHardDisk', function () {
+            $(this).closest('.internalHardDisk-select-wrapper').remove();
+        });
     } else {
         switch (pathname) {
             case '/dashboard':

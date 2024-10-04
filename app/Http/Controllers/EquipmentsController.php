@@ -47,7 +47,7 @@ class EquipmentsController extends Controller
                     'property_code' => $propertyCode
                 ];
             }
-            unset($input['internalHardDisk'],$input['internalHardDisk_property_code']);
+            unset($input['internalHardDisk'], $input['internalHardDisk_property_code']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {
@@ -97,12 +97,16 @@ class EquipmentsController extends Controller
                     'property_code' => $propertyCode
                 ];
             }
-            unset($input['internalHardDisk'],$input['internalHardDisk_property_code']);
+            unset($input['internalHardDisk'], $input['internalHardDisk_property_code']);
+        } else {
+            return redirect()->back()->withErrors(['errors' => 'مقدار هارد وارد نشده است']);
         }
         if (isset($input['ram'])) {
             $input['ram'] = array_filter($input['ram'], function ($value) {
                 return !is_null($value);
             });
+        } else {
+            return redirect()->back()->withErrors(['errors' => 'مقدار رم وارد نشده است']);
         }
         $equipment = Equipment::find($request->equipmentId);
         $equipment->property_code = $request->property_code;
