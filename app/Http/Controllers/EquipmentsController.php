@@ -16,7 +16,7 @@ class EquipmentsController extends Controller
         $personnel = Personnel::findOrFail($personnel);
         $equipmentTypes = EquipmentType::orderBy('persian_name')->get();
         $equipments = Equipment::wherePersonnel($personnel->id)->get();
-        $allPersonnels = Personnel::whereStatus(1)->orderBy('last_name')->orderBy('first_name');
+        $allPersonnels = Personnel::whereStatus(1)->whereNot('id',$personnel->id)->orderBy('last_name')->orderBy('first_name');
         return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments', 'allPersonnels'));
     }
 
