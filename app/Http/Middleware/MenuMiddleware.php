@@ -332,7 +332,7 @@ class MenuMiddleware
                 9 => [
                     'title' => 'مدیریت کاربران',
                     'link' => '/UserManager',
-                    'permission' => "لیست مدیریت کاربران",
+                    'permission' => "لیست کاربران",
                     'icon' => 'las la-users',
                     'childs' => []
                 ],
