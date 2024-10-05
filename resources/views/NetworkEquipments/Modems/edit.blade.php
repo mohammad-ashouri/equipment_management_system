@@ -42,6 +42,9 @@
                                 <option value="wireless" @if($modem->connectivity_type=='wireless') selected @endif>
                                     wireless
                                 </option>
+                                <option value="wired/wireless" @if($modem->connectivity_type=='wired/wireless') selected @endif>
+                                    wired/wireless
+                                </option>
                             </select>
                         </div>
                         <div>
@@ -65,6 +68,9 @@
                                 </option>
                                 <option value="ADSL2+/VDSL" @if($modem->type=='ADSL2+/VDSL') selected @endif>
                                     ADSL2+/VDSL
+                                </option>
+                                <option value="Optical Fiber" @if($modem->type=='Optical Fiber') selected @endif>
+                                    Optical Fiber
                                 </option>
                             </select>
                         </div>

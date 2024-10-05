@@ -42,6 +42,9 @@
                                 <option value="wireless" @if(old('connectivity_type')=='wireless') selected @endif>
                                     wireless
                                 </option>
+                                <option value="wired/wireless" @if(old('connectivity_type')=='wired/wireless') selected @endif>
+                                    wired/wireless
+                                </option>
                             </select>
                         </div>
                         <div>
@@ -65,6 +68,9 @@
                                 </option>
                                 <option value="ADSL2+/VDSL" @if(old('type')=='ADSL2+/VDSL') selected @endif>
                                     ADSL2+/VDSL
+                                </option>
+                                <option value="Optical Fiber" @if(old('type')=='Optical Fiber') selected @endif>
+                                    Optical Fiber
                                 </option>
                             </select>
                         </div>
