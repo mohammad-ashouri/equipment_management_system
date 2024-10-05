@@ -275,6 +275,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات دوربین مدار بسته', 'guard_name' => 'web'],
             ['name' => 'حذف دوربین مدار بسته', 'guard_name' => 'web'],
 
+            ['name' => 'لیست رکوردر', 'guard_name' => 'web'],
+            ['name' => 'ایجاد رکوردر', 'guard_name' => 'web'],
+            ['name' => 'ویرایش رکوردر', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات رکوردر', 'guard_name' => 'web'],
+            ['name' => 'حذف رکوردر', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -560,6 +566,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش دوربین مدار بسته',
             'نمایش جزئیات دوربین مدار بسته',
             'حذف دوربین مدار بسته',
+
+            'لیست رکوردر',
+            'ایجاد رکوردر',
+            'ویرایش رکوردر',
+            'نمایش جزئیات رکوردر',
+            'حذف رکوردر',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

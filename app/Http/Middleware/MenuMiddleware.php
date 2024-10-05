@@ -310,13 +310,19 @@ class MenuMiddleware
                             'title' => 'دستگاه حضور و غیاب',
                             'link' => '/AttendanceSystems',
                             'permission' => "لیست دستگاه حضور و غیاب",
-                            'icon' => 'las la-volume-up',
+                            'icon' => 'las la-fingerprint',
                         ],
                         [
                             'title' => 'دوربین مدار بسته',
                             'link' => '/Cctvs',
                             'permission' => "لیست دوربین مدار بسته",
                             'icon' => 'las la-video',
+                        ],
+                        [
+                            'title' => 'رکوردر',
+                            'link' => '/Recorders',
+                            'permission' => "لیست رکوردر",
+                            'icon' => 'las la-microphone',
                         ],
                     ]
                 ],
