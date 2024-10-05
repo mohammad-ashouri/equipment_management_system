@@ -312,6 +312,12 @@ class MenuMiddleware
                             'permission' => "لیست دستگاه حضور و غیاب",
                             'icon' => 'las la-volume-up',
                         ],
+                        [
+                            'title' => 'دوربین مدار بسته',
+                            'link' => '/Cctvs',
+                            'permission' => "لیست دوربین مدار بسته",
+                            'icon' => 'las la-video',
+                        ],
                     ]
                 ],
                 5 => [
