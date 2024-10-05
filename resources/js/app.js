@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Loop through the menu items and check if the href matches the current path
     menuItems.forEach(item => {
         const link = item.querySelector('a');
-        if (link && link.getAttribute('href') === currentPath) {
+        if (link && currentPath.includes(link.getAttribute('href'))) {
             // If it's a child menu, open the parent details element
             const detailsElement = item.closest('details');
             if (detailsElement) {
