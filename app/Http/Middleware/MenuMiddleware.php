@@ -306,6 +306,12 @@ class MenuMiddleware
                             'permission' => "لیست اسپیکر",
                             'icon' => 'las la-volume-up',
                         ],
+                        [
+                            'title' => 'دستگاه حضور و غیاب',
+                            'link' => '/AttendanceSystems',
+                            'permission' => "لیست دستگاه حضور و غیاب",
+                            'icon' => 'las la-volume-up',
+                        ],
                     ]
                 ],
                 5 => [

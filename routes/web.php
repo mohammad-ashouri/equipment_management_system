@@ -5,6 +5,7 @@ use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
@@ -148,6 +149,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/CameraHolders', CameraHolderController::class);
         Route::resource('/Simcards', SimcardController::class);
         Route::resource('/Speakers', SpeakerController::class);
+        Route::resource('/AttendanceSystems', AttendanceSystemController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
