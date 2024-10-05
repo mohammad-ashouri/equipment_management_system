@@ -17,6 +17,7 @@ use App\Http\Controllers\DigitalEquipments\SimcardController;
 use App\Http\Controllers\DigitalEquipments\SpeakerController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
+use App\Http\Controllers\DigitalEquipments\WebcamController;
 use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CopyMachineController;
@@ -154,6 +155,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/AttendanceSystems', AttendanceSystemController::class);
         Route::resource('/Cctvs', CctvController::class);
         Route::resource('/Recorders', RecorderController::class);
+        Route::resource('/Webcams', WebcamController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

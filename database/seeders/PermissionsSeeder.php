@@ -281,6 +281,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات رکوردر', 'guard_name' => 'web'],
             ['name' => 'حذف رکوردر', 'guard_name' => 'web'],
 
+            ['name' => 'لیست وبکم', 'guard_name' => 'web'],
+            ['name' => 'ایجاد وبکم', 'guard_name' => 'web'],
+            ['name' => 'ویرایش وبکم', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات وبکم', 'guard_name' => 'web'],
+            ['name' => 'حذف وبکم', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -572,6 +578,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش رکوردر',
             'نمایش جزئیات رکوردر',
             'حذف رکوردر',
+
+            'لیست وبکم',
+            'ایجاد وبکم',
+            'ویرایش وبکم',
+            'نمایش جزئیات وبکم',
+            'حذف وبکم',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

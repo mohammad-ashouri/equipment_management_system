@@ -324,6 +324,12 @@ class MenuMiddleware
                             'permission' => "لیست رکوردر",
                             'icon' => 'las la-microphone',
                         ],
+                        [
+                            'title' => 'وبکم',
+                            'link' => '/Webcams',
+                            'permission' => "لیست وبکم",
+                            'icon' => 'las la-video',
+                        ],
                     ]
                 ],
                 5 => [

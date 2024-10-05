@@ -59,7 +59,6 @@ class RecorderController extends Controller
             'status' => 'required|integer|in:0,1',
             'id' => 'required|integer|exists:recorders,id',
             'model' => 'required|string',
-            'type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
@@ -67,7 +66,6 @@ class RecorderController extends Controller
         $recorder->brand = $request->input('brand');
         $recorder->model = $request->input('model');
         $recorder->status = $request->input('status');
-        $recorder->type = $request->input('type');
         $recorder->editor = $this->getMyUserId();
         $recorder->save();
 
