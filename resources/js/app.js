@@ -26,6 +26,89 @@ Alpine.plugin(Intersect)
 Alpine.start()
 window.Alpine = Alpine
 
+
+//menu scripts
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+
+    // Get all the menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Loop through the menu items and check if the href matches the current path
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link && link.getAttribute('href') === currentPath) {
+            // If it's a child menu, open the parent details element
+            const detailsElement = item.closest('details');
+            if (detailsElement) {
+                detailsElement.setAttribute('open', true);
+            }
+
+            // Add the active class to the matched menu item
+            item.classList.add('active');
+        }
+    });
+});
+
+// Function to handle click on menu items
+function handleMenuItemClick(event) {
+    // Get all the menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    // Remove the active class from all menu items
+    menuItems.forEach(item => item.classList.remove('active'));
+
+    // Add the active class to the clicked menu item
+    event.currentTarget.classList.add('active');
+
+    // Save the selected menu item ID to the sessionStorage
+    sessionStorage.setItem('selectedMenuItem', event.currentTarget.id);
+}
+
+// Add event listeners to each menu item
+const menuItems = document.querySelectorAll('.menu-item');
+menuItems.forEach(item => {
+    item.addEventListener('click', handleMenuItemClick);
+});
+
+// Function to handle click on child menu items
+function handleChildMenuItemClick(event) {
+    const detailsElement = event.currentTarget.closest('details');
+    if (detailsElement) {
+        // Set the 'open' attribute for the details element
+        detailsElement.setAttribute('open', true);
+    }
+
+    // Remove the active class from all child menu items
+    const childMenuItems = document.querySelectorAll('.menu-item');
+    childMenuItems.forEach(item => item.classList.remove('active'));
+
+    // Add the active class to the clicked child menu item
+    event.currentTarget.classList.add('active');
+
+    // Save the selected child menu item ID to the sessionStorage
+    sessionStorage.setItem('selectedChildMenuItem', event.currentTarget.id);
+}
+
+// Add event listeners to each child menu item
+const childMenuItems = document.querySelectorAll('.menu-item');
+childMenuItems.forEach(item => {
+    item.addEventListener('click', handleChildMenuItemClick);
+});
+
+function handleLogout() {
+    // Clear the selected menu item and child menu item from sessionStorage
+    sessionStorage.removeItem('selectedMenuItem');
+    sessionStorage.removeItem('selectedChildMenuItem');
+}
+
+// Add event listener to the "خروج" (Logout) menu item
+const logoutMenuItem = document.getElementById('logout');
+logoutMenuItem.addEventListener('click', handleLogout);
+
+//end menu scripts
+
+
 function openModal(imageUrl) {
     const modal = document.querySelector('.modal-container');
     modal.querySelector('img').src = imageUrl;

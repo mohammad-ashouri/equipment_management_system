@@ -11,8 +11,8 @@
     <script src="/build/plugins/jquery/dist/jquery.js"></script>
     <link href="/build/plugins/select2/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="/build/plugins/select2/dist/js/select2.min.js"></script>
-{{--    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">--}}
-{{--    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>--}}
+    {{--    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">--}}
+    {{--    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>--}}
     <script src="/build/plugins/persian-date/dist/persian-date.js"></script>
     <script src="/build/plugins/persian-datepicker/dist/js/persian-datepicker.js"></script>
     <link rel="stylesheet" href="/build/plugins/persian-datepicker/dist/css/persian-datepicker.css"/>
@@ -308,9 +308,7 @@
                                                                    class="flex items-center my-1 text-cu-light rounded-s-full dark:text-white hover:bg-gray-100 light:hover:bg-gray-700 group">
                                                                     <i style="font-size: 24px"
                                                                        class="{{$menu['icon']}}"></i>
-                                                                    <span class=" ">
-                                                            {{ $menu['title'] }}
-                                                        </span>
+                                                                    <span class="">{{ $menu['title'] }}</span>
                                                                 </a>
                                                             </li>
                                                         @endcan
@@ -339,98 +337,8 @@
                 </div>
 
                 <script>
-                    if (window.location.pathname === '/dashboard') {
-                        const lis = document.querySelectorAll('li');
-                        lis.forEach(li => li.classList.remove('active'));
-                        dashboard.classList.add('active');
-                    }
-
-                    // Get all the menu items
-                    const menuItems = document.querySelectorAll('.menu-item');
-
-                    // Function to handle click on menu items
-                    function handleMenuItemClick(event) {
-                        // Remove the active class from all menu items
-                        menuItems.forEach(item => item.classList.remove('active'));
-
-                        // Add the active class to the clicked menu item
-                        event.currentTarget.classList.add('active');
-
-                        // Save the selected menu item ID to the localStorage
-                        localStorage.setItem('selectedMenuItem', event.currentTarget.id);
-                    }
-
-                    // Add event listeners to each menu item
-                    menuItems.forEach(item => {
-                        item.addEventListener('click', handleMenuItemClick);
-                    });
-
-                    // On page load, check if there's a selected menu item in the localStorage and set it as active
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const selectedMenuItem = localStorage.getItem('selectedMenuItem');
-                        if (selectedMenuItem) {
-                            const menuItem = document.getElementById(selectedMenuItem);
-                            if (menuItem) {
-                                menuItem.classList.add('active');
-                            }
-                        }
-                    });
-
-                    // Function to handle click on child menu items
-                    function handleChildMenuItemClick(event) {
-                        const detailsElement = event.currentTarget.closest('details');
-                        if (detailsElement) {
-                            // Set the 'open' attribute for the details element
-                            detailsElement.setAttribute('open', true);
-                        }
-
-                        // Remove the active class from all child menu items
-                        const childMenuItems = document.querySelectorAll('.menu-item');
-                        childMenuItems.forEach(item => item.classList.remove('active'));
-
-                        // Add the active class to the clicked child menu item
-                        event.currentTarget.classList.add('active');
-
-                        // Save the selected child menu item ID to the localStorage
-                        localStorage.setItem('selectedChildMenuItem', event.currentTarget.id);
-                    }
-
-                    // Add event listeners to each child menu item
-                    const childMenuItems = document.querySelectorAll('.menu-item');
-                    childMenuItems.forEach(item => {
-                        item.addEventListener('click', handleChildMenuItemClick);
-                    });
-
-                    // On page load, check if there's a selected child menu item in the localStorage and set it as active
-                    document.addEventListener('DOMContentLoaded', () => {
-                        const selectedChildMenuItem = localStorage.getItem('selectedChildMenuItem');
-                        if (selectedChildMenuItem) {
-                            const childMenuItem = document.getElementById(selectedChildMenuItem);
-                            if (childMenuItem) {
-                                childMenuItem.classList.add('active');
-
-                                const detailsElement = childMenuItem.closest('details');
-                                if (detailsElement) {
-                                    // Set the 'open' attribute for the details element
-                                    detailsElement.setAttribute('open', true);
-                                }
-                            }
-                        }
-                    });
-
-
-                    function handleLogout() {
-                        // Clear the selected menu item and child menu item from localStorage
-                        localStorage.removeItem('selectedMenuItem');
-                        localStorage.removeItem('selectedChildMenuItem');
-                    }
-
-                    // Add event listener to the "خروج" (Logout) menu item
-                    const logoutMenuItem = document.getElementById('logout');
-                    logoutMenuItem.addEventListener('click', handleLogout);
 
                 </script>
-
 
             </aside>
 
