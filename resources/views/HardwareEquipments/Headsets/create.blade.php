@@ -40,6 +40,7 @@
                                     Bluetooth/Wlan
                                 </option>
                                 <option value="USB" @if(old('connectivity_type')=='USB') selected @endif>USB</option>
+                                <option value="AUX" @if(old('connectivity_type')=='AUX') selected @endif>AUX</option>
                             </select>
                         </div>
                     </div>

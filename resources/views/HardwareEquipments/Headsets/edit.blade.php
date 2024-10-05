@@ -42,6 +42,8 @@
                                 </option>
                                 <option value="USB" @if($headset->connectivity_type=='USB') selected @endif>USB
                                 </option>
+                                <option value="AUX" @if($headset->connectivity_type=='AUX') selected @endif>AUX
+                                </option>
                             </select>
                         </div>
                         <div>
