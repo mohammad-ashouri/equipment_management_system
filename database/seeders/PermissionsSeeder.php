@@ -257,6 +257,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات lantv', 'guard_name' => 'web'],
             ['name' => 'حذف lantv', 'guard_name' => 'web'],
 
+            ['name' => 'لیست اسپیکر', 'guard_name' => 'web'],
+            ['name' => 'ایجاد اسپیکر', 'guard_name' => 'web'],
+            ['name' => 'ویرایش اسپیکر', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات اسپیکر', 'guard_name' => 'web'],
+            ['name' => 'حذف اسپیکر', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -524,6 +530,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش lantv',
             'نمایش جزئیات lantv',
             'حذف lantv',
+
+            'لیست اسپیکر',
+            'ایجاد اسپیکر',
+            'ویرایش اسپیکر',
+            'نمایش جزئیات اسپیکر',
+            'حذف اسپیکر',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

@@ -11,6 +11,7 @@ use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\SimcardController;
+use App\Http\Controllers\DigitalEquipments\SpeakerController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
 use App\Http\Controllers\EquipmentsController;
@@ -146,6 +147,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/DVBs', DVBController::class);
         Route::resource('/CameraHolders', CameraHolderController::class);
         Route::resource('/Simcards', SimcardController::class);
+        Route::resource('/Speakers', SpeakerController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

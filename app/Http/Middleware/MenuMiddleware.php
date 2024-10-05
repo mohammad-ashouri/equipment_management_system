@@ -300,6 +300,12 @@ class MenuMiddleware
                             'permission' => "لیست سیمکارت",
                             'icon' => 'las la-sim-card',
                         ],
+                        [
+                            'title' => 'اسپیکر',
+                            'link' => '/Speakers',
+                            'permission' => "لیست اسپیکر",
+                            'icon' => 'las la-volume-up',
+                        ],
                     ]
                 ],
                 5 => [
