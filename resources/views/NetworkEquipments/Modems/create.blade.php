@@ -72,6 +72,9 @@
                                 <option value="Optical Fiber" @if(old('type')=='Optical Fiber') selected @endif>
                                     Optical Fiber
                                 </option>
+                                <option value="Simcard" @if(old('type')=='Simcard') selected @endif>
+                                    Simcard
+                                </option>
                             </select>
                         </div>
                         <div>

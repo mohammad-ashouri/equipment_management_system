@@ -72,6 +72,9 @@
                                 <option value="Optical Fiber" @if($modem->type=='Optical Fiber') selected @endif>
                                     Optical Fiber
                                 </option>
+                                <option value="Simcard" @if($modem->type=='Simcard') selected @endif>
+                                    Simcard
+                                </option>
                             </select>
                         </div>
                         <div>
