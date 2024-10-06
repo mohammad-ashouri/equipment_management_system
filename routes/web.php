@@ -17,6 +17,7 @@ use App\Http\Controllers\DigitalEquipments\RecorderController;
 use App\Http\Controllers\DigitalEquipments\SatelliteDishController;
 use App\Http\Controllers\DigitalEquipments\SatelliteFinderController;
 use App\Http\Controllers\DigitalEquipments\SimcardController;
+use App\Http\Controllers\DigitalEquipments\SoundCardController;
 use App\Http\Controllers\DigitalEquipments\SpeakerController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
@@ -166,6 +167,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/SatelliteDishes', SatelliteDishController::class);
         Route::resource('/CameraLenses', CameraLensController::class);
         Route::resource('/SatelliteFinders', SatelliteFinderController::class);
+        Route::resource('/SoundCards', SoundCardController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

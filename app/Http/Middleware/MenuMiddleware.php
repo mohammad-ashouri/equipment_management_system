@@ -360,6 +360,12 @@ class MenuMiddleware
                             'permission' => "لیست فایندر ماهواره",
                             'icon' => 'las la-search',
                         ],
+                        [
+                            'title' => 'کارت صدا',
+                            'link' => '/SoundCards',
+                            'permission' => "لیست کارت صدا",
+                            'icon' => 'las la-file-audio',
+                        ],
                     ]
                 ],
                 5 => [

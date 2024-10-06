@@ -317,6 +317,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات فایندر ماهواره', 'guard_name' => 'web'],
             ['name' => 'حذف فایندر ماهواره', 'guard_name' => 'web'],
 
+            ['name' => 'لیست کارت صدا', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کارت صدا', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کارت صدا', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات کارت صدا', 'guard_name' => 'web'],
+            ['name' => 'حذف کارت صدا', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -644,6 +650,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش فایندر ماهواره',
             'نمایش جزئیات فایندر ماهواره',
             'حذف فایندر ماهواره',
+
+            'لیست کارت صدا',
+            'ایجاد کارت صدا',
+            'ویرایش کارت صدا',
+            'نمایش جزئیات کارت صدا',
+            'حذف کارت صدا',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
