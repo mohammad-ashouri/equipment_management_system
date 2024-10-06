@@ -354,6 +354,12 @@ class MenuMiddleware
                             'permission' => "لیست لنز دوربین",
                             'icon' => 'las la-camera',
                         ],
+                        [
+                            'title' => 'فایندر ماهواره',
+                            'link' => '/SatelliteFinders',
+                            'permission' => "لیست فایندر ماهواره",
+                            'icon' => 'las la-search',
+                        ],
                     ]
                 ],
                 5 => [
