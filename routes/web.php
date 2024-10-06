@@ -19,6 +19,7 @@ use App\Http\Controllers\DigitalEquipments\SimcardController;
 use App\Http\Controllers\DigitalEquipments\SpeakerController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
+use App\Http\Controllers\DigitalEquipments\TripodController;
 use App\Http\Controllers\DigitalEquipments\UpsController;
 use App\Http\Controllers\DigitalEquipments\WebcamController;
 use App\Http\Controllers\EquipmentsController;
@@ -162,6 +163,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/FlashMemories', FlashMemoryController::class);
         Route::resource('/Ups', UpsController::class);
         Route::resource('/SatelliteDishes', SatelliteDishController::class);
+        Route::resource('/Tripods', TripodController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

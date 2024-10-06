@@ -348,6 +348,12 @@ class MenuMiddleware
                             'permission' => "لیست دیش ماهواره",
                             'icon' => 'las la-satellite-dish',
                         ],
+                        [
+                            'title' => 'سه پایه دوربین',
+                            'link' => '/Tripods',
+                            'permission' => "لیست سه پایه دوربین",
+                            'icon' => 'lab la-bandcamp',
+                        ],
                     ]
                 ],
                 5 => [
