@@ -10,6 +10,7 @@ use App\Http\Controllers\DigitalEquipments\CameraHolderController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
+use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\RecorderController;
@@ -156,6 +157,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Cctvs', CctvController::class);
         Route::resource('/Recorders', RecorderController::class);
         Route::resource('/Webcams', WebcamController::class);
+        Route::resource('/FlashMemories', FlashMemoryController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

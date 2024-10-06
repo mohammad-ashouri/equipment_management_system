@@ -330,6 +330,12 @@ class MenuMiddleware
                             'permission' => "لیست وبکم",
                             'icon' => 'las la-video',
                         ],
+                        [
+                            'title' => 'فلش مموری',
+                            'link' => '/FlashMemories',
+                            'permission' => "لیست فلش مموری",
+                            'icon' => 'lab la-usb',
+                        ],
                     ]
                 ],
                 5 => [

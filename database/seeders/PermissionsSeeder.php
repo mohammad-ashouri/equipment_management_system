@@ -287,6 +287,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات وبکم', 'guard_name' => 'web'],
             ['name' => 'حذف وبکم', 'guard_name' => 'web'],
 
+            ['name' => 'لیست فلش مموری', 'guard_name' => 'web'],
+            ['name' => 'ایجاد فلش مموری', 'guard_name' => 'web'],
+            ['name' => 'ویرایش فلش مموری', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات فلش مموری', 'guard_name' => 'web'],
+            ['name' => 'حذف فلش مموری', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -584,6 +590,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش وبکم',
             'نمایش جزئیات وبکم',
             'حذف وبکم',
+
+            'لیست فلش مموری',
+            'ایجاد فلش مموری',
+            'ویرایش فلش مموری',
+            'نمایش جزئیات فلش مموری',
+            'حذف فلش مموری',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
