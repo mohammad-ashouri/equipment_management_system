@@ -299,6 +299,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات ups', 'guard_name' => 'web'],
             ['name' => 'حذف ups', 'guard_name' => 'web'],
 
+            ['name' => 'لیست دیش ماهواره', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دیش ماهواره', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دیش ماهواره', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دیش ماهواره', 'guard_name' => 'web'],
+            ['name' => 'حذف دیش ماهواره', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -608,6 +614,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش ups',
             'نمایش جزئیات ups',
             'حذف ups',
+
+            'لیست دیش ماهواره',
+            'ایجاد دیش ماهواره',
+            'ویرایش دیش ماهواره',
+            'نمایش جزئیات دیش ماهواره',
+            'حذف دیش ماهواره',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

@@ -342,6 +342,12 @@ class MenuMiddleware
                             'permission' => "لیست ups",
                             'icon' => 'las la-battery-three-quarters',
                         ],
+                        [
+                            'title' => 'دیش ماهواره',
+                            'link' => '/SatelliteDishes',
+                            'permission' => "لیست دیش ماهواره",
+                            'icon' => 'las la-satellite-dish',
+                        ],
                     ]
                 ],
                 5 => [
