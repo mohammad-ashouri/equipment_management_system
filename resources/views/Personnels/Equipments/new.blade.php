@@ -190,11 +190,11 @@
                 $satelliteDishes=SatelliteDish::get();
             @endphp
             @break
-        @case('tripod')
-            @php
-                $tripods=Tripod::get();
-            @endphp
-            @break
+{{--        @case('tripod')--}}
+{{--            @php--}}
+{{--                $tripods=Tripod::get();--}}
+{{--            @endphp--}}
+{{--            @break--}}
     @endswitch
 
     <main class="flex-1 bg-gray-100 py-6 px-8">
