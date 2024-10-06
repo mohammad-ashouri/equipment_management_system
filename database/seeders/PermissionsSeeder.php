@@ -293,6 +293,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات فلش مموری', 'guard_name' => 'web'],
             ['name' => 'حذف فلش مموری', 'guard_name' => 'web'],
 
+            ['name' => 'لیست ups', 'guard_name' => 'web'],
+            ['name' => 'ایجاد ups', 'guard_name' => 'web'],
+            ['name' => 'ویرایش ups', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات ups', 'guard_name' => 'web'],
+            ['name' => 'حذف ups', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -596,6 +602,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش فلش مموری',
             'نمایش جزئیات فلش مموری',
             'حذف فلش مموری',
+
+            'لیست ups',
+            'ایجاد ups',
+            'ویرایش ups',
+            'نمایش جزئیات ups',
+            'حذف ups',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

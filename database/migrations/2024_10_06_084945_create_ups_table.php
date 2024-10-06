@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('flash_memories', function (Blueprint $table) {
+        Schema::create('ups', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('brand');
             $table->foreign('brand')->references('id')->on('brands');
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'flash_memory', 'persian_name' => 'فلش مموری']);
+        EquipmentType::create(['name' => 'ups', 'persian_name' => 'ups']);
     }
 
     /**
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('flash_memories');
+        Schema::dropIfExists('ups');
     }
 };

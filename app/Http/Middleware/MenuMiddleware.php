@@ -336,6 +336,12 @@ class MenuMiddleware
                             'permission' => "لیست فلش مموری",
                             'icon' => 'lab la-usb',
                         ],
+                        [
+                            'title' => 'UPS',
+                            'link' => '/Ups',
+                            'permission' => "لیست ups",
+                            'icon' => 'las la-battery-three-quarters',
+                        ],
                     ]
                 ],
                 5 => [
