@@ -4,17 +4,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">سایر تجهیزات دیجیتال - مدیریت بر اطلاعات سه پایه دوربین</h1>
+            <h1 class="text-2xl font-bold mb-4">سایر تجهیزات دیجیتال - مدیریت بر اطلاعات لنز دوربین</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد سه پایه دوربین')
-                    <a type="button" href="{{route('Tripods.create')}}"
+                @can('ایجاد لنز دوربین')
+                    <a type="button" href="{{route('CameraLenses.create')}}"
                        class="px-4 py-2 bg-green-500 w-56 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        سه پایه دوربین جدید
+                        لنز دوربین جدید
                     </a>
                 @endcan
-                @if(empty($tripods) or $tripods->isEmpty())
+                @if(empty($cameraLenses) or $cameraLenses->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -26,7 +26,6 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">برند</th>
                             <th class="px-6 py-3  font-bold ">مدل</th>
-                            <th class="px-6 py-3  font-bold ">رنگ</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -36,20 +35,17 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($tripods as $tripod)
+                        @foreach ($cameraLenses as $cameraLens)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $tripod->brandInfo->name }}
+                                    {{ $cameraLens->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $tripod->model }}
+                                    {{ $cameraLens->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $tripod->color }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    @switch($tripod->status)
+                                    @switch($cameraLens->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -59,23 +55,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $tripod->adderInfo->name }} {{ $tripod->adderInfo->family }}
+                                    {{ $cameraLens->adderInfo->name }} {{ $cameraLens->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($tripod->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($cameraLens->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($tripod->editorInfo!=null)
-                                        {{ $tripod->editorInfo->name }} {{ $tripod->editorInfo->family }}
+                                    @if($cameraLens->editorInfo!=null)
+                                        {{ $cameraLens->editorInfo->name }} {{ $cameraLens->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($tripod->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($cameraLens->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش سه پایه دوربین')
-                                        <a href="{{ route('Tripods.edit',$tripod->id) }}">
-                                            <button type="button" data-id="{{ $tripod->id }}"
+                                    @can('ویرایش لنز دوربین')
+                                        <a href="{{ route('CameraLenses.edit',$cameraLens->id) }}">
+                                            <button type="button" data-id="{{ $cameraLens->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>
@@ -88,7 +84,7 @@
                     </table>
 
                     <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $tripods->links() }}
+                        {{ $cameraLenses->links() }}
                     </div>
                 @endif
             </div>

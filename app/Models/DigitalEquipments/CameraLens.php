@@ -6,12 +6,12 @@ use App\Traits\ModelRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tripod extends Model
+class CameraLens extends Model
 {
     use ModelRelations;
 
-    protected $table = 'tripods';
+    protected $table = 'camera_lenses';
     protected $fillable = [
-        'model', 'color', 'brand', 'status', 'adder', 'editor'
+        'model', 'brand', 'status', 'adder', 'editor'
     ];
 }

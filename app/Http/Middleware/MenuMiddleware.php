@@ -349,10 +349,10 @@ class MenuMiddleware
                             'icon' => 'las la-satellite-dish',
                         ],
                         [
-                            'title' => 'سه پایه دوربین',
-                            'link' => '/Tripods',
-                            'permission' => "لیست سه پایه دوربین",
-                            'icon' => 'lab la-bandcamp',
+                            'title' => 'لنز دوربین',
+                            'link' => '/CameraLenses',
+                            'permission' => "لیست لنز دوربین",
+                            'icon' => 'las la-camera',
                         ],
                     ]
                 ],

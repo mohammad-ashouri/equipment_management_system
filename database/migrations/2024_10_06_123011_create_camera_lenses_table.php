@@ -12,12 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tripods', function (Blueprint $table) {
+        Schema::create('camera_lenses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('brand');
             $table->foreign('brand')->references('id')->on('brands');
             $table->string('model');
-            $table->string('color');
             $table->boolean('status')->default(1)->comment('1 => active , 0 => deactive');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
@@ -25,7 +24,7 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'tripod', 'persian_name' => 'سه پایه دوربین']);
+        EquipmentType::create(['name' => 'camera_lens', 'persian_name' => 'لنز دوربین']);
     }
 
     /**
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tripods');
+        Schema::dropIfExists('camera_lenses');
     }
 };
