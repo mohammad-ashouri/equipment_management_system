@@ -384,6 +384,12 @@ class MenuMiddleware
                             'permission' => "لیست میکروفون",
                             'icon' => 'las la-microphone',
                         ],
+                        [
+                            'title' => 'شارژر باتری',
+                            'link' => '/BatteryChargers',
+                            'permission' => "لیست شارژر باتری",
+                            'icon' => 'las la-battery-full',
+                        ],
                     ]
                 ],
                 5 => [

@@ -341,6 +341,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات میکروفون', 'guard_name' => 'web'],
             ['name' => 'حذف میکروفون', 'guard_name' => 'web'],
 
+            ['name' => 'لیست شارژر باتری', 'guard_name' => 'web'],
+            ['name' => 'ایجاد شارژر باتری', 'guard_name' => 'web'],
+            ['name' => 'ویرایش شارژر باتری', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات شارژر باتری', 'guard_name' => 'web'],
+            ['name' => 'حذف شارژر باتری', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -692,6 +698,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش میکروفون',
             'نمایش جزئیات میکروفون',
             'حذف میکروفون',
+
+            'لیست شارژر باتری',
+            'ایجاد شارژر باتری',
+            'ویرایش شارژر باتری',
+            'نمایش جزئیات شارژر باتری',
+            'حذف شارژر باتری',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
