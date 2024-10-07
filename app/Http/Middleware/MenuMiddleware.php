@@ -378,6 +378,12 @@ class MenuMiddleware
                             'permission' => "لیست پرده ویدئو پروژکتور",
                             'icon' => 'las la-bookmark',
                         ],
+                        [
+                            'title' => 'میکروفون',
+                            'link' => '/Microphones',
+                            'permission' => "لیست میکروفون",
+                            'icon' => 'las la-microphone',
+                        ],
                     ]
                 ],
                 5 => [

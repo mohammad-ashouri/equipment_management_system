@@ -11,6 +11,7 @@ use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
+use App\Http\Controllers\DigitalEquipments\MicrophoneController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\RecorderController;
@@ -172,6 +173,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/SoundCards', SoundCardController::class);
         Route::resource('/VideoProjectors', VideoProjectorController::class);
         Route::resource('/VideoProjectorCurtains', VideoProjectorCurtainController::class);
+        Route::resource('/Microphones', MicrophoneController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
