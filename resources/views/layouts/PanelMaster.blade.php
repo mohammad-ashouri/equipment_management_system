@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="en">
-
+@php
+    use Illuminate\Support\Collection;
+@endphp
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -277,6 +279,12 @@
                             @foreach (session('menus') as $menu)
                                 <li>
                                     @if (isset($menu['childs']) && count($menu['childs']) > 0)
+                                        @php
+                                            $collator = new \Collator('fa_IR');
+                                            $sortedMenu = collect($menu['childs'])->sort(function ($a, $b) use ($collator) {
+                                                return $collator->compare($a['title'], $b['title']);
+                                            });
+                                        @endphp
                                         @can($menu['permission'])
                                             <details id="{{ 'details-' . $menu['title'] }}">
                                                 <summary
@@ -285,7 +293,7 @@
                                                     {{ $menu['title'] }}
                                                 </summary>
                                                 <ul class="text-white w-full mr-2">
-                                                    @foreach ($menu['childs'] as $child)
+                                                    @foreach ($sortedMenu as $child)
                                                         @if(isset($child['permission']))
                                                             @can($child['permission'])
                                                                 <li class="menu-item mr-8" id="{{ $child['title'] }}">
