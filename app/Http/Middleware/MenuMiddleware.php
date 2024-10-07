@@ -372,6 +372,12 @@ class MenuMiddleware
                             'permission' => "لیست ویدئو پروژکتور",
                             'icon' => 'las la-broadcast-tower',
                         ],
+                        [
+                            'title' => 'پرده ویدئو پروژکتور',
+                            'link' => '/VideoProjectorCurtains',
+                            'permission' => "لیست پرده ویدئو پروژکتور",
+                            'icon' => 'las la-bookmark',
+                        ],
                     ]
                 ],
                 5 => [

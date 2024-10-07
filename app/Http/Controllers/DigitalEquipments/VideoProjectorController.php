@@ -10,10 +10,10 @@ class VideoProjectorController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست رکوردر', ['only' => ['index']]);
-        $this->middleware('permission:ایجاد رکوردر', ['only' => ['create', 'store']]);
-        $this->middleware('permission:ویرایش رکوردر', ['only' => ['update', 'edit']]);
-        $this->middleware('permission:حذف رکوردر', ['only' => ['destroy']]);
+        $this->middleware('permission:لیست ویدئو پروژکتور', ['only' => ['index']]);
+        $this->middleware('permission:ایجاد ویدئو پروژکتور', ['only' => ['create', 'store']]);
+        $this->middleware('permission:ویرایش ویدئو پروژکتور', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:حذف ویدئو پروژکتور', ['only' => ['destroy']]);
     }
 
     public function index()
@@ -41,9 +41,9 @@ class VideoProjectorController extends Controller
         ]);
 
         if ($videoProjector) {
-            return redirect()->route('VideoProjectors.index')->with('success', 'رکوردر با موفقیت ایجاد شد.');
+            return redirect()->route('VideoProjectors.index')->with('success', 'ویدئو پروژکتور با موفقیت ایجاد شد.');
         }
-        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد رکوردر']);
+        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد ویدئو پروژکتور']);
     }
 
     public function edit($id)
@@ -69,6 +69,6 @@ class VideoProjectorController extends Controller
         $videoProjector->editor = $this->getMyUserId();
         $videoProjector->save();
 
-        return redirect()->route('VideoProjectors.index')->with('success', 'رکوردر با موفقیت ویرایش شد.');
+        return redirect()->route('VideoProjectors.index')->with('success', 'ویدئو پروژکتور با موفقیت ویرایش شد.');
     }
 }
