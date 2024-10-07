@@ -366,6 +366,12 @@ class MenuMiddleware
                             'permission' => "لیست کارت صدا",
                             'icon' => 'las la-file-audio',
                         ],
+                        [
+                            'title' => 'ویدئو پروژکتور',
+                            'link' => '/VideoProjectors',
+                            'permission' => "لیست ویدئو پروژکتور",
+                            'icon' => 'las la-broadcast-tower',
+                        ],
                     ]
                 ],
                 5 => [

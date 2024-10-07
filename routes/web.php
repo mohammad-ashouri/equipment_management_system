@@ -23,6 +23,7 @@ use App\Http\Controllers\DigitalEquipments\TabletController;
 use App\Http\Controllers\DigitalEquipments\TelevisionController;
 use App\Http\Controllers\DigitalEquipments\CameraLensController;
 use App\Http\Controllers\DigitalEquipments\UpsController;
+use App\Http\Controllers\DigitalEquipments\VideoProjectorController;
 use App\Http\Controllers\DigitalEquipments\WebcamController;
 use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\HardwareEquipments\CaseController;
@@ -168,6 +169,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/CameraLenses', CameraLensController::class);
         Route::resource('/SatelliteFinders', SatelliteFinderController::class);
         Route::resource('/SoundCards', SoundCardController::class);
+        Route::resource('/VideoProjectors', VideoProjectorController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
