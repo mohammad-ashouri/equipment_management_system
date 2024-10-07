@@ -265,12 +265,6 @@ class MenuMiddleware
                             'icon' => 'las la-mobile',
                         ],
                         [
-                            'title' => 'دوربین',
-                            'link' => '/Cameras',
-                            'permission' => "لیست دوربین",
-                            'icon' => 'las la-camera',
-                        ],
-                        [
                             'title' => 'پایه دوربین',
                             'link' => '/CameraHolders',
                             'permission' => "لیست پایه دوربین",
@@ -389,6 +383,12 @@ class MenuMiddleware
                             'link' => '/BatteryChargers',
                             'permission' => "لیست شارژر باتری",
                             'icon' => 'las la-battery-full',
+                        ],
+                        [
+                            'title' => 'دوربین',
+                            'link' => '/Cameras',
+                            'permission' => "لیست دوربین",
+                            'icon' => 'las la-camera',
                         ],
                     ]
                 ],

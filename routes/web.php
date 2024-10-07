@@ -7,6 +7,7 @@ use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
 use App\Http\Controllers\DigitalEquipments\BatteryChargerController;
+use App\Http\Controllers\DigitalEquipments\CameraController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
@@ -176,6 +177,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/VideoProjectorCurtains', VideoProjectorCurtainController::class);
         Route::resource('/Microphones', MicrophoneController::class);
         Route::resource('/BatteryChargers', BatteryChargerController::class);
+        Route::resource('/Cameras', CameraController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

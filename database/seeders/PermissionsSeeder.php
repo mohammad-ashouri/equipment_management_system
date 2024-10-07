@@ -347,6 +347,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات شارژر باتری', 'guard_name' => 'web'],
             ['name' => 'حذف شارژر باتری', 'guard_name' => 'web'],
 
+            ['name' => 'لیست دوربین', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دوربین', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دوربین', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دوربین', 'guard_name' => 'web'],
+            ['name' => 'حذف دوربین', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -704,6 +710,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش شارژر باتری',
             'نمایش جزئیات شارژر باتری',
             'حذف شارژر باتری',
+
+            'لیست دوربین',
+            'ایجاد دوربین',
+            'ویرایش دوربین',
+            'نمایش جزئیات دوربین',
+            'حذف دوربین',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
