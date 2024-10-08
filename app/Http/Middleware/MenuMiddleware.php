@@ -410,6 +410,12 @@ class MenuMiddleware
                             'permission' => "لیست صندلی",
                             'icon' => 'las la-chair',
                         ],
+                        [
+                            'title' => 'کپسول آتش نشانی',
+                            'link' => '/FireExtinguishers',
+                            'permission' => "لیست کپسول آتش نشانی",
+                            'icon' => 'las la-fire-extinguisher',
+                        ],
                     ]
                 ],
                 6 => [

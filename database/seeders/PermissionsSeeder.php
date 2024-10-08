@@ -365,6 +365,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات میز', 'guard_name' => 'web'],
             ['name' => 'حذف میز', 'guard_name' => 'web'],
 
+            ['name' => 'لیست کپسول آتش نشانی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کپسول آتش نشانی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کپسول آتش نشانی', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات کپسول آتش نشانی', 'guard_name' => 'web'],
+            ['name' => 'حذف کپسول آتش نشانی', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -740,6 +746,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش میز',
             'نمایش جزئیات میز',
             'حذف میز',
+
+            'لیست کپسول آتش نشانی',
+            'ایجاد کپسول آتش نشانی',
+            'ویرایش کپسول آتش نشانی',
+            'نمایش جزئیات کپسول آتش نشانی',
+            'حذف کپسول آتش نشانی',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
