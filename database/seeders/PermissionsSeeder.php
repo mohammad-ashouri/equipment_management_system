@@ -359,6 +359,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات صندلی', 'guard_name' => 'web'],
             ['name' => 'حذف صندلی', 'guard_name' => 'web'],
 
+            ['name' => 'لیست میز', 'guard_name' => 'web'],
+            ['name' => 'ایجاد میز', 'guard_name' => 'web'],
+            ['name' => 'ویرایش میز', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات میز', 'guard_name' => 'web'],
+            ['name' => 'حذف میز', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -728,6 +734,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش صندلی',
             'نمایش جزئیات صندلی',
             'حذف صندلی',
+
+            'لیست میز',
+            'ایجاد میز',
+            'ویرایش میز',
+            'نمایش جزئیات میز',
+            'حذف میز',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
