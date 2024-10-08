@@ -406,7 +406,7 @@ class MenuMiddleware
                         ],
                         [
                             'title' => 'صندلی',
-                            'link' => '/Chair',
+                            'link' => '/Chairs',
                             'permission' => "لیست صندلی",
                             'icon' => 'las la-chair',
                         ],

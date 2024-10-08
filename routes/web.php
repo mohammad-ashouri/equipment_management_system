@@ -61,6 +61,7 @@ use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\Reports\HistoryController;
+use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -178,6 +179,9 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Microphones', MicrophoneController::class);
         Route::resource('/BatteryChargers', BatteryChargerController::class);
         Route::resource('/Cameras', CameraController::class);
+
+        //TechnicalFacilities
+        Route::resource('/Chairs', ChairController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
