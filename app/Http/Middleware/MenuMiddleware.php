@@ -238,6 +238,12 @@ class MenuMiddleware
                             'permission' => "لیست اکسس پوینت",
                             'icon' => 'las la-wifi',
                         ],
+                        [
+                            'title' => 'روتر',
+                            'link' => '/Routers',
+                            'permission' => "لیست روتر",
+                            'icon' => 'las la-route',
+                        ],
                     ]
                 ],
                 4 => [

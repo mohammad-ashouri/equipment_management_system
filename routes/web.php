@@ -57,6 +57,7 @@ use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
+use App\Http\Controllers\NetworkEquipments\RouterController;
 use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
 use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
@@ -192,6 +193,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/FireExtinguishers', FireExtinguisherController::class);
         Route::resource('/RadioWirelesses', RadioWirelessController::class);
         Route::resource('/AccessPoints', AccessPointController::class);
+        Route::resource('/Routers', RouterController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

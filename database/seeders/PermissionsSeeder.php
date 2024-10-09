@@ -383,6 +383,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات اکسس پوینت', 'guard_name' => 'web'],
             ['name' => 'حذف اکسس پوینت', 'guard_name' => 'web'],
 
+            ['name' => 'لیست روتر', 'guard_name' => 'web'],
+            ['name' => 'ایجاد روتر', 'guard_name' => 'web'],
+            ['name' => 'ویرایش روتر', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات روتر', 'guard_name' => 'web'],
+            ['name' => 'حذف روتر', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -776,6 +782,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش اکسس پوینت',
             'نمایش جزئیات اکسس پوینت',
             'حذف اکسس پوینت',
+
+            'لیست روتر',
+            'ایجاد روتر',
+            'ویرایش روتر',
+            'نمایش جزئیات روتر',
+            'حذف روتر',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
