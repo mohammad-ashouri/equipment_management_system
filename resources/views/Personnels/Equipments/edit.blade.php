@@ -1,4 +1,4 @@
-@php use App\Models\DigitalEquipments\AttendanceSystem;use App\Models\DigitalEquipments\BatteryCharger;use App\Models\DigitalEquipments\Camera;use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\CameraLens;use App\Models\DigitalEquipments\Cctv;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\FlashMemory;use App\Models\DigitalEquipments\Microphone;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Recorder;use App\Models\DigitalEquipments\SatelliteDish;use App\Models\DigitalEquipments\SatelliteFinder;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\SoundCard;use App\Models\DigitalEquipments\Speaker;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\DigitalEquipments\Ups;use App\Models\DigitalEquipments\VideoProjector;use App\Models\DigitalEquipments\VideoProjectorCurtain;use App\Models\DigitalEquipments\Webcam;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\AccessPoint;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Kvm;use App\Models\NetworkEquipments\Lantv;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\RadioWireless;use App\Models\NetworkEquipments\Router;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches;use App\Models\TechnicalFacilities\Chair;use App\Models\TechnicalFacilities\FireExtinguisher;use App\Models\TechnicalFacilities\Table; @endphp
+@php use App\Models\DigitalEquipments\AttendanceSystem;use App\Models\DigitalEquipments\BatteryCharger;use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\CameraLens;use App\Models\DigitalEquipments\Cctv;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\FlashMemory;use App\Models\DigitalEquipments\Microphone;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Recorder;use App\Models\DigitalEquipments\SatelliteDish;use App\Models\DigitalEquipments\SatelliteFinder;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\SoundCard;use App\Models\DigitalEquipments\Speaker;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\DigitalEquipments\Ups;use App\Models\DigitalEquipments\VideoProjector;use App\Models\DigitalEquipments\VideoProjectorCurtain;use App\Models\DigitalEquipments\Webcam;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\AccessPoint;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Kvm;use App\Models\NetworkEquipments\Lantv;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\RadioWireless;use App\Models\NetworkEquipments\Router;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches;use App\Models\TechnicalFacilities\FireExtinguisher; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
     @php
@@ -44,9 +44,32 @@
             'camera_holder' => CameraHolder::class,
             'television' => Television::class,
             'dvb' => DVB::class,
+            'fire_extinguisher' => FireExtinguisher::class,
             'radio_wireless' => RadioWireless::class,
             'access_point' => AccessPoint::class,
             'router' => Router::class,
+            'attendance_system' => AttendanceSystem::class,
+            'battery_charger' => BatteryCharger::class,
+            'camera_lens' => CameraLens::class,
+            'cctv' => Cctv::class,
+            'flash_memory' => FlashMemory::class,
+            'microphone' => Microphone::class,
+            'recorder' => Recorder::class,
+            'satellite_dish' => SatelliteDish::class,
+            'satellite_finder' => SatelliteFinder::class,
+            'sound_card' => SoundCard::class,
+            'speaker' => Speaker::class,
+            'ups' => Ups::class,
+            'video_projector' => VideoProjector::class,
+            'video_projector_curtain' => VideoProjectorCurtain::class,
+            'webcam' => Webcam::class,
+            'cable_tester' => CableTester::class,
+            'dongle' => Dongle::class,
+            'Kvm' => Kvm::class,
+            'lantv' => Lantv::class,
+            'punch_wrench' => PunchWrench::class,
+            'socket_wrench' => SocketWrench::class,
+            'stripper_wrench' => StripperWrench::class,
         ];
 
         $equipmentType = $equipment->equipmentType->name;
