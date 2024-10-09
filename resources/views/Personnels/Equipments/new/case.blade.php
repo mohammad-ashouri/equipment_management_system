@@ -12,7 +12,7 @@
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($cases as $case)
+        @foreach($items[App\Models\HardwareEquipments\Cases::class] as $case)
             <option value="{{ $case->id }}"
                     @if(old('case')==$case->id) selected @endif>{{ $case->brandInfo->name}} - {{ $case->model}}</option>
         @endforeach
@@ -25,7 +25,7 @@
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($powers as $power)
+        @foreach($items[App\Models\HardwareEquipments\Power::class] as $power)
             <option value="{{ $power->id }}"
                     @if(old('power')==$power->id) selected @endif>{{ $power->brandInfo->name}} - {{ $power->model}}
                 - {{ $power->voltage}}W
@@ -40,7 +40,7 @@
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($motherboards as $motherboard)
+        @foreach($items[App\Models\HardwareEquipments\Motherboard::class] as $motherboard)
             <option value="{{ $motherboard->id }}"
                     @if(old('motherboard')==$motherboard->id) selected @endif>{{ $motherboard->brandInfo->name}}
                 - {{ $motherboard->model}}</option>
@@ -54,7 +54,7 @@
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($cpus as $cpu)
+        @foreach($items[App\Models\HardwareEquipments\Cpu::class] as $cpu)
             <option value="{{ $cpu->id }}"
                     @if(old('cpu')==$cpu->id) selected @endif>{{ $cpu->brandInfo->name}}
                 - {{ $cpu->model}} {{ !empty($cpu->generation) ?? ' - نسل'.$cpu->generation }}</option>
@@ -67,7 +67,7 @@
     <select name="graphicCard"
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($graphicCards as $graphicCard)
+        @foreach($items[App\Models\HardwareEquipments\GraphicCard::class] as $graphicCard)
             <option value="{{ $graphicCard->id }}"
                     @if(old('graphicCard')==$graphicCard->id) selected @endif>{{ $graphicCard->brandInfo->name}}
                 - {{ $graphicCard->model}} - {{ $graphicCard->memory }}</option>
@@ -80,7 +80,7 @@
     <select name="odd"
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($odds as $odd)
+        @foreach($items[App\Models\HardwareEquipments\Odd::class] as $odd)
             <option value="{{ $odd->id }}"
                     @if(old('odd')==$odd->id) selected @endif>{{ $odd->brandInfo->name}} - {{ $odd->model}}
                 - {{ $odd->connectivity_type }}</option>
@@ -97,7 +97,7 @@
                         <select name="ram[]" required
                                 class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>انتخاب کنید</option>
-                            @foreach($rams as $ram)
+                            @foreach($items[App\Models\HardwareEquipments\Ram::class] as $ram)
                                 <option value="{{ $ram->id }}"
                                         @if(old('ram1')==$ram->id) selected @endif>{{ $ram->brandInfo->name}}
                                     - {{ $ram->model}}
@@ -185,7 +185,7 @@
                     <select name="internalHardDisk[]" required
                             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option value="" disabled selected>انتخاب کنید</option>
-                        @foreach($internalHards as $internalHard)
+                        @foreach($items[App\Models\HardwareEquipments\InternalHardDisk::class] as $internalHard)
                             <option value="{{ $internalHard->id }}"
                                     @if(old('internalHardDisk')==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
                                 - {{ $internalHard->model}} - {{ $internalHard->capacity }}

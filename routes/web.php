@@ -55,6 +55,7 @@ use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
+use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
 use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
 use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
@@ -68,6 +69,7 @@ use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
 use App\Http\Middleware\ThrottleRequests;
+use App\Models\NetworkEquipments\RadioWireless;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -155,6 +157,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/CableTesters', CableTesterController::class);
         Route::resource('/Kvms', KvmController::class);
         Route::resource('/Lantvs', LantvController::class);
+        Route::resource('/RadioWireless', RadioWirelessController::class);
 
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
@@ -186,6 +189,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Chairs', ChairController::class);
         Route::resource('/Tables', TableController::class);
         Route::resource('/FireExtinguishers', FireExtinguisherController::class);
+        Route::resource('/RadioWirelesses', RadioWirelessController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

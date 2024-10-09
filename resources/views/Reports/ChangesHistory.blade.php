@@ -48,7 +48,7 @@
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
                                         <table
-                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1  font-bold ">
                                                     وضعیت
@@ -151,7 +151,7 @@
 
                                     @elseif(isset($changesEdit['وضعیت']) and $changesEdit['وضعیت']=='moved')
                                         <table
-                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1  font-bold ">
                                                     وضعیت
@@ -187,7 +187,7 @@
 
                                     @else
                                         <table
-                                                class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                            class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                 <th class="px-2 py-1 font-bold">نوع</th>
                                                 {{--                                                <th class="px-2 py-1 font-bold">اضافه شده</th>--}}
@@ -229,7 +229,7 @@
                                                         <td class="px-2 py-2">
                                                             @if(is_array($modified))
                                                                 <table
-                                                                        class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                                                                    class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                                                     <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
                                                                         <th class="px-2 py-1 font-bold">از</th>
                                                                         <th class="px-2 py-1 font-bold">به</th>
@@ -247,14 +247,15 @@
                                                                             @php
                                                                                 if (is_array($modified['from'])){
                                                                                     $equipmentInfoFrom=reset($result)::with('brandInfo')->whereIn('id',$modified['from'])->get()->toArray();
+
                                                                                 }else{
-                                                                                    $equipmentInfoFrom=reset($result)::with('brandInfo')->whereId($modified['from'])->first();
+                                                                                    $equipmentInfoFrom=reset($result)::with('brandInfo')->whereId($modified['from'])->get()->toArray();
                                                                                 }
 
                                                                                 if (is_array($modified['to'])){
                                                                                     $equipmentInfoTo=reset($result)::with('brandInfo')->whereIn('id',$modified['to'])->get()->toArray();
                                                                                 }else{
-                                                                                    $equipmentInfoTo=reset($result)::with('brandInfo')->whereId($modified['to'])->first();
+                                                                                    $equipmentInfoTo=reset($result)::with('brandInfo')->whereId($modified['to'])->get()->toArray();
                                                                                 }
                                                                             @endphp
 
@@ -310,6 +311,7 @@
                                                                         <td class="px-2 py-2">
                                                                             @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date' and $key!='internalHardDisk')
                                                                                 @foreach($equipmentInfoTo as $to)
+
                                                                                     {{ $to['brand_info']['name'] }}
                                                                                     {{ $to['model'] }}
                                                                                     @php

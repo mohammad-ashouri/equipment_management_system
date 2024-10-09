@@ -226,6 +226,12 @@ class MenuMiddleware
                             'permission' => "لیست lantv",
                             'icon' => 'las la-tv',
                         ],
+                        [
+                            'title' => 'رادیو وایرلس',
+                            'link' => '/RadioWirelesses',
+                            'permission' => "لیست رادیو وایرلس",
+                            'icon' => 'las la-wifi',
+                        ],
                     ]
                 ],
                 4 => [

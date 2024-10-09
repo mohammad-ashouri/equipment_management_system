@@ -1,251 +1,69 @@
-@php use App\Models\DigitalEquipments\AttendanceSystem;use App\Models\DigitalEquipments\BatteryCharger;use App\Models\DigitalEquipments\Camera;use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\Cctv;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\FlashMemory;use App\Models\DigitalEquipments\Microphone;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Recorder;use App\Models\DigitalEquipments\SatelliteDish;use App\Models\DigitalEquipments\SatelliteFinder;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\SoundCard;use App\Models\DigitalEquipments\Speaker;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\DigitalEquipments\CameraLens;use App\Models\DigitalEquipments\Ups;use App\Models\DigitalEquipments\VideoProjector;use App\Models\DigitalEquipments\VideoProjectorCurtain;use App\Models\DigitalEquipments\Webcam;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Kvm;use App\Models\NetworkEquipments\Lantv;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches;use App\Models\TechnicalFacilities\Chair;use App\Models\TechnicalFacilities\FireExtinguisher;use App\Models\TechnicalFacilities\Table; @endphp
+@php use App\Models\DigitalEquipments\AttendanceSystem;use App\Models\DigitalEquipments\BatteryCharger;use App\Models\DigitalEquipments\Camera;use App\Models\DigitalEquipments\CameraHolder;use App\Models\DigitalEquipments\Cctv;use App\Models\DigitalEquipments\DVB;use App\Models\DigitalEquipments\ExternalHardDisk;use App\Models\DigitalEquipments\FlashMemory;use App\Models\DigitalEquipments\Microphone;use App\Models\DigitalEquipments\Mobile;use App\Models\DigitalEquipments\Phone;use App\Models\DigitalEquipments\Recorder;use App\Models\DigitalEquipments\SatelliteDish;use App\Models\DigitalEquipments\SatelliteFinder;use App\Models\DigitalEquipments\Simcard;use App\Models\DigitalEquipments\SoundCard;use App\Models\DigitalEquipments\Speaker;use App\Models\DigitalEquipments\Tablet;use App\Models\DigitalEquipments\Television;use App\Models\DigitalEquipments\CameraLens;use App\Models\DigitalEquipments\Ups;use App\Models\DigitalEquipments\VideoProjector;use App\Models\DigitalEquipments\VideoProjectorCurtain;use App\Models\DigitalEquipments\Webcam;use App\Models\Equipment;use App\Models\HardwareEquipments\Cases;use App\Models\HardwareEquipments\CopyMachine;use App\Models\HardwareEquipments\Cpu;use App\Models\HardwareEquipments\GraphicCard;use App\Models\HardwareEquipments\Headset;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Keyboard;use App\Models\HardwareEquipments\Monitor;use App\Models\HardwareEquipments\Motherboard;use App\Models\HardwareEquipments\Mouse;use App\Models\HardwareEquipments\Odd;use App\Models\HardwareEquipments\Power;use App\Models\HardwareEquipments\Printer;use App\Models\HardwareEquipments\Ram;use App\Models\HardwareEquipments\Scanner;use App\Models\HardwareEquipments\Voip;use App\Models\NetworkEquipments\CableTester;use App\Models\NetworkEquipments\Dongle;use App\Models\NetworkEquipments\Kvm;use App\Models\NetworkEquipments\Lantv;use App\Models\NetworkEquipments\Modem;use App\Models\NetworkEquipments\PunchWrench;use App\Models\NetworkEquipments\Rack;use App\Models\NetworkEquipments\RadioWireless;use App\Models\NetworkEquipments\SocketWrench;use App\Models\NetworkEquipments\StripperWrench;use App\Models\NetworkEquipments\Switches;use App\Models\TechnicalFacilities\Chair;use App\Models\TechnicalFacilities\FireExtinguisher;use App\Models\TechnicalFacilities\Table; @endphp
 @extends('layouts.PanelMaster')
 @section('content')
-    @switch($equipmentType->name)
-        @case('case')
-            @php
-                $cases=Cases::get();
-                $powers=Power::get();
-                $cpus=Cpu::get();
-                $rams=Ram::get();
-                $motherboards=Motherboard::get();
-                $internalHards=InternalHardDisk::get();
-                $odds=Odd::get();
-                $graphicCards=GraphicCard::get();
-            @endphp
-            @break
-        @case('monitor')
-            @php
-                $monitors=Monitor::get();
-            @endphp
-            @break
-        @case('mouse')
-            @php
-                $mouses=Mouse::get();
-            @endphp
-            @break
-        @case('keyboard')
-            @php
-                $keyboards=Keyboard::get();
-            @endphp
-            @break
-        @case('headset')
-            @php
-                $headsets=Headset::get();
-            @endphp
-            @break
-        @case('printer')
-            @php
-                $printers=Printer::get();
-            @endphp
-            @break
-        @case('scanner')
-            @php
-                $scanners=Scanner::get();
-            @endphp
-            @break
-        @case('copy_machine')
-            @php
-                $copyMachines=CopyMachine::get();
-            @endphp
-            @break
-        @case('voip')
-            @php
-                $voips=Voip::get();
-            @endphp
-            @break
-        @case('switch')
-            @php
-                $switches=Switches::get();
-            @endphp
-            @break
-        @case('modem')
-            @php
-                $modems=Modem::get();
-            @endphp
-            @break
-        @case('rack')
-            @php
-                $racks=Rack::get();
-            @endphp
-            @break
-        @case('dongle')
-            @php
-                $dongles=Dongle::get();
-            @endphp
-            @break
-        @case('external_hard_disk')
-            @php
-                $external_hard_disks=ExternalHardDisk::get();
-            @endphp
-            @break
-        @case('tablet')
-            @php
-                $tablets=Tablet::get();
-            @endphp
-            @break
-        @case('phone')
-            @php
-                $phones=Phone::get();
-            @endphp
-            @break
-        @case('mobile')
-            @php
-                $mobiles=Mobile::get();
-            @endphp
-            @break
-        @case('camera_holder')
-            @php
-                $camera_holders=CameraHolder::get();
-            @endphp
-            @break
-        @case('television')
-            @php
-                $televisions=Television::get();
-            @endphp
-            @break
-        @case('dvb')
-            @php
-                $dvbs=DVB::get();
-            @endphp
-            @break
-        @case('simcard')
-            @php
-                $allSimcards=Equipment::whereEquipmentType(21)->pluck('info')->toArray();
-                $simcards=[];
-                foreach ($allSimcards as $simcard){
-                    $decoded=json_decode($simcard,true);
-                    $simcards[]=$decoded['simcard'];
+    @php
+        $models = [
+            'case' => [
+                Cases::class,
+                Power::class,
+                Cpu::class,
+                Ram::class,
+                Motherboard::class,
+                InternalHardDisk::class,
+                Odd::class,
+                GraphicCard::class,
+            ],
+            'simcard' => function($equipment) {
+                $allSimcards = Equipment::whereEquipmentType(21)->pluck('info')->toArray();
+                $simcards = [];
+                foreach ($allSimcards as $simcard) {
+                    $decoded = json_decode($simcard, true);
+                    if ($decoded['simcard'] == json_decode($equipment->info, true)['simcard']) {
+                        continue;
+                    }
+                    $simcards[] = $decoded['simcard'];
                 }
-                $simcards=Simcard::whereNotIn('id',$simcards)->get();
-            @endphp
-            @break
-        @case('punch_wrench')
-            @php
-                $punchWrenches=PunchWrench::get();
-            @endphp
-            @break
-        @case('socket_wrench')
-            @php
-                $socketWrenches=SocketWrench::get();
-            @endphp
-            @break
-        @case('stripper_wrench')
-            @php
-                $stripperWrenches=StripperWrench::get();
-            @endphp
-            @break
-        @case('cable_tester')
-            @php
-                $cableTesters=CableTester::get();
-            @endphp
-            @break
-        @case('kvm')
-            @php
-                $kvms=Kvm::get();
-            @endphp
-            @break
-        @case('lantv')
-            @php
-                $lantvs=Lantv::get();
-            @endphp
-            @break
-        @case('speaker')
-            @php
-                $speakers=Speaker::get();
-            @endphp
-            @break
-        @case('attendance_system')
-            @php
-                $attendanceSystems=AttendanceSystem::get();
-            @endphp
-            @break
-        @case('cctv')
-            @php
-                $cctvs=Cctv::get();
-            @endphp
-            @break
-        @case('recorder')
-            @php
-                $recorders=Recorder::get();
-            @endphp
-            @break
-        @case('webcam')
-            @php
-                $webcams=Webcam::get();
-            @endphp
-            @break
-        @case('flash_memory')
-            @php
-                $flash_memories=FlashMemory::get();
-            @endphp
-            @break
-        @case('ups')
-            @php
-                $ups=Ups::get();
-            @endphp
-            @break
-        @case('satellite_dish')
-            @php
-                $satelliteDishes=SatelliteDish::get();
-            @endphp
-            @break
-        @case('camera_lens')
-            @php
-                $cameraLenses=CameraLens::get();
-            @endphp
-            @break
-        @case('satellite_finder')
-            @php
-                $satelliteFinders=SatelliteFinder::get();
-            @endphp
-            @break
-        @case('sound_card')
-            @php
-                $soundCards=SoundCard::get();
-            @endphp
-            @break
-        @case('video_projector')
-            @php
-                $videoProjectors=VideoProjector::get();
-            @endphp
-            @break
-        @case('video_projector_curtain')
-            @php
-                $videoProjectorCurtains=VideoProjectorCurtain::get();
-            @endphp
-            @break
-        @case('microphone')
-            @php
-                $microphones=Microphone::get();
-            @endphp
-            @break
-        @case('battery_charger')
-            @php
-                $batteryChargers=BatteryCharger::get();
-            @endphp
-            @break
-        @case('camera')
-            @php
-                $cameras=Camera::get();
-            @endphp
-            @break
-        @case('chair')
-            @php
-                $chairs=Chair::get();
-            @endphp
-            @break
-        @case('table')
-            @php
-                $tables=Table::get();
-            @endphp
-            @break
-        @case('fire_extinguisher')
-            @php
-                $fireExtinguishers=FireExtinguisher::get();
-            @endphp
-            @break
-    @endswitch
+                return Simcard::whereNotIn('id', $simcards)->get();
+            },
+            'monitor' => Monitor::class,
+            'mouse' => Mouse::class,
+            'keyboard' => Keyboard::class,
+            'headset' => Headset::class,
+            'printer' => Printer::class,
+            'scanner' => Scanner::class,
+            'copy_machine' => CopyMachine::class,
+            'voip' => Voip::class,
+            'switch' => Switches::class,
+            'modem' => Modem::class,
+            'rack' => Rack::class,
+            'dongle' => Dongle::class,
+            'external_hard_disk' => ExternalHardDisk::class,
+            'tablet' => Tablet::class,
+            'phone' => Phone::class,
+            'mobile' => Mobile::class,
+            'camera_holder' => CameraHolder::class,
+            'television' => Television::class,
+            'dvb' => DVB::class,
+            'fire_extinguisher' => FireExtinguisher::class,
+            'radio_wireless' => RadioWireless::class,
+        ];
+        $equipmentTypeName = $equipmentType->name;
+        $items = [];
+
+        if (isset($models[$equipmentTypeName])) {
+            $modelData = $models[$equipmentTypeName];
+
+            if (is_array($modelData)) {
+                foreach ($modelData as $modelClass) {
+                    $items[$modelClass] = $modelClass::get();
+                }
+            } elseif (is_callable($modelData)) {
+                $items[$modelData] = $modelData($equipment);
+            } else {
+                $items[$modelData] = $modelData::get();
+            }
+        }
+    @endphp
 
     <main class="flex-1 bg-gray-100 py-6 px-8">
         {{ html()->form('POST')->route('Personnels.equipments.store')->id('equipment-form')->open() }}
@@ -275,7 +93,16 @@
                                    required/>
                         </div>
                     </div>
-                    @include('Personnels.Equipments.new.'.$equipmentType->name)
+                    @switch($equipmentType->name)
+                        @case('case')
+                            @include('Personnels.Equipments.new.case')
+                            @break
+                        @case('simcard')
+                            @include('Personnels.Equipments.new.simcard')
+                            @break
+                        @default
+                            @include('Personnels.Equipments.new.default')
+                    @endswitch
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     <input type="hidden" name="personnel" value="{{$personnel->id}}">
