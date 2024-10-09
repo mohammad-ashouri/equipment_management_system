@@ -47,6 +47,7 @@ use App\Http\Controllers\HardwareEquipments\RamController;
 use App\Http\Controllers\HardwareEquipments\ScannerController;
 use App\Http\Controllers\HardwareEquipments\VoipController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NetworkEquipments\AccessPointController;
 use App\Http\Controllers\NetworkEquipments\CableTesterController;
 use App\Http\Controllers\NetworkEquipments\DongleController;
 use App\Http\Controllers\NetworkEquipments\KvmController;
@@ -190,6 +191,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Tables', TableController::class);
         Route::resource('/FireExtinguishers', FireExtinguisherController::class);
         Route::resource('/RadioWirelesses', RadioWirelessController::class);
+        Route::resource('/AccessPoints', AccessPointController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

@@ -232,6 +232,12 @@ class MenuMiddleware
                             'permission' => "لیست رادیو وایرلس",
                             'icon' => 'las la-wifi',
                         ],
+                        [
+                            'title' => 'اکسس پوینت',
+                            'link' => '/AccessPoints',
+                            'permission' => "لیست اکسس پوینت",
+                            'icon' => 'las la-wifi',
+                        ],
                     ]
                 ],
                 4 => [

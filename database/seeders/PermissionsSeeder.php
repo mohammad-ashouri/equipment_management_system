@@ -377,6 +377,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات رادیو وایرلس', 'guard_name' => 'web'],
             ['name' => 'حذف رادیو وایرلس', 'guard_name' => 'web'],
 
+            ['name' => 'لیست اکسس پوینت', 'guard_name' => 'web'],
+            ['name' => 'ایجاد اکسس پوینت', 'guard_name' => 'web'],
+            ['name' => 'ویرایش اکسس پوینت', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات اکسس پوینت', 'guard_name' => 'web'],
+            ['name' => 'حذف اکسس پوینت', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -764,6 +770,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش رادیو وایرلس',
             'نمایش جزئیات رادیو وایرلس',
             'حذف رادیو وایرلس',
+
+            'لیست اکسس پوینت',
+            'ایجاد اکسس پوینت',
+            'ویرایش اکسس پوینت',
+            'نمایش جزئیات اکسس پوینت',
+            'حذف اکسس پوینت',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
