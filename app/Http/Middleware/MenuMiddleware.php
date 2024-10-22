@@ -434,6 +434,12 @@ class MenuMiddleware
                             'permission' => "لیست کپسول آتش نشانی",
                             'icon' => 'las la-fire-extinguisher',
                         ],
+                        [
+                            'title' => 'یخچال',
+                            'link' => '/Refrigerators',
+                            'permission' => "لیست یخچال",
+                            'icon' => 'las la-water',
+                        ],
                     ]
                 ],
                 6 => [

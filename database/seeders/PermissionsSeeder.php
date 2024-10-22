@@ -389,6 +389,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات روتر', 'guard_name' => 'web'],
             ['name' => 'حذف روتر', 'guard_name' => 'web'],
 
+            ['name' => 'لیست یخچال', 'guard_name' => 'web'],
+            ['name' => 'ایجاد یخچال', 'guard_name' => 'web'],
+            ['name' => 'ویرایش یخچال', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات یخچال', 'guard_name' => 'web'],
+            ['name' => 'حذف یخچال', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -788,6 +794,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش روتر',
             'نمایش جزئیات روتر',
             'حذف روتر',
+
+            'لیست یخچال',
+            'ایجاد یخچال',
+            'ویرایش یخچال',
+            'نمایش جزئیات یخچال',
+            'حذف یخچال',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

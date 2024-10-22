@@ -66,6 +66,7 @@ use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
+use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
@@ -159,7 +160,9 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/CableTesters', CableTesterController::class);
         Route::resource('/Kvms', KvmController::class);
         Route::resource('/Lantvs', LantvController::class);
-        Route::resource('/RadioWireless', RadioWirelessController::class);
+        Route::resource('/RadioWirelesses', RadioWirelessController::class);
+        Route::resource('/AccessPoints', AccessPointController::class);
+        Route::resource('/Routers', RouterController::class);
 
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
@@ -191,9 +194,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Chairs', ChairController::class);
         Route::resource('/Tables', TableController::class);
         Route::resource('/FireExtinguishers', FireExtinguisherController::class);
-        Route::resource('/RadioWirelesses', RadioWirelessController::class);
-        Route::resource('/AccessPoints', AccessPointController::class);
-        Route::resource('/Routers', RouterController::class);
+        Route::resource('/Refrigerators', RefrigeratorController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
