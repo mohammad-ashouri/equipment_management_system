@@ -13,6 +13,7 @@ use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
+use App\Http\Controllers\DigitalEquipments\LaptopController;
 use App\Http\Controllers\DigitalEquipments\MicrophoneController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
@@ -72,7 +73,6 @@ use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
 use App\Http\Middleware\ThrottleRequests;
-use App\Models\NetworkEquipments\RadioWireless;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -189,6 +189,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Microphones', MicrophoneController::class);
         Route::resource('/BatteryChargers', BatteryChargerController::class);
         Route::resource('/Cameras', CameraController::class);
+        Route::resource('/Laptops', LaptopController::class);
 
         //TechnicalFacilities
         Route::resource('/Chairs', ChairController::class);

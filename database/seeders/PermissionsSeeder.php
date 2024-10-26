@@ -395,6 +395,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات یخچال', 'guard_name' => 'web'],
             ['name' => 'حذف یخچال', 'guard_name' => 'web'],
 
+            ['name' => 'لیست لپ تاپ', 'guard_name' => 'web'],
+            ['name' => 'ایجاد لپ تاپ', 'guard_name' => 'web'],
+            ['name' => 'ویرایش لپ تاپ', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات لپ تاپ', 'guard_name' => 'web'],
+            ['name' => 'حذف لپ تاپ', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -800,6 +806,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش یخچال',
             'نمایش جزئیات یخچال',
             'حذف یخچال',
+
+            'لیست لپ تاپ',
+            'ایجاد لپ تاپ',
+            'ویرایش لپ تاپ',
+            'نمایش جزئیات لپ تاپ',
+            'حذف لپ تاپ',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

@@ -1,122 +1,37 @@
-@php
-    $equipmentInfo=json_decode($equipment->info,true);
-@endphp
 <div>
-    <label for="seal_code"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد پلمپ </label>
-    <input type="text" name="seal_code" value="{{ $equipmentInfo['seal_code'] }}"
-           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-           placeholder="">
-</div>
-<div>
-    <label for="case"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کیس </label>
-    <select name="case"
+    <label for="laptop"
+           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">لپ تاپ </label>
+    <select name="laptop"
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\Cases::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['case']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}}</option>
-        @endforeach
-    </select>
-</div>
-<div>
-    <label for="power"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">منبع تغذیه </label>
-    <select name="power"
-            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required>
-        <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\Power::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['power']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}}
-                - {{ $item->voltage}}W
-            </option>
-        @endforeach
-    </select>
-</div>
-<div>
-    <label for="motherboard"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">مادربورد </label>
-    <select name="motherboard"
-            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required>
-        <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\Motherboard::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['motherboard']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}}</option>
-        @endforeach
-    </select>
-</div>
-<div>
-    <label for="cpu"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">پردازنده </label>
-    <select name="cpu"
-            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            required>
-        <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\Cpu::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['cpu']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}} {{ !empty($item->generation) ?? ' - نسل'.$item->generation }}</option>
-        @endforeach
-    </select>
-</div>
-<div>
-    <label for="graphicCard"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کارت گرافیک </label>
-    <select name="graphicCard"
-            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\GraphicCard::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['graphicCard']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}} - {{ $item->memory }}</option>
-        @endforeach
-    </select>
-</div>
-<div>
-    <label for="odd"
-           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">درایو نوری </label>
-    <select name="odd"
-            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\HardwareEquipments\Odd::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['odd']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}}
-                - {{ $item->connectivity_type }}</option>
+        @foreach($items[App\Models\DigitalEquipments\Laptop::class] as $laptop)
+            <option value="{{ $laptop->id }}"
+                    @if(old('laptop')==$laptop->id) selected @endif>{{ $laptop->brandInfo->name}}
+                - {{ $laptop->model}} - سایز مانیتور: {{ $laptop->cpuInfo->brandInfo->name }} {{ $laptop->cpuInfo->model }} - نسل: {{ $laptop->generation }}  - پردازنده: {{ $laptop->graphicCardInfo->brandInfo->name }} {{ $laptop->graphicCardInfo->model }} - سایز رم: {{ $laptop->ram_size }}  - کارت گرافیک: {{ $laptop->monitor_size}}  - درایو نوری: {{ $laptop->odd}} </option>
         @endforeach
     </select>
 </div>
 <div>
     <div class="ram-container mx-auto p-4">
         <div id="ram-select-container">
-            @foreach($equipmentInfo['ram'] as $index=>$ramEquipment)
-                <div class="flex ram-select-wrapper">
-                    <div class="mt-2 w-full ">
-                        <label
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رم {{ ++$index }}</label>
+            <div class="mt-2 ram-select-wrapper">
+                <div class="flex">
+                    <div class="w-full">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رم 1</label>
                         <select name="ram[]" required
                                 class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="" disabled selected>انتخاب کنید</option>
-                            @foreach($items[App\Models\HardwareEquipments\Ram::class] as $item)
-                                <option value="{{ $item->id }}"
-                                        @if($ramEquipment==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                                    - {{ $item->model}}
-                                    - {{ $item->type }} - {{ $item->size }}</option>
+                            @foreach($items[App\Models\HardwareEquipments\Ram::class] as $ram)
+                                <option value="{{ $ram->id }}"
+                                        @if(old('ram1')==$ram->id) selected @endif>{{ $ram->brandInfo->name}}
+                                    - {{ $ram->model}}
+                                    - {{ $ram->type }} - {{ $ram->size }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="mt-7 mr-4">
-                        <button type="button" class="remove-ram bg-red-500 text-white p-1 rounded mt-2">حذف</button>
-                    </div>
                 </div>
-            @endforeach
+            </div>
         </div>
         <div class="text-center">
             <button type="button" id="add-ram-select" class="mt-4 bg-blue-500 text-white p-2 rounded">افزودن رم جدید
@@ -189,38 +104,29 @@
 <div>
     <div class="internalHardDisk-container mx-auto p-4">
         <div id="internalHardDisk-select-container">
-            @foreach($equipmentInfo['internalHardDisks'] as $index=>$internalHardDiskEquipment)
-                <div class="grid grid-cols-3 mt-2 internalHardDisk-select-wrapper">
-                    <div class="internalHardDisk-select-wrapper">
-                        <label
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">هارد {{$loop->iteration}}</label>
-                        <select name="internalHardDisk[]" required
-                                class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option value="" disabled selected>انتخاب کنید</option>
-                            @foreach($items[App\Models\HardwareEquipments\InternalHardDisk::class] as $item)
-                                <option value="{{ $item->id }}"
-                                        @if($internalHardDiskEquipment['id']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                                    - {{ $item->model}} - {{ $item->capacity }}
-                                    - {{ $item->connectivity_type }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mr-2">
-                        <label for=""
-                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد اموال
-                            هارد {{$loop->iteration}}</label>
-                        <input type="text" name="internalHardDisk_property_code[]"
-                               value="{{ $internalHardDiskEquipment['property_code'] }}"
-                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                               placeholder="">
-                    </div>
-                    <div class="mt-5 mr-4">
-                        <button type="button" class="remove-internalHardDisk bg-red-500 text-white p-2 rounded mt-2">
-                            حذف
-                        </button>
-                    </div>
+            <div class="w-full grid grid-cols-3 mt-2 internalHardDisk-select-wrapper">
+                <div class="w-full">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">هارد </label>
+                    <select name="internalHardDisk[]" required
+                            class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" disabled selected>انتخاب کنید</option>
+                        @foreach($items[App\Models\HardwareEquipments\InternalHardDisk::class] as $internalHard)
+                            <option value="{{ $internalHard->id }}"
+                                    @if(old('internalHardDisk')==$internalHard->id) selected @endif>{{ $internalHard->brandInfo->name}}
+                                - {{ $internalHard->model}} - {{ $internalHard->capacity }}
+                                - {{ $internalHard->connectivity_type }}</option>
+                        @endforeach
+                    </select>
                 </div>
-            @endforeach
+                <div class="mr-2 w-full">
+                    <label for=""
+                           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کد اموال هارد </label>
+                    <input type="text" name="internalHardDisk_property_code[]"
+                           value="{{ old('internalHardDisk_property_code') }}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                           placeholder="">
+                </div>
+            </div>
         </div>
         <div class="text-center">
             <button type="button" id="add-internalHardDisk-select" class="mt-4 bg-blue-500 text-white p-2 rounded">
