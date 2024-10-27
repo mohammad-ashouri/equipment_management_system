@@ -1,0 +1,171 @@
+@extends('layouts.PanelMaster')
+@section('content')
+    <main class="flex-1 bg-gray-100 py-6 px-8">
+        <div class="mx-auto lg:mr-72">
+            <div class="flex mb-4">
+                <h1 class="text-2xl font-bold mb-4">ویرایش یادداشت</h1>
+                @if ($note->status==2)
+                    <x-show-draft-button route="Notes"
+                                         token="{{ $note->draft_token }}"></x-show-draft-button>
+                @endif
+            </div>
+            @include('layouts.components.errors')
+            @include('layouts.components.success')
+            <div class="bg-gray-300 rounded shadow flex flex-col ">
+                {{ html()->form('PATCH')->route('Notes.update',$note->id)->acceptsFiles()->id('edit-post')->open() }}
+                <div class="bg-white rounded shadow flex flex-col p-4">
+                    <div class="grid gap-6 mb-6 md:grid-cols-3">
+                        <div>
+                            <label for="title"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">عنوان
+                            </label>
+                            <input type="text" id="title" name="title" value="{{ $note->title }}"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="عنوان را وارد کنید" required>
+                        </div>
+                        <div>
+                            <label for="status"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">وضعیت</label>
+                            <select name="status"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                                <option value="1" {{$note->status==1 ? 'selected' : ''}}>منتشر شده</option>
+                                <option value="2" {{$note->status==2 ? 'selected' : ''}}>پیش نویس</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="chosen"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">برگزیده</label>
+                            <select name="chosen"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                                <option value="0" {{$note->chosen==0 ? 'selected' : ''}}>خیر</option>
+                                <option value="1" {{$note->chosen==1 ? 'selected' : ''}}>بله</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="body" class="block text-gray-700 text-sm font-bold mb-2">متن*:</label>
+                        <textarea id="body" name="body" rows="7"
+                                  class="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring focus:border-blue-300">{{ $note->body }}</textarea>
+                    </div>
+                </div>
+                <div class="bg-white mt-10 rounded shadow flex flex-col p-4">
+                    <h3 class="font-bold mb-5">اطلاعات دیگر</h3>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <div>
+                            <label for="author"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نویسنده
+                            </label>
+                            <input type="text" id="author" name="author" value="{{ $note->author }}"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="نویسنده را وارد کنید" required>
+                        </div>
+                        <div>
+                            <label for="keywords"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">کلیدواژه ها
+                            </label>
+                            <input type="text" id="keywords" name="keywords"
+                                   value="@if(!empty($note->keywords)) @foreach(json_decode($note->keywords,true) as $keyword) {{ $keyword }}{{ !$loop->last ? ',' : '' }}  @endforeach @endif"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="کلیدواژه ها را وارد کنید" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white mt-10 rounded shadow flex flex-col p-4">
+                    <h3 class="font-bold mb-5">پاورقی ها</h3>
+                    <div class="grid gap-2 mb-6 grid-cols-2" id="footnotesContainer">
+                        <div>
+                            @if($note->footnotes)
+                                @foreach(json_decode($note->footnotes,true) as $index => $footnote)
+                                    <div class="footnote flex">
+                                        <div class="w-full">
+                                            <label for=""
+                                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">پاورقی
+                                            </label>
+                                            <input type="text" id="footnote{{ $index }}" name="footnotes[]"
+                                                   value="{{ $footnote }}"
+                                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                   placeholder="پاورقی {{ $index + 1 }} را وارد کنید (نیازی به وارد کردن شماره در ابتدای آن نیست)"
+                                                   required>
+                                        </div>
+                                        <div class="w-full mt-7 mr-2">
+                                            <button type="button"
+                                                    class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto delete-footnote">
+                                                حذف
+                                            </button>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="footnote flex">
+                                    <div class="w-full">
+                                        <label for=""
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">پاورقی
+                                        </label>
+                                        <input type="text" id="footnote0" name="footnotes[]" value=""
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                               placeholder="پاورقی را وارد کنید (نیازی به وارد کردن شماره در ابتدای آن نیست)"
+                                               required>
+                                    </div>
+                                    <div class="w-full mt-7 mr-2">
+                                        <button type="button"
+                                                class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto delete-footnote">
+                                            حذف
+                                        </button>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button id="new_footnote" type="button"
+                                class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300 sm:mt-0 sm:w-auto">
+                            پاورقی جدید
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-white mt-10 rounded shadow flex flex-col p-4">
+                    <h3 class="font-bold mb-5">عکس شاخص</h3>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <div>
+                            <label for="main_image"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">در صورت نیاز به
+                                تغییر انتخاب کنید
+                            </label>
+                            <input type="file" id="main_image" name="main_image" accept=".jpg,.bmp,.jpeg,.svg,.png"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        </div>
+                        <div>
+                            <img class="w-full h-96 cursor-pointer" title="برای بزرگنمایی کلیک کنید"
+                                 @if($note->mainImage!=null) onclick="openModal('{{ env('APP_URL') . $note->mainImage->src }}')"
+                                 @endif
+                                 src="{{$note->mainImage!=null ? env('APP_URL').$note->mainImage->src : 'not found!'}}"
+                                 alt="تصویر یافت نشد!">
+                        </div>
+                    </div>
+                </div>
+
+                {{--                Related items update--}}
+                <x-related-items-update :postTypes="$postTypes" :relatedItems="$note"/>
+
+                {{--                Slider manager--}}
+                <x-slider.update :image="$note->sliderImage"/>
+
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    @can('ویرایش یادداشت ها')
+                        <button type="submit"
+                                class="px-4 py-2 mr-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
+                            ویرایش
+                        </button>
+                    @endcan
+                    <button id="backward_page" type="button"
+                            class="mt-3 w-full inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 sm:mt-0 sm:w-auto">
+                        بازگشت
+                    </button>
+                </div>
+                {{ html()->form()->close() }}
+            </div>
+        </div>
+    </main>
+@endsection

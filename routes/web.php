@@ -1,75 +1,38 @@
 <?php
 
-use App\Http\Controllers\Catalogs\BrandController;
-use App\Http\Controllers\Catalogs\BuildingController;
+use App\Http\Controllers\BookIntroductionController;
+use App\Http\Controllers\Catalogs\AudioSubjectController;
+use App\Http\Controllers\Catalogs\DocumentTypeController;
+use App\Http\Controllers\Catalogs\MultimediaSubjectController;
 use App\Http\Controllers\Catalogs\PermissionController;
+use App\Http\Controllers\Catalogs\PersonAdjectiveController;
 use App\Http\Controllers\Catalogs\RoleController;
+use App\Http\Controllers\Catalogs\SocialMediaPlatformController;
+use App\Http\Controllers\Catalogs\SubjectAudienceController;
+use App\Http\Controllers\Catalogs\SubjectFormatController;
+use App\Http\Controllers\Catalogs\TeacherController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
-use App\Http\Controllers\DigitalEquipments\BatteryChargerController;
-use App\Http\Controllers\DigitalEquipments\CameraController;
-use App\Http\Controllers\DigitalEquipments\CameraHolderController;
-use App\Http\Controllers\DigitalEquipments\CctvController;
-use App\Http\Controllers\DigitalEquipments\DVBController;
-use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
-use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
-use App\Http\Controllers\DigitalEquipments\LaptopController;
-use App\Http\Controllers\DigitalEquipments\MicrophoneController;
-use App\Http\Controllers\DigitalEquipments\MobileController;
-use App\Http\Controllers\DigitalEquipments\PhoneController;
-use App\Http\Controllers\DigitalEquipments\RecorderController;
-use App\Http\Controllers\DigitalEquipments\SatelliteDishController;
-use App\Http\Controllers\DigitalEquipments\SatelliteFinderController;
-use App\Http\Controllers\DigitalEquipments\SimcardController;
-use App\Http\Controllers\DigitalEquipments\SoundCardController;
-use App\Http\Controllers\DigitalEquipments\SpeakerController;
-use App\Http\Controllers\DigitalEquipments\TabletController;
-use App\Http\Controllers\DigitalEquipments\TelevisionController;
-use App\Http\Controllers\DigitalEquipments\CameraLensController;
-use App\Http\Controllers\DigitalEquipments\UpsController;
-use App\Http\Controllers\DigitalEquipments\VideoProjectorController;
-use App\Http\Controllers\DigitalEquipments\VideoProjectorCurtainController;
-use App\Http\Controllers\DigitalEquipments\WebcamController;
-use App\Http\Controllers\EquipmentsController;
-use App\Http\Controllers\HardwareEquipments\CaseController;
-use App\Http\Controllers\HardwareEquipments\CopyMachineController;
-use App\Http\Controllers\HardwareEquipments\CpuController;
-use App\Http\Controllers\HardwareEquipments\GraphicCardController;
-use App\Http\Controllers\HardwareEquipments\HeadsetController;
-use App\Http\Controllers\HardwareEquipments\InternalHardDiskController;
-use App\Http\Controllers\HardwareEquipments\KeyboardController;
-use App\Http\Controllers\HardwareEquipments\MonitorController;
-use App\Http\Controllers\HardwareEquipments\MotherboardController;
-use App\Http\Controllers\HardwareEquipments\MouseController;
-use App\Http\Controllers\HardwareEquipments\OddController;
-use App\Http\Controllers\HardwareEquipments\PowerController;
-use App\Http\Controllers\HardwareEquipments\PrinterController;
-use App\Http\Controllers\HardwareEquipments\RamController;
-use App\Http\Controllers\HardwareEquipments\ScannerController;
-use App\Http\Controllers\HardwareEquipments\VoipController;
+use App\Http\Controllers\DocumentaryController;
+use App\Http\Controllers\DocumentClassController;
+use App\Http\Controllers\InternationalDocumentController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\NetworkEquipments\AccessPointController;
-use App\Http\Controllers\NetworkEquipments\CableTesterController;
-use App\Http\Controllers\NetworkEquipments\DongleController;
-use App\Http\Controllers\NetworkEquipments\KvmController;
-use App\Http\Controllers\NetworkEquipments\LantvController;
-use App\Http\Controllers\NetworkEquipments\ModemController;
-use App\Http\Controllers\NetworkEquipments\NetworkCardController;
-use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
-use App\Http\Controllers\NetworkEquipments\RackControllers;
-use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
-use App\Http\Controllers\NetworkEquipments\RouterController;
-use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
-use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
-use App\Http\Controllers\NetworkEquipments\SwitchController;
-use App\Http\Controllers\PersonnelController;
+use App\Http\Controllers\AudioController;
+use App\Http\Controllers\MediaSubjectController;
+use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PictureAlbumController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
-use App\Http\Controllers\Reports\HistoryController;
-use App\Http\Controllers\TechnicalFacilities\ChairController;
-use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
-use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
-use App\Http\Controllers\TechnicalFacilities\TableController;
+use App\Http\Controllers\ResearchSubjectController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ShortVideoController;
+use App\Http\Controllers\SiteSettingsController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\SocialMediaController;
+use App\Http\Controllers\SpecialCaseController;
 use App\Http\Controllers\UserManager;
+use App\Http\Middleware\CheckLoginMiddleware;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
 use App\Http\Middleware\ThrottleRequests;
@@ -102,17 +65,18 @@ Route::get('/captcha', [LoginController::class, 'getCaptcha'])->name('captcha');
 
 
 //Panel Routes
-Route::middleware(['auth', MenuMiddleware::class])->group(function () {
+Route::middleware(['auth', MenuMiddleware::class])->middleware(MenuMiddleware::class)->group(function () {
     Route::get('/dateandtime', [DashboardController::class, 'jalaliDateAndTime']);
     Route::get('/date', [DashboardController::class, 'jalaliDate']);
     Route::get('/Profile', [DashboardController::class, 'Profile'])->name('Profile');
     Route::post('/ChangePasswordInc', [DashboardController::class, 'ChangePasswordInc']);
     Route::post('/ChangeUserImage', [DashboardController::class, 'ChangeUserImage']);
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/Search', [SearchController::class, 'search'])->name('Search');
 
     Route::middleware(NTCPMiddleware::class)->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+        //Search Route
         //User Manager
         Route::get('/UserManager', [UserManager::class, 'index'])->name('UserManager');
         Route::get('/GetUserInfo', [UserManager::class, 'getUserInfo'])->name('GetUserInfo');
@@ -127,91 +91,56 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Permissions', PermissionController::class);
 
         //Catalogs
-        Route::resource('/Buildings', BuildingController::class);
-        Route::resource('/Brands', BrandController::class);
+        Route::resource('/DocumentTypes', DocumentTypeController::class);
+        Route::resource('/AudiosSubjects', AudioSubjectController::class);
+        Route::resource('/SubjectFormats', SubjectFormatController::class);
+        Route::resource('/SubjectAudiences', SubjectAudienceController::class);
+        Route::resource('/Teachers', TeacherController::class);
+        Route::resource('/PersonAdjectives', PersonAdjectiveController::class);
+        Route::resource('/MultimediaSubjects', MultimediaSubjectController::class);
+        Route::resource('/SocialMediaPlatforms', SocialMediaPlatformController::class);
 
-        //Hardware Equipments
-        Route::resource('/Monitors', MonitorController::class);
-        Route::resource('/Cases', CaseController::class);
-        Route::resource('/Cpus', CpuController::class);
-        Route::resource('/Motherboards', MotherboardController::class);
-        Route::resource('/Powers', PowerController::class);
-        Route::resource('/Rams', RamController::class);
-        Route::resource('/GraphicCards', GraphicCardController::class);
-        Route::resource('/InternalHardDisks', InternalHardDiskController::class);
-        Route::resource('/Odds', OddController::class);
-        Route::resource('/Mouses', MouseController::class);
-        Route::resource('/Keyboards', KeyboardController::class);
-        Route::resource('/Headsets', HeadsetController::class);
-        Route::resource('/Printers', PrinterController::class);
-        Route::resource('/Scanners', ScannerController::class);
-        Route::resource('/CopyMachines', CopyMachineController::class);
-        Route::resource('/Voips', VoipController::class);
+        //Posts
+        Route::resource('/Posts', PostController::class);
+        Route::delete('/Posts/destroyImage/{id}', [PostController::class, 'destroyImage']);
+        Route::resource('/InternationalDocuments', InternationalDocumentController::class);
+        Route::delete('/InternationalDocuments/destroyImage/{id}', [InternationalDocumentController::class, 'destroyImage']);
+        Route::resource('/ResearchSubjects', ResearchSubjectController::class);
+        Route::delete('/ResearchSubjects/destroyImage/{id}', [ResearchSubjectController::class, 'destroyImage']);
+        Route::resource('/MediaSubjects', MediaSubjectController::class);
+        Route::delete('/MediaSubjects/destroyImage/{id}', [MediaSubjectController::class, 'destroyImage']);
+        Route::resource('/Professors', ProfessorController::class);
+        Route::delete('/Professors/destroyImage/{id}', [ProfessorController::class, 'destroyImage']);
+        Route::resource('/DocumentClasses', DocumentClassController::class);
+        Route::resource('/Notes', NoteController::class);
 
-        //Network Equipments
-        Route::resource('/NetworkCards', NetworkCardController::class);
-        Route::resource('/Modems', ModemController::class);
-        Route::resource('/Switches', SwitchController::class);
-        Route::resource('/Racks', RackControllers::class);
-        Route::resource('/Dongles', DongleController::class);
-        Route::resource('/PunchWrenches', PunchWrenchController::class);
-        Route::resource('/SocketWrenches', SocketWrenchController::class);
-        Route::resource('/StripperWrenches', StripperWrenchController::class);
-        Route::resource('/CableTesters', CableTesterController::class);
-        Route::resource('/Kvms', KvmController::class);
-        Route::resource('/Lantvs', LantvController::class);
-        Route::resource('/RadioWirelesses', RadioWirelessController::class);
-        Route::resource('/AccessPoints', AccessPointController::class);
-        Route::resource('/Routers', RouterController::class);
+        //Multimedia
+        Route::resource('/Audios', AudioController::class);
+        Route::resource('/ShortVideos', ShortVideoController::class);
+        Route::resource('/PictureAlbum', PictureAlbumController::class);
+        Route::resource('/Documentaries', DocumentaryController::class);
+        Route::resource('/SocialMedia', SocialMediaController::class);
+        Route::delete('/SocialMedia/destroyImage/{id}', [SocialMediaController::class, 'destroyImage']);
+        Route::resource('/BookIntroductions', BookIntroductionController::class);
+        Route::delete('/BookIntroductions/destroyImage/{id}', [BookIntroductionController::class, 'destroyImage']);
+        Route::resource('/SpecialCases', SpecialCaseController::class);
 
-        //Digital Equipments
-        Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
-        Route::resource('/Phones', PhoneController::class);
-        Route::resource('/Televisions', TelevisionController::class);
-        Route::resource('/Mobiles', MobileController::class);
-        Route::resource('/Tablets', TabletController::class);
-        Route::resource('/DVBs', DVBController::class);
-        Route::resource('/CameraHolders', CameraHolderController::class);
-        Route::resource('/Simcards', SimcardController::class);
-        Route::resource('/Speakers', SpeakerController::class);
-        Route::resource('/AttendanceSystems', AttendanceSystemController::class);
-        Route::resource('/Cctvs', CctvController::class);
-        Route::resource('/Recorders', RecorderController::class);
-        Route::resource('/Webcams', WebcamController::class);
-        Route::resource('/FlashMemories', FlashMemoryController::class);
-        Route::resource('/Ups', UpsController::class);
-        Route::resource('/SatelliteDishes', SatelliteDishController::class);
-        Route::resource('/CameraLenses', CameraLensController::class);
-        Route::resource('/SatelliteFinders', SatelliteFinderController::class);
-        Route::resource('/SoundCards', SoundCardController::class);
-        Route::resource('/VideoProjectors', VideoProjectorController::class);
-        Route::resource('/VideoProjectorCurtains', VideoProjectorCurtainController::class);
-        Route::resource('/Microphones', MicrophoneController::class);
-        Route::resource('/BatteryChargers', BatteryChargerController::class);
-        Route::resource('/Cameras', CameraController::class);
-        Route::resource('/Laptops', LaptopController::class);
+        //Sliders
+        Route::resource('/Sliders', SliderController::class);
 
-        //TechnicalFacilities
-        Route::resource('/Chairs', ChairController::class);
-        Route::resource('/Tables', TableController::class);
-        Route::resource('/FireExtinguishers', FireExtinguisherController::class);
-        Route::resource('/Refrigerators', RefrigeratorController::class);
+        //Sliders
+        Route::resource('/ContactUs', ContactUsController::class);
+        Route::get('/getContactUsHeaders/{id}',[ContactUsController::class,'getContactUsHeadersInfo']);
 
-        //Personnels
-        Route::resource('/Personnels', PersonnelController::class);
-        Route::get('/Personnels/{personnel}/equipments', [EquipmentsController::class, 'equipments'])->name('Personnels.equipments');
-        Route::get('/Personnels/{personnel}/equipments/new/{equipmentType}', [EquipmentsController::class, 'newEquipment'])->name('Personnels.equipments.new');
-        Route::post('/Personnels/equipments/new', [EquipmentsController::class, 'storeEquipment'])->name('Personnels.equipments.store');
-        Route::get('/Personnels/{personnel}/equipments/edit/{equipmentId}', [EquipmentsController::class, 'editEquipment'])->name('Personnels.equipments.edit');
-        Route::post('/Personnels/equipments/update', [EquipmentsController::class, 'updateEquipment'])->name('Personnels.equipments.update');
-        Route::post('/Personnels/equipments/move', [EquipmentsController::class, 'moveEquipment'])->name('Personnels.equipments.move');
+        //Site Settings
+        Route::resource('/SiteSettings', SiteSettingsController::class);
+
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {
             Route::get('/', [DatabaseBackupController::class, 'index']);
             Route::post('/', [DatabaseBackupController::class, 'createBackup']);
         });
-        Route::get('/ChangeHistory/{personnel}/{equipmentId}', [HistoryController::class, 'index'])->name('History.index');
     });
 });
 

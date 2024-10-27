@@ -15,810 +15,338 @@ class PermissionsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Preparing the array of permissions
-        $permissions = [
-            ['name' => 'لیست مقادیر اولیه', 'guard_name' => 'web'],
-            ['name' => 'لیست تجهیزات سخت افزاری', 'guard_name' => 'web'],
-            ['name' => 'لیست تجهیزات پشتیبانی', 'guard_name' => 'web'],
-            ['name' => 'لیست تجهیزات دیجیتال', 'guard_name' => 'web'],
-            ['name' => 'لیست تجهیزات شبکه', 'guard_name' => 'web'],
-
-            ['name' => 'لیست نقش', 'guard_name' => 'web'],
-            ['name' => 'ایجاد نقش', 'guard_name' => 'web'],
-            ['name' => 'ویرایش نقش', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات نقش', 'guard_name' => 'web'],
-            ['name' => 'حذف نقش', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دسترسی', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دسترسی', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دسترسی', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دسترسی', 'guard_name' => 'web'],
-            ['name' => 'حذف دسترسی', 'guard_name' => 'web'],
-
-            ['name' => 'لیست ساختمان', 'guard_name' => 'web'],
-            ['name' => 'ایجاد ساختمان', 'guard_name' => 'web'],
-            ['name' => 'ویرایش ساختمان', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات ساختمان', 'guard_name' => 'web'],
-            ['name' => 'حذف ساختمان', 'guard_name' => 'web'],
-
-            ['name' => 'لیست برند', 'guard_name' => 'web'],
-            ['name' => 'ایجاد برند', 'guard_name' => 'web'],
-            ['name' => 'ویرایش برند', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات برند', 'guard_name' => 'web'],
-            ['name' => 'حذف برند', 'guard_name' => 'web'],
-
-            ['name' => 'لیست مانیتور', 'guard_name' => 'web'],
-            ['name' => 'ایجاد مانیتور', 'guard_name' => 'web'],
-            ['name' => 'ویرایش مانیتور', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات مانیتور', 'guard_name' => 'web'],
-            ['name' => 'حذف مانیتور', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کیس', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کیس', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کیس', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کیس', 'guard_name' => 'web'],
-            ['name' => 'حذف کیس', 'guard_name' => 'web'],
-
-            ['name' => 'لیست پردازنده', 'guard_name' => 'web'],
-            ['name' => 'ایجاد پردازنده', 'guard_name' => 'web'],
-            ['name' => 'ویرایش پردازنده', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات پردازنده', 'guard_name' => 'web'],
-            ['name' => 'حذف پردازنده', 'guard_name' => 'web'],
-
-            ['name' => 'لیست مادربورد', 'guard_name' => 'web'],
-            ['name' => 'ایجاد مادربورد', 'guard_name' => 'web'],
-            ['name' => 'ویرایش مادربورد', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات مادربورد', 'guard_name' => 'web'],
-            ['name' => 'حذف مادربورد', 'guard_name' => 'web'],
-
-            ['name' => 'لیست منبع تغذیه', 'guard_name' => 'web'],
-            ['name' => 'ایجاد منبع تغذیه', 'guard_name' => 'web'],
-            ['name' => 'ویرایش منبع تغذیه', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات منبع تغذیه', 'guard_name' => 'web'],
-            ['name' => 'حذف منبع تغذیه', 'guard_name' => 'web'],
-
-            ['name' => 'لیست رم', 'guard_name' => 'web'],
-            ['name' => 'ایجاد رم', 'guard_name' => 'web'],
-            ['name' => 'ویرایش رم', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات رم', 'guard_name' => 'web'],
-            ['name' => 'حذف رم', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کارت گرافیک', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کارت گرافیک', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کارت گرافیک', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کارت گرافیک', 'guard_name' => 'web'],
-            ['name' => 'حذف کارت گرافیک', 'guard_name' => 'web'],
-
-            ['name' => 'لیست هارد اینترنال', 'guard_name' => 'web'],
-            ['name' => 'ایجاد هارد اینترنال', 'guard_name' => 'web'],
-            ['name' => 'ویرایش هارد اینترنال', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات هارد اینترنال', 'guard_name' => 'web'],
-            ['name' => 'حذف هارد اینترنال', 'guard_name' => 'web'],
-
-            ['name' => 'لیست درایو نوری', 'guard_name' => 'web'],
-            ['name' => 'ایجاد درایو نوری', 'guard_name' => 'web'],
-            ['name' => 'ویرایش درایو نوری', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات درایو نوری', 'guard_name' => 'web'],
-            ['name' => 'حذف درایو نوری', 'guard_name' => 'web'],
-
-            ['name' => 'لیست موس', 'guard_name' => 'web'],
-            ['name' => 'ایجاد موس', 'guard_name' => 'web'],
-            ['name' => 'ویرایش موس', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات موس', 'guard_name' => 'web'],
-            ['name' => 'حذف موس', 'guard_name' => 'web'],
-
-            ['name' => 'لیست صفحه کلید', 'guard_name' => 'web'],
-            ['name' => 'ایجاد صفحه کلید', 'guard_name' => 'web'],
-            ['name' => 'ویرایش صفحه کلید', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات صفحه کلید', 'guard_name' => 'web'],
-            ['name' => 'حذف صفحه کلید', 'guard_name' => 'web'],
-
-            ['name' => 'لیست هدست', 'guard_name' => 'web'],
-            ['name' => 'ایجاد هدست', 'guard_name' => 'web'],
-            ['name' => 'ویرایش هدست', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات هدست', 'guard_name' => 'web'],
-            ['name' => 'حذف هدست', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کارت شبکه', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کارت شبکه', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کارت شبکه', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کارت شبکه', 'guard_name' => 'web'],
-            ['name' => 'حذف کارت شبکه', 'guard_name' => 'web'],
-
-            ['name' => 'لیست پرینتر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد پرینتر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش پرینتر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات پرینتر', 'guard_name' => 'web'],
-            ['name' => 'حذف پرینتر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست اسکنر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد اسکنر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش اسکنر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات اسکنر', 'guard_name' => 'web'],
-            ['name' => 'حذف اسکنر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دستگاه کپی', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دستگاه کپی', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دستگاه کپی', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دستگاه کپی', 'guard_name' => 'web'],
-            ['name' => 'حذف دستگاه کپی', 'guard_name' => 'web'],
-
-            ['name' => 'لیست VOIP', 'guard_name' => 'web'],
-            ['name' => 'ایجاد VOIP', 'guard_name' => 'web'],
-            ['name' => 'ویرایش VOIP', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات VOIP', 'guard_name' => 'web'],
-            ['name' => 'حذف VOIP', 'guard_name' => 'web'],
-
-            ['name' => 'لیست مودم', 'guard_name' => 'web'],
-            ['name' => 'ایجاد مودم', 'guard_name' => 'web'],
-            ['name' => 'ویرایش مودم', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات مودم', 'guard_name' => 'web'],
-            ['name' => 'حذف مودم', 'guard_name' => 'web'],
-
-            ['name' => 'لیست سوییچ', 'guard_name' => 'web'],
-            ['name' => 'ایجاد سوییچ', 'guard_name' => 'web'],
-            ['name' => 'ویرایش سوییچ', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات سوییچ', 'guard_name' => 'web'],
-            ['name' => 'حذف سوییچ', 'guard_name' => 'web'],
-
-            ['name' => 'لیست رک', 'guard_name' => 'web'],
-            ['name' => 'ایجاد رک', 'guard_name' => 'web'],
-            ['name' => 'ویرایش رک', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات رک', 'guard_name' => 'web'],
-            ['name' => 'حذف رک', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دانگل', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دانگل', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دانگل', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دانگل', 'guard_name' => 'web'],
-            ['name' => 'حذف دانگل', 'guard_name' => 'web'],
-
-            ['name' => 'لیست هارد اکسترنال', 'guard_name' => 'web'],
-            ['name' => 'ایجاد هارد اکسترنال', 'guard_name' => 'web'],
-            ['name' => 'ویرایش هارد اکسترنال', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات هارد اکسترنال', 'guard_name' => 'web'],
-            ['name' => 'حذف هارد اکسترنال', 'guard_name' => 'web'],
-
-            ['name' => 'لیست تلفن رومیزی', 'guard_name' => 'web'],
-            ['name' => 'ایجاد تلفن رومیزی', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تلفن رومیزی', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تلفن رومیزی', 'guard_name' => 'web'],
-            ['name' => 'حذف تلفن رومیزی', 'guard_name' => 'web'],
-
-            ['name' => 'لیست تلوزیون', 'guard_name' => 'web'],
-            ['name' => 'ایجاد تلوزیون', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تلوزیون', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تلوزیون', 'guard_name' => 'web'],
-            ['name' => 'حذف تلوزیون', 'guard_name' => 'web'],
-
-            ['name' => 'لیست تلفن همراه', 'guard_name' => 'web'],
-            ['name' => 'ایجاد تلفن همراه', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تلفن همراه', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تلفن همراه', 'guard_name' => 'web'],
-            ['name' => 'حذف تلفن همراه', 'guard_name' => 'web'],
-
-            ['name' => 'لیست تبلت', 'guard_name' => 'web'],
-            ['name' => 'ایجاد تبلت', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تبلت', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تبلت', 'guard_name' => 'web'],
-            ['name' => 'حذف تبلت', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کارت DVB', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کارت DVB', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کارت DVB', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کارت DVB', 'guard_name' => 'web'],
-            ['name' => 'حذف کارت DVB', 'guard_name' => 'web'],
-
-            ['name' => 'لیست پایه دوربین', 'guard_name' => 'web'],
-            ['name' => 'ایجاد پایه دوربین', 'guard_name' => 'web'],
-            ['name' => 'ویرایش پایه دوربین', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات پایه دوربین', 'guard_name' => 'web'],
-            ['name' => 'حذف پایه دوربین', 'guard_name' => 'web'],
-
-            ['name' => 'لیست سیمکارت', 'guard_name' => 'web'],
-            ['name' => 'ایجاد سیمکارت', 'guard_name' => 'web'],
-            ['name' => 'ویرایش سیمکارت', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات سیمکارت', 'guard_name' => 'web'],
-            ['name' => 'حذف سیمکارت', 'guard_name' => 'web'],
-
-            ['name' => 'لیست آچار پانچ', 'guard_name' => 'web'],
-            ['name' => 'ایجاد آچار پانچ', 'guard_name' => 'web'],
-            ['name' => 'ویرایش آچار پانچ', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات آچار پانچ', 'guard_name' => 'web'],
-            ['name' => 'حذف آچار پانچ', 'guard_name' => 'web'],
-
-            ['name' => 'لیست آچار سوکت', 'guard_name' => 'web'],
-            ['name' => 'ایجاد آچار سوکت', 'guard_name' => 'web'],
-            ['name' => 'ویرایش آچار سوکت', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات آچار سوکت', 'guard_name' => 'web'],
-            ['name' => 'حذف آچار سوکت', 'guard_name' => 'web'],
-
-            ['name' => 'لیست آچار استریپر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد آچار استریپر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش آچار استریپر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات آچار استریپر', 'guard_name' => 'web'],
-            ['name' => 'حذف آچار استریپر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست تستر شبکه', 'guard_name' => 'web'],
-            ['name' => 'ایجاد تستر شبکه', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تستر شبکه', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات تستر شبکه', 'guard_name' => 'web'],
-            ['name' => 'حذف تستر شبکه', 'guard_name' => 'web'],
-
-            ['name' => 'لیست kvm', 'guard_name' => 'web'],
-            ['name' => 'ایجاد kvm', 'guard_name' => 'web'],
-            ['name' => 'ویرایش kvm', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات kvm', 'guard_name' => 'web'],
-            ['name' => 'حذف kvm', 'guard_name' => 'web'],
-
-            ['name' => 'لیست lantv', 'guard_name' => 'web'],
-            ['name' => 'ایجاد lantv', 'guard_name' => 'web'],
-            ['name' => 'ویرایش lantv', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات lantv', 'guard_name' => 'web'],
-            ['name' => 'حذف lantv', 'guard_name' => 'web'],
-
-            ['name' => 'لیست اسپیکر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد اسپیکر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش اسپیکر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات اسپیکر', 'guard_name' => 'web'],
-            ['name' => 'حذف اسپیکر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دستگاه حضور و غیاب', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دستگاه حضور و غیاب', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دستگاه حضور و غیاب', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دستگاه حضور و غیاب', 'guard_name' => 'web'],
-            ['name' => 'حذف دستگاه حضور و غیاب', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دوربین مدار بسته', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دوربین مدار بسته', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دوربین مدار بسته', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دوربین مدار بسته', 'guard_name' => 'web'],
-            ['name' => 'حذف دوربین مدار بسته', 'guard_name' => 'web'],
-
-            ['name' => 'لیست رکوردر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد رکوردر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش رکوردر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات رکوردر', 'guard_name' => 'web'],
-            ['name' => 'حذف رکوردر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست وبکم', 'guard_name' => 'web'],
-            ['name' => 'ایجاد وبکم', 'guard_name' => 'web'],
-            ['name' => 'ویرایش وبکم', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات وبکم', 'guard_name' => 'web'],
-            ['name' => 'حذف وبکم', 'guard_name' => 'web'],
-
-            ['name' => 'لیست فلش مموری', 'guard_name' => 'web'],
-            ['name' => 'ایجاد فلش مموری', 'guard_name' => 'web'],
-            ['name' => 'ویرایش فلش مموری', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات فلش مموری', 'guard_name' => 'web'],
-            ['name' => 'حذف فلش مموری', 'guard_name' => 'web'],
-
-            ['name' => 'لیست ups', 'guard_name' => 'web'],
-            ['name' => 'ایجاد ups', 'guard_name' => 'web'],
-            ['name' => 'ویرایش ups', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات ups', 'guard_name' => 'web'],
-            ['name' => 'حذف ups', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دیش ماهواره', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دیش ماهواره', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دیش ماهواره', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دیش ماهواره', 'guard_name' => 'web'],
-            ['name' => 'حذف دیش ماهواره', 'guard_name' => 'web'],
-
-            ['name' => 'لیست لنز دوربین', 'guard_name' => 'web'],
-            ['name' => 'ایجاد لنز دوربین', 'guard_name' => 'web'],
-            ['name' => 'ویرایش لنز دوربین', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات لنز دوربین', 'guard_name' => 'web'],
-            ['name' => 'حذف لنز دوربین', 'guard_name' => 'web'],
-
-            ['name' => 'لیست فایندر ماهواره', 'guard_name' => 'web'],
-            ['name' => 'ایجاد فایندر ماهواره', 'guard_name' => 'web'],
-            ['name' => 'ویرایش فایندر ماهواره', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات فایندر ماهواره', 'guard_name' => 'web'],
-            ['name' => 'حذف فایندر ماهواره', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کارت صدا', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کارت صدا', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کارت صدا', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کارت صدا', 'guard_name' => 'web'],
-            ['name' => 'حذف کارت صدا', 'guard_name' => 'web'],
-
-            ['name' => 'لیست ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'ایجاد ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'ویرایش ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'حذف ویدئو پروژکتور', 'guard_name' => 'web'],
-
-            ['name' => 'لیست پرده ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'ایجاد پرده ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'ویرایش پرده ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات پرده ویدئو پروژکتور', 'guard_name' => 'web'],
-            ['name' => 'حذف پرده ویدئو پروژکتور', 'guard_name' => 'web'],
-
-            ['name' => 'لیست میکروفون', 'guard_name' => 'web'],
-            ['name' => 'ایجاد میکروفون', 'guard_name' => 'web'],
-            ['name' => 'ویرایش میکروفون', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات میکروفون', 'guard_name' => 'web'],
-            ['name' => 'حذف میکروفون', 'guard_name' => 'web'],
-
-            ['name' => 'لیست شارژر باتری', 'guard_name' => 'web'],
-            ['name' => 'ایجاد شارژر باتری', 'guard_name' => 'web'],
-            ['name' => 'ویرایش شارژر باتری', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات شارژر باتری', 'guard_name' => 'web'],
-            ['name' => 'حذف شارژر باتری', 'guard_name' => 'web'],
-
-            ['name' => 'لیست دوربین', 'guard_name' => 'web'],
-            ['name' => 'ایجاد دوربین', 'guard_name' => 'web'],
-            ['name' => 'ویرایش دوربین', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات دوربین', 'guard_name' => 'web'],
-            ['name' => 'حذف دوربین', 'guard_name' => 'web'],
-
-            ['name' => 'لیست صندلی', 'guard_name' => 'web'],
-            ['name' => 'ایجاد صندلی', 'guard_name' => 'web'],
-            ['name' => 'ویرایش صندلی', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات صندلی', 'guard_name' => 'web'],
-            ['name' => 'حذف صندلی', 'guard_name' => 'web'],
-
-            ['name' => 'لیست میز', 'guard_name' => 'web'],
-            ['name' => 'ایجاد میز', 'guard_name' => 'web'],
-            ['name' => 'ویرایش میز', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات میز', 'guard_name' => 'web'],
-            ['name' => 'حذف میز', 'guard_name' => 'web'],
-
-            ['name' => 'لیست کپسول آتش نشانی', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کپسول آتش نشانی', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کپسول آتش نشانی', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات کپسول آتش نشانی', 'guard_name' => 'web'],
-            ['name' => 'حذف کپسول آتش نشانی', 'guard_name' => 'web'],
-
-            ['name' => 'لیست رادیو وایرلس', 'guard_name' => 'web'],
-            ['name' => 'ایجاد رادیو وایرلس', 'guard_name' => 'web'],
-            ['name' => 'ویرایش رادیو وایرلس', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات رادیو وایرلس', 'guard_name' => 'web'],
-            ['name' => 'حذف رادیو وایرلس', 'guard_name' => 'web'],
-
-            ['name' => 'لیست اکسس پوینت', 'guard_name' => 'web'],
-            ['name' => 'ایجاد اکسس پوینت', 'guard_name' => 'web'],
-            ['name' => 'ویرایش اکسس پوینت', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات اکسس پوینت', 'guard_name' => 'web'],
-            ['name' => 'حذف اکسس پوینت', 'guard_name' => 'web'],
-
-            ['name' => 'لیست روتر', 'guard_name' => 'web'],
-            ['name' => 'ایجاد روتر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش روتر', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات روتر', 'guard_name' => 'web'],
-            ['name' => 'حذف روتر', 'guard_name' => 'web'],
-
-            ['name' => 'لیست یخچال', 'guard_name' => 'web'],
-            ['name' => 'ایجاد یخچال', 'guard_name' => 'web'],
-            ['name' => 'ویرایش یخچال', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات یخچال', 'guard_name' => 'web'],
-            ['name' => 'حذف یخچال', 'guard_name' => 'web'],
-
-            ['name' => 'لیست لپ تاپ', 'guard_name' => 'web'],
-            ['name' => 'ایجاد لپ تاپ', 'guard_name' => 'web'],
-            ['name' => 'ویرایش لپ تاپ', 'guard_name' => 'web'],
-            ['name' => 'نمایش جزئیات لپ تاپ', 'guard_name' => 'web'],
-            ['name' => 'حذف لپ تاپ', 'guard_name' => 'web'],
-
-            ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
-            ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
-            ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
-            ['name' => 'ویرایش تجهیزات پرسنل', 'guard_name' => 'web'],
-            ['name' => 'انتقال تجهیزات پرسنل', 'guard_name' => 'web'],
-
-            // Users Manager
-            ['name' => 'لیست کاربران', 'guard_name' => 'web'],
-            ['name' => 'ایجاد کاربر', 'guard_name' => 'web'],
-            ['name' => 'ویرایش کاربر', 'guard_name' => 'web'],
-            ['name' => 'تغییر وضعیت کاربر', 'guard_name' => 'web'],
-            ['name' => 'تغییر وضعیت نیازمند به تغییر رمز عبور', 'guard_name' => 'web'],
-            ['name' => 'بازنشانی رمز عبور کاربر', 'guard_name' => 'web'],
-            ['name' => 'جستجوی کاربر', 'guard_name' => 'web'],
-
-            // Database Backup
-            ['name' => 'لیست بکاپ دیتابیس', 'guard_name' => 'web'],
-            ['name' => 'ایجاد بکاپ دیتابیس', 'guard_name' => 'web'],
-
-            ['name' => 'telescope', 'guard_name' => 'web']
-        ];
-
-        // Inserting the permissions into the database
-        Permission::insert($permissions);
+        //catalogs
+        Permission::create(['name' => 'دسترسی به منوی مقادیر اولیه']);
+
+        Permission::create(['name' => 'لیست نقش ها']);
+        Permission::create(['name' => 'ایجاد نقش']);
+        Permission::create(['name' => 'ویرایش نقش']);
+        Permission::create(['name' => 'نمایش جزئیات نقش']);
+        Permission::create(['name' => 'حذف نقش']);
+        Permission::create(['name' => 'دسترسی به منوی نقش های کاربری']);
+
+        Permission::create(['name' => 'لیست دسترسی ها']);
+        Permission::create(['name' => 'ایجاد دسترسی']);
+        Permission::create(['name' => 'ویرایش دسترسی']);
+        Permission::create(['name' => 'نمایش جزئیات دسترسی']);
+        Permission::create(['name' => 'حذف دسترسی']);
+        Permission::create(['name' => 'دسترسی به منوی دسترسی ها']);
+
+        Permission::create(['name' => 'لیست انواع سند']);
+        Permission::create(['name' => 'ایجاد نوع سند']);
+        Permission::create(['name' => 'ویرایش نوع سند']);
+        Permission::create(['name' => 'نمایش جزئیات نوع سند']);
+        Permission::create(['name' => 'حذف نوع سند']);
+        Permission::create(['name' => 'دسترسی به منوی انواع سند']);
+
+        Permission::create(['name' => 'لیست موضوعات صوت']);
+        Permission::create(['name' => 'ایجاد موضوعات صوت']);
+        Permission::create(['name' => 'ویرایش موضوعات صوت']);
+        Permission::create(['name' => 'نمایش جزئیات موضوعات صوت']);
+        Permission::create(['name' => 'حذف موضوعات صوت']);
+        Permission::create(['name' => 'دسترسی به منوی موضوعات صوت']);
+
+        Permission::create(['name' => 'لیست قالب سوژه ها']);
+        Permission::create(['name' => 'ایجاد قالب سوژه ها']);
+        Permission::create(['name' => 'ویرایش قالب سوژه ها']);
+        Permission::create(['name' => 'نمایش جزئیات قالب سوژه ها']);
+        Permission::create(['name' => 'حذف قالب سوژه ها']);
+        Permission::create(['name' => 'دسترسی به منوی قالب سوژه ها']);
+
+        Permission::create(['name' => 'لیست مخاطب سوژه ها']);
+        Permission::create(['name' => 'ایجاد مخاطب سوژه ها']);
+        Permission::create(['name' => 'ویرایش مخاطب سوژه ها']);
+        Permission::create(['name' => 'نمایش جزئیات مخاطب سوژه ها']);
+        Permission::create(['name' => 'حذف مخاطب سوژه ها']);
+        Permission::create(['name' => 'دسترسی به منوی مخاطب سوژه ها']);
+
+        Permission::create(['name' => 'لیست مدرس دوره']);
+        Permission::create(['name' => 'ایجاد مدرس دوره']);
+        Permission::create(['name' => 'ویرایش مدرس دوره']);
+        Permission::create(['name' => 'نمایش جزئیات مدرس دوره']);
+        Permission::create(['name' => 'حذف مدرس دوره']);
+        Permission::create(['name' => 'دسترسی به منوی مدرس دوره']);
+
+        Permission::create(['name' => 'لیست صفت افراد']);
+        Permission::create(['name' => 'ایجاد صفت افراد']);
+        Permission::create(['name' => 'ویرایش صفت افراد']);
+        Permission::create(['name' => 'نمایش جزئیات صفت افراد']);
+        Permission::create(['name' => 'حذف صفت افراد']);
+        Permission::create(['name' => 'دسترسی به منوی صفت افراد']);
+
+        Permission::create(['name' => 'لیست موضوع چند رسانه ای']);
+        Permission::create(['name' => 'ایجاد موضوع چند رسانه ای']);
+        Permission::create(['name' => 'ویرایش موضوع چند رسانه ای']);
+        Permission::create(['name' => 'نمایش جزئیات موضوع چند رسانه ای']);
+        Permission::create(['name' => 'حذف موضوع چند رسانه ای']);
+        Permission::create(['name' => 'دسترسی به منوی موضوع چند رسانه ای']);
+
+        Permission::create(['name' => 'لیست شبکه اجتماعی']);
+        Permission::create(['name' => 'ایجاد شبکه اجتماعی']);
+        Permission::create(['name' => 'ویرایش شبکه اجتماعی']);
+        Permission::create(['name' => 'نمایش جزئیات شبکه اجتماعی']);
+        Permission::create(['name' => 'حذف شبکه اجتماعی']);
+        Permission::create(['name' => 'دسترسی به منوی شبکه اجتماعی']);
+
+        //Posts
+        Permission::create(['name' => 'دسترسی به منوی پست ها']);
+
+        Permission::create(['name' => 'لیست اسناد']);
+        Permission::create(['name' => 'ایجاد اسناد']);
+        Permission::create(['name' => 'ویرایش اسناد']);
+        Permission::create(['name' => 'نمایش جزئیات اسناد']);
+        Permission::create(['name' => 'حذف اسناد']);
+        Permission::create(['name' => 'دسترسی به منوی اسناد']);
+
+        Permission::create(['name' => 'لیست اسناد خارجی']);
+        Permission::create(['name' => 'ایجاد اسناد خارجی']);
+        Permission::create(['name' => 'ویرایش اسناد خارجی']);
+        Permission::create(['name' => 'نمایش جزئیات اسناد خارجی']);
+        Permission::create(['name' => 'حذف اسناد خارجی']);
+        Permission::create(['name' => 'دسترسی به منوی اسناد خارجی']);
+
+        Permission::create(['name' => 'لیست سوژه های پژوهشی']);
+        Permission::create(['name' => 'ایجاد سوژه های پژوهشی']);
+        Permission::create(['name' => 'ویرایش سوژه های پژوهشی']);
+        Permission::create(['name' => 'نمایش جزئیات سوژه های پژوهشی']);
+        Permission::create(['name' => 'حذف سوژه های پژوهشی']);
+        Permission::create(['name' => 'دسترسی به منوی سوژه های پژوهشی']);
+
+
+        Permission::create(['name' => 'لیست سوژه های رسانه ای']);
+        Permission::create(['name' => 'ایجاد سوژه های رسانه ای']);
+        Permission::create(['name' => 'ویرایش سوژه های رسانه ای']);
+        Permission::create(['name' => 'نمایش جزئیات سوژه های رسانه ای']);
+        Permission::create(['name' => 'حذف سوژه های رسانه ای']);
+        Permission::create(['name' => 'دسترسی به منوی سوژه های رسانه ای']);
+
+        Permission::create(['name' => 'لیست اساتید']);
+        Permission::create(['name' => 'ایجاد اساتید']);
+        Permission::create(['name' => 'ویرایش اساتید']);
+        Permission::create(['name' => 'نمایش جزئیات اساتید']);
+        Permission::create(['name' => 'حذف اساتید']);
+        Permission::create(['name' => 'دسترسی به منوی اساتید']);
+
+        Permission::create(['name' => 'لیست یادداشت ها']);
+        Permission::create(['name' => 'ایجاد یادداشت ها']);
+        Permission::create(['name' => 'ویرایش یادداشت ها']);
+        Permission::create(['name' => 'نمایش جزئیات یادداشت ها']);
+        Permission::create(['name' => 'حذف یادداشت ها']);
+        Permission::create(['name' => 'دسترسی به منوی یادداشت ها']);
+
+        Permission::create(['name' => 'لیست کلاس اسناد']);
+        Permission::create(['name' => 'ایجاد کلاس اسناد']);
+        Permission::create(['name' => 'ویرایش کلاس اسناد']);
+        Permission::create(['name' => 'نمایش جزئیات کلاس اسناد']);
+        Permission::create(['name' => 'حذف کلاس اسناد']);
+        Permission::create(['name' => 'دسترسی به منوی کلاس اسناد']);
+
+        Permission::create(['name' => 'لیست پرونده ویژه']);
+        Permission::create(['name' => 'ایجاد پرونده ویژه']);
+        Permission::create(['name' => 'ویرایش پرونده ویژه']);
+        Permission::create(['name' => 'نمایش جزئیات پرونده ویژه']);
+        Permission::create(['name' => 'حذف پرونده ویژه']);
+        Permission::create(['name' => 'دسترسی به منوی پرونده ویژه']);
+
+        //Multimedia
+        Permission::create(['name' => 'لیست صوت ها']);
+        Permission::create(['name' => 'ایجاد صوت ها']);
+        Permission::create(['name' => 'ویرایش صوت ها']);
+        Permission::create(['name' => 'نمایش جزئیات صوت ها']);
+        Permission::create(['name' => 'حذف صوت ها']);
+
+        Permission::create(['name' => 'لیست فیلم های کوتاه']);
+        Permission::create(['name' => 'ایجاد فیلم های کوتاه']);
+        Permission::create(['name' => 'ویرایش فیلم های کوتاه']);
+        Permission::create(['name' => 'نمایش جزئیات فیلم های کوتاه']);
+        Permission::create(['name' => 'حذف فیلم های کوتاه']);
+
+        Permission::create(['name' => 'لیست آلبوم تصاویر']);
+        Permission::create(['name' => 'ایجاد آلبوم تصاویر']);
+        Permission::create(['name' => 'ویرایش آلبوم تصاویر']);
+        Permission::create(['name' => 'نمایش جزئیات آلبوم تصاویر']);
+        Permission::create(['name' => 'حذف آلبوم تصاویر']);
+
+        Permission::create(['name' => 'دسترسی به منوی چند رسانه ای']);
+        Permission::create(['name' => 'دسترسی به منوی صوت ها']);
+        Permission::create(['name' => 'دسترسی به منوی فیلم های کوتاه']);
+        Permission::create(['name' => 'دسترسی به منوی آلبوم تصاویر']);
+        Permission::create(['name' => 'دسترسی به منوی فضای مجازی']);
+
+        Permission::create(['name' => 'لیست مستند']);
+        Permission::create(['name' => 'ایجاد مستند']);
+        Permission::create(['name' => 'ویرایش مستند']);
+        Permission::create(['name' => 'نمایش جزئیات مستند']);
+        Permission::create(['name' => 'حذف مستند']);
+        Permission::create(['name' => 'دسترسی به منوی مستند']);
+
+        Permission::create(['name' => 'لیست فضای مجازی']);
+        Permission::create(['name' => 'ایجاد فضای مجازی']);
+        Permission::create(['name' => 'ویرایش فضای مجازی']);
+        Permission::create(['name' => 'نمایش جزئیات فضای مجازی']);
+        Permission::create(['name' => 'حذف فضای مجازی']);
+
+        Permission::create(['name' => 'لیست معرفی کتاب']);
+        Permission::create(['name' => 'ایجاد معرفی کتاب']);
+        Permission::create(['name' => 'ویرایش معرفی کتاب']);
+        Permission::create(['name' => 'نمایش جزئیات معرفی کتاب']);
+        Permission::create(['name' => 'حذف معرفی کتاب']);
+        Permission::create(['name' => 'دسترسی به منوی معرفی کتاب']);
+
+        //Sliders
+        Permission::create(['name' => 'لیست اسلایدر']);
+        Permission::create(['name' => 'ویرایش اسلایدر']);
+        Permission::create(['name' => 'حذف اسلایدر']);
+        Permission::create(['name' => 'دسترسی به منوی اسلایدر']);
+
+        //Users Manager
+        Permission::create(['name' => 'لیست کاربران']);
+        Permission::create(['name' => 'ایجاد کاربر']);
+        Permission::create(['name' => 'ویرایش کاربر']);
+        Permission::create(['name' => 'تغییر وضعیت کاربر']);
+        Permission::create(['name' => 'تغییر وضعیت نیازمند به تغییر رمز عبور']);
+        Permission::create(['name' => 'بازنشانی رمز عبور کاربر']);
+        Permission::create(['name' => 'جستجوی کاربر']);
+        Permission::create(['name' => 'دسترسی به منوی مدیریت کاربران']);
+
+        //Users Manager
+        Permission::create(['name' => 'لیست بکاپ دیتابیس']);
+        Permission::create(['name' => 'ایجاد بکاپ دیتابیس']);
+        Permission::create(['name' => 'دسترسی به منوی بکاپ دیتابیس']);
+
+        //Website settings
+        Permission::create(['name' => 'دسترسی به منوی تنظیمات سایت']);
+        Permission::create(['name' => 'لیست تنظیمات سایت']);
+        Permission::create(['name' => 'ویرایش تنظیمات سایت']);
+
+        Permission::create(['name' => 'telescope']);
 
         $superAdminRole = Role::create(['name' => 'ادمین کل']);
         $superAdminRole->givePermissionTo([
             'telescope',
-            'لیست مقادیر اولیه',
-            'لیست تجهیزات پشتیبانی',
-            'لیست تجهیزات سخت افزاری',
-            'لیست تجهیزات دیجیتال',
-            'لیست تجهیزات شبکه',
-
-            'لیست نقش',
+            'لیست نقش ها',
             'ایجاد نقش',
             'ویرایش نقش',
             'نمایش جزئیات نقش',
             'حذف نقش',
-
-            'لیست دسترسی',
+            'لیست دسترسی ها',
             'ایجاد دسترسی',
             'ویرایش دسترسی',
             'نمایش جزئیات دسترسی',
             'حذف دسترسی',
-
-            'لیست ساختمان',
-            'ایجاد ساختمان',
-            'ویرایش ساختمان',
-            'نمایش جزئیات ساختمان',
-            'حذف ساختمان',
-
-            'لیست برند',
-            'ایجاد برند',
-            'ویرایش برند',
-            'نمایش جزئیات برند',
-            'حذف برند',
-
-            'لیست مانیتور',
-            'ایجاد مانیتور',
-            'ویرایش مانیتور',
-            'نمایش جزئیات مانیتور',
-            'حذف مانیتور',
-
-            'لیست کیس',
-            'ایجاد کیس',
-            'ویرایش کیس',
-            'نمایش جزئیات کیس',
-            'حذف کیس',
-
-            'لیست پردازنده',
-            'ایجاد پردازنده',
-            'ویرایش پردازنده',
-            'نمایش جزئیات پردازنده',
-            'حذف پردازنده',
-
-            'لیست مادربورد',
-            'ایجاد مادربورد',
-            'ویرایش مادربورد',
-            'نمایش جزئیات مادربورد',
-            'حذف مادربورد',
-
-            'لیست منبع تغذیه',
-            'ایجاد منبع تغذیه',
-            'ویرایش منبع تغذیه',
-            'نمایش جزئیات منبع تغذیه',
-            'حذف منبع تغذیه',
-
-            'لیست رم',
-            'ایجاد رم',
-            'ویرایش رم',
-            'نمایش جزئیات رم',
-            'حذف رم',
-
-            'لیست کارت گرافیک',
-            'ایجاد کارت گرافیک',
-            'ویرایش کارت گرافیک',
-            'نمایش جزئیات کارت گرافیک',
-            'حذف کارت گرافیک',
-
-            'لیست هارد اینترنال',
-            'ایجاد هارد اینترنال',
-            'ویرایش هارد اینترنال',
-            'نمایش جزئیات هارد اینترنال',
-            'حذف هارد اینترنال',
-
-            'لیست درایو نوری',
-            'ایجاد درایو نوری',
-            'ویرایش درایو نوری',
-            'نمایش جزئیات درایو نوری',
-            'حذف درایو نوری',
-
-            'لیست موس',
-            'ایجاد موس',
-            'ویرایش موس',
-            'نمایش جزئیات موس',
-            'حذف موس',
-
-            'لیست صفحه کلید',
-            'ایجاد صفحه کلید',
-            'ویرایش صفحه کلید',
-            'نمایش جزئیات صفحه کلید',
-            'حذف صفحه کلید',
-
-            'لیست هدست',
-            'ایجاد هدست',
-            'ویرایش هدست',
-            'نمایش جزئیات هدست',
-            'حذف هدست',
-
-            'لیست پرینتر',
-            'ایجاد پرینتر',
-            'ویرایش پرینتر',
-            'نمایش جزئیات پرینتر',
-            'حذف پرینتر',
-
-            'لیست اسکنر',
-            'ایجاد اسکنر',
-            'ویرایش اسکنر',
-            'نمایش جزئیات اسکنر',
-            'حذف اسکنر',
-
-            'لیست دستگاه کپی',
-            'ایجاد دستگاه کپی',
-            'ویرایش دستگاه کپی',
-            'نمایش جزئیات دستگاه کپی',
-            'حذف دستگاه کپی',
-
-            'لیست VOIP',
-            'ایجاد VOIP',
-            'ویرایش VOIP',
-            'نمایش جزئیات VOIP',
-            'حذف VOIP',
-
-            'لیست کارت شبکه',
-            'ایجاد کارت شبکه',
-            'ویرایش کارت شبکه',
-            'نمایش جزئیات کارت شبکه',
-            'حذف کارت شبکه',
-
-            'لیست مودم',
-            'ایجاد مودم',
-            'ویرایش مودم',
-            'نمایش جزئیات مودم',
-            'حذف مودم',
-
-            'لیست سوییچ',
-            'ایجاد سوییچ',
-            'ویرایش سوییچ',
-            'نمایش جزئیات سوییچ',
-            'حذف سوییچ',
-
-            'لیست رک',
-            'ایجاد رک',
-            'ویرایش رک',
-            'نمایش جزئیات رک',
-            'حذف رک',
-
-            'لیست دانگل',
-            'ایجاد دانگل',
-            'ویرایش دانگل',
-            'نمایش جزئیات دانگل',
-            'حذف دانگل',
-
-            'لیست هارد اکسترنال',
-            'ایجاد هارد اکسترنال',
-            'ویرایش هارد اکسترنال',
-            'نمایش جزئیات هارد اکسترنال',
-            'حذف هارد اکسترنال',
-
-            'لیست تلفن رومیزی',
-            'ایجاد تلفن رومیزی',
-            'ویرایش تلفن رومیزی',
-            'نمایش جزئیات تلفن رومیزی',
-            'حذف تلفن رومیزی',
-
-            'لیست تلوزیون',
-            'ایجاد تلوزیون',
-            'ویرایش تلوزیون',
-            'نمایش جزئیات تلوزیون',
-            'حذف تلوزیون',
-
-            'لیست تلفن همراه',
-            'ایجاد تلفن همراه',
-            'ویرایش تلفن همراه',
-            'نمایش جزئیات تلفن همراه',
-            'حذف تلفن همراه',
-
-            'لیست تبلت',
-            'ایجاد تبلت',
-            'ویرایش تبلت',
-            'نمایش جزئیات تبلت',
-            'حذف تبلت',
-
-            'لیست کارت DVB',
-            'ایجاد کارت DVB',
-            'ویرایش کارت DVB',
-            'نمایش جزئیات کارت DVB',
-            'حذف کارت DVB',
-
-            'لیست پایه دوربین',
-            'ایجاد پایه دوربین',
-            'ویرایش پایه دوربین',
-            'نمایش جزئیات پایه دوربین',
-            'حذف پایه دوربین',
-
-            'لیست سیمکارت',
-            'ایجاد سیمکارت',
-            'ویرایش سیمکارت',
-            'نمایش جزئیات سیمکارت',
-            'حذف سیمکارت',
-
-            'لیست آچار پانچ',
-            'ایجاد آچار پانچ',
-            'ویرایش آچار پانچ',
-            'نمایش جزئیات آچار پانچ',
-            'حذف آچار پانچ',
-
-            'لیست آچار سوکت',
-            'ایجاد آچار سوکت',
-            'ویرایش آچار سوکت',
-            'نمایش جزئیات آچار سوکت',
-            'حذف آچار سوکت',
-
-            'لیست آچار استریپر',
-            'ایجاد آچار استریپر',
-            'ویرایش آچار استریپر',
-            'نمایش جزئیات آچار استریپر',
-            'حذف آچار استریپر',
-
-            'لیست تستر شبکه',
-            'ایجاد تستر شبکه',
-            'ویرایش تستر شبکه',
-            'نمایش جزئیات تستر شبکه',
-            'حذف تستر شبکه',
-
-            'لیست kvm',
-            'ایجاد kvm',
-            'ویرایش kvm',
-            'نمایش جزئیات kvm',
-            'حذف kvm',
-
-            'لیست lantv',
-            'ایجاد lantv',
-            'ویرایش lantv',
-            'نمایش جزئیات lantv',
-            'حذف lantv',
-
-            'لیست اسپیکر',
-            'ایجاد اسپیکر',
-            'ویرایش اسپیکر',
-            'نمایش جزئیات اسپیکر',
-            'حذف اسپیکر',
-
-            'لیست دستگاه حضور و غیاب',
-            'ایجاد دستگاه حضور و غیاب',
-            'ویرایش دستگاه حضور و غیاب',
-            'نمایش جزئیات دستگاه حضور و غیاب',
-            'حذف دستگاه حضور و غیاب',
-
-            'لیست دوربین مدار بسته',
-            'ایجاد دوربین مدار بسته',
-            'ویرایش دوربین مدار بسته',
-            'نمایش جزئیات دوربین مدار بسته',
-            'حذف دوربین مدار بسته',
-
-            'لیست رکوردر',
-            'ایجاد رکوردر',
-            'ویرایش رکوردر',
-            'نمایش جزئیات رکوردر',
-            'حذف رکوردر',
-
-            'لیست وبکم',
-            'ایجاد وبکم',
-            'ویرایش وبکم',
-            'نمایش جزئیات وبکم',
-            'حذف وبکم',
-
-            'لیست فلش مموری',
-            'ایجاد فلش مموری',
-            'ویرایش فلش مموری',
-            'نمایش جزئیات فلش مموری',
-            'حذف فلش مموری',
-
-            'لیست ups',
-            'ایجاد ups',
-            'ویرایش ups',
-            'نمایش جزئیات ups',
-            'حذف ups',
-
-            'لیست دیش ماهواره',
-            'ایجاد دیش ماهواره',
-            'ویرایش دیش ماهواره',
-            'نمایش جزئیات دیش ماهواره',
-            'حذف دیش ماهواره',
-
-            'لیست لنز دوربین',
-            'ایجاد لنز دوربین',
-            'ویرایش لنز دوربین',
-            'نمایش جزئیات لنز دوربین',
-            'حذف لنز دوربین',
-
-            'لیست فایندر ماهواره',
-            'ایجاد فایندر ماهواره',
-            'ویرایش فایندر ماهواره',
-            'نمایش جزئیات فایندر ماهواره',
-            'حذف فایندر ماهواره',
-
-            'لیست کارت صدا',
-            'ایجاد کارت صدا',
-            'ویرایش کارت صدا',
-            'نمایش جزئیات کارت صدا',
-            'حذف کارت صدا',
-
-            'لیست ویدئو پروژکتور',
-            'ایجاد ویدئو پروژکتور',
-            'ویرایش ویدئو پروژکتور',
-            'نمایش جزئیات ویدئو پروژکتور',
-            'حذف ویدئو پروژکتور',
-
-            'لیست پرده ویدئو پروژکتور',
-            'ایجاد پرده ویدئو پروژکتور',
-            'ویرایش پرده ویدئو پروژکتور',
-            'نمایش جزئیات پرده ویدئو پروژکتور',
-            'حذف پرده ویدئو پروژکتور',
-
-            'لیست میکروفون',
-            'ایجاد میکروفون',
-            'ویرایش میکروفون',
-            'نمایش جزئیات میکروفون',
-            'حذف میکروفون',
-
-            'لیست شارژر باتری',
-            'ایجاد شارژر باتری',
-            'ویرایش شارژر باتری',
-            'نمایش جزئیات شارژر باتری',
-            'حذف شارژر باتری',
-
-            'لیست دوربین',
-            'ایجاد دوربین',
-            'ویرایش دوربین',
-            'نمایش جزئیات دوربین',
-            'حذف دوربین',
-
-            'لیست صندلی',
-            'ایجاد صندلی',
-            'ویرایش صندلی',
-            'نمایش جزئیات صندلی',
-            'حذف صندلی',
-
-            'لیست میز',
-            'ایجاد میز',
-            'ویرایش میز',
-            'نمایش جزئیات میز',
-            'حذف میز',
-
-            'لیست کپسول آتش نشانی',
-            'ایجاد کپسول آتش نشانی',
-            'ویرایش کپسول آتش نشانی',
-            'نمایش جزئیات کپسول آتش نشانی',
-            'حذف کپسول آتش نشانی',
-
-            'لیست رادیو وایرلس',
-            'ایجاد رادیو وایرلس',
-            'ویرایش رادیو وایرلس',
-            'نمایش جزئیات رادیو وایرلس',
-            'حذف رادیو وایرلس',
-
-            'لیست اکسس پوینت',
-            'ایجاد اکسس پوینت',
-            'ویرایش اکسس پوینت',
-            'نمایش جزئیات اکسس پوینت',
-            'حذف اکسس پوینت',
-
-            'لیست روتر',
-            'ایجاد روتر',
-            'ویرایش روتر',
-            'نمایش جزئیات روتر',
-            'حذف روتر',
-
-            'لیست یخچال',
-            'ایجاد یخچال',
-            'ویرایش یخچال',
-            'نمایش جزئیات یخچال',
-            'حذف یخچال',
-
-            'لیست لپ تاپ',
-            'ایجاد لپ تاپ',
-            'ویرایش لپ تاپ',
-            'نمایش جزئیات لپ تاپ',
-            'حذف لپ تاپ',
-
-            'لیست پرسنل',
-            'ایجاد پرسنل',
-            'ویرایش پرسنل',
-            'ویرایش تجهیزات پرسنل',
-            'انتقال تجهیزات پرسنل',
-
+            'لیست انواع سند',
+            'ایجاد نوع سند',
+            'ویرایش نوع سند',
+            'نمایش جزئیات نوع سند',
+            'حذف نوع سند',
+            'لیست موضوعات صوت',
+            'ایجاد موضوعات صوت',
+            'ویرایش موضوعات صوت',
+            'نمایش جزئیات موضوعات صوت',
+            'حذف موضوعات صوت',
+            'لیست قالب سوژه ها',
+            'ایجاد قالب سوژه ها',
+            'ویرایش قالب سوژه ها',
+            'نمایش جزئیات قالب سوژه ها',
+            'حذف قالب سوژه ها',
+            'لیست مخاطب سوژه ها',
+            'ایجاد مخاطب سوژه ها',
+            'ویرایش مخاطب سوژه ها',
+            'نمایش جزئیات مخاطب سوژه ها',
+            'حذف مخاطب سوژه ها',
+            'لیست مدرس دوره',
+            'ایجاد مدرس دوره',
+            'ویرایش مدرس دوره',
+            'نمایش جزئیات مدرس دوره',
+            'حذف مدرس دوره',
+            'لیست صفت افراد',
+            'ایجاد صفت افراد',
+            'ویرایش صفت افراد',
+            'نمایش جزئیات صفت افراد',
+            'حذف صفت افراد',
+            'لیست موضوع چند رسانه ای',
+            'ایجاد موضوع چند رسانه ای',
+            'ویرایش موضوع چند رسانه ای',
+            'نمایش جزئیات موضوع چند رسانه ای',
+            'حذف موضوع چند رسانه ای',
+            'لیست شبکه اجتماعی',
+            'ایجاد شبکه اجتماعی',
+            'ویرایش شبکه اجتماعی',
+            'نمایش جزئیات شبکه اجتماعی',
+            'حذف شبکه اجتماعی',
+            'لیست اسناد',
+            'ایجاد اسناد',
+            'ویرایش اسناد',
+            'نمایش جزئیات اسناد',
+            'حذف اسناد',
+            'لیست اسناد خارجی',
+            'ایجاد اسناد خارجی',
+            'ویرایش اسناد خارجی',
+            'نمایش جزئیات اسناد خارجی',
+            'حذف اسناد خارجی',
+            'لیست سوژه های پژوهشی',
+            'ایجاد سوژه های پژوهشی',
+            'ویرایش سوژه های پژوهشی',
+            'نمایش جزئیات سوژه های پژوهشی',
+            'حذف سوژه های پژوهشی',
+            'لیست سوژه های رسانه ای',
+            'ایجاد سوژه های رسانه ای',
+            'ویرایش سوژه های رسانه ای',
+            'نمایش جزئیات سوژه های رسانه ای',
+            'حذف سوژه های رسانه ای',
+            'لیست اساتید',
+            'ایجاد اساتید',
+            'ویرایش اساتید',
+            'نمایش جزئیات اساتید',
+            'حذف اساتید',
+            'لیست مستند',
+            'ایجاد مستند',
+            'ویرایش مستند',
+            'نمایش جزئیات مستند',
+            'حذف مستند',
+            'لیست فضای مجازی',
+            'ایجاد فضای مجازی',
+            'ویرایش فضای مجازی',
+            'نمایش جزئیات فضای مجازی',
+            'حذف فضای مجازی',
+            'لیست معرفی کتاب',
+            'ایجاد معرفی کتاب',
+            'ویرایش معرفی کتاب',
+            'نمایش جزئیات معرفی کتاب',
+            'حذف معرفی کتاب',
+            'لیست یادداشت ها',
+            'ایجاد یادداشت ها',
+            'ویرایش یادداشت ها',
+            'نمایش جزئیات یادداشت ها',
+            'حذف یادداشت ها',
+            'لیست صوت ها',
+            'ایجاد صوت ها',
+            'ویرایش صوت ها',
+            'نمایش جزئیات صوت ها',
+            'حذف صوت ها',
+            'لیست فیلم های کوتاه',
+            'ایجاد فیلم های کوتاه',
+            'ویرایش فیلم های کوتاه',
+            'نمایش جزئیات فیلم های کوتاه',
+            'حذف فیلم های کوتاه',
+            'لیست آلبوم تصاویر',
+            'ایجاد آلبوم تصاویر',
+            'ویرایش آلبوم تصاویر',
+            'نمایش جزئیات آلبوم تصاویر',
+            'حذف آلبوم تصاویر',
+            'لیست کلاس اسناد',
+            'ایجاد کلاس اسناد',
+            'ویرایش کلاس اسناد',
+            'نمایش جزئیات کلاس اسناد',
+            'حذف کلاس اسناد',
+            'لیست پرونده ویژه',
+            'ایجاد پرونده ویژه',
+            'ویرایش پرونده ویژه',
+            'نمایش جزئیات پرونده ویژه',
+            'حذف پرونده ویژه',
+            'لیست اسلایدر',
+            'ویرایش اسلایدر',
+            'حذف اسلایدر',
             'لیست کاربران',
             'ایجاد کاربر',
             'ویرایش کاربر',
@@ -828,12 +356,45 @@ class PermissionsSeeder extends Seeder
             'جستجوی کاربر',
             'لیست بکاپ دیتابیس',
             'ایجاد بکاپ دیتابیس',
+            'دسترسی به منوی مقادیر اولیه',
+            'دسترسی به منوی مدیریت کاربران',
+            'دسترسی به منوی دسترسی ها',
+            'دسترسی به منوی نقش های کاربری',
+            'دسترسی به منوی بکاپ دیتابیس',
+            'دسترسی به منوی انواع سند',
+            'دسترسی به منوی اسناد',
+            'دسترسی به منوی اسناد خارجی',
+            'دسترسی به منوی سوژه های پژوهشی',
+            'دسترسی به منوی سوژه های رسانه ای',
+            'دسترسی به منوی اساتید',
+            'دسترسی به منوی مستند',
+            'دسترسی به منوی فضای مجازی',
+            'دسترسی به منوی معرفی کتاب',
+            'دسترسی به منوی پست ها',
+            'دسترسی به منوی چند رسانه ای',
+            'دسترسی به منوی صوت ها',
+            'دسترسی به منوی فیلم های کوتاه',
+            'دسترسی به منوی یادداشت ها',
+            'دسترسی به منوی موضوعات صوت',
+            'دسترسی به منوی آلبوم تصاویر',
+            'دسترسی به منوی تنظیمات سایت',
+            'دسترسی به منوی قالب سوژه ها',
+            'دسترسی به منوی مخاطب سوژه ها',
+            'دسترسی به منوی مدرس دوره',
+            'دسترسی به منوی کلاس اسناد',
+            'دسترسی به منوی صفت افراد',
+            'دسترسی به منوی موضوع چند رسانه ای',
+            'دسترسی به منوی شبکه اجتماعی',
+            'دسترسی به منوی پرونده ویژه',
+            'دسترسی به منوی اسلایدر',
+            'لیست تنظیمات سایت',
+            'ویرایش تنظیمات سایت',
         ]);
 
         $role = Role::where('name', 'ادمین کل')->first();
         $users = User::get();
         foreach ($users as $user) {
-            $user = User::findOrFail($user->id);
+            $user = User::find($user->id);
             $user->assignRole([$role->id]);
         }
     }

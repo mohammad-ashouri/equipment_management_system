@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Catalogs\Brand;
+use App\Models\Catalogs\PostType;
+use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
@@ -25,8 +26,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Paginator::useTailwind();
+        // Share $postTypes with all views
         View::composer('*', function ($view) {
-            $view->with('brands', Brand::whereStatus(1)->orderBy('name')->get());
+            $view->with('postTypes', PostType::where('status', 1)->get());
+            $view->with('users', User::orderBy('family')->get());
         });
     }
 }

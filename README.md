@@ -108,20 +108,8 @@ function __construct()
     }
 ```
 
-### Steps to add new equipment:
-1- Add new route (resource)
 
-2- Add new controller
-
-3- Add new model + migration
-
-4- Copy from cpu Cpus folder and change fields and variables
-
-5- Copy CpuController scripts and config that by your model
-
-6- Config model
-
-7- Add new permissions by your model
+## Support
 
 For support, email m.ashouri.wdev@gmail.com.
 

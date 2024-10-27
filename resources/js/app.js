@@ -1,9 +1,9 @@
 import './bootstrap';
 import '@fortawesome/fontawesome-free/css/all.css';
-import $ from 'jquery';
 import Swal from 'sweetalert2';
-import Alpine from 'alpinejs'
-import Intersect from '@alpinejs/intersect'
+import Alpine from 'alpinejs';
+import 'tw-elements';
+import Intersect from '@alpinejs/intersect';
 // Initialization for ES Users
 import {initTE, Modal, Ripple,} from "tw-elements";
 // import 'tinymce/tinymce';
@@ -22,12 +22,11 @@ initTE({Modal, Ripple});
 window.Swal = Swal;
 
 //AlpineJS
-Alpine.plugin(Intersect)
-Alpine.start()
-window.Alpine = Alpine
+Alpine.plugin(Intersect);
+Alpine.start();
+window.Alpine = Alpine;
 
 
-//menu scripts
 document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
 
@@ -105,8 +104,6 @@ function handleLogout() {
 // Add event listener to the "خروج" (Logout) menu item
 const logoutMenuItem = document.getElementById('logout');
 logoutMenuItem.addEventListener('click', handleLogout);
-
-//end menu scripts
 
 
 function openModal(imageUrl) {
@@ -215,10 +212,86 @@ function getJalaliDate() {
 
 $(document).ready(function () {
     hideLoadingPopup();
-    $('#backward_page').on('click', function () {
-        window.history.back();
+
+    $('#keywords').tagsInput({
+        selectFirst: true,
+        autoFill: true,
+        defaultText: 'کلمه کلیدی را وارد کنید و enter را فشار دهید',
+        width: '100%',
+        interactive: true,
+        delimiter: [","],
     });
 
+    $('.image-container').on('mouseenter', function () {
+        $(this).find('.other-image').addClass('grayscale'); // تغییر تصویر به سیاه و سفید
+        $(this).find('.delete-btn').removeClass('hidden'); // نمایش دکمه حذف
+    });
+
+    $('.image-container').on('mouseleave', function () {
+        $(this).find('.other-image').removeClass('grayscale'); // بازگردانی تصویر به حالت عادی
+        $(this).find('.delete-btn').addClass('hidden'); // مخفی کردن دکمه حذف
+    });
+
+    $('#slider').change(function () {
+        if ($(this).val() == 1) {
+            $('.slider-image').removeClass('hidden');
+            $('.slider-image-show').removeClass('hidden');
+        } else {
+            $('.slider-image').addClass('hidden');
+            $('.slider-image-show').addClass('hidden');
+        }
+    });
+
+    $('#create-post').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'آیا مطمئن هستید؟',
+            text: 'این مورد ایجاد خواهد شد!',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'خیر',
+            confirmButtonText: 'بله',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).off('submit');
+                $(this).submit();
+            }
+        });
+    });
+
+    $('#edit-post').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'آیا مطمئن هستید؟',
+            text: 'این مورد ویرایش خواهد شد!',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'خیر',
+            confirmButtonText: 'بله',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).off('submit');
+                $(this).submit();
+            }
+        });
+    });
+
+    $('.delete-post').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'آیا مطمئن هستید؟',
+            text: 'این مورد حذف خواهد شد!',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonText: 'خیر',
+            confirmButtonText: 'بله',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(this).off('submit');
+                $(this).submit();
+            }
+        });
+    });
     $('#create-catalog').submit(function (e) {
         e.preventDefault();
         Swal.fire({
@@ -252,32 +325,548 @@ $(document).ready(function () {
         });
     });
 
+    $('#backward_page').on('click', function () {
+        window.history.back();
+    });
     let pathname = window.location.pathname;
+    if (pathname.includes('DocumentTypes')) {
 
-    if (pathname.includes('Personnels') && pathname.includes('/equipments')) {
-        $('#equipment-form').submit(function (e) {
+    } else if (pathname.includes('AudiosSubjects')) {
+    } else if (pathname.includes('BookIntroductions')) {
+        $('.delete-btn').click(function (e) {
             e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
             Swal.fire({
                 title: 'آیا مطمئن هستید؟',
-                text: 'کد اموالی که وارد کرده اید برای همیشه بر روی این دستگاه ثبت خواهد شد و قابل تغییر نیست!',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
                 icon: 'warning',
                 showCancelButton: true,
                 cancelButtonText: 'خیر',
                 confirmButtonText: 'بله',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $(this).off('submit');
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/BookIntroductions/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('SocialMedia')) {
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/SocialMedia/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('Documentaries')) {
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/Documentaries/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('Professors')) {
+        $(document).on('click', '.remove-book-row', function () {
+            $(this).closest('.book-row').remove();
+        });
+        $(document).on('click', '.remove-article-row', function () {
+            $(this).closest('.article-row').remove();
+        });
+        $('#new_book').click(function () {
+            let newInput = `
+                    <div class="flex w-full book-row">
+                        <div class="w-full">
+                            <label for=""
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نام کتاب
+                            </label>
+                            <input type="text" id="book0" name="books[]" value=""
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="کتاب را وارد کنید"
+                            >
+                        </div>
+                        <div class="mt-7 mr-2">
+                            <button id="remove" type="button"
+                                    class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto remove-book-row">
+                                حذف
+                            </button>
+                        </div>
+                    </div>
+                `;
+            $('#booksContainer').append(newInput);
+        });
+        $('#new_article').click(function () {
+            let newInput = `
+                    <div class="flex w-full article-row">
+                        <div class="w-full">
+                            <label for=""
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نام مقاله
+                            </label>
+                            <input type="text" id="article0" name="articles[]" value=""
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="مقاله را وارد کنید"
+                            >
+                        </div>
+                        <div class="mt-7 mr-2">
+                            <button id="remove" type="button"
+                                    class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto remove-article-row">
+                                حذف
+                            </button>
+                        </div>
+                    </div>
+                `;
+            $('#articlesContainer').append(newInput);
+        });
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/Professors/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('ResearchSubjects')) {
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/ResearchSubjects/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('InternationalDocuments')) {
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/InternationalDocuments/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('ContactUs')) {
+        $('.is_read,.is_spam').submit(function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'این انتخاب قابل بازگشت نیست!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(this).off();
                     $(this).submit();
                 }
             });
         });
-        // حذف کردن رم
-        $(document).on('click', '.remove-ram', function () {
-            $(this).closest('.ram-select-wrapper').remove();
+        $('.getHeaders').click(function (e) {
+            showLoadingPopup();
+            $.ajax({
+                type: 'GET',
+                url: '/getContactUsHeaders/' + $(this).data('id'),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                success: function (response) {
+                    Swal.fire({
+                        title: 'اطلاعات کاربر',
+                        html: "host: " +
+                            response['host'] +
+                            "<br/>" +
+                            "user-agent: " +
+                            response['user-agent'] +
+                            "<br/>" +
+                            "content-length: " +
+                            response['content-length'] +
+                            "<br/>" +
+                            "origin: " +
+                            response['origin'] +
+                            "<br/>" +
+                            "referer: " +
+                            response['referer'] +
+                            "<br/>" +
+                            "sec-fetch-dest: " +
+                            response['sec-fetch-dest'] +
+                            "<br/>" +
+                            "sec-fetch-mode: " +
+                            response['sec-fetch-mode'] +
+                            "<br/>" +
+                            "sec-fetch-site: " +
+                            response['sec-fetch-site'] +
+                            "<br/>" +
+                            "sec-fetch-user: " +
+                            response['sec-fetch-user'] +
+                            "<br/>" +
+                            "priority: " +
+                            response['priority'],
+                        icon: 'success',
+                        confirmButtonText: 'بستن'
+                    });
+                    hideLoadingPopup();
+                },
+                error: function (xhr, status, error) {
+                    swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                    hideLoadingPopup();
+                }
+            });
         });
-        // حذف ردیف هارد
-        $(document).on('click', '.remove-internalHardDisk', function () {
-            $(this).closest('.internalHardDisk-select-wrapper').remove();
+    } else if (pathname.includes('Posts')) {
+        $('.delete-btn').click(function (e) {
+            e.preventDefault();
+            let $imageContainer = $(this).closest('.image-container');
+            let $image = $imageContainer.find('.other-image');
+            let imageId = $image.data('id');
+
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: 'تصویر انتخاب شده برای همیشه حذف خواهد شد!',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'خیر',
+                confirmButtonText: 'بله',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: '/Posts/destroyImage/' + imageId,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                        },
+                        success: function (response) {
+                            if (response.status === 'success') {
+                                $imageContainer.remove(); // حذف والدین تصویر
+                                swalFire('عملیات موفقیت آمیز بود!', 'تصویر با موفقیت حذف شد.', 'success', 'بستن');
+                            } else {
+                                swalFire('عملیات با شکست مواجه شد!', 'دوباره تلاش کنید.', 'error', 'بستن');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error:', error);
+                            swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                        }
+                    });
+                }
+            });
+        });
+    } else if (pathname.includes('DocumentClasses')) {
+        $('#new_topic').click(function () {
+            let newInput = `
+                    <div class="topic flex">
+                        <div class="w-full mr-2">
+                            <label for=""
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">سرفصل
+                            </label>
+                            <input type="text" name="topics[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="سرفصل جدید را وارد کنید" required>
+                       </div>
+                        <div class="w-full mr-2">
+                            <label for=""
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">لینک آپارات
+                            </label>
+                            <input type="text" name="aparats[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="لینک فیلم را وارد کنید" required>
+                       </div>
+                        <div class="w-full mt-7 mr-2">
+                           <button type="button"
+                                class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto delete-topic">
+                                حذف
+                           </button>
+                       </div>
+                    </div>
+                `;
+            $('#topicsContainer').append(newInput);
+        });
+        $(document).on('click', '.delete-topic', function () {
+            $(this).closest('.topic').remove();
+        });
+        $('#teacher').change(function (e) {
+            $.ajax({
+                type: 'GET',
+                url: '/Teachers/' + $(this).val(),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                },
+                success: function (response) {
+                    if (response.image_url) {
+                        $('#master_image').attr('src', response.image_url).show();
+                    } else {
+                        $('#master_image').hide();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    swalFire('خطا در ارسال درخواست!', 'لطفاً مجدداً تلاش کنید.', 'error', 'بستن');
+                }
+            });
+        });
+    } else if (pathname.includes('Notes')) {
+        $('#new_footnote').click(function () {
+            let newInput = `
+                                <div class="footnote flex">
+                                    <div class="w-full">
+                                        <label for=""
+                                               class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">پاورقی
+                                        </label>
+                                        <input type="text" id="footnote0" name="footnotes[]" value=""
+                                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                               placeholder="پاورقی را وارد کنید (نیازی به وارد کردن شماره در ابتدای آن نیست)">
+                                    </div>
+                                    <div class="w-full mt-7 mr-2">
+                                        <button type="button"
+                                                class="mt-3 w-96 inline-flex justify-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 sm:mt-0 sm:w-auto delete-footnote">
+                                            حذف
+                                        </button>
+                                    </div>
+                                </div>
+                `;
+            $('#footnotesContainer').append(newInput);
+        });
+
+        $(document).on('click', '.delete-footnote', function () {
+            $(this).closest('.footnote').remove();
+        });
+    } else if (pathname.includes('Permissions')) {
+    } else if (pathname.includes('Roles')) {
+    } else if (pathname.includes('PictureAlbum')) {
+        $('#date').persianDatepicker({
+            format: 'YYYY/MM/DD',
+            "viewMode": "day",
+            "initialValue": false,
+            "autoClose": false,
+            "position": "auto",
+            "altFormat": "lll",
+            "altField": "#altfieldExample",
+            "onlyTimePicker": false,
+            "onlySelectOnDate": false,
+            "calendarType": "persian",
+            "inputDelay": 800,
+            "observer": false,
+            "calendar": {
+                "persian": {
+                    "locale": "fa",
+                    "showHint": true,
+                    "leapYearMode": "algorithmic"
+                },
+                "gregorian": {
+                    "locale": "en",
+                    "showHint": false
+                }
+            },
+            "navigator": {
+                "enabled": true,
+                "scroll": {
+                    "enabled": true
+                },
+                "text": {
+                    "btnNextText": "<",
+                    "btnPrevText": ">"
+                }
+            },
+            "toolbox": {
+                "enabled": true,
+                "calendarSwitch": {
+                    "enabled": false,
+                    "format": "MMMM"
+                },
+                "todayButton": {
+                    "enabled": true,
+                    "text": {
+                        "fa": "امروز",
+                        "en": ""
+                    }
+                },
+                "submitButton": {
+                    "enabled": false,
+                    "text": {
+                        "fa": "تایید",
+                        "en": "Submit"
+                    }
+                },
+                "text": {
+                    "btnToday": "امروز"
+                }
+            },
+            "dayPicker": {
+                "enabled": true,
+                "titleFormat": "MMMM"
+            },
+            "monthPicker": {
+                "enabled": true,
+                "titleFormat": "MMMM"
+            },
+            "yearPicker": {
+                "enabled": true,
+                "titleFormat": "YYYY"
+            },
+            "responsive": true,
         });
     } else {
         switch (pathname) {
@@ -593,10 +1182,9 @@ $(document).ready(function () {
                                 if (response.errors && response.errors.userFounded) {
                                     swalFire('خطا!', response.errors.userFounded[0], 'error', 'تلاش مجدد');
                                 } else if (response.success) {
-                                    // swalFire('عملیات موفقیت آمیز بود!', response.message.userAdded[0], 'success', 'بستن');
-                                    // toggleModal(newUserModal.id);
-                                    // resetFields();
-                                    location.reload();
+                                    swalFire('عملیات موفقیت آمیز بود!', response.message.userAdded[0], 'success', 'بستن');
+                                    toggleModal(newUserModal.id);
+                                    resetFields();
                                 }
 
                             }
@@ -617,8 +1205,6 @@ $(document).ready(function () {
                                 editedName.value = response.name;
                                 editedFamily.value = response.family;
                                 editedType.value = response.type;
-                                editedBuilding.value = response.building;
-                                editedRoomNumber.value = response.room_number;
                             }
                         });
                     }
@@ -647,7 +1233,6 @@ $(document).ready(function () {
                         let form = $(this);
                         let data = form.serialize();
 
-                        showLoadingPopup();
                         $.ajax({
                             type: 'POST', url: '/EditUser', data: data, headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -655,10 +1240,9 @@ $(document).ready(function () {
                                 if (response.errors && response.errors.userFounded) {
                                     swalFire('خطا!', response.errors.userFounded[0], 'error', 'تلاش مجدد');
                                 } else if (response.success) {
-                                    // swalFire('عملیات موفقیت آمیز بود!', response.message.userEdited[0], 'success', 'بستن');
-                                    // toggleModal(editUserModal.id);
-                                    // resetFields();
-                                    location.reload();
+                                    swalFire('عملیات موفقیت آمیز بود!', response.message.userEdited[0], 'success', 'بستن');
+                                    toggleModal(editUserModal.id);
+                                    resetFields();
                                 }
 
                             }

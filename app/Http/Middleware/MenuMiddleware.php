@@ -22,444 +22,216 @@ class MenuMiddleware
                     'title' => 'مقادیر اولیه',
                     'link' => '',
                     'icon' => 'las la-cogs',
-                    'permission' => "لیست مقادیر اولیه",
+                    'permission' => "دسترسی به منوی مقادیر اولیه",
                     'childs' => [
-                        [
-                            'title' => 'دسترسی',
-                            'link' => '/Permissions',
-                            'permission' => "لیست دسترسی",
-                            'icon' => 'las la-user-shield',
-                        ],
-                        [
+//                        1 => [
+//                            'title' => 'دسترسی ها',
+//                            'link' => '/Permissions',
+//                            'permission' => "دسترسی به منوی دسترسی ها",
+//                            'icon' => 'las la-user-shield',
+//                        ],
+                        2 => [
                             'title' => 'نقش های کاربری',
                             'link' => '/Roles',
-                            'permission' => "لیست نقش",
+                            'permission' => "دسترسی به منوی نقش های کاربری",
                             'icon' => 'las la-user-tag',
                         ],
-                        [
-                            'title' => 'ساختمان',
-                            'link' => '/Buildings',
-                            'permission' => "لیست ساختمان",
-                            'icon' => 'las la-building',
+                        3 => [
+                            'title' => 'انواع سند',
+                            'link' => '/DocumentTypes',
+                            'permission' => "دسترسی به منوی انواع سند",
+                            'icon' => 'las la-folder-open',
                         ],
-                        [
-                            'title' => 'برند',
-                            'link' => '/Brands',
-                            'permission' => "لیست برند",
-                            'icon' => 'las la-copyright',
+                        4 => [
+                            'title' => 'موضوعات صوت',
+                            'link' => '/AudiosSubjects',
+                            'permission' => "دسترسی به منوی موضوعات صوت",
+                            'icon' => 'las la-podcast',
+                        ],
+                        5 => [
+                            'title' => 'قالب سوژه ها',
+                            'link' => '/SubjectFormats',
+                            'permission' => "دسترسی به منوی قالب سوژه ها",
+                            'icon' => 'las la-info',
+                        ],
+                        6 => [
+                            'title' => 'مخاطب سوژه ها',
+                            'link' => '/SubjectAudiences',
+                            'permission' => "دسترسی به منوی مخاطب سوژه ها",
+                            'icon' => 'las la-info',
+                        ],
+                        7 => [
+                            'title' => 'صفت افراد',
+                            'link' => '/PersonAdjectives',
+                            'permission' => "دسترسی به منوی صفت افراد",
+                            'icon' => 'las la-id-card',
+                        ],
+                        8 => [
+                            'title' => 'مدرس دوره',
+                            'link' => '/Teachers',
+                            'permission' => "دسترسی به منوی مخاطب سوژه ها",
+                            'icon' => 'las la-user-circle',
+                        ],
+                        9 => [
+                            'title' => 'موضوعات چند رسانه ای',
+                            'link' => '/MultimediaSubjects',
+                            'permission' => "دسترسی به منوی موضوع چند رسانه ای",
+                            'icon' => 'las la-info',
+                        ],
+                        10 => [
+                            'title' => 'شبکه اجتماعی',
+                            'link' => '/SocialMediaPlatforms',
+                            'permission' => "دسترسی به منوی شبکه اجتماعی",
+                            'icon' => 'las la-share-alt',
                         ],
                     ]
                 ],
                 2 => [
-                    'title' => 'تجهیزات سخت افزاری',
-                    'link' => '/HardwareEquipments',
-                    'permission' => "لیست تجهیزات سخت افزاری",
-                    'icon' => 'las la-microchip',
+                    'title' => 'پست ها',
+                    'link' => '',
+                    'permission' => "دسترسی به منوی پست ها",
+                    'icon' => 'las la-folder-open',
                     'childs' => [
-                        [
-                            'title' => 'مانیتور',
-                            'link' => '/Monitors',
-                            'permission' => "لیست مانیتور",
-                            'icon' => 'las la-desktop',
+                        2 => [
+                            'title' => 'اسناد',
+                            'link' => '/Posts',
+                            'permission' => "دسترسی به منوی اسناد",
+                            'icon' => 'las la-file-alt',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'کیس',
-                            'link' => '/Cases',
-                            'permission' => "لیست کیس",
-                            'icon' => 'las la-database',
+                        3 => [
+                            'title' => 'اسناد خارجی',
+                            'link' => '/InternationalDocuments',
+                            'permission' => "دسترسی به منوی اسناد خارجی",
+                            'icon' => 'las la-passport',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'پردازنده',
-                            'link' => '/Cpus',
-                            'permission' => "لیست پردازنده",
-                            'icon' => 'las la-microchip',
+                        4 => [
+                            'title' => 'سوژه های پژوهشی',
+                            'link' => '/ResearchSubjects',
+                            'permission' => "دسترسی به منوی سوژه های پژوهشی",
+                            'icon' => 'las la-male',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'مادربورد',
-                            'link' => '/Motherboards',
-                            'permission' => "لیست مادربورد",
-                            'icon' => 'las la-microchip',
+                        5 => [
+                            'title' => 'سوژه های رسانه ای',
+                            'link' => '/MediaSubjects',
+                            'permission' => "دسترسی به منوی سوژه های رسانه ای",
+                            'icon' => 'las la-video',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'منبع تغذیه',
-                            'link' => '/Powers',
-                            'permission' => "لیست منبع تغذیه",
-                            'icon' => 'las la-bolt',
+                        6 => [
+                            'title' => 'اساتید',
+                            'link' => '/Professors',
+                            'permission' => "دسترسی به منوی اساتید",
+                            'icon' => 'las la-graduation-cap',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'رم',
-                            'link' => '/Rams',
-                            'permission' => "لیست رم",
-                            'icon' => 'las la-random',
+                        10 => [
+                            'title' => 'یادداشت ها',
+                            'link' => '/Notes',
+                            'permission' => "دسترسی به منوی یادداشت ها",
+                            'icon' => 'las la-sticky-note',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'کارت گرافیک',
-                            'link' => '/GraphicCards',
-                            'permission' => "لیست کارت گرافیک",
-                            'icon' => 'las la-images',
+                        11 => [
+                            'title' => 'کلاس اسناد',
+                            'link' => '/DocumentClasses',
+                            'permission' => "دسترسی به منوی کلاس اسناد",
+                            'icon' => 'las la-school',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'هارد اینترنال',
-                            'link' => '/InternalHardDisks',
-                            'permission' => "لیست هارد اینترنال",
-                            'icon' => 'las la-hdd',
-                        ],
-                        [
-                            'title' => 'درایو نوری',
-                            'link' => '/Odds',
-                            'permission' => "لیست درایو نوری",
-                            'icon' => 'las la-ethernet',
-                        ],
-                        [
-                            'title' => 'موس',
-                            'link' => '/Mouses',
-                            'permission' => "لیست موس",
-                            'icon' => 'las la-mouse',
-                        ],
-                        [
-                            'title' => 'صفحه کلید',
-                            'link' => '/Keyboards',
-                            'permission' => "لیست صفحه کلید",
-                            'icon' => 'las la-keyboard',
-                        ],
-                        [
-                            'title' => 'هدست',
-                            'link' => '/Headsets',
-                            'permission' => "لیست هدست",
-                            'icon' => 'las la-headset',
-                        ],
-                        [
-                            'title' => 'پرینتر',
-                            'link' => '/Printers',
-                            'permission' => "لیست پرینتر",
-                            'icon' => 'las la-print',
-                        ],
-                        [
-                            'title' => 'اسکنر',
-                            'link' => '/Scanners',
-                            'permission' => "لیست اسکنر",
-                            'icon' => 'las la-print',
-                        ],
-                        [
-                            'title' => 'دستگاه کپی',
-                            'link' => '/CopyMachines',
-                            'permission' => "لیست دستگاه کپی",
-                            'icon' => 'las la-print',
-                        ],
-                        [
-                            'title' => 'VOIP',
-                            'link' => '/Voips',
-                            'permission' => "لیست VOIP",
-                            'icon' => 'las la-phone-volume',
+                        12 => [
+                            'title' => 'پرونده ویژه',
+                            'link' => '/SpecialCases',
+                            'permission' => "دسترسی به منوی پرونده ویژه",
+                            'icon' => 'las la-file-archive',
+                            'childs' => []
                         ],
                     ]
                 ],
                 3 => [
-                    'title' => 'تجهیزات شبکه',
-                    'link' => '/NetworkEquipments',
-                    'permission' => "لیست تجهیزات شبکه",
-                    'icon' => 'las la-globe-americas',
+                    'title' => 'چند رسانه ای',
+                    'link' => '',
+                    'permission' => "دسترسی به منوی چند رسانه ای",
+                    'icon' => 'las la-photo-video',
                     'childs' => [
-                        [
-                            'title' => 'کارت شبکه',
-                            'link' => '/NetworkCards',
-                            'permission' => "لیست کارت شبکه",
-                            'icon' => 'las la-ethernet',
+                        1 => [
+                            'title' => 'صوت ها',
+                            'link' => '/Audios',
+                            'permission' => "دسترسی به منوی صوت ها",
+                            'icon' => 'las la-volume-up',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'سوییچ',
-                            'link' => '/Switches',
-                            'permission' => "لیست سوییچ",
-                            'icon' => 'las la-server',
+//                        2 => [
+//                            'title' => 'فیلم های کوتاه',
+//                            'link' => '/ShortVideos',
+//                            'permission' => "دسترسی به منوی فیلم های کوتاه",
+//                            'icon' => 'las la-film',
+//                            'childs' => []
+//                        ],
+                        3 => [
+                            'title' => 'آلبوم تصاویر',
+                            'link' => '/PictureAlbum',
+                            'permission' => "دسترسی به منوی آلبوم تصاویر",
+                            'icon' => 'las la-film',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'مودم',
-                            'link' => '/Modems',
-                            'permission' => "لیست مودم",
-                            'icon' => 'las la-exchange-alt',
+                        4 => [
+                            'title' => 'مستند',
+                            'link' => '/Documentaries',
+                            'permission' => "دسترسی به منوی مستند",
+                            'icon' => 'las la-file-video',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'رک',
-                            'link' => '/Racks',
-                            'permission' => "لیست رک",
-                            'icon' => 'las la-cube',
+                        8 => [
+                            'title' => 'فضای مجازی',
+                            'link' => '/SocialMedia',
+                            'permission' => "دسترسی به منوی فضای مجازی",
+                            'icon' => 'las la-share-alt',
+                            'childs' => []
                         ],
-                        [
-                            'title' => 'دانگل',
-                            'link' => '/Dongles',
-                            'permission' => "لیست دانگل",
-                            'icon' => 'lab la-usb',
-                        ],
-                        [
-                            'title' => 'آچار پانچ',
-                            'link' => '/PunchWrenches',
-                            'permission' => "لیست آچار پانچ",
-                            'icon' => 'las la-tools',
-                        ],
-                        [
-                            'title' => 'آچار سوکت',
-                            'link' => '/SocketWrenches',
-                            'permission' => "لیست آچار سوکت",
-                            'icon' => 'las la-tools',
-                        ],
-                        [
-                            'title' => 'آچار استریپر',
-                            'link' => '/StripperWrenches',
-                            'permission' => "لیست آچار استریپر",
-                            'icon' => 'las la-tools',
-                        ],
-                        [
-                            'title' => 'تستر شبکه',
-                            'link' => '/CableTesters',
-                            'permission' => "لیست تستر شبکه",
-                            'icon' => 'las la-tools',
-                        ],
-                        [
-                            'title' => 'Kvm',
-                            'link' => '/Kvms',
-                            'permission' => "لیست kvm",
-                            'icon' => 'lab la-usb',
-                        ],
-                        [
-                            'title' => 'Lan TV',
-                            'link' => '/Lantvs',
-                            'permission' => "لیست lantv",
-                            'icon' => 'las la-tv',
-                        ],
-                        [
-                            'title' => 'رادیو وایرلس',
-                            'link' => '/RadioWirelesses',
-                            'permission' => "لیست رادیو وایرلس",
-                            'icon' => 'las la-wifi',
-                        ],
-                        [
-                            'title' => 'اکسس پوینت',
-                            'link' => '/AccessPoints',
-                            'permission' => "لیست اکسس پوینت",
-                            'icon' => 'las la-wifi',
-                        ],
-                        [
-                            'title' => 'روتر',
-                            'link' => '/Routers',
-                            'permission' => "لیست روتر",
-                            'icon' => 'las la-route',
+                        9 => [
+                            'title' => 'معرفی کتاب',
+                            'link' => '/BookIntroductions',
+                            'permission' => "دسترسی به منوی معرفی کتاب",
+                            'icon' => 'las la-book',
+                            'childs' => []
                         ],
                     ]
                 ],
                 4 => [
-                    'title' => 'سایر تجهیزات دیجیتال',
-                    'link' => '/OtherEquipments',
-                    'permission' => "لیست تجهیزات دیجیتال",
-                    'icon' => 'las la-digital-tachograph',
-                    'childs' => [
-                        [
-                            'title' => 'هارد اکسترنال',
-                            'link' => '/ExternalHardDisks',
-                            'permission' => "لیست هارد اکسترنال",
-                            'icon' => 'las la-hdd',
-                        ],
-                        [
-                            'title' => 'لپ تاپ',
-                            'link' => '/Laptops',
-                            'permission' => "لیست لپ تاپ",
-                            'icon' => 'las la-laptop',
-                        ],
-                        [
-                            'title' => 'تبلت',
-                            'link' => '/Tablets',
-                            'permission' => "لیست تبلت",
-                            'icon' => 'las la-tablet',
-                        ],
-                        [
-                            'title' => 'تلفن رومیزی',
-                            'link' => '/Phones',
-                            'permission' => "لیست تلفن رومیزی",
-                            'icon' => 'las la-phone',
-                        ],
-                        [
-                            'title' => 'تلفن همراه',
-                            'link' => '/Mobiles',
-                            'permission' => "لیست تلفن همراه",
-                            'icon' => 'las la-mobile',
-                        ],
-                        [
-                            'title' => 'پایه دوربین',
-                            'link' => '/CameraHolders',
-                            'permission' => "لیست پایه دوربین",
-                            'icon' => 'las la-tenge',
-                        ],
-                        [
-                            'title' => 'تلوزیون',
-                            'link' => '/Televisions',
-                            'permission' => "لیست تلوزیون",
-                            'icon' => 'las la-tv',
-                        ],
-                        [
-                            'title' => 'کارت DVB',
-                            'link' => '/DVBs',
-                            'permission' => "لیست کارت DVB",
-                            'icon' => 'las la-satellite-dish',
-                        ],
-                        [
-                            'title' => 'کارت LAN TV',
-                            'link' => '/LanTvs',
-                            'permission' => "لیست LanTvs",
-                            'icon' => 'las la-satellite-dish',
-                        ],
-                        [
-                            'title' => 'سیمکارت',
-                            'link' => '/Simcards',
-                            'permission' => "لیست سیمکارت",
-                            'icon' => 'las la-sim-card',
-                        ],
-                        [
-                            'title' => 'اسپیکر',
-                            'link' => '/Speakers',
-                            'permission' => "لیست اسپیکر",
-                            'icon' => 'las la-volume-up',
-                        ],
-                        [
-                            'title' => 'دستگاه حضور و غیاب',
-                            'link' => '/AttendanceSystems',
-                            'permission' => "لیست دستگاه حضور و غیاب",
-                            'icon' => 'las la-fingerprint',
-                        ],
-                        [
-                            'title' => 'دوربین مدار بسته',
-                            'link' => '/Cctvs',
-                            'permission' => "لیست دوربین مدار بسته",
-                            'icon' => 'las la-video',
-                        ],
-                        [
-                            'title' => 'رکوردر',
-                            'link' => '/Recorders',
-                            'permission' => "لیست رکوردر",
-                            'icon' => 'las la-microphone',
-                        ],
-                        [
-                            'title' => 'وبکم',
-                            'link' => '/Webcams',
-                            'permission' => "لیست وبکم",
-                            'icon' => 'las la-video',
-                        ],
-                        [
-                            'title' => 'فلش مموری',
-                            'link' => '/FlashMemories',
-                            'permission' => "لیست فلش مموری",
-                            'icon' => 'lab la-usb',
-                        ],
-                        [
-                            'title' => 'UPS',
-                            'link' => '/Ups',
-                            'permission' => "لیست ups",
-                            'icon' => 'las la-battery-three-quarters',
-                        ],
-                        [
-                            'title' => 'دیش ماهواره',
-                            'link' => '/SatelliteDishes',
-                            'permission' => "لیست دیش ماهواره",
-                            'icon' => 'las la-satellite-dish',
-                        ],
-                        [
-                            'title' => 'لنز دوربین',
-                            'link' => '/CameraLenses',
-                            'permission' => "لیست لنز دوربین",
-                            'icon' => 'las la-camera',
-                        ],
-                        [
-                            'title' => 'فایندر ماهواره',
-                            'link' => '/SatelliteFinders',
-                            'permission' => "لیست فایندر ماهواره",
-                            'icon' => 'las la-search',
-                        ],
-                        [
-                            'title' => 'کارت صدا',
-                            'link' => '/SoundCards',
-                            'permission' => "لیست کارت صدا",
-                            'icon' => 'las la-file-audio',
-                        ],
-                        [
-                            'title' => 'ویدئو پروژکتور',
-                            'link' => '/VideoProjectors',
-                            'permission' => "لیست ویدئو پروژکتور",
-                            'icon' => 'las la-broadcast-tower',
-                        ],
-                        [
-                            'title' => 'پرده ویدئو پروژکتور',
-                            'link' => '/VideoProjectorCurtains',
-                            'permission' => "لیست پرده ویدئو پروژکتور",
-                            'icon' => 'las la-bookmark',
-                        ],
-                        [
-                            'title' => 'میکروفون',
-                            'link' => '/Microphones',
-                            'permission' => "لیست میکروفون",
-                            'icon' => 'las la-microphone',
-                        ],
-                        [
-                            'title' => 'شارژر باتری',
-                            'link' => '/BatteryChargers',
-                            'permission' => "لیست شارژر باتری",
-                            'icon' => 'las la-battery-full',
-                        ],
-                        [
-                            'title' => 'دوربین',
-                            'link' => '/Cameras',
-                            'permission' => "لیست دوربین",
-                            'icon' => 'las la-camera',
-                        ],
-                    ]
+                    'title' => 'اسلایدرها',
+                    'link' => '/Sliders',
+                    'permission' => "دسترسی به منوی اسلایدر",
+                    'icon' => 'las la-sliders-h',
+                    'childs' => []
                 ],
                 5 => [
-                    'title' => 'تجهیزات پشتیبانی',
-                    'link' => '/SupportEquipments',
-                    'permission' => "لیست تجهیزات پشتیبانی",
-                    'icon' => 'las la-life-ring',
-                    'childs' => [
-                        [
-                            'title' => 'میز',
-                            'link' => '/Tables',
-                            'permission' => "لیست میز",
-                            'icon' => 'las la-border-all',
-                        ],
-                        [
-                            'title' => 'صندلی',
-                            'link' => '/Chairs',
-                            'permission' => "لیست صندلی",
-                            'icon' => 'las la-chair',
-                        ],
-                        [
-                            'title' => 'کپسول آتش نشانی',
-                            'link' => '/FireExtinguishers',
-                            'permission' => "لیست کپسول آتش نشانی",
-                            'icon' => 'las la-fire-extinguisher',
-                        ],
-                        [
-                            'title' => 'یخچال',
-                            'link' => '/Refrigerators',
-                            'permission' => "لیست یخچال",
-                            'icon' => 'las la-water',
-                        ],
-                    ]
+                    'title' => 'ارتباط با ما',
+                    'link' => '/ContactUs',
+                    'permission' => "لیست ارتباط با ما",
+                    'icon' => 'las la-mail-bulk',
+                    'childs' => []
                 ],
                 6 => [
-                    'title' => 'مدیریت پرسنل',
-                    'link' => '/Personnels',
-                    'permission' => "لیست پرسنل",
-                    'icon' => 'las la-users',
+                    'title' => 'تنظیمات سایت',
+                    'link' => '/SiteSettings',
+                    'permission' => "دسترسی به منوی تنظیمات سایت",
+                    'icon' => 'las la-tools',
                     'childs' => []
                 ],
                 9 => [
                     'title' => 'مدیریت کاربران',
                     'link' => '/UserManager',
-                    'permission' => "لیست کاربران",
+                    'permission' => "دسترسی به منوی مدیریت کاربران",
                     'icon' => 'las la-users',
                     'childs' => []
                 ],
                 10 => [
                     'title' => 'بکاپ دیتابیس',
                     'link' => '/BackupDatabase',
-                    'permission' => "لیست بکاپ دیتابیس",
+                    'permission' => "دسترسی به منوی بکاپ دیتابیس",
                     'icon' => 'las la-hdd',
                     'childs' => []
                 ],
