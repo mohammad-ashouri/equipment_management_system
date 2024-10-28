@@ -440,6 +440,12 @@ class MenuMiddleware
                             'permission' => "لیست یخچال",
                             'icon' => 'las la-water',
                         ],
+                        [
+                            'title' => 'دستگاه دمنده',
+                            'link' => '/Blowers',
+                            'permission' => "لیست دستگاه دمنده",
+                            'icon' => 'las la-fan',
+                        ],
                     ]
                 ],
                 6 => [

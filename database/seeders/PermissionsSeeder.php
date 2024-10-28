@@ -401,6 +401,12 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات لپ تاپ', 'guard_name' => 'web'],
             ['name' => 'حذف لپ تاپ', 'guard_name' => 'web'],
 
+            ['name' => 'لیست دستگاه دمنده', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دستگاه دمنده', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دستگاه دمنده', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات دستگاه دمنده', 'guard_name' => 'web'],
+            ['name' => 'حذف دستگاه دمنده', 'guard_name' => 'web'],
+
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
             ['name' => 'ویرایش پرسنل', 'guard_name' => 'web'],
@@ -812,6 +818,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش لپ تاپ',
             'نمایش جزئیات لپ تاپ',
             'حذف لپ تاپ',
+
+            'لیست دستگاه دمنده',
+            'ایجاد دستگاه دمنده',
+            'ویرایش دستگاه دمنده',
+            'نمایش جزئیات دستگاه دمنده',
+            'حذف دستگاه دمنده',
 
             'لیست پرسنل',
             'ایجاد پرسنل',
