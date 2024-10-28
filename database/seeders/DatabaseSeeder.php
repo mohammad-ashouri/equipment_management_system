@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,19 +18,9 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
-//            PermissionsSeeder::class,
-//            CategoryRelationships::class,
-//            Sections::class,
-//            BookIntroductions::class,
-//            SocialMedia::class,
-//            Professors::class,
-//            ResearchSubjects::class,
-//            Documentaries::class,
-//            InternationalDocuments::class,
-//            Posts::class,
-//            TagLabels::class,
-//            Tags::class,
-            ContactUsPermissionsSeeder::class
+            PermissionsSeeder::class,
+            ShenakhtDefaultValuesSeeder::class,
+            FakePersonnel::class,
         ]);
 
     }

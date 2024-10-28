@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,8 +171,10 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Ybazli\Faker\FakerServiceProvider::class,
+        niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Html\HtmlServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -192,6 +194,7 @@ return [
         'Faker' => Ybazli\Faker\Facades\Faker::class,
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'Html' => Spatie\Html\Facades\Html::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ])->toArray(),
 
 ];

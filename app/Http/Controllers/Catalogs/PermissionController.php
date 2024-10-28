@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Catalogs;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست دسترسی ها', ['only' => ['index']]);
+        $this->middleware('permission:لیست دسترسی', ['only' => ['index']]);
         $this->middleware('permission:ایجاد دسترسی', ['only' => ['create', 'store']]);
         $this->middleware('permission:ویرایش دسترسی', ['only' => ['update']]);
         $this->middleware('permission:نمایش جزئیات دسترسی', ['only' => ['edit']]);
@@ -42,7 +43,7 @@ class PermissionController extends Controller
 
     public function show($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
             ->where("role_has_permissions.role_id", $id)
             ->get();
@@ -52,7 +53,7 @@ class PermissionController extends Controller
 
     public function edit($id): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $permission = Permission::find($id);
+        $permission = Permission::findOrFail($id);
 
         return view('Catalogs.Permissions.edit', compact( 'permission'));
     }
@@ -63,7 +64,7 @@ class PermissionController extends Controller
             'name' => 'required|unique:permissions,name',
         ]);
 
-        $permission = Permission::find($id);
+        $permission = Permission::findOrFail($id);
         $permission->name = $request->input('name');
         $permission->save();
 
