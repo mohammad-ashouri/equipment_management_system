@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="en">
-@php
-    use Illuminate\Support\Collection;
-@endphp
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +8,16 @@
     <title>
         {{ env('APP_PERSIAN_NAME') }}
     </title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="/build/plugins/persian-datepicker/dist/css/persian-datepicker.css"/>
     <script src="/build/plugins/jquery/dist/jquery.js"></script>
     <link href="/build/plugins/select2/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="/build/plugins/select2/dist/js/select2.min.js"></script>
-    {{--    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">--}}
-    {{--    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>--}}
+    <link rel="stylesheet" href="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.css">
+    <script src="/build/plugins/jquery-tags-input/dist/jquery.tagsinput.min.js"></script>
     <script src="/build/plugins/persian-date/dist/persian-date.js"></script>
     <script src="/build/plugins/persian-datepicker/dist/js/persian-datepicker.js"></script>
-    <link rel="stylesheet" href="/build/plugins/persian-datepicker/dist/css/persian-datepicker.css"/>
+    <x-head.tinymce-config/>
     <script>
         $(document).ready(function () {
             $('.select2').select2({
@@ -25,104 +25,8 @@
                 width: '100%',
                 height: '100%'
             });
-            $(".delivery_date").pDatepicker(
-                {
-                    "format": "LLLL",
-                    "viewMode": "day",
-                    "initialValue": true,
-                    "minDate": null,
-                    "maxDate": null,
-                    "autoClose": false,
-                    "position": "auto",
-                    "altFormat": "lll",
-                    "altField": "#altfieldExample",
-                    "onlyTimePicker": false,
-                    "onlySelectOnDate": true,
-                    "calendarType": "persian",
-                    "inputDelay": 800,
-                    "observer": false,
-                    "calendar": {
-                        "persian": {
-                            "locale": "fa",
-                            "showHint": true,
-                            "leapYearMode": "algorithmic"
-                        },
-                        "gregorian": {
-                            "locale": "en",
-                            "showHint": false
-                        }
-                    },
-                    "navigator": {
-                        "enabled": true,
-                        "scroll": {
-                            "enabled": true
-                        },
-                        "text": {
-                            "btnNextText": "<",
-                            "btnPrevText": ">"
-                        }
-                    },
-                    "toolbox": {
-                        "enabled": true,
-                        "calendarSwitch": {
-                            "enabled": false,
-                            "format": "MMMM"
-                        },
-                        "todayButton": {
-                            "enabled": true,
-                            "text": {
-                                "fa": "امروز",
-                                "en": "Today"
-                            }
-                        },
-                        "submitButton": {
-                            "enabled": false,
-                            "text": {
-                                "fa": "تایید",
-                                "en": "Submit"
-                            }
-                        },
-                        "text": {
-                            "btnToday": "امروز"
-                        }
-                    },
-                    "timePicker": {
-                        "enabled": false,
-                        "step": 1,
-                        "hour": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "minute": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "second": {
-                            "enabled": false,
-                            "step": null
-                        },
-                        "meridian": {
-                            "enabled": false
-                        }
-                    },
-                    "dayPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY MMMM"
-                    },
-                    "monthPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY"
-                    },
-                    "yearPicker": {
-                        "enabled": true,
-                        "titleFormat": "YYYY"
-                    },
-                    "responsive": true
-                }
-            );
         });
     </script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 @component('components.loader-spinner') @endcomponent
@@ -279,12 +183,6 @@
                             @foreach (session('menus') as $menu)
                                 <li>
                                     @if (isset($menu['childs']) && count($menu['childs']) > 0)
-                                        @php
-                                            $collator = new \Collator('fa_IR');
-                                            $sortedMenu = collect($menu['childs'])->sort(function ($a, $b) use ($collator) {
-                                                return $collator->compare($a['title'], $b['title']);
-                                            });
-                                        @endphp
                                         @can($menu['permission'])
                                             <details id="{{ 'details-' . $menu['title'] }}">
                                                 <summary
@@ -293,7 +191,7 @@
                                                     {{ $menu['title'] }}
                                                 </summary>
                                                 <ul class="text-white w-full mr-2">
-                                                    @foreach ($sortedMenu as $child)
+                                                    @foreach ($menu['childs'] as $child)
                                                         @if(isset($child['permission']))
                                                             @can($child['permission'])
                                                                 <li class="menu-item mr-8" id="{{ $child['title'] }}">
@@ -316,7 +214,9 @@
                                                                    class="flex items-center my-1 text-cu-light rounded-s-full dark:text-white hover:bg-gray-100 light:hover:bg-gray-700 group">
                                                                     <i style="font-size: 24px"
                                                                        class="{{$menu['icon']}}"></i>
-                                                                    <span class="">{{ $menu['title'] }}</span>
+                                                                    <span class=" ">
+                                                            {{ $menu['title'] }}
+                                                        </span>
                                                                 </a>
                                                             </li>
                                                         @endcan
@@ -343,10 +243,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <script>
-
-                </script>
 
             </aside>
 

@@ -68,15 +68,15 @@ class LoginController extends Controller
         }
 
         $captcha = $request->input('captcha');
-//        $sessionCaptcha = session('captcha')['key'];
-//        if (!password_verify($captcha, $sessionCaptcha)) {
-//            return response()->json([
-//                'success' => false,
-//                'errors' => [
-//                    'captcha' => ['کد امنیتی صحیح وارد نشده است.']
-//                ]
-//            ]);
-//        }
+        $sessionCaptcha = session('captcha')['key'];
+        if (!password_verify($captcha, $sessionCaptcha)) {
+            return response()->json([
+                'success' => false,
+                'errors' => [
+                    'captcha' => ['کد امنیتی صحیح وارد نشده است.']
+                ]
+            ]);
+        }
 
         $credentials = $request->only('username', 'password');
 

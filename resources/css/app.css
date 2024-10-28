@@ -360,8 +360,14 @@ input[type="file"].hidden {
     }
 }
 
-
 /* change menu direction */
 [dir="rtl"] .drawer-side > *:not(.drawer-overlay) {
     transform: translateX(400px);
+}
+.drtl {
+    direction: rtl;
+}
+
+.dltr {
+    direction: ltr;
 }

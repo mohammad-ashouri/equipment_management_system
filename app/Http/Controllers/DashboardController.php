@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\ContactUs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,7 +59,7 @@ class DashboardController extends Controller
             $folderName = str_replace(array('/', '\\'), '', bcrypt($file_src->getClientOriginalName()));
             $postFilePath = $file_src->storeAs('public/UserImages/' . $folderName, $file_src->getClientOriginalName());
             if ($postFilePath){
-                $user=User::findOrFail(session('id'));
+                $user=User::find(session('id'));
                 $user->user_image=$postFilePath;
                 $user->save();
                 return $this->alerts(true, 'imageChanged', 'رمز عبور با موفقیت تغییر کرد!');
@@ -81,6 +82,7 @@ class DashboardController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('dashboard');
+        $contactUsCount=ContactUs::where('is_read',false)->count();
+        return view('dashboard',compact('contactUsCount'));
     }
 }

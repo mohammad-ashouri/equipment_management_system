@@ -4,10 +4,12 @@ module.exports = {
         themes: [ "wireframe"],
     },
     content: [
+        './src/**/*.{html,js,jsx,ts,tsx}',
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './node_modules/tw-elements/dist/js/**/*.js'
     ],
     theme: {
         extend: {
@@ -31,6 +33,10 @@ module.exports = {
             },
         },
     },
-    plugins: [require("daisyui"),require('@tailwindcss/typography'),require("tw-elements/dist/plugin.cjs")],
+    plugins: [
+        require("daisyui"),
+        require('@tailwindcss/typography'),
+        require("tw-elements/dist/plugin.cjs")
+    ],
     darkMode: "class"
-}
+};
