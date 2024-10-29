@@ -18,15 +18,15 @@
         "laravel/telescope": "^5.1",
         "laravel/tinker": "^2.8",
         "league/commonmark": "^2.4",
-        "mews/captcha": "3.3.*",
+        "mews/captcha": "^3.4",
         "morilog/jalali": "^3.4",
+        "niklasravnsborg/laravel-pdf": "^4.1",
         "phpoffice/phpspreadsheet": "^1.29",
         "realrashid/sweet-alert": "^7.0",
         "sebastian/diff": "^5.0",
         "spatie/laravel-html": "^3.9",
         "spatie/laravel-permission": "^6.4",
         "spatie/laravel-sluggable": "^3.6",
-        "tinymce/tinymce": "^7.3",
         "voku/portable-ascii": "^2.0",
         "ybazli/faker": "^1.0"
     },
@@ -43,7 +43,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

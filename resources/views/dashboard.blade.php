@@ -6,13 +6,10 @@
             <h1 class="text-2xl font-bold mb-4">داشبورد</h1>
             <div class="bg-white rounded shadow p-6">
                 <p>
-                    به پنل مدیریت سایت {{ env('APP_PERSIAN_NAME') }} خوش آمدید.
+                    به پنل داشبورد خوش آمدید.
                 </p>
             </div>
         </div>
-        @if(!empty($contactUsCount))
-            <x-dashboard.contact-us-warn contactUsCount="{{$contactUsCount}}"></x-dashboard.contact-us-warn>
-        @endif
     </main>
 @endsection
 

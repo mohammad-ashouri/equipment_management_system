@@ -68,6 +68,7 @@ use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
+use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\UserManager;
@@ -198,6 +199,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/FireExtinguishers', FireExtinguisherController::class);
         Route::resource('/Refrigerators', RefrigeratorController::class);
         Route::resource('/Blowers', BlowerController::class);
+        Route::resource('/KeyBoxes', KeyBoxController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

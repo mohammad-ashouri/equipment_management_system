@@ -5,11 +5,7 @@ import Swal from 'sweetalert2';
 
 window.Swal = Swal;
 
-$(document).ready(function () {
-    reloadCaptcha();
-});
-
-function swalFire(text, icon, confirmButtonText, title = null) {
+function swalFire(title = null, text, icon, confirmButtonText) {
     Swal.fire({
         title: title, text: text, icon: icon, confirmButtonText: confirmButtonText,
     });
@@ -21,13 +17,11 @@ function reloadCaptcha() {
     captchaImg.src = captchaUrl + '?' + Date.now();
 }
 
-$('#reloadCaptcha').click(function () {
-    reloadCaptcha();
-});
-
 function loaderSpinner() {
     $('#loader').toggleClass('hidden');
 }
+
+reloadCaptcha();
 
 //Check Login Form
 $('#loginForm').submit(function (e) {
@@ -46,24 +40,24 @@ $('#loginForm').submit(function (e) {
                 window.location.href = response.redirect;
             } else {
                 if (response.errors.username) {
-                    swalFire('تلاش مجدد', response.errors.username[0], 'error', 'خطای نام کاربری');
+                    swalFire('خطای نام کاربری', response.errors.username[0], 'error', 'تلاش مجدد');
                     reloadCaptcha();
                     captcha.value = '';
                 }
 
                 if (response.errors.password) {
-                    swalFire('تلاش مجدد', response.errors.password[0], 'error', 'خطای رمز عبور');
+                    swalFire('خطای رمز عبور', response.errors.password[0], 'error', 'تلاش مجدد');
                     reloadCaptcha();
                     captcha.value = '';
                 }
 
                 if (response.errors.captcha) {
-                    swalFire('تلاش مجدد', response.errors.captcha[0], 'error', 'کد امنیتی نامعتبر');
+                    swalFire('کد امنیتی نامعتبر', response.errors.captcha[0], 'error', 'تلاش مجدد');
                     reloadCaptcha();
                     captcha.value = '';
                 }
                 if (response.errors.loginError) {
-                    swalFire('تلاش مجدد', response.errors.loginError[0], 'error', 'نام کاربری یا رمز عبور نامعتبر');
+                    swalFire('نام کاربری یا رمز عبور نامعتبر', response.errors.loginError[0], 'error', 'تلاش مجدد');
                     reloadCaptcha();
                     captcha.value = '';
                 }
@@ -71,7 +65,7 @@ $('#loginForm').submit(function (e) {
             }
         }, error: function (xhr, textStatus, errorThrown) {
             if (xhr.responseJSON['YouAreLocked']) {
-                swalFire('تایید', 'آی پی شما به دلیل تعداد درخواست های زیاد بلاک شده است. لطفا یک ساعت دیگر مجددا تلاش کنید.', 'error', 'دسترسی غیرمجاز');
+                swalFire('دسترسی غیرمجاز', 'آی پی شما به دلیل تعداد درخواست های زیاد بلاک شده است. لطفا یک ساعت دیگر مجددا تلاش کنید.', 'error', 'تایید');
                 const fields = [username, password, captcha];
                 fields.forEach(field => {
                     field.disabled = true;
@@ -79,8 +73,8 @@ $('#loginForm').submit(function (e) {
                     field.style.backgroundColor = 'gray';
                 });
             } else {
-                swalFire('تلاش مجدد', 'ارتباط با سرور برقرار نشد.', 'error', 'خطای ناشناخته');
-                console.clear();
+                swalFire('خطای ناشناخته', 'ارتباط با سرور برقرار نشد.', 'error', 'تلاش مجدد');
+                // console.clear();
             }
             loaderSpinner();
 

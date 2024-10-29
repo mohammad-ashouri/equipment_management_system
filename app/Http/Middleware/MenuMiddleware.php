@@ -446,6 +446,12 @@ class MenuMiddleware
                             'permission' => "لیست دستگاه دمنده",
                             'icon' => 'las la-fan',
                         ],
+                        [
+                            'title' => 'جعبه کلید',
+                            'link' => '/KeyBoxes',
+                            'permission' => "لیست جعبه کلید",
+                            'icon' => 'las la-key',
+                        ],
                     ]
                 ],
                 6 => [
