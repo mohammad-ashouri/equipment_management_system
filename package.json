@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "npm-run-all build-app copy-jquery copy-select2 copy-tailwindcss copy-jquery-tags-input copy-persian-date copy-persian-date-picker",
+        "build": "npm-run-all build-app copy-datatable copy-datatable-buttons copy-datatable-jszip copy-datatable-pdfmake copy-datatable-colreorder copy-datatable-select copy-datatable-SearchPanes copy-jquery copy-select2 copy-tailwindcss copy-jquery-tags-input copy-persian-date copy-persian-date-picker",
         "build-app": "vite build",
         "copy-select2": "mkdirp public/build/plugins && ncp node_modules/select2 public/build/plugins/select2",
         "copy-jquery": "mkdirp public/build/plugins && ncp node_modules/jquery public/build/plugins/jquery",
@@ -11,6 +11,13 @@
         "copy-jquery-tags-input": "mkdirp public/build/plugins && ncp node_modules/jquery-tags-input public/build/plugins/jquery-tags-input",
         "copy-persian-date": "mkdirp public/build/plugins && ncp node_modules/persian-date public/build/plugins/persian-date",
         "copy-persian-date-picker": "mkdirp public/build/plugins && ncp node_modules/persian-datepicker public/build/plugins/persian-datepicker",
+        "copy-datatable": "mkdirp public/build/plugins && ncp resources/OtherLibraries/DataTables public/build/plugins/DataTables",
+        "copy-datatable-buttons": "mkdirp public/build/plugins && ncp resources/OtherLibraries/Buttons-3.1.2 public/build/plugins/Buttons-3.1.2",
+        "copy-datatable-jszip": "mkdirp public/build/plugins && ncp resources/OtherLibraries/jszip public/build/plugins/jszip",
+        "copy-datatable-pdfmake": "mkdirp public/build/plugins && ncp node_modules/pdfmake public/build/plugins/pdfmake",
+        "copy-datatable-colreorder": "mkdirp public/build/plugins && ncp resources/OtherLibraries/ColReorder-2.0.4 public/build/plugins/ColReorder-2.0.4",
+        "copy-datatable-select": "mkdirp public/build/plugins && ncp resources/OtherLibraries/Select-2.1.0 public/build/plugins/Select-2.1.0",
+        "copy-datatable-SearchPanes": "mkdirp public/build/plugins && ncp resources/OtherLibraries/SearchPanes public/build/plugins/SearchPanes",
         "build:prod": "cross-env NODE_ENV=production vite build"
     },
     "devDependencies": {
@@ -19,6 +26,7 @@
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.7.5",
         "ncp": "^2.0.0",
+        "npm-run-all": "^4.1.5",
         "postcss": "^8.4.31",
         "select2": "^4.1.0-rc.0",
         "vite": "^4.0.0"
@@ -38,7 +46,7 @@
         "jquery-ui-dist": "^1.13.2",
         "lodash": "^4.17.21",
         "mkdirp": "^3.0.1",
-        "npm-run-all": "^4.1.5",
+        "pdfmake": "^0.2.15",
         "persian-datepicker": "^1.2.0",
         "sweetalert2": "^11.6.13",
         "tinymce": "^7.0.1",
