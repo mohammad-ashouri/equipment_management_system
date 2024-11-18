@@ -407,12 +407,17 @@ class PermissionsSeeder extends Seeder
             ['name' => 'نمایش جزئیات دستگاه دمنده', 'guard_name' => 'web'],
             ['name' => 'حذف دستگاه دمنده', 'guard_name' => 'web'],
 
-
             ['name' => 'لیست جعبه کلید', 'guard_name' => 'web'],
             ['name' => 'ایجاد جعبه کلید', 'guard_name' => 'web'],
             ['name' => 'ویرایش جعبه کلید', 'guard_name' => 'web'],
             ['name' => 'نمایش جزئیات جعبه کلید', 'guard_name' => 'web'],
             ['name' => 'حذف جعبه کلید', 'guard_name' => 'web'],
+
+            ['name' => 'لیست فایل کشویی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد فایل کشویی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش فایل کشویی', 'guard_name' => 'web'],
+            ['name' => 'نمایش جزئیات فایل کشویی', 'guard_name' => 'web'],
+            ['name' => 'حذف فایل کشویی', 'guard_name' => 'web'],
 
             ['name' => 'لیست پرسنل', 'guard_name' => 'web'],
             ['name' => 'ایجاد پرسنل', 'guard_name' => 'web'],
@@ -837,6 +842,12 @@ class PermissionsSeeder extends Seeder
             'ویرایش جعبه کلید',
             'نمایش جزئیات جعبه کلید',
             'حذف جعبه کلید',
+
+            'لیست فایل کشویی',
+            'ایجاد فایل کشویی',
+            'ویرایش فایل کشویی',
+            'نمایش جزئیات فایل کشویی',
+            'حذف فایل کشویی',
 
             'لیست پرسنل',
             'ایجاد پرسنل',

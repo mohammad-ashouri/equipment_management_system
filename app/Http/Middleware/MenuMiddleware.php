@@ -452,6 +452,12 @@ class MenuMiddleware
                             'permission' => "لیست جعبه کلید",
                             'icon' => 'las la-key',
                         ],
+                        [
+                            'title' => 'فایل کشویی',
+                            'link' => '/DrawerFileCabinets',
+                            'permission' => "لیست فایل کشویی",
+                            'icon' => 'las la-th',
+                        ],
                     ]
                 ],
                 6 => [
