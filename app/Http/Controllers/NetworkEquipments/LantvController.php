@@ -18,7 +18,7 @@ class LantvController extends Controller
 
     public function index()
     {
-        $Lantvs = Lantv::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $Lantvs = Lantv::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Lantvs.index', compact('Lantvs'));
     }
 

@@ -18,7 +18,7 @@ class DVBController extends Controller
 
     public function index()
     {
-        $dvbs = DVB::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $dvbs = DVB::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.DVBs.index', compact('dvbs'));
     }
 

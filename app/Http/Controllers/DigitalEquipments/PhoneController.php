@@ -18,7 +18,7 @@ class PhoneController extends Controller
 
     public function index()
     {
-        $phones = Phone::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $phones = Phone::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Phones.index', compact('phones'));
     }
 

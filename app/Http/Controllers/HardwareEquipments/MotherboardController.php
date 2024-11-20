@@ -18,7 +18,7 @@ class MotherboardController extends Controller
 
     public function index()
     {
-        $motherboards = Motherboard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $motherboards = Motherboard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Motherboards.index', compact('motherboards'));
     }
 

@@ -18,7 +18,7 @@ class BlowerController extends Controller
 
     public function index()
     {
-        $blowers = Blower::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $blowers = Blower::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.Blowers.index', compact('blowers'));
     }
 

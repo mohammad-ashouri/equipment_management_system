@@ -18,7 +18,7 @@ class StripperWrenchController extends Controller
 
     public function index()
     {
-        $stripperWrenches = StripperWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $stripperWrenches = StripperWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.StripperWrenches.index', compact('stripperWrenches'));
     }
 

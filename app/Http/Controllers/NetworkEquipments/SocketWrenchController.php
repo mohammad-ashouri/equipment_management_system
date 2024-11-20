@@ -18,7 +18,7 @@ class SocketWrenchController extends Controller
 
     public function index()
     {
-        $socketWrenches = SocketWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $socketWrenches = SocketWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.SocketWrenches.index', compact('socketWrenches'));
     }
 

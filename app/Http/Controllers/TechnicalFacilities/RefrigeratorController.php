@@ -18,7 +18,7 @@ class RefrigeratorController extends Controller
 
     public function index()
     {
-        $refrigerators = Refrigerator::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $refrigerators = Refrigerator::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.Refrigerators.index', compact('refrigerators'));
     }
 

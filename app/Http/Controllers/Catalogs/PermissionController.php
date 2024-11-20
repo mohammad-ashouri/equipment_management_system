@@ -20,7 +20,7 @@ class PermissionController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $permissions = Permission::orderBy('name', 'asc')->paginate(50);
+        $permissions = Permission::orderBy('name', 'asc')->get();
         return view('Catalogs.Permissions.index', compact('permissions'));
     }
 

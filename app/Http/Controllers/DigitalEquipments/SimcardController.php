@@ -18,7 +18,7 @@ class SimcardController extends Controller
 
     public function index()
     {
-        $simcards = Simcard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $simcards = Simcard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Simcards.index', compact('simcards'));
     }
 

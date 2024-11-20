@@ -18,7 +18,7 @@ class VideoProjectorController extends Controller
 
     public function index()
     {
-        $videoProjectors = VideoProjector::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $videoProjectors = VideoProjector::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.VideoProjectors.index', compact('videoProjectors'));
     }
 

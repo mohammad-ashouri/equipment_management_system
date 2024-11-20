@@ -19,7 +19,7 @@ class FireExtinguisherController extends Controller
 
     public function index()
     {
-        $fireExtinguishers = FireExtinguisher::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $fireExtinguishers = FireExtinguisher::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.FireExtinguishers.index', compact('fireExtinguishers'));
     }
 

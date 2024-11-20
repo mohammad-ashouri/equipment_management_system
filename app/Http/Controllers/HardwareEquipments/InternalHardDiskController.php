@@ -18,7 +18,7 @@ class InternalHardDiskController extends Controller
 
     public function index()
     {
-        $internalHardDisks = InternalHardDisk::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $internalHardDisks = InternalHardDisk::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.InternalHardDisks.index', compact('internalHardDisks'));
     }
 

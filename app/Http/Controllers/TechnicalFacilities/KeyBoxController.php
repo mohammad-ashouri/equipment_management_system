@@ -18,7 +18,7 @@ class KeyBoxController extends Controller
 
     public function index()
     {
-        $keyBoxes = KeyBox::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $keyBoxes = KeyBox::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.KeyBoxes.index', compact('keyBoxes'));
     }
 

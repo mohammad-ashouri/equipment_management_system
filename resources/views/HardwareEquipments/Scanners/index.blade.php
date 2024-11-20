@@ -31,7 +31,7 @@
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ویرایش کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ویرایش</th>
-                            <th class="px-6 py-3  font-bold ">عملیات</th>
+                            <th class="px-6 py-3  font-bold action">عملیات</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
@@ -82,10 +82,6 @@
                         @endforeach
                         </tbody>
                     </table>
-
-                    <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $scanners->links() }}
-                    </div>
                 @endif
             </div>
 

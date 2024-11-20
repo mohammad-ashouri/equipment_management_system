@@ -18,7 +18,7 @@ class RadioWirelessController extends Controller
 
     public function index()
     {
-        $radioWirelesses = RadioWireless::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $radioWirelesses = RadioWireless::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.RadioWirelesses.index', compact('radioWirelesses'));
     }
 

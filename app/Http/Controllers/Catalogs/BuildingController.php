@@ -18,7 +18,7 @@ class BuildingController extends Controller
 
     public function index()
     {
-        $buildings = building::orderBy('name', 'asc')->paginate(50);
+        $buildings = building::orderBy('name', 'asc')->get();
         return view('Catalogs.Buildings.index', compact('buildings'));
     }
 

@@ -18,7 +18,7 @@ class SoundCardController extends Controller
 
     public function index()
     {
-        $soundCards = SoundCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $soundCards = SoundCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.SoundCards.index', compact('soundCards'));
     }
 

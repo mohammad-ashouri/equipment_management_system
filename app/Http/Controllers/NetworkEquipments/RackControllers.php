@@ -18,7 +18,7 @@ class RackControllers extends Controller
 
     public function index()
     {
-        $racks = Rack::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $racks = Rack::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Racks.index', compact('racks'));
     }
 

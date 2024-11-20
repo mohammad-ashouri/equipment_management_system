@@ -18,7 +18,7 @@ class NetworkCardController extends Controller
 
     public function index()
     {
-        $networkCards = NetworkCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $networkCards = NetworkCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.NetworkCards.index', compact('networkCards'));
     }
 

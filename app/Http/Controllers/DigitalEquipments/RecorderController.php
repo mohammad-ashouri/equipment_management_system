@@ -18,7 +18,7 @@ class RecorderController extends Controller
 
     public function index()
     {
-        $recorders = Recorder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $recorders = Recorder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Recorders.index', compact('recorders'));
     }
 

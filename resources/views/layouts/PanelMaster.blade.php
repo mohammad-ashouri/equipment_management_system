@@ -174,7 +174,12 @@
                 },
                 dom: '<"top"lfB>rt<"bottom"ip><"clear">',
                 buttons: [
-                    'copy',
+                    {
+                        extend: 'copy',
+                        exportOptions: {
+                            columns: ':not(.action)'
+                        }
+                    },
                     {
                         extend: 'excelHtml5',
                         text: 'Excel',
@@ -273,7 +278,12 @@
                             columns: ':not(.action)'
                         }
                     },
-                    'print',
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(.action)'
+                        }
+                    },
                     {
                         extend: 'csv',
                         exportOptions: {

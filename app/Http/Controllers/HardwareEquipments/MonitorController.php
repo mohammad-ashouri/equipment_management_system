@@ -18,7 +18,7 @@ class MonitorController extends Controller
 
     public function index()
     {
-        $monitors = Monitor::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $monitors = Monitor::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Monitors.index', compact('monitors'));
     }
 

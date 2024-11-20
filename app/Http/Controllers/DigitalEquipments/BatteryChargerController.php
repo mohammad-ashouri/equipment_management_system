@@ -18,7 +18,7 @@ class BatteryChargerController extends Controller
 
     public function index()
     {
-        $batteryChargers = BatteryCharger::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $batteryChargers = BatteryCharger::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.BatteryChargers.index', compact('batteryChargers'));
     }
 

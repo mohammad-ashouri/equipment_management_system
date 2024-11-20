@@ -18,7 +18,7 @@ class DongleController extends Controller
 
     public function index()
     {
-        $dongles = Dongle::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $dongles = Dongle::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Dongles.index', compact('dongles'));
     }
 

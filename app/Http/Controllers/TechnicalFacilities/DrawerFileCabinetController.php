@@ -18,7 +18,7 @@ class DrawerFileCabinetController extends Controller
 
     public function index()
     {
-        $drawerFileCabinets = DrawerFileCabinet::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $drawerFileCabinets = DrawerFileCabinet::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.DrawerFileCabinets.index', compact('drawerFileCabinets'));
     }
 

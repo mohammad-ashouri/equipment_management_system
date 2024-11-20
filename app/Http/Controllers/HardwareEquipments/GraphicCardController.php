@@ -18,7 +18,7 @@ class GraphicCardController extends Controller
 
     public function index()
     {
-        $graphicCards = GraphicCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $graphicCards = GraphicCard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.GraphicCards.index', compact('graphicCards'));
     }
 

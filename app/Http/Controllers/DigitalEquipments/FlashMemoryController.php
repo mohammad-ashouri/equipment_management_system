@@ -18,7 +18,7 @@ class FlashMemoryController extends Controller
 
     public function index()
     {
-        $flashMemories = FlashMemory::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $flashMemories = FlashMemory::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.FlashMemories.index', compact('flashMemories'));
     }
 

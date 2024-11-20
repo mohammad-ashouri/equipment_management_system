@@ -18,7 +18,7 @@ class AccessPointController extends Controller
 
     public function index()
     {
-        $accessPoints = AccessPoint::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $accessPoints = AccessPoint::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.AccessPoints.index', compact('accessPoints'));
     }
 

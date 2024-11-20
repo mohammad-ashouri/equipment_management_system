@@ -18,7 +18,7 @@ class CpuController extends Controller
 
     public function index()
     {
-        $cpus = Cpu::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cpus = Cpu::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Cpus.index', compact('cpus'));
     }
 

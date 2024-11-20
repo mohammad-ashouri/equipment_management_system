@@ -19,13 +19,13 @@
                         <span>اطلاعاتی یافت نشد!</span>
                     </div>
                 @else
-                    <table class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                    <table class="datatable w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                         <thead>
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">عنوان</th>
                             <th class="px-6 py-3  font-bold ">تعداد کاربران</th>
-                            <th class="px-6 py-3  font-bold ">عملیات</th>
+                            <th class="px-6 py-3  font-bold action">عملیات</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
@@ -52,10 +52,6 @@
                         @endforeach
                         </tbody>
                     </table>
-
-                    <div class="mt-4 flex justify-center" id="laravel-next-prev">
-                        {{ $roles->links() }}
-                    </div>
                 @endif
             </div>
 

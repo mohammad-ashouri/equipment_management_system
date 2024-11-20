@@ -18,7 +18,7 @@ class MicrophoneController extends Controller
 
     public function index()
     {
-        $microphones = Microphone::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $microphones = Microphone::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Microphones.index', compact('microphones'));
     }
 

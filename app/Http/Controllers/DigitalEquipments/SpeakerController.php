@@ -18,7 +18,7 @@ class SpeakerController extends Controller
 
     public function index()
     {
-        $speakers = Speaker::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $speakers = Speaker::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Speakers.index', compact('speakers'));
     }
 

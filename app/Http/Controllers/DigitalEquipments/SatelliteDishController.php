@@ -18,7 +18,7 @@ class SatelliteDishController extends Controller
 
     public function index()
     {
-        $satelliteDishes = SatelliteDish::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $satelliteDishes = SatelliteDish::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.SatelliteDishes.index', compact('satelliteDishes'));
     }
 

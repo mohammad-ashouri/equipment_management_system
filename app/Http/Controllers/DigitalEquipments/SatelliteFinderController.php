@@ -18,7 +18,7 @@ class SatelliteFinderController extends Controller
 
     public function index()
     {
-        $satelliteFinders = SatelliteFinder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $satelliteFinders = SatelliteFinder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.SatelliteFinders.index', compact('satelliteFinders'));
     }
 

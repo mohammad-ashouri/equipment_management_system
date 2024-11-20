@@ -18,7 +18,7 @@ class MouseController extends Controller
 
     public function index()
     {
-        $mouses = Mouse::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $mouses = Mouse::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Mouses.index', compact('mouses'));
     }
 

@@ -18,7 +18,7 @@ class CctvController extends Controller
 
     public function index()
     {
-        $cctvs = Cctv::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cctvs = Cctv::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Cctvs.index', compact('cctvs'));
     }
 

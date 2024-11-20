@@ -21,7 +21,7 @@ class RoleController extends Controller
 
     public function index(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $roles = Role::orderBy('name', 'asc')->paginate(10);
+        $roles = Role::orderBy('name', 'asc')->get();
         return view('Catalogs.Roles.index', compact('roles'));
     }
 

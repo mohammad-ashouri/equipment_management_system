@@ -18,7 +18,7 @@ class ExternalHardDiskController extends Controller
 
     public function index()
     {
-        $externalHardDisks = ExternalHardDisk::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $externalHardDisks = ExternalHardDisk::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.ExternalHardDisks.index', compact('externalHardDisks'));
     }
 

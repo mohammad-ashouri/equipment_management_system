@@ -18,7 +18,7 @@ class KvmController extends Controller
 
     public function index()
     {
-        $Kvms = Kvm::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $Kvms = Kvm::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Kvms.index', compact('Kvms'));
     }
 

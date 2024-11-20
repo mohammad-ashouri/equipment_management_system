@@ -18,7 +18,7 @@ class ModemController extends Controller
 
     public function index()
     {
-        $modems = Modem::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $modems = Modem::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Modems.index', compact('modems'));
     }
 

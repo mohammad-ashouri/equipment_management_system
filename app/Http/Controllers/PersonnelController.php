@@ -19,7 +19,7 @@ class PersonnelController extends Controller
 
     public function index()
     {
-        $personnels = Personnel::with(['buildingInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $personnels = Personnel::with(['buildingInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('Personnels.index', compact('personnels'));
     }
 

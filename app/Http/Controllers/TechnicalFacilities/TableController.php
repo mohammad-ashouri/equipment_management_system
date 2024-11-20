@@ -18,7 +18,7 @@ class TableController extends Controller
 
     public function index()
     {
-        $tables = Table::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $tables = Table::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.Tables.index', compact('tables'));
     }
 

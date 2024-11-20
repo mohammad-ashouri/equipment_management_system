@@ -18,7 +18,7 @@ class ScannerController extends Controller
 
     public function index()
     {
-        $scanners = Scanner::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $scanners = Scanner::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Scanners.index', compact('scanners'));
     }
 

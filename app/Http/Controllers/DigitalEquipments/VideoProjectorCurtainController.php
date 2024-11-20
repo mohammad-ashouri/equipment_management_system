@@ -18,7 +18,7 @@ class VideoProjectorCurtainController extends Controller
 
     public function index()
     {
-        $videoProjectorCurtains = VideoProjectorCurtain::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $videoProjectorCurtains = VideoProjectorCurtain::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.VideoProjectorCurtains.index', compact('videoProjectorCurtains'));
     }
 

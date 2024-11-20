@@ -18,7 +18,7 @@ class PowerController extends Controller
 
     public function index()
     {
-        $powers = Power::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $powers = Power::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Powers.index', compact('powers'));
     }
 

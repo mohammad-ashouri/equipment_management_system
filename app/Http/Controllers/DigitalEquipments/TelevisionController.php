@@ -18,7 +18,7 @@ class TelevisionController extends Controller
 
     public function index()
     {
-        $televisions = Television::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $televisions = Television::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Televisions.index', compact('televisions'));
     }
 

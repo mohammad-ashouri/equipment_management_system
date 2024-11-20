@@ -18,7 +18,7 @@ class CableTesterController extends Controller
 
     public function index()
     {
-        $cableTesters = CableTester::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cableTesters = CableTester::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.CableTesters.index', compact('cableTesters'));
     }
 

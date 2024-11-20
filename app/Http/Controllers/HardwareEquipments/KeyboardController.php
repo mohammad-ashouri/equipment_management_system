@@ -18,7 +18,7 @@ class KeyboardController extends Controller
 
     public function index()
     {
-        $keyboards = Keyboard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $keyboards = Keyboard::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Keyboards.index', compact('keyboards'));
     }
 

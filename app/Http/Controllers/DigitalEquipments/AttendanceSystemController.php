@@ -18,7 +18,7 @@ class AttendanceSystemController extends Controller
 
     public function index()
     {
-        $attendanceSystems = AttendanceSystem::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $attendanceSystems = AttendanceSystem::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.AttendanceSystems.index', compact('attendanceSystems'));
     }
 

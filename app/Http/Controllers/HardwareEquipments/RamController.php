@@ -18,7 +18,7 @@ class RamController extends Controller
 
     public function index()
     {
-        $rams = Ram::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $rams = Ram::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Rams.index', compact('rams'));
     }
 

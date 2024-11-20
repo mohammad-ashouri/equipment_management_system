@@ -18,7 +18,7 @@ class CaseController extends Controller
 
     public function index()
     {
-        $cases = Cases::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cases = Cases::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Cases.index', compact('cases'));
     }
 

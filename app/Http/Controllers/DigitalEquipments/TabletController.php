@@ -18,7 +18,7 @@ class TabletController extends Controller
 
     public function index()
     {
-        $tablets = Tablet::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $tablets = Tablet::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Tablets.index', compact('tablets'));
     }
 

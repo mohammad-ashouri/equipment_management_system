@@ -18,7 +18,7 @@ class WebcamController extends Controller
 
     public function index()
     {
-        $webcams = Webcam::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $webcams = Webcam::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Webcams.index', compact('webcams'));
     }
 

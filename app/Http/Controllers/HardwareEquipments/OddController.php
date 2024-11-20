@@ -18,7 +18,7 @@ class OddController extends Controller
 
     public function index()
     {
-        $odds = Odd::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $odds = Odd::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Odds.index', compact('odds'));
     }
 

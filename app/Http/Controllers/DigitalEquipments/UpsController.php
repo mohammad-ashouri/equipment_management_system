@@ -19,7 +19,7 @@ class UpsController extends Controller
 
     public function index()
     {
-        $ups = Ups::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $ups = Ups::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Ups.index', compact('ups'));
     }
 

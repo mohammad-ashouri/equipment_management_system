@@ -18,7 +18,7 @@ class CameraHolderController extends Controller
 
     public function index()
     {
-        $cameraHolders = CameraHolder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cameraHolders = CameraHolder::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.CameraHolders.index', compact('cameraHolders'));
     }
 

@@ -18,7 +18,7 @@ class PunchWrenchController extends Controller
 
     public function index()
     {
-        $punchWrenches = PunchWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $punchWrenches = PunchWrench::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.PunchWrenches.index', compact('punchWrenches'));
     }
 

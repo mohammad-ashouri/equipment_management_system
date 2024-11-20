@@ -18,7 +18,7 @@ class RouterController extends Controller
 
     public function index()
     {
-        $routers = Router::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $routers = Router::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('NetworkEquipments.Routers.index', compact('routers'));
     }
 

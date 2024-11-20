@@ -18,7 +18,7 @@ class CameraLensController extends Controller
 
     public function index()
     {
-        $cameraLenses = CameraLens::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cameraLenses = CameraLens::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.CameraLenses.index', compact('cameraLenses'));
     }
 

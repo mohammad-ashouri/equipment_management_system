@@ -18,7 +18,7 @@ class PrinterController extends Controller
 
     public function index()
     {
-        $printers = Printer::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $printers = Printer::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Printers.index', compact('printers'));
     }
 

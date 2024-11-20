@@ -18,7 +18,7 @@ class ChairController extends Controller
 
     public function index()
     {
-        $chairs = Chair::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $chairs = Chair::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.Chairs.index', compact('chairs'));
     }
 

@@ -18,7 +18,7 @@ class VoipController extends Controller
 
     public function index()
     {
-        $voips = Voip::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $voips = Voip::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Voips.index', compact('voips'));
     }
 

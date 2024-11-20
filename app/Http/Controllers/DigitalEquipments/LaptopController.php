@@ -20,7 +20,7 @@ class LaptopController extends Controller
 
     public function index()
     {
-        $laptops = Laptop::with(['cpuInfo', 'graphicCardInfo', 'brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $laptops = Laptop::with(['cpuInfo', 'graphicCardInfo', 'brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Laptops.index', compact('laptops'));
     }
 

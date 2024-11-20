@@ -18,7 +18,7 @@ class CopyMachineController extends Controller
 
     public function index()
     {
-        $copyMachines = CopyMachine::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $copyMachines = CopyMachine::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.CopyMachines.index', compact('copyMachines'));
     }
 

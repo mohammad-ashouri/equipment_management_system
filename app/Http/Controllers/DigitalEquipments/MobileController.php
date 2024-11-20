@@ -18,7 +18,7 @@ class MobileController extends Controller
 
     public function index()
     {
-        $mobiles = Mobile::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $mobiles = Mobile::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Mobiles.index', compact('mobiles'));
     }
 

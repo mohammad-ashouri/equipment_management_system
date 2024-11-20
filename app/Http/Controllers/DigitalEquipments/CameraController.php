@@ -18,7 +18,7 @@ class CameraController extends Controller
 
     public function index()
     {
-        $cameras = Camera::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $cameras = Camera::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('DigitalEquipments.Cameras.index', compact('cameras'));
     }
 

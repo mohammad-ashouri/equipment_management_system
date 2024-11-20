@@ -18,7 +18,7 @@ class HeadsetController extends Controller
 
     public function index()
     {
-        $headsets = Headset::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->paginate(50);
+        $headsets = Headset::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('HardwareEquipments.Headsets.index', compact('headsets'));
     }
 
