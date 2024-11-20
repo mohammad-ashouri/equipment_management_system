@@ -20,7 +20,7 @@
                         <span>اطلاعاتی یافت نشد!</span>
                     </div>
                 @else
-                    <table class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                    <table class="datatable w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                         <thead>
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class="px-6 py-3  font-bold ">ردیف</th>

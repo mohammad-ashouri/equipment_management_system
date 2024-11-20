@@ -365,3 +365,92 @@ input[type="file"].hidden {
 [dir="rtl"] .drawer-side > *:not(.drawer-overlay) {
     transform: translateX(400px);
 }
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dt-length select {
+    width: 100px !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.375rem !important;
+    background-color: #ffffff !important;
+    color: #374151 !important;
+}
+
+.dt-length{
+    direction: rtl;
+}
+.dt-length label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
+    color: #4a5568 !important;
+}
+.dt-search input {
+    width: 300px !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 1rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.375rem !important;
+    background-color: #ffffff !important;
+    color: #374151 !important;
+}
+
+.dt-search label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
+    color: #4a5568 !important;
+}
+
+.dt-length {
+    order: 1;
+    flex-grow: 1;
+}
+
+.dt-search {
+    order: 2;
+    margin-right: auto;
+}
+
+.dt-buttons {
+    order: 3;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+}
+.datatable thead tr.filter-row th select {
+    width: auto;
+    min-width: 10px;
+    height: 35px;
+    font-size: 12px;
+}
+table.dataTable > tbody > tr > th, table.dataTable > tbody > tr > td{
+    text-align: center;
+    padding: 2px 8px !important;
+}
+.dt-container .bottom{
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom .dt-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+}
+
+.bottom .dt-info span.select-info {
+    margin-top: 0.5rem;
+}
+
+.bottom .dt-paging {
+    margin-top: 1rem;
+}

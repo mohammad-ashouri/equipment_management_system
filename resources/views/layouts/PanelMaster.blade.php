@@ -153,11 +153,23 @@
                 colReorder: true,
                 responsive: true,
                 "language": {
-                    "paginate": {
-                        "first": "&laquo;&laquo;",
-                        "last": "&raquo;&raquo;",
-                        "previous": "&laquo;",
-                        "next": "&raquo;"
+                    search: "جستجو:",
+                    info: "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
+                    infoEmpty: "نمایش 0 تا 0 از 0 رکورد",
+                    infoFiltered: "(فیلتر شده از _MAX_ رکورد)",
+                    lengthMenu: "نمایش _MENU_ رکورد در هر صفحه",
+                    "sZeroRecords": "هیچ رکوردی مطابق با جستجوی شما پیدا نشد",
+                    select: {
+                        rows: {
+                            _: "تعداد %d رکورد انتخاب شده",
+                            1: "1 رکورد انتخاب شده"
+                        }
+                    },
+                    paginate: {
+                        first: "ابتدا",
+                        last: "انتها",
+                        next: "بعدی",
+                        previous: "قبلی"
                     }
                 },
                 dom: '<"top"lfB>rt<"bottom"ip><"clear">',
@@ -277,7 +289,7 @@
             table.columns().every(function () {
                 let column = this;
 
-                let select = $('<th><select><option value="">All</option></select></th>')
+                let select = $('<th><select style="background-color: white"><option value="">همه</option></select></th>')
                     .appendTo('.datatable thead tr.filter-row')
                     .find('select')
                     .on('change', function () {
