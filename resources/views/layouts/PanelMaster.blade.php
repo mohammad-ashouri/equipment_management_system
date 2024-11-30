@@ -207,88 +207,6 @@
                         }
                     },
                     {
-                        extend: 'pdfHtml5',
-                        text: 'PDF (Portrait)',
-                        orientation: 'portrait',
-                        pageSize: 'A4',
-                        title: 'Report (Portrait)',
-                        filename: function () {
-                            let date = new Date();
-                            let formattedDate = date.getFullYear() + '-' +
-                                (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
-                                date.getDate().toString().padStart(2, '0') + '_' +
-                                date.getHours().toString().padStart(2, '0') + '-' +
-                                date.getMinutes().toString().padStart(2, '0');
-                            return document.title + '_' + formattedDate;
-                        },
-                        customize: function (doc) {
-                            doc.styles.footer = {
-                                alignment: 'center',
-                                fontSize: 8,
-                                margin: [0, 10, 0, 0]
-                            };
-
-                            doc.footer = function (currentPage, pageCount) {
-                                return {text: currentPage.toString() + ' of ' + pageCount, style: 'footer'};
-                            };
-                            doc.background = function (currentPage, pageSize) {
-                                return {
-                                    image: '',
-                                    width: 300,
-                                    height: 300,
-                                    opacity: 0.3,
-                                    absolutePosition: {
-                                        x: (pageSize.width - 300) / 2,
-                                        y: (pageSize.height - 300) / 2
-                                    }
-                                };
-                            };
-                        }, exportOptions: {
-                            columns: ':not(.action)'
-                        }
-                    },
-                    {
-                        extend: 'pdfHtml5',
-                        text: 'PDF (Landscape)',
-                        orientation: 'landscape',
-                        pageSize: 'A4',
-                        title: 'Report (Landscape)',
-                        filename: function () {
-                            let date = new Date();
-                            let formattedDate = date.getFullYear() + '-' +
-                                (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
-                                date.getDate().toString().padStart(2, '0') + '_' +
-                                date.getHours().toString().padStart(2, '0') + '-' +
-                                date.getMinutes().toString().padStart(2, '0');
-                            return document.title + '_' + formattedDate;
-                        },
-                        customize: function (doc) {
-                            doc.styles.footer = {
-                                alignment: 'center',
-                                fontSize: 8,
-                                margin: [0, 10, 0, 0]
-                            };
-
-                            doc.footer = function (currentPage, pageCount) {
-                                return {text: currentPage.toString() + ' of ' + pageCount, style: 'footer'};
-                            };
-                            doc.background = function (currentPage, pageSize) {
-                                return {
-                                    image: '',
-                                    width: 300,
-                                    height: 300,
-                                    opacity: 0.3,
-                                    absolutePosition: {
-                                        x: (pageSize.width - 300) / 2,
-                                        y: (pageSize.height - 300) / 2
-                                    }
-                                };
-                            };
-                        }, exportOptions: {
-                            columns: ':not(.action)'
-                        }
-                    },
-                    {
                         extend: 'print',
                         exportOptions: {
                             columns: ':not(.action)'
@@ -307,6 +225,9 @@
 
             table.columns().every(function () {
                 let column = this;
+                let columnHeader = $(column.header());
+
+
 
                 let select = $('<th><select style="background-color: white"><option value="">همه</option></select></th>')
                     .appendTo('.datatable thead tr.filter-row')
@@ -315,9 +236,11 @@
                         let val = $.fn.DataTable.util.escapeRegex($(this).val());
                         column.search(val ? '^' + val + '$' : '', true, false).draw();
                     });
-
+                if (columnHeader.hasClass('no-filter')) {
+                    return;
+                }
+                let uniqueData = [];
                 column.data().unique().sort().each(function (d, j) {
-                    let uniqueData = [];
                     if (d) {
                         let cleanData = $('<div>').html(d).text().trim();
                         if (cleanData && !uniqueData.includes(cleanData)) {
@@ -326,8 +249,8 @@
                         }
                     }
                 });
-
             });
+
         });
     </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])

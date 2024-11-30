@@ -461,6 +461,20 @@ class MenuMiddleware
                     ]
                 ],
                 6 => [
+                    'title' => 'گزارشات',
+                    'link' => '#',
+                    'permission' => "گزارشات",
+                    'icon' => 'las la-folder',
+                    'childs' => [
+                        [
+                            'title' => 'تمامی اقلام',
+                            'link' => '/Equipments/All',
+                            'permission' => "لیست تمامی اقلام",
+                            'icon' => 'las la-file-alt',
+                        ],
+                    ]
+                ],
+                7 => [
                     'title' => 'مدیریت پرسنل',
                     'link' => '/Personnels',
                     'permission' => "لیست پرسنل",

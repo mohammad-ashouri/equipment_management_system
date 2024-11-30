@@ -64,6 +64,7 @@ use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
+use App\Http\Controllers\Reports\EquipmentController;
 use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
@@ -218,6 +219,9 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             Route::post('/', [DatabaseBackupController::class, 'createBackup']);
         });
         Route::get('/ChangeHistory/{personnel}/{equipmentId}', [HistoryController::class, 'index'])->name('History.index');
+        Route::prefix('Equipments')->group(function () {
+           Route::get('All', [EquipmentController::class, 'allEquipments'])->name('Equipments.all');
+        });
     });
 });
 

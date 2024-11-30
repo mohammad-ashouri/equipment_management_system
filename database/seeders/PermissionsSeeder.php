@@ -22,6 +22,8 @@ class PermissionsSeeder extends Seeder
             ['name' => 'لیست تجهیزات پشتیبانی', 'guard_name' => 'web'],
             ['name' => 'لیست تجهیزات دیجیتال', 'guard_name' => 'web'],
             ['name' => 'لیست تجهیزات شبکه', 'guard_name' => 'web'],
+            ['name' => 'گزارشات', 'guard_name' => 'web'],
+            ['name' => 'لیست تمامی اقلام', 'guard_name' => 'web'],
 
             ['name' => 'لیست نقش', 'guard_name' => 'web'],
             ['name' => 'ایجاد نقش', 'guard_name' => 'web'],
@@ -854,6 +856,9 @@ class PermissionsSeeder extends Seeder
             'ویرایش پرسنل',
             'ویرایش تجهیزات پرسنل',
             'انتقال تجهیزات پرسنل',
+
+            'گزارشات',
+            'لیست تمامی اقلام',
 
             'لیست کاربران',
             'ایجاد کاربر',
