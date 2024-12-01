@@ -67,7 +67,7 @@
                                                 }
                                             @endphp
                                             {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }}
-                                            = {{ $equipmentInfo['brand_info']['name'] }}
+                                            = {{ isset($equipmentInfo['brand_info']['name']) ? $equipmentInfo['brand_info']['name'] : null }}
                                             @php
                                                 unset(
                                                     $equipmentInfo['id'],
