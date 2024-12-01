@@ -300,9 +300,9 @@
                                                 data-ntcp='0'
                                             @endif
                                         >
-                                            @if ($user->NTCP==1)
+                                            @if ($user->ntcp==1)
                                                 می باشد
-                                            @elseif ($user->NTCP==0)
+                                            @elseif ($user->ntcp==0)
                                                 نمی باشد
                                             @endif
                                         </button>

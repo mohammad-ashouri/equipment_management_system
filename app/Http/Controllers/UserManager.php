@@ -79,7 +79,7 @@ class UserManager extends Controller
         $user = User::where('username', $username)->first();
         if ($username and $user) {
             $user->password = bcrypt(12345678);
-            $user->NTCP = 1;
+            $user->ntcp = 1;
             $user->save();
             $subject = 'Password Resetted';
             return $this->success(true, 'passwordResetted', 'عملیات با موفقیت انجام شد.');

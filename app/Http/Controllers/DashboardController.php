@@ -39,7 +39,7 @@ class DashboardController extends Controller
         } else {
             $user = User::where('username', session('username'))->first();
             $user->password = bcrypt($newPass);
-            $user->NTCP = 0;
+            $user->ntcp = 0;
             $user->save();
             return $this->alerts(true, 'passwordChanged', 'رمز عبور با موفقیت تغییر کرد!');
         }
