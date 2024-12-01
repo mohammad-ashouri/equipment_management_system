@@ -58,16 +58,14 @@ class UserManager extends Controller
         $username = $request->input('username');
         $user = User::where('username', $username)->first();
         if ($username and $user) {
-            $userNTCP = User::where('username', $username)->value('NTCP');
+            $userNTCP = User::where('username', $username)->value('ntcp');
             if ($userNTCP == 1) {
                 $status = 0;
-                $subject = 'NTCP';
             } elseif ($userNTCP == 0) {
                 $status = 1;
-                $subject = 'NNTCP';
             }
 
-            $user->NTCP = $status;
+            $user->ntcp = $status;
             $user->save();
             return $this->success(true, 'changedUserNTCP', 'عملیات با موفقیت انجام شد.');
         } else {
