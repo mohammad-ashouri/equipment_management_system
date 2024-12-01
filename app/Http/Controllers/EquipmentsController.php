@@ -16,7 +16,7 @@ class EquipmentsController extends Controller
     {
         $personnel = Personnel::findOrFail($personnel);
         $equipmentTypes = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->orderBy('persian_name')->get();
-        $equipments = Equipment::wherePersonnel($personnel->id)->get();
+        $equipments = Equipment::whereIn('equipment_type',$equipmentTypes->pluck('id')->toArray())->wherePersonnel($personnel->id)->get();
         $allPersonnels = Personnel::whereStatus(1)->whereNot('id', $personnel->id)->orderBy('last_name')->orderBy('first_name');
         return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments', 'allPersonnels'));
     }
