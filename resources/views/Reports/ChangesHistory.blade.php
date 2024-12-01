@@ -1,4 +1,4 @@
-@php use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
+@php use App\Models\Catalogs\Building;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian;use function Sodium\add; @endphp
 @php @endphp
 @extends('layouts.PanelMaster')
 
@@ -60,6 +60,9 @@
                                                     کد اموال
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
+                                                    ساختمان محل استقرار
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
                                                     اطلاعات
                                                 </th>
                                             </tr>
@@ -77,6 +80,9 @@
                                                 </td>
                                                 <td class="px-2 py-2">
                                                     {{ $changes['کد اموال'] }}
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    {{ Building::find($changes['ساختمان']) ? Building::find($changes['ساختمان'])->name : null }}
                                                 </td>
                                                 <td class="px-2 py-2">
                                                     @php
@@ -206,7 +212,7 @@
                                                                     {{ $value }}
                                                                 @endforeach
                                                             @else
-                                                                {{ $added }}
+                                                                {{ $key=='ساختمان' ? Building::find($added)->name : $added }}
                                                             @endif
                                                         </td>
                                                         <td class="px-2 py-2">-</td>
@@ -261,7 +267,7 @@
 
                                                                         @endif
                                                                         <td class="px-2 py-2">
-                                                                            @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date' and $englishKeys[$counter]!='internalHardDisk')
+                                                                            @if (is_array($equipmentInfoFrom) and $englishKeys[$counter]!='delivery_date' and $englishKeys[$counter]!='building' and $englishKeys[$counter]!='internalHardDisk')
                                                                                 @foreach($equipmentInfoFrom as $from)
                                                                                     @php
                                                                                         unset(
@@ -304,12 +310,14 @@
                                                                                     )
                                                                                     <br/>
                                                                                 @endforeach
+                                                                            @elseif($englishKeys[$counter]=='building')
+                                                                                {{ Building::find($modified['from'])->name }}
                                                                             @else
                                                                                 {{ is_array($modified['from']) ? implode(', ', $modified['from']) : $modified['from'] }}
                                                                             @endif
                                                                         </td>
                                                                         <td class="px-2 py-2">
-                                                                            @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date' and $key!='internalHardDisk')
+                                                                            @if (is_array($equipmentInfoTo) and $englishKeys[$counter]!='delivery_date' and $englishKeys[$counter]!='building' and $key!='internalHardDisk')
                                                                                 @foreach($equipmentInfoTo as $to)
 
                                                                                     {{ $to['brand_info']['name'] }}
@@ -353,6 +361,8 @@
                                                                                     )
                                                                                     <br/>
                                                                         @endforeach
+                                                                        @elseif($englishKeys[$counter]=='building')
+                                                                            {{ Building::find($modified['to'])->name }}
                                                                         @else
                                                                             {{ is_array($modified['to']) ? implode(', ', $modified['to']) : $modified['to'] }}
                                                                         @endif

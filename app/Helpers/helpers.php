@@ -36,6 +36,7 @@ if (!defined('TRANSLATIONS')) {
         'frequency' => 'فرکانس',
         'channels' => 'کانال',
         'brand_info' => 'برند',
+        'building' => 'ساختمان',
     ]);
 }
 

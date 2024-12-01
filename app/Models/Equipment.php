@@ -32,6 +32,7 @@ class Equipment extends Model
                 'personnel' => $equipment->personnel,
                 'property_code' => $equipment->property_code,
                 'delivery_date' => $equipment->delivery_date,
+                'building' => $equipment->building,
                 'info' => $equipment->info,
             ];
             ChangeHistory::create([
