@@ -285,7 +285,7 @@
                                                                                             );
                                                                                     @endphp
                                                                                     {{ $from['brand_info']['name'] }}
-                                                                                    {{ $from['model'] }}
+                                                                                    {{ isset($from['model']) ? $from['model'] : null }}
                                                                                     @foreach(translateKeysToPersian($from) as $key=>$item)
                                                                                         @if($key=='برند')
                                                                                             @continue
@@ -321,7 +321,7 @@
                                                                                 @foreach($equipmentInfoTo as $to)
 
                                                                                     {{ $to['brand_info']['name'] }}
-                                                                                    {{ $to['model'] }}
+                                                                                    {{ isset($to['model']) ? $to['model'] : null }}
                                                                                     @php
                                                                                         unset(
                                                                                             $to['id'],
