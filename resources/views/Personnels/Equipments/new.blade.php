@@ -18,18 +18,7 @@
                 Ram::class,
                 InternalHardDisk::class,
             ],
-            'simcard' => function($equipment) {
-                $allSimcards = Equipment::whereEquipmentType(21)->pluck('info')->toArray();
-                $simcards = [];
-                foreach ($allSimcards as $simcard) {
-                    $decoded = json_decode($simcard, true);
-                    if ($decoded['simcard'] == json_decode($equipment->info, true)['simcard']) {
-                        continue;
-                    }
-                    $simcards[] = $decoded['simcard'];
-                }
-                return Simcard::whereNotIn('id', $simcards)->get();
-            },
+            'simcard' => Simcard::class,
             'monitor' => Monitor::class,
             'mouse' => Mouse::class,
             'keyboard' => Keyboard::class,
@@ -82,7 +71,6 @@
         ];
         $equipmentTypeName = $equipmentType->name;
         $items = [];
-
         if (isset($models[$equipmentTypeName])) {
             $modelData = $models[$equipmentTypeName];
 
@@ -91,6 +79,7 @@
                     $items[$modelClass] = $modelClass::get();
                 }
             } elseif (is_callable($modelData)) {
+                dd($equipment);
                 $items[$modelData] = $modelData($equipment);
             } else {
                 $items[$modelData] = $modelData::get();
