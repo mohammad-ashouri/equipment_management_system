@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Catalogs\Building;
 use App\Traits\ModelRelations;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,6 +23,11 @@ class Equipment extends Model
     public function personnelInfo()
     {
         return $this->belongsTo(Personnel::class, 'personnel', 'id');
+    }
+
+    public function buildingInfo()
+    {
+        return $this->belongsTo(Building::class, 'building', 'id');
     }
 
     protected static function booted()

@@ -21,6 +21,7 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">کد اموال</th>
                             <th class="px-6 py-3  font-bold ">نوع تجهیزات</th>
+                            <th class="px-6 py-3  font-bold ">ساختمان محل استقرار</th>
                             <th class="px-6 py-3  font-bold ">ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
                             <th class="px-6 py-3  font-bold action">عملیات</th>
@@ -32,6 +33,7 @@
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">{{ $equipment->property_code }}</td>
                                 <td class="px-6 py-4">{{ $equipment->equipmentType->persian_name }}</td>
+                                <td class="px-6 py-4">{{ $equipment->buildingInfo->name }}</td>
                                 <td class="px-6 py-4">{{ $equipment->adderInfo->name }} {{ $equipment->adderInfo->family }}</td>
                                 <td class="px-6 py-4">
                                     {{ Jalalian::fromDateTime($equipment->created_at)->format('H:i:s Y/m/d') }}
