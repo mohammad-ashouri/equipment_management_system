@@ -1,7 +1,7 @@
 @php
     $firstKey = array_key_first($items);
-    $itemCollection = $items[$firstKey];;
-    $equipmentInfo=json_decode($equipment->info,true);
+    $itemCollection = $items[$firstKey];
+    $equipmentInfoMain=json_decode($equipment->info,true);
 @endphp
 <div>
     <label for="{{ $equipment->equipmentType->name }}"
@@ -32,7 +32,7 @@
                 );
             @endphp
 
-            <option value="{{ $item->id }}" @if($equipmentInfo['id']==$item->id) selected @endif>
+            <option value="{{ $item->id }}" @if($equipmentInfoMain[$equipment->equipmentType->name]==$item->id) selected @endif>
                 {{ $item->brandInfo->name }} -
                 @foreach(translateKeysToPersian($equipmentInfo) as $key => $value)
                     @if($key == 'برند' or $key == 'id')
