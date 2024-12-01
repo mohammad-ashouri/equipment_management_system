@@ -26,7 +26,6 @@ return new class extends Migration {
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'drawer_file_cabinet', 'persian_name' => 'فایل کشویی']);
     }
 
     /**

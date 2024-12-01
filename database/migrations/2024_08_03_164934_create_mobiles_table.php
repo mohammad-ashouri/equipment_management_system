@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name'=>'mobile','persian_name'=>'موبایل']);
     }
 
     /**

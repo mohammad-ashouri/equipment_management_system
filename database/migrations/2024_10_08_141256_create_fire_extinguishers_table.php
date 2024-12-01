@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'fire_extinguisher', 'persian_name' => 'کپسول آتش نشانی']);
     }
 
     /**

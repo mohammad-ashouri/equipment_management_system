@@ -26,7 +26,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'video_projector_curtain', 'persian_name' => 'پرده ویدئو پروژکتور']);
     }
 
     /**

@@ -23,7 +23,6 @@ return new class extends Migration {
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'punch_wrench', 'persian_name' => 'آچار شبکه']);
     }
 
     /**

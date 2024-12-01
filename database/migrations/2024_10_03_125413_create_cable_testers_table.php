@@ -24,7 +24,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'cable_tester', 'persian_name' => 'تستر شبکه']);
     }
 
     /**

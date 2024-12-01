@@ -14,7 +14,7 @@ class EquipmentsController extends Controller
     public function equipments($personnel)
     {
         $personnel = Personnel::findOrFail($personnel);
-        $equipmentTypes = EquipmentType::orderBy('persian_name')->get();
+        $equipmentTypes = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->orderBy('persian_name')->get();
         $equipments = Equipment::wherePersonnel($personnel->id)->get();
         $allPersonnels = Personnel::whereStatus(1)->whereNot('id',$personnel->id)->orderBy('last_name')->orderBy('first_name');
         return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments', 'allPersonnels'));
@@ -23,7 +23,7 @@ class EquipmentsController extends Controller
     public function newEquipment($personnel, $equipmentType)
     {
         $personnel = Personnel::findOrFail($personnel);
-        $equipmentType = EquipmentType::findOrFail($equipmentType);
+        $equipmentType = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->findOrFail($equipmentType);
         return view('Personnels.Equipments.new', compact('personnel', 'equipmentType'));
     }
 
@@ -34,7 +34,7 @@ class EquipmentsController extends Controller
             'equipment_type' => 'required|integer|exists:equipment_types,id',
         ]);
         $input = $request->all();
-        $equipmentTypeInfo = EquipmentType::find($request->equipment_type)->value('name');
+        $equipmentTypeInfo = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->find($request->equipment_type)->value('name');
         if (isset($input['internalHardDisk'])) {
             $input['internalHardDisk'] = array_filter($input['internalHardDisk'], function ($value) {
                 return !is_null($value);
@@ -72,14 +72,14 @@ class EquipmentsController extends Controller
         $equipment->adder = $this->getMyUserId();
         $equipment->save();
 
-        $equipmentType = EquipmentType::find($request->equipment_type);
+        $equipmentType = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->find($request->equipment_type);
         return redirect()->route('Personnels.equipments', $equipment->personnel)->with('success', "$equipmentType->persian_name  با موفقیت ایجاد شد.");
     }
 
     public function editEquipment($personnel, $equipmentId)
     {
         $personnel = Personnel::findOrFail($personnel);
-        $equipment = Equipment::findOrFail($equipmentId);
+        $equipment = Equipment::whereJsonContains('accessible_roles', $this->getMyRoleId())->findOrFail($equipmentId);
         return view('Personnels.Equipments.edit', compact('personnel', 'equipment'));
     }
 
@@ -91,7 +91,7 @@ class EquipmentsController extends Controller
         ]);
         $input = $request->all();
         $equipment = Equipment::find($request->equipmentId);
-        $equipmentTypeInfo = EquipmentType::find($equipment->equipment_type)->value('name');
+        $equipmentTypeInfo = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->find($equipment->equipment_type)->value('name');
         if (isset($input['internalHardDisk'])) {
             $input['internalHardDisk'] = array_filter($input['internalHardDisk'], function ($value) {
                 return !is_null($value);
@@ -131,8 +131,8 @@ class EquipmentsController extends Controller
 
     public function moveEquipment(Request $request)
     {
-        $equipmentInfo = Equipment::find($request->equipment_id);
-        $personnelInfo = Personnel::find($request->personnel);
+        $equipmentInfo = Equipment::findOrFail($request->equipment_id);
+        $personnelInfo = Personnel::findOrFail($request->personnel);
         if (empty($equipmentInfo) or empty($personnelInfo)) {
             Session::flash('errors', 'انتقال تجهیزات با خطا مواجه شد');
             return response()->json(['error'], 200);

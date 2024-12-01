@@ -24,7 +24,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'battery_charger', 'persian_name' => 'شارژر باتری']);
     }
 
     /**

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'satellite_finder', 'persian_name' => 'فایندر ماهواره']);
     }
 
     /**

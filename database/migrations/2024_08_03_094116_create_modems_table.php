@@ -28,7 +28,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name'=>'modem','persian_name'=>'مودم']);
     }
 
     /**

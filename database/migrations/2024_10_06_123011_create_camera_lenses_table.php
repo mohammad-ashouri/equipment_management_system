@@ -24,7 +24,6 @@ return new class extends Migration
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name' => 'camera_lens', 'persian_name' => 'لنز دوربین']);
     }
 
     /**

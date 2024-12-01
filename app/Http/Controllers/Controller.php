@@ -13,9 +13,9 @@ use App\Models\Picture;
 use App\Models\Video;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Jenssegers\Agent\Agent;
+use Spatie\Permission\Models\Role;
 
 class Controller extends BaseController
 {
@@ -64,4 +64,8 @@ class Controller extends BaseController
         abort(403, 'User id not found!');
     }
 
+    public function getMyRoleId()
+    {
+        return Role::where('name', auth()->user()->getRoleNames()->first())->first()->id;
+    }
 }

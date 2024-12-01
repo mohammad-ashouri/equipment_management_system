@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PermissionsSeeder::class,
             ShenakhtDefaultValuesSeeder::class,
             FakePersonnel::class,
+            FixEquipmentTypesWithRoles::class,
         ]);
 
     }

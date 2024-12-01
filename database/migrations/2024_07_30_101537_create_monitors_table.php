@@ -25,7 +25,6 @@ return new class extends Migration {
             $table->foreign('editor')->references('id')->on('users');
             $table->timestamps();
         });
-        EquipmentType::create(['name'=>'monitor','persian_name'=>'مانیتور']);
 
         $query = "INSERT INTO monitors (brand, model, size,adder)
 VALUES
