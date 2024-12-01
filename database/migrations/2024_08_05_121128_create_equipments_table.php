@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreign('equipment_type')->references('id')->on('equipment_types');
             $table->string('property_code')->nullable();
             $table->string('delivery_date');
+            $table->unsignedBigInteger('building');
+            $table->foreign('building')->references('id')->on('users');
             $table->json('info');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('adder');

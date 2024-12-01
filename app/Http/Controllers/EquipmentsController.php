@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Catalogs\Building;
 use App\Models\Equipment;
 use App\Models\EquipmentType;
 use App\Models\Personnel;
@@ -16,7 +17,7 @@ class EquipmentsController extends Controller
         $personnel = Personnel::findOrFail($personnel);
         $equipmentTypes = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->orderBy('persian_name')->get();
         $equipments = Equipment::wherePersonnel($personnel->id)->get();
-        $allPersonnels = Personnel::whereStatus(1)->whereNot('id',$personnel->id)->orderBy('last_name')->orderBy('first_name');
+        $allPersonnels = Personnel::whereStatus(1)->whereNot('id', $personnel->id)->orderBy('last_name')->orderBy('first_name');
         return view('Personnels.equipments', compact('personnel', 'equipmentTypes', 'equipments', 'allPersonnels'));
     }
 
@@ -24,7 +25,8 @@ class EquipmentsController extends Controller
     {
         $personnel = Personnel::findOrFail($personnel);
         $equipmentType = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())->findOrFail($equipmentType);
-        return view('Personnels.Equipments.new', compact('personnel', 'equipmentType'));
+        $buildings = Building::orderBy('name')->get();
+        return view('Personnels.Equipments.new', compact('personnel', 'equipmentType', 'buildings'));
     }
 
     public function storeEquipment(Request $request)
@@ -67,7 +69,8 @@ class EquipmentsController extends Controller
         $equipment->property_code = $request->property_code;
         $equipment->delivery_date = $request->delivery_date;
         $equipment->equipment_type = $request->equipment_type;
-        unset($input['personnel'], $input['property_code'], $input['equipment_type'], $input['_token']);
+        $equipment->building = $request->building;
+        unset($input['building'], $input['personnel'], $input['property_code'], $input['equipment_type'], $input['_token']);
         $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();
         $equipment->save();
@@ -79,8 +82,9 @@ class EquipmentsController extends Controller
     public function editEquipment($personnel, $equipmentId)
     {
         $personnel = Personnel::findOrFail($personnel);
-        $equipment = Equipment::whereJsonContains('accessible_roles', $this->getMyRoleId())->findOrFail($equipmentId);
-        return view('Personnels.Equipments.edit', compact('personnel', 'equipment'));
+        $equipment = Equipment::findOrFail($equipmentId);
+        $buildings = Building::orderBy('name')->get();
+        return view('Personnels.Equipments.edit', compact('personnel', 'equipment', 'buildings'));
     }
 
     public function updateEquipment(Request $request)
@@ -121,6 +125,7 @@ class EquipmentsController extends Controller
         $equipment = Equipment::find($request->equipmentId);
         $equipment->property_code = $request->property_code;
         $equipment->delivery_date = $request->delivery_date;
+        $equipment->building = $request->building;
         unset($input['_token']);
         $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();
