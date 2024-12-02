@@ -62,7 +62,7 @@
         @foreach($items[App\Models\HardwareEquipments\Cpu::class] as $item)
             <option value="{{ $item->id }}"
                     @if($equipmentInfo['cpu']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}} {{ !empty($item->generation) ?? ' - نسل'.$item->generation }}</option>
+                - {{ $item->model}} {{ !empty($cpu->generation) ? ' - نسل'.$cpu->generation : null }}</option>
         @endforeach
     </select>
 </div>
