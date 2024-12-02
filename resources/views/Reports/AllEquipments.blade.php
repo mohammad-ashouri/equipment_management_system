@@ -26,7 +26,7 @@
                         @foreach($allEquipments as $equipment)
                             <tr class="odd:bg-gray-300 even:bg-white">
                                 <td class="py-2">{{ $loop->iteration }}</td>
-                                <td class="py-2">{{ $equipment->personnelInfo->first_name }} {{ $equipment->personnelInfo->last_name }}</td>
+                                <td class="py-2">{{ $equipment->personnelInfo->personnel_code }}</td>
                                 <td class="py-2">{{ $equipment->equipmentType->persian_name }}</td>
                                 <td class="py-2">{{ $equipment->property_code }}</td>
                                 <td class="py-2">{{ $equipment->delivery_date }}</td>
