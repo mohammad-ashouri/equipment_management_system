@@ -75,7 +75,7 @@
         @foreach($items[App\Models\HardwareEquipments\GraphicCard::class] as $item)
             <option value="{{ $item->id }}"
                     @if($equipmentInfo['graphicCard']==$item->id) selected @endif>{{ $item->brandInfo->name}}
-                - {{ $item->model}} - {{ $item->memory }}</option>
+                - {{ $item->model}} - {{ $item->ram_size }}</option>
         @endforeach
     </select>
 </div>
