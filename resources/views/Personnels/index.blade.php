@@ -1,3 +1,4 @@
+@php use Morilog\Jalali\Jalalian; @endphp
 @extends('layouts.PanelMaster')
 
 @section('content')
@@ -27,6 +28,10 @@
                             <th class="px-6 py-3  font-bold ">مشخصات</th>
                             <th class="px-6 py-3  font-bold ">ساختمان</th>
                             <th class="px-6 py-3  font-bold ">شماره اتاق</th>
+                            <th class="px-6 py-3  font-bold ">ثبت کننده</th>
+                            <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
+                            <th class="px-6 py-3  font-bold ">ویرایش کننده</th>
+                            <th class="px-6 py-3  font-bold ">تاریخ ویرایش</th>
                             <th class="px-6 py-3  font-bold action">عملیات</th>
                         </tr>
                         </thead>
@@ -43,6 +48,22 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $personnel->room_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $personnel->adderInfo->name }} {{ $personnel->adderInfo->family }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ Jalalian::fromDateTime($personnel->created_at) }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($personnel->editorInfo)
+                                        {{ $personnel->editorInfo->name }} {{ $personnel->editorInfo->family }}
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if($personnel->editorInfo)
+                                        {{ Jalalian::fromDateTime($personnel->updated_at) }}
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4">
                                     @can('ویرایش پرسنل')
