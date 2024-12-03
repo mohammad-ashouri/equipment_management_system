@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([
-            PermissionsSeeder::class,
-            ShenakhtDefaultValuesSeeder::class,
+        $this->call(class: [
+//            PermissionsSeeder::class,
+//            ShenakhtDefaultValuesSeeder::class,
 //            FakePersonnel::class,
             FixEquipmentTypesWithRoles::class,
         ]);
