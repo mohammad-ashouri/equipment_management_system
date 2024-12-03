@@ -56,12 +56,15 @@
                                             $searchTerm = Str::studly($index);
 
                                             $result = array_filter($paths, function ($path) use ($searchTerm) {
-                                                return stripos($path, $searchTerm) !== false;
+                                                return basename(str_replace('\\', '/', $path)) === $searchTerm;
                                             });
                                         @endphp
                                         @if(!empty($result))
                                             @php
-                                                $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first()->toArray();
+                                                $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first();
+                                                if($equipmentInfo){
+                                                    $equipmentInfo=$equipmentInfo->toArray();
+                                                }
                                                 if (array_key_exists($index,$originalArray)){
                                                     $keyIndex = array_search($index, array_keys($originalArray));
                                                 }
