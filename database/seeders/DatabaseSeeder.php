@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(class: [
 //            PermissionsSeeder::class,
+            PermissionsSeeder2::class,
 //            ShenakhtDefaultValuesSeeder::class,
 //            FakePersonnel::class,
             FixEquipmentTypesWithRoles::class,

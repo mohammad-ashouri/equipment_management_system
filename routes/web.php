@@ -66,6 +66,7 @@ use App\Http\Controllers\PersonnelController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\Reports\EquipmentController;
 use App\Http\Controllers\Reports\HistoryController;
+use App\Http\Controllers\TechnicalFacilities\AirConditionerController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
@@ -203,6 +204,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Blowers', BlowerController::class);
         Route::resource('/KeyBoxes', KeyBoxController::class);
         Route::resource('/DrawerFileCabinets', DrawerFileCabinetController::class);
+        Route::resource('/AirConditioners', AirConditionerController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

@@ -458,6 +458,12 @@ class MenuMiddleware
                             'permission' => "لیست فایل کشویی",
                             'icon' => 'las la-th',
                         ],
+                        [
+                            'title' => 'کولر گازی',
+                            'link' => '/AirConditioners',
+                            'permission' => "لیست کولر گازی",
+                            'icon' => 'las la-temperature-low',
+                        ],
                     ]
                 ],
                 6 => [
