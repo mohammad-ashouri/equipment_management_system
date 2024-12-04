@@ -79,6 +79,7 @@ use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
+use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -215,6 +216,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/PingPongTables', PingPongTableController::class);
         Route::resource('/Microwaves', MicrowaveController::class);
         Route::resource('/Fans', FanController::class);
+        Route::resource('/VaccumCleaners', VaccumCleanerController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

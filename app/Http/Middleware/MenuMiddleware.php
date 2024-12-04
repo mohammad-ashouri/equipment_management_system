@@ -494,6 +494,12 @@ class MenuMiddleware
                             'permission' => "لیست پنکه",
                             'icon' => 'las la-fan',
                         ],
+                        [
+                            'title' => 'جاروبرقی',
+                            'link' => '/VaccumCleaners',
+                            'permission' => "لیست جاروبرقی",
+                            'icon' => 'las la-broom',
+                        ],
                     ]
                 ],
                 6 => [
