@@ -12,6 +12,6 @@ class Table extends Model
 
     protected $table = 'tables';
     protected $fillable = [
-        'model', 'material', 'height', 'width', 'length', 'brand', 'status', 'adder', 'editor'
+        'model', 'material', 'type', 'height', 'width', 'length', 'brand', 'status', 'adder', 'editor'
     ];
 }
