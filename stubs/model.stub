@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Traits\ModelRelations;
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }} extends Model
+{
+    use ModelRelations;
+}
