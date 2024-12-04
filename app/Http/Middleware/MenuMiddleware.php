@@ -500,6 +500,12 @@ class MenuMiddleware
                             'permission' => "لیست جاروبرقی",
                             'icon' => 'las la-broom',
                         ],
+                        [
+                            'title' => 'جالباسی',
+                            'link' => '/CoatHangers',
+                            'permission' => "لیست جالباسی",
+                            'icon' => 'las la-tshirt',
+                        ],
                     ]
                 ],
                 6 => [

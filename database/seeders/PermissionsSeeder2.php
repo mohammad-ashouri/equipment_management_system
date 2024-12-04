@@ -46,6 +46,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست جاروبرقی', 'guard_name' => 'web'],
             ['name' => 'ایجاد جاروبرقی', 'guard_name' => 'web'],
             ['name' => 'ویرایش جاروبرقی', 'guard_name' => 'web'],
+
+            ['name' => 'لیست جالباسی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد جالباسی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش جالباسی', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

@@ -74,5 +74,6 @@ class FixEquipmentTypesWithRoles extends Seeder
 //        EquipmentType::create(['name' => 'microwave', 'persian_name' => 'مایکروفر','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'fan', 'persian_name' => 'پنکه','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'vaccum_cleaner', 'persian_name' => 'جاروبرقی','accessible_roles'=>json_encode([1,3])]);
+//        EquipmentType::create(['name' => 'coat_hanger', 'persian_name' => 'جالباسی','accessible_roles'=>json_encode([1,3])]);
     }
 }

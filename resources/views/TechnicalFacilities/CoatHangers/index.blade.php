@@ -4,17 +4,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات بخاری برقی</h1>
+            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات جالباسی</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد بخاری برقی')
-                    <a type="button" href="{{route('Heaters.create')}}"
+                @can('ایجاد جالباسی')
+                    <a type="button" href="{{route('CoatHangers.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        بخاری برقی جدید
+                        جالباسی جدید
                     </a>
                 @endcan
-                @if(empty($heaters) or $heaters->isEmpty())
+                @if(empty($coatHangers) or $coatHangers->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -26,7 +26,7 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">برند</th>
                             <th class="px-6 py-3  font-bold ">مدل</th>
-                            <th class="px-6 py-3  font-bold ">دارای فن</th>
+                            <th class="px-6 py-3  font-bold ">تعداد آویز</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -36,20 +36,20 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($heaters as $heater)
+                        @foreach ($coatHangers as $coatHanger)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $heater->brandInfo->name }}
+                                    {{ $coatHanger->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $heater->model }}
+                                    {{ $coatHanger->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $heater->fan ? 'بله' : 'خیر' }}
+                                    {{ $coatHanger->pendants_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @switch($heater->status)
+                                    @switch($coatHanger->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -59,23 +59,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $heater->adderInfo->name }} {{ $heater->adderInfo->family }}
+                                    {{ $coatHanger->adderInfo->name }} {{ $coatHanger->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($heater->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($coatHangers->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($heater->editorInfo!=null)
-                                        {{ $heater->editorInfo->name }} {{ $heater->editorInfo->family }}
+                                    @if($coatHanger->editorInfo!=null)
+                                        {{ $coatHanger->editorInfo->name }} {{ $coatHanger->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($heater->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($coatHanger->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش بخاری برقی')
-                                        <a href="{{ route('Heaters.edit',$heater->id) }}">
-                                            <button type="button" data-id="{{ $heater->id }}"
+                                    @can('ویرایش جالباسی')
+                                        <a href="{{ route('CoatHangers.edit',$coatHanger->id) }}">
+                                            <button type="button" data-id="{{ $coatHanger->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>

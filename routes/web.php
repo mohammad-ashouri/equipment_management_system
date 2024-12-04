@@ -68,6 +68,7 @@ use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\AirConditionerController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
+use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
@@ -217,6 +218,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Microwaves', MicrowaveController::class);
         Route::resource('/Fans', FanController::class);
         Route::resource('/VaccumCleaners', VaccumCleanerController::class);
+        Route::resource('/CoatHangers', CoatHangerController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
