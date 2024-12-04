@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\DigitalEquipments;
+namespace App\Http\Controllers\TechnicalFacilities;
 
 use App\Http\Controllers\Controller;
-use App\Models\DigitalEquipments\Television;
+use App\Models\TechnicalFacilities\Television;
 use Illuminate\Http\Request;
 
 class TelevisionController extends Controller
@@ -19,12 +19,12 @@ class TelevisionController extends Controller
     public function index()
     {
         $televisions = Television::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
-        return view('DigitalEquipments.Televisions.index', compact('televisions'));
+        return view('TechnicalFacilities.Televisions.index', compact('televisions'));
     }
 
     public function create()
     {
-        return view('DigitalEquipments.Televisions.create');
+        return view('TechnicalFacilities.Televisions.create');
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class TelevisionController extends Controller
     {
         $television = Television::findOrFail($id);
 
-        return view('DigitalEquipments.Televisions.edit', compact('television'));
+        return view('TechnicalFacilities.Televisions.edit', compact('television'));
     }
 
     public function update(Request $request, $id)

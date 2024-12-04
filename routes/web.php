@@ -9,6 +9,7 @@ use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
 use App\Http\Controllers\DigitalEquipments\BatteryChargerController;
 use App\Http\Controllers\DigitalEquipments\CameraController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
+use App\Http\Controllers\DigitalEquipments\CameraLensController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
@@ -24,8 +25,6 @@ use App\Http\Controllers\DigitalEquipments\SimcardController;
 use App\Http\Controllers\DigitalEquipments\SoundCardController;
 use App\Http\Controllers\DigitalEquipments\SpeakerController;
 use App\Http\Controllers\DigitalEquipments\TabletController;
-use App\Http\Controllers\DigitalEquipments\TelevisionController;
-use App\Http\Controllers\DigitalEquipments\CameraLensController;
 use App\Http\Controllers\DigitalEquipments\UpsController;
 use App\Http\Controllers\DigitalEquipments\VideoProjectorController;
 use App\Http\Controllers\DigitalEquipments\VideoProjectorCurtainController;
@@ -76,6 +75,7 @@ use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
 use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
+use App\Http\Controllers\TechnicalFacilities\TelevisionController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -174,7 +174,6 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         //Digital Equipments
         Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
         Route::resource('/Phones', PhoneController::class);
-        Route::resource('/Televisions', TelevisionController::class);
         Route::resource('/Mobiles', MobileController::class);
         Route::resource('/Tablets', TabletController::class);
         Route::resource('/DVBs', DVBController::class);
@@ -208,6 +207,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/DrawerFileCabinets', DrawerFileCabinetController::class);
         Route::resource('/AirConditioners', AirConditionerController::class);
         Route::resource('/Heaters', HeaterController::class);
+        Route::resource('/Televisions', TelevisionController::class);
         Route::resource('/Ladders', LadderController::class);
 
         //Personnels

@@ -289,12 +289,6 @@ class MenuMiddleware
                             'icon' => 'las la-tenge',
                         ],
                         [
-                            'title' => 'تلوزیون',
-                            'link' => '/Televisions',
-                            'permission' => "لیست تلوزیون",
-                            'icon' => 'las la-tv',
-                        ],
-                        [
                             'title' => 'کارت DVB',
                             'link' => '/DVBs',
                             'permission' => "لیست کارت DVB",
@@ -475,6 +469,12 @@ class MenuMiddleware
                             'link' => '/Ladders',
                             'permission' => "لیست نردبان",
                             'icon' => 'las la-swimming-pool',
+                        ],
+                        [
+                            'title' => 'تلوزیون',
+                            'link' => '/Televisions',
+                            'permission' => "لیست تلوزیون",
+                            'icon' => 'las la-tv',
                         ],
                     ]
                 ],
