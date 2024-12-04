@@ -482,6 +482,12 @@ class MenuMiddleware
                             'permission' => "لیست میز پینگ پنگ",
                             'icon' => 'las la-table-tennis',
                         ],
+                        [
+                            'title' => 'مایکروفر',
+                            'link' => '/Microwaves',
+                            'permission' => "لیست مایکروفر",
+                            'icon' => 'las la-fire-alt',
+                        ],
                     ]
                 ],
                 6 => [

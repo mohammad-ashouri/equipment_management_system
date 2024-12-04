@@ -34,6 +34,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست میز پینگ پنگ', 'guard_name' => 'web'],
             ['name' => 'ایجاد میز پینگ پنگ', 'guard_name' => 'web'],
             ['name' => 'ویرایش میز پینگ پنگ', 'guard_name' => 'web'],
+
+            ['name' => 'لیست مایکروفر', 'guard_name' => 'web'],
+            ['name' => 'ایجاد مایکروفر', 'guard_name' => 'web'],
+            ['name' => 'ویرایش مایکروفر', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];
