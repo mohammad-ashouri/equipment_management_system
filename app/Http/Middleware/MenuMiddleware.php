@@ -476,6 +476,12 @@ class MenuMiddleware
                             'permission' => "لیست تلوزیون",
                             'icon' => 'las la-tv',
                         ],
+                        [
+                            'title' => 'میز پینگ پنگ',
+                            'link' => '/PingPongTables',
+                            'permission' => "لیست میز پینگ پنگ",
+                            'icon' => 'las la-table-tennis',
+                        ],
                     ]
                 ],
                 6 => [
