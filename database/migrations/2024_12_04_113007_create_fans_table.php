@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('microwaves', function (Blueprint $table) {
+        Schema::create('fans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('brand');
             $table->foreign('brand')->references('id')->on('brands');
             $table->string('model');
+            $table->string('type');
             $table->boolean('status')->default(1)->comment('1 => active , 0 => deactive');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('microwaves');
+        Schema::dropIfExists('fans');
     }
 };

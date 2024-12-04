@@ -488,6 +488,12 @@ class MenuMiddleware
                             'permission' => "لیست مایکروفر",
                             'icon' => 'las la-fire-alt',
                         ],
+                        [
+                            'title' => 'پنکه',
+                            'link' => '/Fans',
+                            'permission' => "لیست پنکه",
+                            'icon' => 'las la-fan',
+                        ],
                     ]
                 ],
                 6 => [
