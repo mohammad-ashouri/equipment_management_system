@@ -470,6 +470,12 @@ class MenuMiddleware
                             'permission' => "لیست بخاری برقی",
                             'icon' => 'las la-fire',
                         ],
+                        [
+                            'title' => 'نردبان',
+                            'link' => '/Ladders',
+                            'permission' => "لیست نردبان",
+                            'icon' => 'las la-swimming-pool',
+                        ],
                     ]
                 ],
                 6 => [

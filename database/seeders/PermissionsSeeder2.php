@@ -22,6 +22,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست بخاری برقی', 'guard_name' => 'web'],
             ['name' => 'ایجاد بخاری برقی', 'guard_name' => 'web'],
             ['name' => 'ویرایش بخاری برقی', 'guard_name' => 'web'],
+
+            ['name' => 'لیست نردبان', 'guard_name' => 'web'],
+            ['name' => 'ایجاد نردبان', 'guard_name' => 'web'],
+            ['name' => 'ویرایش نردبان', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

@@ -69,6 +69,8 @@ if (!defined('TRANSLATIONS')) {
         'height' => 'ارتفاع',
         'width' => 'عرض',
         'length' => 'طول',
+        'fan' => 'دارای فن',
+        'stairs_number' => 'تعداد پله',
     ]);
 }
 
