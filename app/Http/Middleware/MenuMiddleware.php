@@ -464,6 +464,12 @@ class MenuMiddleware
                             'permission' => "لیست کولر گازی",
                             'icon' => 'las la-temperature-low',
                         ],
+                        [
+                            'title' => 'بخاری برقی',
+                            'link' => '/Heaters',
+                            'permission' => "لیست بخاری برقی",
+                            'icon' => 'las la-fire',
+                        ],
                     ]
                 ],
                 6 => [
