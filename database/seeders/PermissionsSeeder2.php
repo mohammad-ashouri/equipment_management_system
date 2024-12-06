@@ -70,6 +70,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست سماور', 'guard_name' => 'web'],
             ['name' => 'ایجاد سماور', 'guard_name' => 'web'],
             ['name' => 'ویرایش سماور', 'guard_name' => 'web'],
+
+            ['name' => 'لیست تخته وایت بورد', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تخته وایت بورد', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تخته وایت بورد', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

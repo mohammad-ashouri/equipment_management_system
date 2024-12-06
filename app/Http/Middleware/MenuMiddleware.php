@@ -536,6 +536,12 @@ class MenuMiddleware
                             'permission' => "لیست سماور",
                             'icon' => 'las la-mug-hot',
                         ],
+                        [
+                            'title' => 'تخته وایت بورد',
+                            'link' => '/Whiteboards',
+                            'permission' => "لیست تخته وایت بورد",
+                            'icon' => 'las la-chalkboard-teacher',
+                        ],
                     ]
                 ],
                 6 => [
