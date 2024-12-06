@@ -35,11 +35,17 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="گازی" @if($oven->type=='گازی') selected @endif>
-                                    گازی
+                                <option value="گازی - رومیزی" @if($oven->type=='گازی - رومیزی') selected @endif>
+                                    گازی - رومیزی
                                 </option>
-                                <option value="برقی" @if($oven->type=='برقی') selected @endif>
-                                    برقی
+                                <option value="گازی - فردار" @if($oven->type=='گازی - فردار') selected @endif>
+                                    گازی - فردار
+                                </option>
+                                <option value="برقی - رومیزی" @if($oven->type=='برقی - رومیزی') selected @endif>
+                                    برقی - رومیزی
+                                </option>
+                                <option value="برقی - فردار" @if($oven->type=='برقی - فردار') selected @endif>
+                                    برقی - فردار
                                 </option>
                             </select>
                         </div>
