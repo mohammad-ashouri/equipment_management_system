@@ -530,6 +530,12 @@ class MenuMiddleware
                             'permission' => "لیست چای ساز",
                             'icon' => 'las la-coffee',
                         ],
+                        [
+                            'title' => 'سماور',
+                            'link' => '/Samovars',
+                            'permission' => "لیست سماور",
+                            'icon' => 'las la-mug-hot',
+                        ],
                     ]
                 ],
                 6 => [

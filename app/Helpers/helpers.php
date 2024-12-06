@@ -73,6 +73,7 @@ if (!defined('TRANSLATIONS')) {
         'stairs_number' => 'تعداد پله',
         'pendants_number' => 'تعداد آویز',
         'flames_number' => 'تعداد شعله',
+        'liter_capacity' => 'ظرفیت به لیتر',
     ]);
 }
 
