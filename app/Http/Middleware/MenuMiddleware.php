@@ -506,6 +506,12 @@ class MenuMiddleware
                             'permission' => "لیست جالباسی",
                             'icon' => 'las la-tshirt',
                         ],
+                        [
+                            'title' => 'کاغذ خردکن',
+                            'link' => '/Shredders',
+                            'permission' => "لیست کاغذ خردکن",
+                            'icon' => 'las la-newspaper',
+                        ],
                     ]
                 ],
                 6 => [

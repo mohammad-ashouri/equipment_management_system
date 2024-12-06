@@ -78,6 +78,7 @@ use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\MicrowaveController;
 use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
+use App\Http\Controllers\TechnicalFacilities\ShredderController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
 use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
@@ -219,6 +220,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Fans', FanController::class);
         Route::resource('/VaccumCleaners', VaccumCleanerController::class);
         Route::resource('/CoatHangers', CoatHangerController::class);
+        Route::resource('/Shredders', ShredderController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
