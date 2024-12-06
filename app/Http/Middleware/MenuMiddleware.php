@@ -512,6 +512,12 @@ class MenuMiddleware
                             'permission' => "لیست کاغذ خردکن",
                             'icon' => 'las la-newspaper',
                         ],
+                        [
+                            'title' => 'اجاق',
+                            'link' => '/Ovens',
+                            'permission' => "لیست اجاق",
+                            'icon' => 'las la-utensils',
+                        ],
                     ]
                 ],
                 6 => [

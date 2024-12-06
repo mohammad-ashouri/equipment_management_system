@@ -72,6 +72,7 @@ if (!defined('TRANSLATIONS')) {
         'fan' => 'دارای فن',
         'stairs_number' => 'تعداد پله',
         'pendants_number' => 'تعداد آویز',
+        'flames_number' => 'تعداد شعله',
     ]);
 }
 
