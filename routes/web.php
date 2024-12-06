@@ -76,6 +76,7 @@ use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
 use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\MicrowaveController;
+use App\Http\Controllers\TechnicalFacilities\NoticeboardController;
 use App\Http\Controllers\TechnicalFacilities\OvenController;
 use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
@@ -233,6 +234,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Samovars', SamovarController::class);
         Route::resource('/Whiteboards', WhiteboardController::class);
         Route::resource('/WaterDispensers', WaterDispenserController::class);
+        Route::resource('/Noticeboards', NoticeboardController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

@@ -543,6 +543,12 @@ class MenuMiddleware
                             'icon' => 'las la-chalkboard-teacher',
                         ],
                         [
+                            'title' => 'تخته اعلانات',
+                            'link' => '/Noticeboards',
+                            'permission' => "لیست تخته اعلانات",
+                            'icon' => 'las la-chalkboard-teacher',
+                        ],
+                        [
                             'title' => 'آبسردکن',
                             'link' => '/WaterDispensers',
                             'permission' => "لیست آبسردکن",
