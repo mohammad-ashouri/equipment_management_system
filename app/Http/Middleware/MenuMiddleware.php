@@ -524,6 +524,12 @@ class MenuMiddleware
                             'permission' => "لیست تصفیه کننده آب",
                             'icon' => 'las la-tint',
                         ],
+                        [
+                            'title' => 'چای ساز',
+                            'link' => '/TeaMakers',
+                            'permission' => "لیست چای ساز",
+                            'icon' => 'las la-coffee',
+                        ],
                     ]
                 ],
                 6 => [

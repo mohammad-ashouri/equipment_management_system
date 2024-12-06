@@ -81,6 +81,7 @@ use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\ShredderController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
+use App\Http\Controllers\TechnicalFacilities\TeaMakerController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
 use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
 use App\Http\Controllers\TechnicalFacilities\WaterPurifierController;
@@ -225,6 +226,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Shredders', ShredderController::class);
         Route::resource('/Ovens', OvenController::class);
         Route::resource('/WaterPurifiers', WaterPurifierController::class);
+        Route::resource('/TeaMakers', TeaMakerController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
