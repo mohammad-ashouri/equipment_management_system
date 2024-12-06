@@ -518,6 +518,12 @@ class MenuMiddleware
                             'permission' => "لیست اجاق",
                             'icon' => 'las la-utensils',
                         ],
+                        [
+                            'title' => 'تصفیه کننده آب',
+                            'link' => '/WaterPurifiers',
+                            'permission' => "لیست تصفیه کننده آب",
+                            'icon' => 'las la-tint',
+                        ],
                     ]
                 ],
                 6 => [

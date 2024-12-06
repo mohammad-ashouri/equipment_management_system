@@ -58,6 +58,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست اجاق', 'guard_name' => 'web'],
             ['name' => 'ایجاد اجاق', 'guard_name' => 'web'],
             ['name' => 'ویرایش اجاق', 'guard_name' => 'web'],
+
+            ['name' => 'لیست تصفیه کننده آب', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تصفیه کننده آب', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تصفیه کننده آب', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

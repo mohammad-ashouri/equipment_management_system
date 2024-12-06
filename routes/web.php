@@ -83,6 +83,7 @@ use App\Http\Controllers\TechnicalFacilities\ShredderController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
 use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
+use App\Http\Controllers\TechnicalFacilities\WaterPurifierController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -223,6 +224,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/CoatHangers', CoatHangerController::class);
         Route::resource('/Shredders', ShredderController::class);
         Route::resource('/Ovens', OvenController::class);
+        Route::resource('/WaterPurifiers', WaterPurifierController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
