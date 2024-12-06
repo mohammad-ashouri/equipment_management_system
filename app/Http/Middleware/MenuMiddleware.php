@@ -542,6 +542,12 @@ class MenuMiddleware
                             'permission' => "لیست تخته وایت بورد",
                             'icon' => 'las la-chalkboard-teacher',
                         ],
+                        [
+                            'title' => 'آبسردکن',
+                            'link' => '/WaterDispensers',
+                            'permission' => "لیست آبسردکن",
+                            'icon' => 'las la-tint',
+                        ],
                     ]
                 ],
                 6 => [

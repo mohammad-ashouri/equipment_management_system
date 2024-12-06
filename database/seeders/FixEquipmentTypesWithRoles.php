@@ -80,6 +80,7 @@ class FixEquipmentTypesWithRoles extends Seeder
 //        EquipmentType::create(['name' => 'water_purifier', 'persian_name' => 'تصفیه کننده آب','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'tea_maker', 'persian_name' => 'چای ساز','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'samovar', 'persian_name' => 'سماور','accessible_roles'=>json_encode([1,3])]);
-        EquipmentType::create(['name' => 'whiteboard', 'persian_name' => 'تخته وایت بورد','accessible_roles'=>json_encode([1,3])]);
+//        EquipmentType::create(['name' => 'whiteboard', 'persian_name' => 'تخته وایت بورد','accessible_roles'=>json_encode([1,3])]);
+        EquipmentType::create(['name' => 'water_dispenser', 'persian_name' => 'آبسردکن','accessible_roles'=>json_encode([1,3])]);
     }
 }

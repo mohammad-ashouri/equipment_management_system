@@ -54,7 +54,8 @@
                         <div class="grid grid-cols-3">
                             <div>
                                 <label for="length"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">طول (بر حسب سانتی متر)
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">طول (بر حسب
+                                    سانتی متر)
                                 </label>
                                 <input type="number" name="length" value="{{ $whiteboard->length }}"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -62,7 +63,8 @@
                             </div>
                             <div>
                                 <label for="width"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">عرض (بر حسب سانتی متر)
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">عرض (بر حسب
+                                    سانتی متر)
                                 </label>
                                 <input type="number" name="width" value="{{ $whiteboard->width }}"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

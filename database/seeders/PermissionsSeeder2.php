@@ -74,6 +74,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست تخته وایت بورد', 'guard_name' => 'web'],
             ['name' => 'ایجاد تخته وایت بورد', 'guard_name' => 'web'],
             ['name' => 'ویرایش تخته وایت بورد', 'guard_name' => 'web'],
+
+            ['name' => 'لیست آبسردکن', 'guard_name' => 'web'],
+            ['name' => 'ایجاد آبسردکن', 'guard_name' => 'web'],
+            ['name' => 'ویرایش آبسردکن', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

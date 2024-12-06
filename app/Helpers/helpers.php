@@ -74,6 +74,8 @@ if (!defined('TRANSLATIONS')) {
         'pendants_number' => 'تعداد آویز',
         'flames_number' => 'تعداد شعله',
         'liter_capacity' => 'ظرفیت به لیتر',
+        'cold_water_tap' => 'شیر آب سرد',
+        'warm_water_tap' => 'شیر آب گرم',
     ]);
 }
 

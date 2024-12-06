@@ -85,6 +85,7 @@ use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\TechnicalFacilities\TeaMakerController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
 use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
+use App\Http\Controllers\TechnicalFacilities\WaterDispenserController;
 use App\Http\Controllers\TechnicalFacilities\WaterPurifierController;
 use App\Http\Controllers\TechnicalFacilities\WhiteboardController;
 use App\Http\Controllers\UserManager;
@@ -231,6 +232,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/TeaMakers', TeaMakerController::class);
         Route::resource('/Samovars', SamovarController::class);
         Route::resource('/Whiteboards', WhiteboardController::class);
+        Route::resource('/WaterDispensers', WaterDispenserController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
