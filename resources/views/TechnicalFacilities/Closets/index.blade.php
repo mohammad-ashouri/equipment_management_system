@@ -48,10 +48,13 @@
                                     {{ $samovar->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->type }}
+                                    {{ $samovar->material }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->liter_capacity }}
+                                    {{ $samovar->floors_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $samovar->doors_number }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($samovar->status)
