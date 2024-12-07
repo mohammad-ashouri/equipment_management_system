@@ -102,6 +102,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست کمد', 'guard_name' => 'web'],
             ['name' => 'ایجاد کمد', 'guard_name' => 'web'],
             ['name' => 'ویرایش کمد', 'guard_name' => 'web'],
+
+            ['name' => 'لیست دستگاه سلفون کش و لمینیت', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دستگاه سلفون کش و لمینیت', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دستگاه سلفون کش و لمینیت', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

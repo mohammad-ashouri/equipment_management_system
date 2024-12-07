@@ -77,6 +77,7 @@ use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\HotGlueBindingController;
 use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
 use App\Http\Controllers\TechnicalFacilities\LadderController;
+use App\Http\Controllers\TechnicalFacilities\LaminatingMachineController;
 use App\Http\Controllers\TechnicalFacilities\MicrowaveController;
 use App\Http\Controllers\TechnicalFacilities\NoticeboardController;
 use App\Http\Controllers\TechnicalFacilities\OvenController;
@@ -245,6 +246,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/HotGlueBindings', HotGlueBindingController::class);
         Route::resource('/SuggestionBoxes', SuggestionBoxController::class);
         Route::resource('/Closets', ClosetController::class);
+        Route::resource('/LaminatingMachines', LaminatingMachineController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

@@ -584,6 +584,12 @@ class MenuMiddleware
                             'permission' => "لیست کمد",
                             'icon' => 'las la-door-closed',
                         ],
+                        [
+                            'title' => 'دستگاه سلفون کش و لمینیت',
+                            'link' => '/LaminatingMachines',
+                            'permission' => "لیست دستگاه سلفون کش و لمینیت",
+                            'icon' => 'las la-book',
+                        ],
                     ]
                 ],
                 6 => [
