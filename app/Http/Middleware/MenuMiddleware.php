@@ -560,6 +560,12 @@ class MenuMiddleware
                             'permission' => "لیست برش دهنده کاغذ",
                             'icon' => 'las la-cut',
                         ],
+                        [
+                            'title' => 'فنرزن کاغذ',
+                            'link' => '/SpringBindings',
+                            'permission' => "لیست فنرزن کاغذ",
+                            'icon' => 'las la-ring',
+                        ],
                     ]
                 ],
                 6 => [
