@@ -602,6 +602,12 @@ class MenuMiddleware
                             'permission' => "لیست تخت خواب",
                             'icon' => 'las la-bed',
                         ],
+                        [
+                            'title' => 'جلومبلی/میز عسلی',
+                            'link' => '/FrontFurnitureTables',
+                            'permission' => "لیست جلومبلی/میز عسلی",
+                            'icon' => 'las la-table',
+                        ],
                     ]
                 ],
                 6 => [

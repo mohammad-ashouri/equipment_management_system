@@ -114,6 +114,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست تخت خواب', 'guard_name' => 'web'],
             ['name' => 'ایجاد تخت خواب', 'guard_name' => 'web'],
             ['name' => 'ویرایش تخت خواب', 'guard_name' => 'web'],
+
+            ['name' => 'لیست جلومبلی/میز عسلی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد جلومبلی/میز عسلی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش جلومبلی/میز عسلی', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

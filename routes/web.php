@@ -74,6 +74,7 @@ use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
+use App\Http\Controllers\TechnicalFacilities\FrontFurnitureTableController;
 use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\HotGlueBindingController;
 use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
@@ -251,6 +252,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/LaminatingMachines', LaminatingMachineController::class);
         Route::resource('/Libraries', LibraryController::class);
         Route::resource('/Beds', BedController::class);
+        Route::resource('/FrontFurnitureTables', FrontFurnitureTableController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
