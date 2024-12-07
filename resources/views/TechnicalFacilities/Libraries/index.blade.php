@@ -4,17 +4,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات کمد</h1>
+            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات کتابخانه</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد کمد')
-                    <a type="button" href="{{route('Closets.create')}}"
+                @can('ایجاد کتابخانه')
+                    <a type="button" href="{{route('Libraries.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        کمد جدید
+                        کتابخانه جدید
                     </a>
                 @endcan
-                @if(empty($samovars) or $samovars->isEmpty())
+                @if(empty($libraries) or $libraries->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -28,7 +28,7 @@
                             <th class="px-6 py-3  font-bold ">مدل</th>
                             <th class="px-6 py-3  font-bold ">جنس</th>
                             <th class="px-6 py-3  font-bold ">تعداد طبقه</th>
-                            <th class="px-6 py-3  font-bold ">تعداد در</th>
+                            <th class="px-6 py-3  font-bold ">تعداد کتابخانه</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -38,26 +38,29 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($samovars as $samovar)
+                        @foreach ($libraries as $library)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->brandInfo->name }}
+                                    {{ $library->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->model }}
+                                    {{ $library->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->material }}
+                                    {{ $library->material }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->floors_number }}
+                                    {{ $library->floors_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->doors_number }}
+                                    {{ $library->doors_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @switch($samovar->status)
+                                    {{ $library->doors_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    @switch($library->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -67,23 +70,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->adderInfo->name }} {{ $samovar->adderInfo->family }}
+                                    {{ $library->adderInfo->name }} {{ $library->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($samovar->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($library->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($samovar->editorInfo!=null)
-                                        {{ $samovar->editorInfo->name }} {{ $samovar->editorInfo->family }}
+                                    @if($library->editorInfo!=null)
+                                        {{ $library->editorInfo->name }} {{ $library->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($samovar->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($library->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش کمد')
-                                        <a href="{{ route('Closets.edit',$samovar->id) }}">
-                                            <button type="button" data-id="{{ $samovar->id }}"
+                                    @can('ویرایش کتابخانه')
+                                        <a href="{{ route('Libraries.edit',$library->id) }}">
+                                            <button type="button" data-id="{{ $library->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>

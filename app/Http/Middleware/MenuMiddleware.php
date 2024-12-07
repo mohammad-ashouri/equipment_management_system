@@ -590,6 +590,12 @@ class MenuMiddleware
                             'permission' => "لیست دستگاه سلفون کش و لمینیت",
                             'icon' => 'las la-book',
                         ],
+                        [
+                            'title' => 'کتابخانه',
+                            'link' => '/Libraries',
+                            'permission' => "لیست کتابخانه",
+                            'icon' => 'las la-book-open',
+                        ],
                     ]
                 ],
                 6 => [
