@@ -578,6 +578,12 @@ class MenuMiddleware
                             'permission' => "لیست صندوق پیشنهادات",
                             'icon' => 'las la-box',
                         ],
+                        [
+                            'title' => 'کمد',
+                            'link' => '/Closets',
+                            'permission' => "لیست کمد",
+                            'icon' => 'las la-door-closed',
+                        ],
                     ]
                 ],
                 6 => [

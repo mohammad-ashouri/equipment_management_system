@@ -98,6 +98,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست صندوق پیشنهادات', 'guard_name' => 'web'],
             ['name' => 'ایجاد صندوق پیشنهادات', 'guard_name' => 'web'],
             ['name' => 'ویرایش صندوق پیشنهادات', 'guard_name' => 'web'],
+
+            ['name' => 'لیست کمد', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کمد', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کمد', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

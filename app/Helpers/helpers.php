@@ -76,6 +76,7 @@ if (!defined('TRANSLATIONS')) {
         'liter_capacity' => 'ظرفیت به لیتر',
         'cold_water_tap' => 'شیر آب سرد',
         'warm_water_tap' => 'شیر آب گرم',
+        'floors_number' => 'تعداد طبقه',
     ]);
 }
 

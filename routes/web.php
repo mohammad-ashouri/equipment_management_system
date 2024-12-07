@@ -68,6 +68,7 @@ use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\AirConditionerController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
+use App\Http\Controllers\TechnicalFacilities\ClosetController;
 use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
@@ -243,6 +244,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/SpringBindings', SpringBindingController::class);
         Route::resource('/HotGlueBindings', HotGlueBindingController::class);
         Route::resource('/SuggestionBoxes', SuggestionBoxController::class);
+        Route::resource('/Closets', ClosetController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

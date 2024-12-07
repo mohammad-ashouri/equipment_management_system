@@ -86,6 +86,7 @@ class FixEquipmentTypesWithRoles extends Seeder
 //        EquipmentType::create(['name' => 'paper_cutter', 'persian_name' => 'برش دهنده کاغذ','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'spring_binding', 'persian_name' => 'فنرزن کاغذ','accessible_roles'=>json_encode([1,3])]);
 //        EquipmentType::create(['name' => 'hot_glue_binding', 'persian_name' => 'دستگاه صحافی چسب گرم','accessible_roles'=>json_encode([1,3])]);
-        EquipmentType::create(['name' => 'suggestion_box', 'persian_name' => 'صندوق پیشنهادات','accessible_roles'=>json_encode([1,3])]);
+//        EquipmentType::create(['name' => 'suggestion_box', 'persian_name' => 'صندوق پیشنهادات','accessible_roles'=>json_encode([1,3])]);
+        EquipmentType::create(['name' => 'closet', 'persian_name' => 'کمد','accessible_roles'=>json_encode([1,3])]);
     }
 }
