@@ -66,6 +66,7 @@ use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\Reports\EquipmentController;
 use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\AirConditionerController;
+use App\Http\Controllers\TechnicalFacilities\BedController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\ClosetController;
@@ -249,6 +250,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Closets', ClosetController::class);
         Route::resource('/LaminatingMachines', LaminatingMachineController::class);
         Route::resource('/Libraries', LibraryController::class);
+        Route::resource('/Beds', BedController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

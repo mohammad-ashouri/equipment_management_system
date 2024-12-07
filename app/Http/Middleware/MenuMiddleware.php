@@ -596,6 +596,12 @@ class MenuMiddleware
                             'permission' => "لیست کتابخانه",
                             'icon' => 'las la-book-open',
                         ],
+                        [
+                            'title' => 'تخت خواب',
+                            'link' => '/Beds',
+                            'permission' => "لیست تخت خواب",
+                            'icon' => 'las la-bed',
+                        ],
                     ]
                 ],
                 6 => [
