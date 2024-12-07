@@ -82,6 +82,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست تخته اعلانات', 'guard_name' => 'web'],
             ['name' => 'ایجاد تخته اعلانات', 'guard_name' => 'web'],
             ['name' => 'ویرایش تخته اعلانات', 'guard_name' => 'web'],
+
+            ['name' => 'لیست برش دهنده کاغذ', 'guard_name' => 'web'],
+            ['name' => 'ایجاد برش دهنده کاغذ', 'guard_name' => 'web'],
+            ['name' => 'ویرایش برش دهنده کاغذ', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

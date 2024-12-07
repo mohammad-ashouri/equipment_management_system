@@ -78,6 +78,7 @@ use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\MicrowaveController;
 use App\Http\Controllers\TechnicalFacilities\NoticeboardController;
 use App\Http\Controllers\TechnicalFacilities\OvenController;
+use App\Http\Controllers\TechnicalFacilities\PaperCutterController;
 use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\SamovarController;
@@ -235,6 +236,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Whiteboards', WhiteboardController::class);
         Route::resource('/WaterDispensers', WaterDispenserController::class);
         Route::resource('/Noticeboards', NoticeboardController::class);
+        Route::resource('/PaperCutters', PaperCutterController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

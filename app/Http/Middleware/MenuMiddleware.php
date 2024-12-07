@@ -554,6 +554,12 @@ class MenuMiddleware
                             'permission' => "لیست آبسردکن",
                             'icon' => 'las la-tint',
                         ],
+                        [
+                            'title' => 'برش دهنده کاغذ',
+                            'link' => '/PaperCutters',
+                            'permission' => "لیست برش دهنده کاغذ",
+                            'icon' => 'las la-cut',
+                        ],
                     ]
                 ],
                 6 => [

@@ -10,10 +10,10 @@ class FanController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست صندلی', ['only' => ['index']]);
-        $this->middleware('permission:ایجاد صندلی', ['only' => ['create', 'store']]);
-        $this->middleware('permission:ویرایش صندلی', ['only' => ['update', 'edit']]);
-        $this->middleware('permission:حذف صندلی', ['only' => ['destroy']]);
+        $this->middleware('permission:لیست پنکه', ['only' => ['index']]);
+        $this->middleware('permission:ایجاد پنکه', ['only' => ['create', 'store']]);
+        $this->middleware('permission:ویرایش پنکه', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:حذف پنکه', ['only' => ['destroy']]);
     }
 
     public function index()
@@ -38,9 +38,9 @@ class FanController extends Controller
         $fans = Fan::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'type' => $request->input('type'), 'adder' => $this->getMyUserId()]);
 
         if ($fans) {
-            return redirect()->route('Fans.index')->with('success', 'صندلی با موفقیت ایجاد شد.');
+            return redirect()->route('Fans.index')->with('success', 'پنکه با موفقیت ایجاد شد.');
         }
-        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد صندلی']);
+        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد پنکه']);
     }
 
     public function edit($id)
@@ -68,6 +68,6 @@ class FanController extends Controller
         $fans->editor = $this->getMyUserId();
         $fans->save();
 
-        return redirect()->route('Fans.index')->with('success', 'صندلی با موفقیت ویرایش شد.');
+        return redirect()->route('Fans.index')->with('success', 'پنکه با موفقیت ویرایش شد.');
     }
 }
