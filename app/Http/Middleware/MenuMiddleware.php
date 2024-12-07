@@ -572,6 +572,12 @@ class MenuMiddleware
                             'permission' => "لیست دستگاه صحافی چسب گرم",
                             'icon' => 'las la-temperature-high',
                         ],
+                        [
+                            'title' => 'صندوق پیشنهادات',
+                            'link' => '/SuggestionBoxes',
+                            'permission' => "لیست صندوق پیشنهادات",
+                            'icon' => 'las la-box',
+                        ],
                     ]
                 ],
                 6 => [
