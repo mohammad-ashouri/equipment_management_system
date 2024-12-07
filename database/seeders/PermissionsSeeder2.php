@@ -90,6 +90,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست فنرزن کاغذ', 'guard_name' => 'web'],
             ['name' => 'ایجاد فنرزن کاغذ', 'guard_name' => 'web'],
             ['name' => 'ویرایش فنرزن کاغذ', 'guard_name' => 'web'],
+
+            ['name' => 'لیست دستگاه صحافی چسب گرم', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دستگاه صحافی چسب گرم', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دستگاه صحافی چسب گرم', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

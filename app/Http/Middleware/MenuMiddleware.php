@@ -566,6 +566,12 @@ class MenuMiddleware
                             'permission' => "لیست فنرزن کاغذ",
                             'icon' => 'las la-ring',
                         ],
+                        [
+                            'title' => 'دستگاه صحافی چسب گرم',
+                            'link' => '/HotGlueBindings',
+                            'permission' => "لیست دستگاه صحافی چسب گرم",
+                            'icon' => 'las la-temperature-high',
+                        ],
                     ]
                 ],
                 6 => [
