@@ -14,7 +14,7 @@ class Personnel extends Model
 
     protected $table = 'personnels';
     protected $fillable = [
-        'personnel_code', 'first_name', 'last_name', 'building', 'room_number', 'adder', 'editor'
+        'id', 'personnel_code', 'first_name', 'last_name', 'building', 'room_number', 'adder', 'editor'
     ];
 
     public function buildingInfo()

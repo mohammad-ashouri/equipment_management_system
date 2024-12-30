@@ -39,7 +39,9 @@ class PersonnelController extends Controller
             'room_number' => 'required|string',
         ]);
 
-        $personnels = Personnel::create([
+        $lastId = Personnel::latest('id')->first();
+        $personnel = Personnel::create([
+            'id' => $lastId->id + 1,
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
             'personnel_code' => $request->input('personnel_code'),
@@ -48,7 +50,7 @@ class PersonnelController extends Controller
             'adder' => $this->getMyUserId()
         ]);
 
-        if ($personnels) {
+        if ($personnel) {
             return redirect()->route('Personnels.index')->with('success', 'پرسنل با موفقیت ایجاد شد.');
         }
         return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد پرسنل']);
