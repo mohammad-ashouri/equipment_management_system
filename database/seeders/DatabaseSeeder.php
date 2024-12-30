@@ -18,11 +18,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(class: [
-            PermissionsSeeder::class,
+//            PermissionsSeeder::class,
             PermissionsSeeder2::class,
 //            ShenakhtDefaultValuesSeeder::class,
 //            FakePersonnel::class,
-            FixEquipmentTypesWithRoles::class,
+//            FixEquipmentTypesWithRoles::class,
         ]);
 
     }

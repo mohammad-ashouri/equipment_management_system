@@ -118,6 +118,14 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست جلومبلی/میز عسلی', 'guard_name' => 'web'],
             ['name' => 'ایجاد جلومبلی/میز عسلی', 'guard_name' => 'web'],
             ['name' => 'ویرایش جلومبلی/میز عسلی', 'guard_name' => 'web'],
+
+            ['name' => 'لیست کتاب', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کتاب', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کتاب', 'guard_name' => 'web'],
+
+            ['name' => 'لیست انتشارات', 'guard_name' => 'web'],
+            ['name' => 'ایجاد انتشارات', 'guard_name' => 'web'],
+            ['name' => 'ویرایش انتشارات', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

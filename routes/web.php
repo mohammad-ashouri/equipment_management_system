@@ -3,6 +3,7 @@
 use App\Http\Controllers\Catalogs\BrandController;
 use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
+use App\Http\Controllers\Catalogs\PublicationController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
@@ -68,6 +69,7 @@ use App\Http\Controllers\Reports\HistoryController;
 use App\Http\Controllers\TechnicalFacilities\AirConditionerController;
 use App\Http\Controllers\TechnicalFacilities\BedController;
 use App\Http\Controllers\TechnicalFacilities\BlowerController;
+use App\Http\Controllers\TechnicalFacilities\BookController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\ClosetController;
 use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
@@ -158,6 +160,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         //Catalogs
         Route::resource('/Buildings', BuildingController::class);
         Route::resource('/Brands', BrandController::class);
+        Route::resource('/Publications', PublicationController::class);
 
         //Hardware Equipments
         Route::resource('/Monitors', MonitorController::class);
@@ -253,6 +256,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Libraries', LibraryController::class);
         Route::resource('/Beds', BedController::class);
         Route::resource('/FrontFurnitureTables', FrontFurnitureTableController::class);
+        Route::resource('/Books', BookController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

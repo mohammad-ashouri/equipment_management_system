@@ -48,6 +48,12 @@ class MenuMiddleware
                             'permission' => "لیست برند",
                             'icon' => 'las la-copyright',
                         ],
+                        [
+                            'title' => 'انتشارات',
+                            'link' => '/Publications',
+                            'permission' => "لیست انتشارات",
+                            'icon' => 'las la-book',
+                        ],
                     ]
                 ],
                 2 => [
@@ -607,6 +613,12 @@ class MenuMiddleware
                             'link' => '/FrontFurnitureTables',
                             'permission' => "لیست جلومبلی/میز عسلی",
                             'icon' => 'las la-table',
+                        ],
+                        [
+                            'title' => 'کتاب',
+                            'link' => '/Books',
+                            'permission' => "لیست کتاب",
+                            'icon' => 'las la-book',
                         ],
                     ]
                 ],
