@@ -41,7 +41,7 @@ class BookController extends Controller
 
         $book = Book::create([
             'name' => $request->input('name'),
-            'brand' => $request->input('brand'),
+            'brand' => 92,
             'publication' => $request->input('publication'),
             'writer' => $request->input('writer'),
             'size' => $request->input('size'),
@@ -75,7 +75,7 @@ class BookController extends Controller
         ]);
 
         $book = Book::findOrFail($id);
-        $book->brand = $request->input('brand');
+        $book->brand = 92;
         $book->name = $request->input('name');
         $book->publication = $request->input('publication');
         $book->writer = $request->input('writer');

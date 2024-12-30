@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             PermissionsSeeder2::class,
 //            ShenakhtDefaultValuesSeeder::class,
 //            FakePersonnel::class,
-//            FixEquipmentTypesWithRoles::class,
+            FixEquipmentTypesWithRoles::class,
         ]);
 
     }

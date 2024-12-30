@@ -9,20 +9,6 @@
                 <div class="bg-white rounded shadow flex flex-col p-4">
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
                         <div>
-                            <label for="brand"
-                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">برند </label>
-                            <select name="brand"
-                                    class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    required>
-                                <option value="" disabled selected>انتخاب کنید</option>
-                                @foreach($brands as $brand)
-                                    <option value="{{ $brand->id }}"
-                                            @if(old('brand')==$brand->id) selected @endif>{{ $brand->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div>
                             <label for="name"
                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نام </label>
                             <input type="text" name="name" value="{{ old('name') }}"
@@ -53,7 +39,7 @@
                             <label for="size"
                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">قطع </label>
                             <select name="size"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="وزیری" @selected(old('size')=='وزیری')>وزیری</option>
                                 <option value="رقعی" @selected(old('size')=='رقعی')>رقعی</option>
