@@ -4,17 +4,17 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات کتاب</h1>
+            <h1 class="text-2xl font-bold mb-4">تعاریف اولیه - مدیریت بر اطلاعات موضوعات کتاب</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد کتاب')
-                    <a type="button" href="{{route('Books.create')}}"
+                @can('ایجاد موضوعات کتاب')
+                    <a type="button" href="{{route('BookSubjects.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        کتاب جدید
+                        موضوعات کتاب جدید
                     </a>
                 @endcan
-                @if(empty($books) or $books->isEmpty())
+                @if(empty($bookSubjects) or $bookSubjects->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -24,40 +24,24 @@
                         <thead>
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class="px-6 py-3  font-bold ">ردیف</th>
-                            <th class="px-6 py-3  font-bold ">نام</th>
-                            <th class="px-6 py-3  font-bold ">موضوع</th>
-                            <th class="px-6 py-3  font-bold ">انتشارات</th>
-                            <th class="px-6 py-3  font-bold ">نویسنده</th>
-                            <th class="px-6 py-3  font-bold ">قطع</th>
+                            <th class="px-6 py-3  font-bold ">عنوان</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ویرایش کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ویرایش</th>
-                            <th class="px-6 py-3  font-bold action">عملیات</th>
+                            <th class="px-6 py-3  font-bold action ">عملیات</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($books as $book)
+                        @foreach ($bookSubjects as $bookSubject)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $book->name }}
+                                    {{ $bookSubject->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $book->subjectInfo->name }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $book->publicationInfo->name }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $book->writer }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $book->size }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    @switch($book->status)
+                                    @switch($bookSubject->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -67,23 +51,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $book->adderInfo->name }} {{ $book->adderInfo->family }}
+                                    {{ $bookSubject->adderInfo->name }} {{ $bookSubject->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($book->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($bookSubject->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($book->editorInfo!=null)
-                                        {{ $book->editorInfo->name }} {{ $book->editorInfo->family }}
+                                    @if($bookSubject->editorInfo!=null)
+                                        {{ $bookSubject->editorInfo->name }} {{ $bookSubject->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($book->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($bookSubject->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش کتاب')
-                                        <a href="{{ route('Books.edit',$book->id) }}">
-                                            <button type="button" data-id="{{ $book->id }}"
+                                    @can('ویرایش موضوعات کتاب')
+                                        <a href="{{ route('BookSubjects.edit',$bookSubject->id) }}">
+                                            <button type="button" data-id="{{ $bookSubject->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>

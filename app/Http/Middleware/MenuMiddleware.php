@@ -54,6 +54,12 @@ class MenuMiddleware
                             'permission' => "لیست انتشارات",
                             'icon' => 'las la-book',
                         ],
+                        [
+                            'title' => 'موضوعات کتاب',
+                            'link' => '/BookSubjects',
+                            'permission' => "لیست موضوعات کتاب",
+                            'icon' => 'las la-book',
+                        ],
                     ]
                 ],
                 2 => [
@@ -591,7 +597,7 @@ class MenuMiddleware
                             'icon' => 'las la-door-closed',
                         ],
                         [
-                            'title' => 'دستگاه سلفون کش و لمینیت',
+                            'title' => 'دستگاه سلفون کش',
                             'link' => '/LaminatingMachines',
                             'permission' => "لیست دستگاه سلفون کش و لمینیت",
                             'icon' => 'las la-book',

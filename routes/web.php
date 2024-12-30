@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Catalogs\BookSubjectController;
 use App\Http\Controllers\Catalogs\BrandController;
 use App\Http\Controllers\Catalogs\BuildingController;
 use App\Http\Controllers\Catalogs\PermissionController;
@@ -161,6 +162,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Buildings', BuildingController::class);
         Route::resource('/Brands', BrandController::class);
         Route::resource('/Publications', PublicationController::class);
+        Route::resource('/BookSubjects', BookSubjectController::class);
 
         //Hardware Equipments
         Route::resource('/Monitors', MonitorController::class);

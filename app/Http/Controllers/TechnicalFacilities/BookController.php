@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\TechnicalFacilities;
 
 use App\Http\Controllers\Controller;
+use App\Models\Catalogs\BookSubject;
 use App\Models\Catalogs\Publication;
 use App\Models\TechnicalFacilities\Book;
 use Illuminate\Http\Request;
@@ -19,14 +20,15 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = Book::with(['publicationInfo', 'brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
+        $books = Book::with(['publicationInfo', 'subjectInfo', 'brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
         return view('TechnicalFacilities.Books.index', compact('books'));
     }
 
     public function create()
     {
         $publications = Publication::whereStatus(1)->get();
-        return view('TechnicalFacilities.Books.create', compact('publications'));
+        $bookSubjects = BookSubject::whereStatus(1)->get();
+        return view('TechnicalFacilities.Books.create', compact('publications', 'bookSubjects'));
     }
 
     public function store(Request $request)
@@ -34,15 +36,15 @@ class BookController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'publication' => 'required|integer|exists:publications,id',
+            'book_subject' => 'required|integer|exists:book_subjects,id',
             'writer' => 'required|string',
             'size' => 'required|string',
-            'brand' => 'required|integer|exists:brands,id',
         ]);
 
         $book = Book::create([
             'name' => $request->input('name'),
-            'brand' => 92,
             'publication' => $request->input('publication'),
+            'book_subject' => $request->input('book_subject'),
             'writer' => $request->input('writer'),
             'size' => $request->input('size'),
             'adder' => $this->getMyUserId()
@@ -58,8 +60,9 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         $publications = Publication::whereStatus(1)->get();
+        $bookSubjects = BookSubject::whereStatus(1)->get();
 
-        return view('TechnicalFacilities.Books.edit', compact('book','publications'));
+        return view('TechnicalFacilities.Books.edit', compact('book', 'publications', 'bookSubjects'));
     }
 
     public function update(Request $request, $id)
@@ -69,15 +72,15 @@ class BookController extends Controller
             'id' => 'required|integer|exists:books,id',
             'name' => 'required|string',
             'publication' => 'required|integer|exists:publications,id',
+            'book_subject' => 'required|integer|exists:book_subjects,id',
             'writer' => 'required|string',
             'size' => 'required|string',
-            'brand' => 'required|integer|exists:brands,id',
         ]);
 
         $book = Book::findOrFail($id);
-        $book->brand = 92;
         $book->name = $request->input('name');
         $book->publication = $request->input('publication');
+        $book->book_subject = $request->input('book_subject');
         $book->writer = $request->input('writer');
         $book->size = $request->input('size');
         $book->status = $request->input('status');
