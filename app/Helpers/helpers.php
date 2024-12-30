@@ -77,6 +77,10 @@ if (!defined('TRANSLATIONS')) {
         'cold_water_tap' => 'شیر آب سرد',
         'warm_water_tap' => 'شیر آب گرم',
         'floors_number' => 'تعداد طبقه',
+        'publication' => 'انتشارات',
+        'writer' => 'نویسنده',
+        'book_subject' => 'عنوان کتاب',
+        'book' => 'کتاب',
     ]);
 }
 

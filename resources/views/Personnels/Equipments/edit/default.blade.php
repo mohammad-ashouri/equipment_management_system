@@ -15,7 +15,7 @@
                 $equipmentInfo = $firstKey::with('brandInfo')->whereId($item->id)->first()->toArray();
             @endphp
 
-            {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }} = {{ $equipmentInfo['brand_info']['name'] }}
+            {{ isset($keyIndex) ? $translatedArray[$keyIndex] : '' }} = {{ @$equipmentInfo['brand_info']['name'] }}
 
             @php
                 unset(
@@ -33,7 +33,7 @@
             @endphp
 
             <option value="{{ $item->id }}" @if($equipmentInfoMain[$equipment->equipmentType->name]==$item->id) selected @endif>
-                {{ $item->brandInfo->name }} -
+                {{ @$item->brandInfo->name }} -
                 @foreach(translateKeysToPersian($equipmentInfo) as $key => $value)
                     @if($key == 'برند' or $key == 'id')
                         @continue
