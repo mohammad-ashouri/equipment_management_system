@@ -8,9 +8,9 @@
             class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required>
         <option value="" disabled selected>انتخاب کنید</option>
-        @foreach($items[App\Models\TechnicalFacilities\Book::class] as $item)
-            <option value="{{ $item->id }}"
-                    @if($equipmentInfo['book']==$item->id) selected @endif>
+        @foreach($items[App\Models\TechnicalFacilities\Book::class] as $book)
+            <option value="{{ $book->id }}"
+                    @if($equipmentInfo['book']==$book->id) selected @endif>
                 {{ $book->name}} - {{ $book->publicationInfo->name}} - {{ $book->subjectInfo->name}} - {{ $book->writer}} - {{ $book->size}}</option>
         @endforeach
     </select>
