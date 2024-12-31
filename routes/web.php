@@ -64,6 +64,7 @@ use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
 use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
+use App\Http\Controllers\Reports\ConsumablesController;
 use App\Http\Controllers\Reports\DatabaseBackupController;
 use App\Http\Controllers\Reports\EquipmentController;
 use App\Http\Controllers\Reports\HistoryController;
@@ -278,6 +279,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::prefix('Equipments')->group(function () {
            Route::get('All', [EquipmentController::class, 'allEquipments'])->name('Equipments.all');
         });
+        Route::resource('/Consumables',ConsumablesController::class);
     });
 });
 

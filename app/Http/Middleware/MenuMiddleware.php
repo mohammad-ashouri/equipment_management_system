@@ -647,6 +647,12 @@ class MenuMiddleware
                             'permission' => "لیست تمامی اقلام",
                             'icon' => 'las la-file-alt',
                         ],
+                        [
+                            'title' => 'اقلام مصرفی',
+                            'link' => '/Consumables',
+                            'permission' => "لیست اقلام مصرفی",
+                            'icon' => 'las la-pen',
+                        ],
                     ]
                 ],
                 9 => [

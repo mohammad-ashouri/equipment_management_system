@@ -130,6 +130,11 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست موضوعات کتاب', 'guard_name' => 'web'],
             ['name' => 'ایجاد موضوعات کتاب', 'guard_name' => 'web'],
             ['name' => 'ویرایش موضوعات کتاب', 'guard_name' => 'web'],
+
+            ['name' => 'لیست اقلام مصرفی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد اقلام مصرفی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش اقلام مصرفی', 'guard_name' => 'web'],
+            ['name' => 'حذف اقلام مصرفی', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];
