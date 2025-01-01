@@ -35,10 +35,11 @@ class TableController extends Controller
             'height' => 'required|integer',
             'width' => 'required|integer',
             'length' => 'required|integer',
+            'type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $tables = Table::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'material' => $request->input('material'), 'height' => $request->input('height'), 'width' => $request->input('width'), 'length' => $request->input('length'), 'adder' => $this->getMyUserId()]);
+        $tables = Table::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'material' => $request->input('material'), 'type' => $request->input('type'), 'height' => $request->input('height'), 'width' => $request->input('width'), 'length' => $request->input('length'), 'adder' => $this->getMyUserId()]);
 
         if ($tables) {
             return redirect()->route('Tables.index')->with('success', 'میز با موفقیت ایجاد شد.');
@@ -63,6 +64,7 @@ class TableController extends Controller
             'height' => 'required|integer',
             'width' => 'required|integer',
             'length' => 'required|integer',
+            'type' => 'required|string',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
@@ -73,6 +75,7 @@ class TableController extends Controller
         $tables->height = $request->input('height');
         $tables->width = $request->input('width');
         $tables->length = $request->input('length');
+        $tables->type = $request->input('type');
         $tables->status = $request->input('status');
         $tables->editor = $this->getMyUserId();
         $tables->save();
