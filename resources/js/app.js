@@ -446,6 +446,67 @@ $(document).ready(function () {
                             },
                         });
                     });
+                    $('.delete-consumable').click(function (e) {
+                        e.preventDefault();
+
+                        const consumableId = $(this).data('id'); // شناسه مصرفی
+
+                        if (!consumableId) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "خطا",
+                                text: "شناسه مصرفی معتبر نیست!",
+                            });
+                            return;
+                        }
+
+                        // تایید حذف با SweetAlert
+                        Swal.fire({
+                            title: 'آیا مطمئن هستید؟',
+                            text: "این عمل قابل بازگشت نیست!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: 'بله، حذف کن!',
+                            cancelButtonText: 'لغو',
+                            reverseButtons: true
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // ارسال درخواست حذف به سرور
+                                $.ajax({
+                                    type: 'DELETE',
+                                    url: `/Consumables/${consumableId}`,
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                    },
+                                    success: function (response) {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'حذف موفقیت‌آمیز',
+                                            text: 'اقلام مصرفی با موفقیت حذف شد!',
+                                            timer: 2000,
+                                            showConfirmButton: false
+                                        }).then(() => {
+                                            location.reload(); // صفحه رفرش می‌شود
+                                        });
+                                    },
+                                    error: function (xhr) {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'خطا',
+                                            text: xhr.responseJSON?.message || 'خطایی رخ داده است!',
+                                        });
+                                    }
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'لغو شد',
+                                    text: 'عملیات حذف لغو شد.',
+                                });
+                            }
+                        });
+                    });
+
                     break;
                 case "/Profile":
                     resetFields();

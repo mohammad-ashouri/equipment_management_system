@@ -57,4 +57,10 @@ class ConsumablesController extends Controller
 
         return response()->json(['message' => 'اقلام مصرفی با موفقیت ویرایش شد.'], 200);
     }
+
+    public function destroy($id)
+    {
+        Consumable::findOrFail($id)->delete();
+        return response()->json(['message' => 'اقلام مصرفی با موفقیت حذف شد.'], 200);
+    }
 }

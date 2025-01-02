@@ -43,6 +43,10 @@
                                             class="px-3 py-2 mr-3 mb-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 edit-consumable">
                                         ویرایش
                                     </button>
+                                    <button type="button" data-id="{{ $consumable->id }}"
+                                            class="px-3 py-2 mr-3 mb-3 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 delete-consumable">
+                                        حذف
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
