@@ -298,6 +298,7 @@ $(document).ready(function () {
                               `,
                             showCancelButton: true,
                             confirmButtonText: "ارسال",
+                            cancelButtonText: "لغو",
                             showLoaderOnConfirm: true,
                             preConfirm: async () => {
                                 const name = document.getElementById("name").value;
@@ -316,13 +317,13 @@ $(document).ready(function () {
                                             "Accept": "application/json", // درخواست JSON
                                             "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
                                         },
-                                        body: JSON.stringify({ name, quantity }),
+                                        body: JSON.stringify({name, quantity}),
                                     });
 
                                     if (!response.ok) {
                                         // اگر پاسخ موفق نبود، خطاها را پردازش کنید
                                         const errorData = await response.json();
-                                        const errors = errorData.errors || { error: "خطایی رخ داده است." };
+                                        const errors = errorData.errors || {error: "خطایی رخ داده است."};
                                         const errorMessages = Object.values(errors).flat().join("<br>");
                                         Swal.showValidationMessage(errorMessages);
                                         return;
@@ -350,14 +351,103 @@ $(document).ready(function () {
                         });
 
                     });
+                    $('.edit-consumable').click(function (e) {
+                        const consumableId = $(this).data('id'); // شناسه مصرفی
+                        if (!consumableId) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "خطا",
+                                text: "شناسه مصرفی معتبر نیست!",
+                            });
+                            return;
+                        }
+
+                        // دریافت اطلاعات مصرفی
+                        $.ajax({
+                            type: 'GET',
+                            url: `/Consumables/${consumableId}`,
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                            },
+                            success: function (response) {
+                                // نمایش فرم ویرایش
+                                Swal.fire({
+                                    title: "ویرایش مصرفی",
+                                    html: `
+                                            <div>
+                                                <label for="name">نام:</label>
+                                                <input type="text" id="name" class="swal2-input" value="${response.data.name}" placeholder="نام" required>
+                                            </div>
+                                            <div>
+                                                <label for="quantity">تعداد:</label>
+                                                <input type="number" id="quantity" class="swal2-input" value="${response.data.quantity}" placeholder="تعداد" required>
+                                            </div>
+                                        `,
+                                    showCancelButton: true,
+                                    confirmButtonText: "ذخیره",
+                                    cancelButtonText: "لغو",
+                                    showLoaderOnConfirm: true,
+                                    preConfirm: async () => {
+                                        const name = document.getElementById("name").value;
+                                        const quantity = document.getElementById("quantity").value;
+
+                                        if (!name || !quantity) {
+                                            Swal.showValidationMessage("لطفاً همه فیلدها را پر کنید.");
+                                            return;
+                                        }
+
+                                        try {
+                                            // ارسال درخواست ویرایش
+                                            const response = await fetch(`/Consumables/${consumableId}`, {
+                                                method: "PUT",
+                                                headers: {
+                                                    "Content-Type": "application/json",
+                                                    "Accept": "application/json",
+                                                    "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                                                },
+                                                body: JSON.stringify({ name, quantity }),
+                                            });
+
+                                            if (!response.ok) {
+                                                const errorData = await response.json();
+                                                const errors = errorData.errors || { error: "خطایی رخ داده است." };
+                                                const errorMessages = Object.values(errors).flat().join("<br>");
+                                                Swal.showValidationMessage(errorMessages);
+                                                return;
+                                            }
+
+                                            return response.json(); // موفقیت
+                                        } catch (error) {
+                                            Swal.showValidationMessage(`خطا در ارسال درخواست: ${error.message}`);
+                                        }
+                                    },
+                                    allowOutsideClick: () => !Swal.isLoading(),
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        Swal.fire({
+                                            icon: "success",
+                                            title: "موفقیت",
+                                            text: "اقلام مصرفی با موفقیت ویرایش شد!",
+                                            timer: 2000,
+                                            showConfirmButton: false,
+                                        }).then(() => {
+                                            location.reload(); // بازخوانی صفحه
+                                        });
+                                    }
+                                });
+                            },
+                            error: function (xhr) {
+                                // نمایش خطا
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "خطا",
+                                    text: xhr.responseJSON?.message || "خطایی رخ داده است!",
+                                });
+                            },
+                        });
+                    });
                     break;
-                case
-                '/dashboard'
-                :
-                    break;
-                case
-                "/Profile"
-                :
+                case "/Profile":
                     resetFields();
                     $('#change-password').submit(function (e) {
                         e.preventDefault();

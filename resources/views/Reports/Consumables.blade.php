@@ -21,14 +21,15 @@
                             <th class=" px-3 py-3  font-bold ">تاریخ ایجاد</th>
                             <th class=" px-3 py-3  font-bold ">کاربر ویرایش کننده</th>
                             <th class=" px-3 py-3  font-bold ">تاریخ ویرایش</th>
+                            <th class=" px-3 py-3  font-bold ">ویرایش</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($consumables as $consumable)
                             <tr class="odd:bg-gray-300 even:bg-white">
-                                <td class="py-2">{{ $loop->iteration }}</td>
-                                <td class="py-2">{{ $consumable->name }}</td>
-                                <td class="py-2">{{ $consumable->quantity }}</td>
+                                <td class="py-3">{{ $loop->iteration }}</td>
+                                <td class="py-3">{{ $consumable->name }}</td>
+                                <td class="py-3">{{ $consumable->quantity }}</td>
                                 <td class="px-6 py-4">{{ $consumable->adderInfo->name }} {{ $consumable->adderInfo->family }}</td>
                                 <td class="px-6 py-4">
                                     {{ Jalalian::fromDateTime($consumable->created_at)->format('H:i:s Y/m/d') }}
@@ -36,6 +37,12 @@
                                 <td class="px-6 py-4">{{ $consumable->editorInfo?->name }} {{ $consumable->editorInfo?->family }}</td>
                                 <td class="px-6 py-4">
                                     {{ !empty($consumable->editor) ? Jalalian::fromDateTime($consumable->updated_at)->format('H:i:s Y/m/d') : null }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button type="button" data-id="{{ $consumable->id }}"
+                                            class="px-3 py-2 mr-3 mb-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 edit-consumable">
+                                        ویرایش
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach

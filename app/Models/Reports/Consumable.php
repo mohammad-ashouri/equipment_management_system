@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Consumable extends Model
 {
     use ModelRelations, SoftDeletes;
-
+    protected $primaryKey = 'id';
     protected $table = 'consumables';
     protected $fillable = [
         'name', 'quantity', 'adder', 'editor'

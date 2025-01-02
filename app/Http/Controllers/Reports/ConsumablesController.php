@@ -36,4 +36,25 @@ class ConsumablesController extends Controller
 
         return response()->json(['message' => 'مصرفی با موفقیت اضافه شد.'], 200);
     }
+
+    public function show($id)
+    {
+        $consumable = Consumable::with('adderInfo', 'editorInfo')->findOrFail($id);
+        return response()->json(['data' => $consumable]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $this->validate($request, [
+            'name' => 'required|string|max:120|unique:consumables,name,' . $id,
+            'quantity' => 'required|integer',
+        ]);
+        Consumable::findOrFail($id)->update([
+            'name' => $validatedData['name'],
+            'quantity' => $validatedData['quantity'],
+            'editor' => auth()->user()->id
+        ]);
+
+        return response()->json(['message' => 'اقلام مصرفی با موفقیت ویرایش شد.'], 200);
+    }
 }
