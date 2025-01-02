@@ -81,6 +81,10 @@ if (!defined('TRANSLATIONS')) {
         'writer' => 'نویسنده',
         'book_subject' => 'عنوان کتاب',
         'book' => 'کتاب',
+        'chair' => 'صندلی',
+        'table' => 'میز',
+        'library' => 'کتابخانه',
+        'drawer_file_cabinet' => 'فایل کشویی',
     ]);
 }
 
