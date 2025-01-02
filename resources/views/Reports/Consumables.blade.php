@@ -6,6 +6,10 @@
         <div class="mx-auto lg:mr-72">
             <h1 class="text-2xl font-bold mb-4">لوازم و اقلام مصرفی واحد اداری</h1>
             <div class="bg-white rounded shadow p-6 mb-4">
+                <button type="button" data-id=""
+                        class="px-8 py-2 mr-3 mb-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300" id="add-consumable">
+                    اضافه کردن اقلام
+                </button>
                 <div>
                     <table class="datatable w-full border-collapse rounded-lg overflow-hidden text-center mt-3">
                         <thead>
@@ -24,7 +28,7 @@
                             <tr class="odd:bg-gray-300 even:bg-white">
                                 <td class="py-2">{{ $loop->iteration }}</td>
                                 <td class="py-2">{{ $consumable->name }}</td>
-                                <td class="py-2">{{ $consumable->number }}</td>
+                                <td class="py-2">{{ $consumable->quantity }}</td>
                                 <td class="px-6 py-4">{{ $consumable->adderInfo->name }} {{ $consumable->adderInfo->family }}</td>
                                 <td class="px-6 py-4">
                                     {{ Jalalian::fromDateTime($consumable->created_at)->format('H:i:s Y/m/d') }}

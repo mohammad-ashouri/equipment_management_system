@@ -12,6 +12,6 @@ class Consumable extends Model
 
     protected $table = 'consumables';
     protected $fillable = [
-        'name', 'number', 'adder', 'editor'
+        'name', 'quantity', 'adder', 'editor'
     ];
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('consumables', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('number');
+            $table->integer('quantity');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
             $table->unsignedBigInteger('editor')->nullable();

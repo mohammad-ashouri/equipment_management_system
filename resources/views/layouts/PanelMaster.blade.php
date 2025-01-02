@@ -154,7 +154,7 @@
                 "info": true,
                 "pageLength": 25,
                 "lengthChange": true,
-                select: true,
+                select: false,
                 colReorder: true,
                 "columnDefs": [{
                     "targets": 'action',

@@ -15,9 +15,25 @@ class ConsumablesController extends Controller
         $this->middleware('permission:ویرایش اقلام مصرفی', ['only' => ['update', 'edit']]);
         $this->middleware('permission:حذف اقلام مصرفی', ['only' => ['destroy']]);
     }
+
     public function index()
     {
         $consumables = Consumable::with('adderInfo', 'editorInfo')->orderBy('name')->get();
         return view('Reports.Consumables', compact('consumables'));
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $this->validate($request, [
+            'name' => 'required|string|max:120|unique:consumables,name',
+            'quantity' => 'required|integer',
+        ]);
+        Consumable::create([
+            'name' => $validatedData['name'],
+            'quantity' => $validatedData['quantity'],
+            'adder' => auth()->user()->id
+        ]);
+
+        return response()->json(['message' => 'مصرفی با موفقیت اضافه شد.'], 200);
     }
 }
