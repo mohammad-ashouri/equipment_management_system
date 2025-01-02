@@ -29,6 +29,7 @@
                             <th class="px-6 py-3  font-bold ">جنس</th>
                             <th class="px-6 py-3  font-bold ">تعداد طبقه</th>
                             <th class="px-6 py-3  font-bold ">تعداد کتابخانه</th>
+                            <th class="px-6 py-3  font-bold ">تعداد کمد</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -57,7 +58,7 @@
                                     {{ $library->doors_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $library->doors_number }}
+                                    {{ $library->closets_number }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($library->status)
