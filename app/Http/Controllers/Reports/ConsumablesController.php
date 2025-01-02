@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Reports;
 use App\Http\Controllers\Controller;
 use App\Models\Reports\Consumable;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ConsumablesController extends Controller
 {
@@ -25,7 +26,9 @@ class ConsumablesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $this->validate($request, [
-            'name' => 'required|string|max:120|unique:consumables,name',
+            'name' => ['required','string','max:120',
+                Rule::unique('consumables')->whereNull('deleted_at')
+            ],
             'quantity' => 'required|integer',
         ]);
         Consumable::create([
