@@ -3,17 +3,19 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 md:px-8 px-2">
         <div class="mx-auto mb-4 lg:mr-72">
-            <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 mb-3 shadow-md"
-                 role="alert">
-                <div class="flex">
-                    <div class="py-1 ml-2">
-                        <i class="las la-exclamation-triangle"></i>
-                    </div>
-                    <div>
-                        <p class="font-bold">لطفا رمز عبور خود را تغییر دهید تا پنل برای شما فعال شود.</p>
+            @if(auth()->user()->ntcp==1)
+                <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 mb-3 shadow-md"
+                     role="alert">
+                    <div class="flex">
+                        <div class="py-1 ml-2">
+                            <i class="las la-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">لطفا رمز عبور خود را تغییر دهید تا پنل برای شما فعال شود.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
             <form id="change-password">
                 @csrf
                 <div class="bg-white rounded shadow p-6 md:w-1/2 mx-auto">
@@ -36,7 +38,8 @@
                         <label for="repeatNewPass" class="text-center block">تکرار رمز عبور جدید</label>
                         <input
                             class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-blue-500 focus:border-blue-500 w-full mt-2"
-                            id="repeatNewPass" name="repeatNewPass" type="password" placeholder="تکرار رمز عبور جدید را وارد کنید">
+                            id="repeatNewPass" name="repeatNewPass" type="password"
+                            placeholder="تکرار رمز عبور جدید را وارد کنید">
                     </div>
                     <div class="text-center">
                         <button
@@ -49,7 +52,7 @@
 
         </div>
 
-{{--        @if(1==2)--}}
+        {{--        @if(1==2)--}}
         <div class="mx-auto lg:mr-72">
             <form id="change-user-image" enctype="multipart/form-data">
                 @csrf
@@ -72,6 +75,6 @@
             </form>
 
         </div>
-{{--        @endif--}}
+        {{--        @endif--}}
     </main>
 @endsection
