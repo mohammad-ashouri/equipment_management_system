@@ -9,7 +9,7 @@ class Whiteboard extends Model
 {
     use ModelRelations;
 
-    protected $table = 'tables';
+    protected $table = 'whiteboards';
     protected $fillable = [
         'model', 'material', 'width', 'length', 'brand', 'status', 'adder', 'editor'
     ];
