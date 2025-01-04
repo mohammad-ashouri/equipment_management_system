@@ -58,6 +58,9 @@
                                     {{ $frontFurnitureTable->length }}
                                 </td>
                                 <td class="px-6 py-4">
+                                    {{ $frontFurnitureTable->height }}
+                                </td>
+                                <td class="px-6 py-4">
                                     @switch($frontFurnitureTable->status)
                                         @case(1)
                                             فعال

@@ -18,8 +18,8 @@ class FrontFurnitureTableController extends Controller
 
     public function index()
     {
-        $whiteboards = FrontFurnitureTable::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
-        return view('TechnicalFacilities.FrontFurnitureTables.index', compact('whiteboards'));
+        $frontFurnitureTables = FrontFurnitureTable::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
+        return view('TechnicalFacilities.FrontFurnitureTables.index', compact('frontFurnitureTables'));
     }
 
     public function create()
@@ -38,9 +38,9 @@ class FrontFurnitureTableController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $whiteboards = FrontFurnitureTable::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'material' => $request->input('material'), 'width' => $request->input('width'), 'length' => $request->input('length'), 'height' => $request->input('height'), 'adder' => $this->getMyUserId()]);
+        $frontFurnitureTables = FrontFurnitureTable::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'material' => $request->input('material'), 'width' => $request->input('width'), 'length' => $request->input('length'), 'height' => $request->input('height'), 'adder' => $this->getMyUserId()]);
 
-        if ($whiteboards) {
+        if ($frontFurnitureTables) {
             return redirect()->route('FrontFurnitureTables.index')->with('success', 'جلومبلی/میز عسلی با موفقیت ایجاد شد.');
         }
         return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد جلومبلی/میز عسلی']);
@@ -48,16 +48,16 @@ class FrontFurnitureTableController extends Controller
 
     public function edit($id)
     {
-        $whiteboard = FrontFurnitureTable::findOrFail($id);
+        $frontFurnitureTable = FrontFurnitureTable::findOrFail($id);
 
-        return view('TechnicalFacilities.FrontFurnitureTables.edit', compact('whiteboard'));
+        return view('TechnicalFacilities.FrontFurnitureTables.edit', compact('frontFurnitureTable'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'status' => 'required|integer|in:0,1',
-            'id' => 'required|integer|exists:whiteboards,id',
+            'id' => 'required|integer|exists:frontFurnitureTables,id',
             'model' => 'required|string',
             'material' => 'required|string',
             'width' => 'required|integer',
@@ -66,16 +66,16 @@ class FrontFurnitureTableController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $whiteboards = FrontFurnitureTable::findOrFail($id);
-        $whiteboards->brand = $request->input('brand');
-        $whiteboards->model = $request->input('model');
-        $whiteboards->material = $request->input('material');
-        $whiteboards->width = $request->input('width');
-        $whiteboards->length = $request->input('length');
-        $whiteboards->height = $request->input('height');
-        $whiteboards->status = $request->input('status');
-        $whiteboards->editor = $this->getMyUserId();
-        $whiteboards->save();
+        $frontFurnitureTables = FrontFurnitureTable::findOrFail($id);
+        $frontFurnitureTables->brand = $request->input('brand');
+        $frontFurnitureTables->model = $request->input('model');
+        $frontFurnitureTables->material = $request->input('material');
+        $frontFurnitureTables->width = $request->input('width');
+        $frontFurnitureTables->length = $request->input('length');
+        $frontFurnitureTables->height = $request->input('height');
+        $frontFurnitureTables->status = $request->input('status');
+        $frontFurnitureTables->editor = $this->getMyUserId();
+        $frontFurnitureTables->save();
 
         return redirect()->route('FrontFurnitureTables.index')->with('success', 'جلومبلی/میز عسلی با موفقیت ویرایش شد.');
     }
