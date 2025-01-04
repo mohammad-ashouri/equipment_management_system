@@ -131,6 +131,11 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'ایجاد موضوعات کتاب', 'guard_name' => 'web'],
             ['name' => 'ویرایش موضوعات کتاب', 'guard_name' => 'web'],
 
+
+            ['name' => 'لیست پایه تخته وایت بورد', 'guard_name' => 'web'],
+            ['name' => 'ایجاد پایه تخته وایت بورد', 'guard_name' => 'web'],
+            ['name' => 'ویرایش پایه تخته وایت بورد', 'guard_name' => 'web'],
+
             ['name' => 'لیست اقلام مصرفی', 'guard_name' => 'web'],
             ['name' => 'ایجاد اقلام مصرفی', 'guard_name' => 'web'],
             ['name' => 'ویرایش اقلام مصرفی', 'guard_name' => 'web'],

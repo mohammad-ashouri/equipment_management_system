@@ -102,6 +102,7 @@ use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
 use App\Http\Controllers\TechnicalFacilities\WaterDispenserController;
 use App\Http\Controllers\TechnicalFacilities\WaterPurifierController;
 use App\Http\Controllers\TechnicalFacilities\WhiteboardController;
+use App\Http\Controllers\TechnicalFacilities\WhiteboardHolderController;
 use App\Http\Controllers\UserManager;
 use App\Http\Middleware\MenuMiddleware;
 use App\Http\Middleware\NTCPMiddleware;
@@ -260,6 +261,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/Beds', BedController::class);
         Route::resource('/FrontFurnitureTables', FrontFurnitureTableController::class);
         Route::resource('/Books', BookController::class);
+        Route::resource('/WhiteboardHolders', WhiteboardHolderController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

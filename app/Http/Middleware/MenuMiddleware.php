@@ -555,6 +555,12 @@ class MenuMiddleware
                             'icon' => 'las la-chalkboard-teacher',
                         ],
                         [
+                            'title' => 'پایه تخته وایت بورد',
+                            'link' => '/WhiteboardHolders',
+                            'permission' => "لیست پایه تخته وایت بورد",
+                            'icon' => 'las la-chalkboard-teacher',
+                        ],
+                        [
                             'title' => 'تخته اعلانات',
                             'link' => '/Noticeboards',
                             'permission' => "لیست تخته اعلانات",
