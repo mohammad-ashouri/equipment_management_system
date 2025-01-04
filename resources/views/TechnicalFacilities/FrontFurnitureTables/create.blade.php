@@ -29,8 +29,8 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="حلومبلی" @if(old('model')=='حلومبلی') selected @endif>
-                                    حلومبلی
+                                <option value="جلومبلی" @if(old('model')=='جلومبلی') selected @endif>
+                                    جلومبلی
                                 </option>
                                 <option value="میز عسلی" @if(old('model')=='میز عسلی') selected @endif>
                                     میز عسلی
