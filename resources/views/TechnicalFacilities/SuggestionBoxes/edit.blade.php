@@ -5,7 +5,7 @@
             <h1 class="text-2xl font-bold mb-4">جزئیات و ویرایش صندوق پیشنهادات</h1>
             @include('layouts.components.errors')
             <div class="bg-white rounded shadow flex flex-col ">
-                {{ html()->form('PATCH')->route('SuggestionBoxes.update',$whiteboard->id)->acceptsFiles()->id('edit-catalog')->open() }}
+                {{ html()->form('PATCH')->route('SuggestionBoxes.update',$suggestionBox->id)->acceptsFiles()->id('edit-catalog')->open() }}
                 <div class="bg-white rounded shadow flex flex-col p-4">
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
                         <div>
@@ -17,7 +17,7 @@
                                 <option value="" disabled selected>انتخاب کنید</option>
                                 @foreach($brands as $brand)
                                     <option value="{{ $brand->id }}"
-                                            @if($whiteboard->brand==$brand->id) selected @endif>{{ $brand->name}}</option>
+                                            @if($suggestionBox->brand==$brand->id) selected @endif>{{ $brand->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -28,10 +28,10 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="پایه دار" @if($whiteboard->model=='پایه دار') selected @endif>
+                                <option value="پایه دار" @if($suggestionBox->model=='پایه دار') selected @endif>
                                     پایه دار
                                 </option>
-                                <option value="دیواری" @if($whiteboard->model=='دیواری') selected @endif>
+                                <option value="دیواری" @if($suggestionBox->model=='دیواری') selected @endif>
                                     دیواری
                                 </option>
                             </select>
@@ -43,16 +43,16 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
-                                <option value="فلزی" @if($whiteboard->material=='فلزی') selected @endif>
+                                <option value="فلزی" @if($suggestionBox->material=='فلزی') selected @endif>
                                     فلزی
                                 </option>
-                                <option value="شیشه ای" @if($whiteboard->material=='شیشه ای') selected @endif>
+                                <option value="شیشه ای" @if($suggestionBox->material=='شیشه ای') selected @endif>
                                     شیشه ای
                                 </option>
-                                <option value="پلاستیکی" @if($whiteboard->material=='پلاستیکی') selected @endif>
+                                <option value="پلاستیکی" @if($suggestionBox->material=='پلاستیکی') selected @endif>
                                     پلاستیکی
                                 </option>
-                                <option value="چوبی" @if($whiteboard->material=='چوبی') selected @endif>
+                                <option value="چوبی" @if($suggestionBox->material=='چوبی') selected @endif>
                                     چوبی
                                 </option>
                             </select>
@@ -63,8 +63,8 @@
                             <select name="status"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
-                                <option value="1" {{$whiteboard->status ? 'selected' : ''}}>فعال</option>
-                                <option value="0" {{!$whiteboard->status ? 'selected' : ''}}>غیر فعال</option>
+                                <option value="1" {{$suggestionBox->status ? 'selected' : ''}}>فعال</option>
+                                <option value="0" {{!$suggestionBox->status ? 'selected' : ''}}>غیر فعال</option>
                             </select>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
 
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     @can('ویرایش صندوق پیشنهادات')
-                        <input type="hidden" name="id" value="{{ $whiteboard->id }}">
+                        <input type="hidden" name="id" value="{{ $suggestionBox->id }}">
                         <button type="submit"
                                 class="px-4 py-2 mr-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
                             ویرایش صندوق پیشنهادات
