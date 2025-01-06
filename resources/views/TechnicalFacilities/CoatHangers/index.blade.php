@@ -62,7 +62,7 @@
                                     {{ $coatHanger->adderInfo->name }} {{ $coatHanger->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($coatHangers->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($coatHanger->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @if($coatHanger->editorInfo!=null)
