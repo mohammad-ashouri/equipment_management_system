@@ -49,16 +49,16 @@
                                     {{ $waterDispenser->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $waterDispensers->refrigerator ? 'دارد' : 'ندارد' }}
+                                    {{ $waterDispenser->refrigerator ? 'دارد' : 'ندارد' }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $waterDispensers->tank ? 'دارد' : 'ندارد' }}
+                                    {{ $waterDispenser->tank ? 'دارد' : 'ندارد' }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $waterDispensers->cold }}
+                                    {{ $waterDispenser->cold }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $waterDispensers->warm }}
+                                    {{ $waterDispenser->warm }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($waterDispenser->status)

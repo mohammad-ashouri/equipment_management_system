@@ -34,7 +34,7 @@ class WaterDispenserController extends Controller
             'refrigerator' => 'required|boolean',
             'tank' => 'required|boolean',
             'cold_water_tap' => 'required|integer',
-            'warm_water_tap' => 'required|boolean',
+            'warm_water_tap' => 'required|integer',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
@@ -70,7 +70,7 @@ class WaterDispenserController extends Controller
             'refrigerator' => 'required|boolean',
             'tank' => 'required|boolean',
             'cold_water_tap' => 'required|integer',
-            'warm_water_tap' => 'required|boolean',
+            'warm_water_tap' => 'required|integer',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
