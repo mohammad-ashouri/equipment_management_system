@@ -14,13 +14,13 @@
                         میز پینگ پنگ جدید
                     </a>
                 @endcan
-                @if(empty($tables) or $tables->isEmpty())
+                @if(empty($pingPongTables) or $pingPongTables->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
                     </div>
                 @else
-                    <table class="datatable w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
+                    <table class="datapingPongTable w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                         <thead>
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class="px-6 py-3  font-bold ">ردیف</th>
@@ -37,23 +37,23 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($tables as $table)
+                        @foreach ($pingPongTables as $pingPongTable)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $table->brandInfo->name }}
+                                    {{ $pingPongTable->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $table->model }}
+                                    {{ $pingPongTable->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $table->material }}
+                                    {{ $pingPongTable->material }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $table->type }}
+                                    {{ $pingPongTable->type }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @switch($table->status)
+                                    @switch($pingPongTable->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -63,23 +63,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $table->adderInfo->name }} {{ $table->adderInfo->family }}
+                                    {{ $pingPongTable->adderInfo->name }} {{ $pingPongTable->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($table->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($pingPongTable->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($table->editorInfo!=null)
-                                        {{ $table->editorInfo->name }} {{ $table->editorInfo->family }}
+                                    @if($pingPongTable->editorInfo!=null)
+                                        {{ $pingPongTable->editorInfo->name }} {{ $pingPongTable->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($table->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($pingPongTable->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @can('ویرایش میز پینگ پنگ')
-                                        <a href="{{ route('PingPongTables.edit',$table->id) }}">
-                                            <button type="button" data-id="{{ $table->id }}"
+                                        <a href="{{ route('PingPongTables.edit',$pingPongTable->id) }}">
+                                            <button type="button" data-id="{{ $pingPongTable->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>
