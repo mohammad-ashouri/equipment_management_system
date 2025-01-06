@@ -14,7 +14,7 @@
                         کمد جدید
                     </a>
                 @endcan
-                @if(empty($samovars) or $samovars->isEmpty())
+                @if(empty($closets) or $closets->isEmpty())
                     <div role="alert" class="alert alert-info">
                         <i style="font-size: 20px" class="las la-info-circle"></i>
                         <span>اطلاعاتی یافت نشد!</span>
@@ -38,26 +38,26 @@
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-300">
-                        @foreach ($samovars as $samovar)
+                        @foreach ($closets as $closet)
                             <tr class="bg-white">
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->brandInfo->name }}
+                                    {{ $closet->brandInfo->name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->model }}
+                                    {{ $closet->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->material }}
+                                    {{ $closet->material }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->floors_number }}
+                                    {{ $closet->floors_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->doors_number }}
+                                    {{ $closet->doors_number }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @switch($samovar->status)
+                                    @switch($closet->status)
                                         @case(1)
                                             فعال
                                             @break
@@ -67,23 +67,23 @@
                                     @endswitch
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $samovar->adderInfo->name }} {{ $samovar->adderInfo->family }}
+                                    {{ $closet->adderInfo->name }} {{ $closet->adderInfo->family }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($samovar->created_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($closet->created_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if($samovar->editorInfo!=null)
-                                        {{ $samovar->editorInfo->name }} {{ $samovar->editorInfo->family }}
+                                    @if($closet->editorInfo!=null)
+                                        {{ $closet->editorInfo->name }} {{ $closet->editorInfo->family }}
                                     @endif
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ Jalalian::fromDateTime($samovar->updated_at)->format('H:i:s Y/m/d') }}
+                                    {{ Jalalian::fromDateTime($closet->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @can('ویرایش کمد')
-                                        <a href="{{ route('Closets.edit',$samovar->id) }}">
-                                            <button type="button" data-id="{{ $samovar->id }}"
+                                        <a href="{{ route('Closets.edit',$closet->id) }}">
+                                            <button type="button" data-id="{{ $closet->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
                                                 ویرایش
                                             </button>
