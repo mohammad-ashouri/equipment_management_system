@@ -19,8 +19,8 @@ class SamovarController extends Controller
 
     public function index()
     {
-        $shredders = Samovar::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
-        return view('TechnicalFacilities.Samovars.index', compact('shredders'));
+        $samovars = Samovar::with(['brandInfo', 'adderInfo', 'editorInfo'])->orderByDesc('created_at')->get();
+        return view('TechnicalFacilities.Samovars.index', compact('samovars'));
     }
 
     public function create()
@@ -37,9 +37,9 @@ class SamovarController extends Controller
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $shredders = Samovar::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'type' => $request->input('type'), 'liter_capacity' => $request->input('liter_capacity'), 'adder' => $this->getMyUserId()]);
+        $samovars = Samovar::create(['model' => $request->input('model'), 'brand' => $request->input('brand'), 'type' => $request->input('type'), 'liter_capacity' => $request->input('liter_capacity'), 'adder' => $this->getMyUserId()]);
 
-        if ($shredders) {
+        if ($samovars) {
             return redirect()->route('Samovars.index')->with('success', 'سماور با موفقیت ایجاد شد.');
         }
         return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد سماور']);
@@ -47,30 +47,30 @@ class SamovarController extends Controller
 
     public function edit($id)
     {
-        $shredder = Samovar::findOrFail($id);
+        $samovar = Samovar::findOrFail($id);
 
-        return view('TechnicalFacilities.Samovars.edit', compact('shredder'));
+        return view('TechnicalFacilities.Samovars.edit', compact('samovar'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'status' => 'required|integer|in:0,1',
-            'id' => 'required|integer|exists:shredders,id',
+            'id' => 'required|integer|exists:samovars,id',
             'model' => 'required|string',
             'type' => 'required|string',
             'liter_capacity' => 'required|integer',
             'brand' => 'required|integer|exists:brands,id',
         ]);
 
-        $shredders = Samovar::findOrFail($id);
-        $shredders->brand = $request->input('brand');
-        $shredders->model = $request->input('model');
-        $shredders->type = $request->input('type');
-        $shredders->liter_capacity = $request->input('liter_capacity');
-        $shredders->status = $request->input('status');
-        $shredders->editor = $this->getMyUserId();
-        $shredders->save();
+        $samovars = Samovar::findOrFail($id);
+        $samovars->brand = $request->input('brand');
+        $samovars->model = $request->input('model');
+        $samovars->type = $request->input('type');
+        $samovars->liter_capacity = $request->input('liter_capacity');
+        $samovars->status = $request->input('status');
+        $samovars->editor = $this->getMyUserId();
+        $samovars->save();
 
         return redirect()->route('Samovars.index')->with('success', 'سماور با موفقیت ویرایش شد.');
     }

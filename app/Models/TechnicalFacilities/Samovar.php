@@ -9,7 +9,7 @@ class Samovar extends Model
 {
     use ModelRelations;
 
-    protected $table = 'tea_makers';
+    protected $table = 'samovars';
     protected $fillable = [
         'model', 'type', 'liter_capacity', 'brand', 'status', 'adder', 'editor'
     ];

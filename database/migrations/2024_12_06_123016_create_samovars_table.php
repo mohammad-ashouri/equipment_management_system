@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('type');
             $table->integer('liter_capacity');
+            $table->boolean('status');
             $table->unsignedBigInteger('adder');
             $table->foreign('adder')->references('id')->on('users');
             $table->unsignedBigInteger('editor')->nullable();
