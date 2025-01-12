@@ -92,6 +92,7 @@ use App\Http\Controllers\TechnicalFacilities\PaperCutterController;
 use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\SamovarController;
+use App\Http\Controllers\TechnicalFacilities\ShoeCabinetController;
 use App\Http\Controllers\TechnicalFacilities\ShredderController;
 use App\Http\Controllers\TechnicalFacilities\SpringBindingController;
 use App\Http\Controllers\TechnicalFacilities\SuggestionBoxController;
@@ -262,6 +263,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/FrontFurnitureTables', FrontFurnitureTableController::class);
         Route::resource('/Books', BookController::class);
         Route::resource('/WhiteboardHolders', WhiteboardHolderController::class);
+        Route::resource('/ShoeCabinets', ShoeCabinetController::class);
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);

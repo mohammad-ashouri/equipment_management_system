@@ -561,6 +561,12 @@ class MenuMiddleware
                             'icon' => 'las la-chalkboard-teacher',
                         ],
                         [
+                            'title' => 'جاکفشی',
+                            'link' => '/ShoeCabinets',
+                            'permission' => "لیست جاکفشی",
+                            'icon' => 'las la-shoe-prints',
+                        ],
+                        [
                             'title' => 'تخته اعلانات',
                             'link' => '/Noticeboards',
                             'permission' => "لیست تخته اعلانات",
