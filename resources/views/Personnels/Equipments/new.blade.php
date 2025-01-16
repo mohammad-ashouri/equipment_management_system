@@ -101,7 +101,7 @@
             'table' => Table::class,
             'whiteboard_holder' => WhiteboardHolder::class,
             'vaccum_cleaner' => VaccumCleaner::class,
-            'shoe_cabinets' => ShoeCabinet::class,
+            'shoe_cabinet' => ShoeCabinet::class,
         ];
         $equipmentTypeName = $equipmentType->name;
         $items = [];
