@@ -26,8 +26,9 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">برند</th>
                             <th class="px-6 py-3  font-bold ">مدل</th>
-                            <th class="px-6 py-3  font-bold ">نوع</th>
-                            <th class="px-6 py-3  font-bold ">تعداد شعله</th>
+                            <th class="px-6 py-3  font-bold ">رنگ</th>
+                            <th class="px-6 py-3  font-bold ">تعداد در</th>
+                            <th class="px-6 py-3  font-bold ">تعداد طبقه</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -47,10 +48,13 @@
                                     {{ $shoeCabinet->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $shoeCabinet->type }}
+                                    {{ $shoeCabinet->color }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $shoeCabinet->flames_number }}
+                                    {{ $shoeCabinet->doors_number }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $shoeCabinet->floors_number }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($shoeCabinet->status)
