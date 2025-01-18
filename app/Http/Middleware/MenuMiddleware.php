@@ -471,9 +471,9 @@ class MenuMiddleware
                             'icon' => 'las la-temperature-low',
                         ],
                         [
-                            'title' => 'بخاری برقی',
+                            'title' => 'بخاری',
                             'link' => '/Heaters',
-                            'permission' => "لیست بخاری برقی",
+                            'permission' => "لیست بخاری",
                             'icon' => 'las la-fire',
                         ],
                         [

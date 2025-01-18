@@ -10,10 +10,10 @@ class HeaterController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:لیست بخاری برقی', ['only' => ['index']]);
-        $this->middleware('permission:ایجاد بخاری برقی', ['only' => ['create', 'store']]);
-        $this->middleware('permission:ویرایش بخاری برقی', ['only' => ['update', 'edit']]);
-        $this->middleware('permission:حذف بخاری برقی', ['only' => ['destroy']]);
+        $this->middleware('permission:لیست بخاری', ['only' => ['index']]);
+        $this->middleware('permission:ایجاد بخاری', ['only' => ['create', 'store']]);
+        $this->middleware('permission:ویرایش بخاری', ['only' => ['update', 'edit']]);
+        $this->middleware('permission:حذف بخاری', ['only' => ['destroy']]);
     }
 
     public function index()
@@ -43,9 +43,9 @@ class HeaterController extends Controller
         ]);
 
         if ($heater) {
-            return redirect()->route('Heaters.index')->with('success', 'بخاری برقی با موفقیت ایجاد شد.');
+            return redirect()->route('Heaters.index')->with('success', 'بخاری با موفقیت ایجاد شد.');
         }
-        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد بخاری برقی']);
+        return redirect()->back()->withErrors(['errors' => 'خطا در ایجاد بخاری']);
     }
 
     public function edit($id)
@@ -73,6 +73,6 @@ class HeaterController extends Controller
         $heater->editor = $this->getMyUserId();
         $heater->save();
 
-        return redirect()->route('Heaters.index')->with('success', 'بخاری برقی با موفقیت ویرایش شد.');
+        return redirect()->route('Heaters.index')->with('success', 'بخاری با موفقیت ویرایش شد.');
     }
 }

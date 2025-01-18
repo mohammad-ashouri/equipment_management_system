@@ -4,14 +4,14 @@
 @section('content')
     <main class="flex-1 bg-gray-100 py-6 px-8">
         <div class="mx-auto lg:mr-72">
-            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات بخاری برقی</h1>
+            <h1 class="text-2xl font-bold mb-4">تجهیزات پشتیبانی - مدیریت بر اطلاعات بخاری</h1>
             @include('layouts.components.errors')
             @include('layouts.components.success')
             <div class="bg-white rounded shadow p-6 flex flex-col ">
-                @can('ایجاد بخاری برقی')
+                @can('ایجاد بخاری')
                     <a type="button" href="{{route('Heaters.create')}}"
                        class="px-4 py-2 bg-green-500 w-40 mb-2 text-center text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                        بخاری برقی جدید
+                        بخاری جدید
                     </a>
                 @endcan
                 @if(empty($heaters) or $heaters->isEmpty())
@@ -73,7 +73,7 @@
                                     {{ Jalalian::fromDateTime($heater->updated_at)->format('H:i:s Y/m/d') }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @can('ویرایش بخاری برقی')
+                                    @can('ویرایش بخاری')
                                         <a href="{{ route('Heaters.edit',$heater->id) }}">
                                             <button type="button" data-id="{{ $heater->id }}"
                                                     class="px-4 py-2 mr-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 ReferTypeControl">
