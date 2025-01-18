@@ -100,6 +100,7 @@ use App\Http\Controllers\TechnicalFacilities\SuggestionBoxController;
 use App\Http\Controllers\TechnicalFacilities\TableController;
 use App\Http\Controllers\TechnicalFacilities\TeaMakerController;
 use App\Http\Controllers\TechnicalFacilities\TelevisionController;
+use App\Http\Controllers\TechnicalFacilities\ThermometerController;
 use App\Http\Controllers\TechnicalFacilities\VaccumCleanerController;
 use App\Http\Controllers\TechnicalFacilities\WaterDispenserController;
 use App\Http\Controllers\TechnicalFacilities\WaterPurifierController;
@@ -276,6 +277,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/WhiteboardHolders' => WhiteboardHolderController::class,
             '/ShoeCabinets' => ShoeCabinetController::class,
             '/Safes' => SafeController::class,
+            '/Thermometers' => ThermometerController::class,
         ]);
 
 

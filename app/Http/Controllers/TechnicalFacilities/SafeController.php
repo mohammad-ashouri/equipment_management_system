@@ -41,7 +41,6 @@ class SafeController extends Controller
             'brand' => $request->input('brand'),
             'type' => $request->input('type'),
             'floors_number' => $request->input('floors_number'),
-            'closets_number' => $request->input('closets_number'),
             'adder' => $this->getMyUserId()
         ]);
 

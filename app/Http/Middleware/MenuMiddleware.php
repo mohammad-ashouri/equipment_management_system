@@ -644,6 +644,12 @@ class MenuMiddleware
                             'permission' => "لیست گاو صندوق",
                             'icon' => 'las la-box',
                         ],
+                        [
+                            'title' => 'تب سنج',
+                            'link' => '/Thermometers',
+                            'permission' => "لیست تب سنج",
+                            'icon' => 'las la-thermometer-three-quarters',
+                        ],
                     ]
                 ],
                 6 => [
