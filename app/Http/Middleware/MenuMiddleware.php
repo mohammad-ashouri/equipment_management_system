@@ -638,6 +638,12 @@ class MenuMiddleware
                             'permission' => "لیست کتاب",
                             'icon' => 'las la-book',
                         ],
+                        [
+                            'title' => 'گاو صندوق',
+                            'link' => '/Safes',
+                            'permission' => "لیست گاو صندوق",
+                            'icon' => 'las la-box',
+                        ],
                     ]
                 ],
                 6 => [

@@ -91,6 +91,7 @@ use App\Http\Controllers\TechnicalFacilities\OvenController;
 use App\Http\Controllers\TechnicalFacilities\PaperCutterController;
 use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
+use App\Http\Controllers\TechnicalFacilities\SafeController;
 use App\Http\Controllers\TechnicalFacilities\SamovarController;
 use App\Http\Controllers\TechnicalFacilities\ShoeCabinetController;
 use App\Http\Controllers\TechnicalFacilities\ShredderController;
@@ -168,102 +169,115 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::resource('/BookSubjects', BookSubjectController::class);
 
         //Hardware Equipments
-        Route::resource('/Monitors', MonitorController::class);
-        Route::resource('/Cases', CaseController::class);
-        Route::resource('/Cpus', CpuController::class);
-        Route::resource('/Motherboards', MotherboardController::class);
-        Route::resource('/Powers', PowerController::class);
-        Route::resource('/Rams', RamController::class);
-        Route::resource('/GraphicCards', GraphicCardController::class);
-        Route::resource('/InternalHardDisks', InternalHardDiskController::class);
-        Route::resource('/Odds', OddController::class);
-        Route::resource('/Mouses', MouseController::class);
-        Route::resource('/Keyboards', KeyboardController::class);
-        Route::resource('/Headsets', HeadsetController::class);
-        Route::resource('/Printers', PrinterController::class);
-        Route::resource('/Scanners', ScannerController::class);
-        Route::resource('/CopyMachines', CopyMachineController::class);
-        Route::resource('/Voips', VoipController::class);
+        Route::resources([
+            '/Monitors' => MonitorController::class,
+            '/Cases' => CaseController::class,
+            '/Cpus' => CpuController::class,
+            '/Motherboards' => MotherboardController::class,
+            '/Powers' => PowerController::class,
+            '/Rams' => RamController::class,
+            '/GraphicCards' => GraphicCardController::class,
+            '/InternalHardDisks' => InternalHardDiskController::class,
+            '/Odds' => OddController::class,
+            '/Mouses' => MouseController::class,
+            '/Keyboards' => KeyboardController::class,
+            '/Headsets' => HeadsetController::class,
+            '/Printers' => PrinterController::class,
+            '/Scanners' => ScannerController::class,
+            '/CopyMachines' => CopyMachineController::class,
+            '/Voips' => VoipController::class,
+        ]);
+
 
         //Network Equipments
-        Route::resource('/NetworkCards', NetworkCardController::class);
-        Route::resource('/Modems', ModemController::class);
-        Route::resource('/Switches', SwitchController::class);
-        Route::resource('/Racks', RackControllers::class);
-        Route::resource('/Dongles', DongleController::class);
-        Route::resource('/PunchWrenches', PunchWrenchController::class);
-        Route::resource('/SocketWrenches', SocketWrenchController::class);
-        Route::resource('/StripperWrenches', StripperWrenchController::class);
-        Route::resource('/CableTesters', CableTesterController::class);
-        Route::resource('/Kvms', KvmController::class);
-        Route::resource('/Lantvs', LantvController::class);
-        Route::resource('/RadioWirelesses', RadioWirelessController::class);
-        Route::resource('/AccessPoints', AccessPointController::class);
-        Route::resource('/Routers', RouterController::class);
+        Route::resources([
+            '/NetworkCards' => NetworkCardController::class,
+            '/Modems' => ModemController::class,
+            '/Switches' => SwitchController::class,
+            '/Racks' => RackControllers::class,
+            '/Dongles' => DongleController::class,
+            '/PunchWrenches' => PunchWrenchController::class,
+            '/SocketWrenches' => SocketWrenchController::class,
+            '/StripperWrenches' => StripperWrenchController::class,
+            '/CableTesters' => CableTesterController::class,
+            '/Kvms' => KvmController::class,
+            '/Lantvs' => LantvController::class,
+            '/RadioWirelesses' => RadioWirelessController::class,
+            '/AccessPoints' => AccessPointController::class,
+            '/Routers' => RouterController::class,
+        ]);
+
 
         //Digital Equipments
-        Route::resource('/ExternalHardDisks', ExternalHardDiskController::class);
-        Route::resource('/Phones', PhoneController::class);
-        Route::resource('/Mobiles', MobileController::class);
-        Route::resource('/Tablets', TabletController::class);
-        Route::resource('/DVBs', DVBController::class);
-        Route::resource('/CameraHolders', CameraHolderController::class);
-        Route::resource('/Simcards', SimcardController::class);
-        Route::resource('/Speakers', SpeakerController::class);
-        Route::resource('/AttendanceSystems', AttendanceSystemController::class);
-        Route::resource('/Cctvs', CctvController::class);
-        Route::resource('/Recorders', RecorderController::class);
-        Route::resource('/Webcams', WebcamController::class);
-        Route::resource('/FlashMemories', FlashMemoryController::class);
-        Route::resource('/Ups', UpsController::class);
-        Route::resource('/SatelliteDishes', SatelliteDishController::class);
-        Route::resource('/CameraLenses', CameraLensController::class);
-        Route::resource('/SatelliteFinders', SatelliteFinderController::class);
-        Route::resource('/SoundCards', SoundCardController::class);
-        Route::resource('/VideoProjectors', VideoProjectorController::class);
-        Route::resource('/VideoProjectorCurtains', VideoProjectorCurtainController::class);
-        Route::resource('/Microphones', MicrophoneController::class);
-        Route::resource('/BatteryChargers', BatteryChargerController::class);
-        Route::resource('/Cameras', CameraController::class);
-        Route::resource('/Laptops', LaptopController::class);
+        Route::resources([
+            '/ExternalHardDisks' => ExternalHardDiskController::class,
+            '/Phones' => PhoneController::class,
+            '/Mobiles' => MobileController::class,
+            '/Tablets' => TabletController::class,
+            '/DVBs' => DVBController::class,
+            '/CameraHolders' => CameraHolderController::class,
+            '/Simcards' => SimcardController::class,
+            '/Speakers' => SpeakerController::class,
+            '/AttendanceSystems' => AttendanceSystemController::class,
+            '/Cctvs' => CctvController::class,
+            '/Recorders' => RecorderController::class,
+            '/Webcams' => WebcamController::class,
+            '/FlashMemories' => FlashMemoryController::class,
+            '/Ups' => UpsController::class,
+            '/SatelliteDishes' => SatelliteDishController::class,
+            '/CameraLenses' => CameraLensController::class,
+            '/SatelliteFinders' => SatelliteFinderController::class,
+            '/SoundCards' => SoundCardController::class,
+            '/VideoProjectors' => VideoProjectorController::class,
+            '/VideoProjectorCurtains' => VideoProjectorCurtainController::class,
+            '/Microphones' => MicrophoneController::class,
+            '/BatteryChargers' => BatteryChargerController::class,
+            '/Cameras' => CameraController::class,
+            '/Laptops' => LaptopController::class,
+        ]);
+
 
         //TechnicalFacilities
-        Route::resource('/Chairs', ChairController::class);
-        Route::resource('/Tables', TableController::class);
-        Route::resource('/FireExtinguishers', FireExtinguisherController::class);
-        Route::resource('/Refrigerators', RefrigeratorController::class);
-        Route::resource('/Blowers', BlowerController::class);
-        Route::resource('/KeyBoxes', KeyBoxController::class);
-        Route::resource('/DrawerFileCabinets', DrawerFileCabinetController::class);
-        Route::resource('/AirConditioners', AirConditionerController::class);
-        Route::resource('/Heaters', HeaterController::class);
-        Route::resource('/Televisions', TelevisionController::class);
-        Route::resource('/Ladders', LadderController::class);
-        Route::resource('/PingPongTables', PingPongTableController::class);
-        Route::resource('/Microwaves', MicrowaveController::class);
-        Route::resource('/Fans', FanController::class);
-        Route::resource('/VaccumCleaners', VaccumCleanerController::class);
-        Route::resource('/CoatHangers', CoatHangerController::class);
-        Route::resource('/Shredders', ShredderController::class);
-        Route::resource('/Ovens', OvenController::class);
-        Route::resource('/WaterPurifiers', WaterPurifierController::class);
-        Route::resource('/TeaMakers', TeaMakerController::class);
-        Route::resource('/Samovars', SamovarController::class);
-        Route::resource('/Whiteboards', WhiteboardController::class);
-        Route::resource('/WaterDispensers', WaterDispenserController::class);
-        Route::resource('/Noticeboards', NoticeboardController::class);
-        Route::resource('/PaperCutters', PaperCutterController::class);
-        Route::resource('/SpringBindings', SpringBindingController::class);
-        Route::resource('/HotGlueBindings', HotGlueBindingController::class);
-        Route::resource('/SuggestionBoxes', SuggestionBoxController::class);
-        Route::resource('/Closets', ClosetController::class);
-        Route::resource('/LaminatingMachines', LaminatingMachineController::class);
-        Route::resource('/Libraries', LibraryController::class);
-        Route::resource('/Beds', BedController::class);
-        Route::resource('/FrontFurnitureTables', FrontFurnitureTableController::class);
-        Route::resource('/Books', BookController::class);
-        Route::resource('/WhiteboardHolders', WhiteboardHolderController::class);
-        Route::resource('/ShoeCabinets', ShoeCabinetController::class);
+        Route::resources([
+            '/Chairs' => ChairController::class,
+            '/Tables' => TableController::class,
+            '/FireExtinguishers' => FireExtinguisherController::class,
+            '/Refrigerators' => RefrigeratorController::class,
+            '/Blowers' => BlowerController::class,
+            '/KeyBoxes' => KeyBoxController::class,
+            '/DrawerFileCabinets' => DrawerFileCabinetController::class,
+            '/AirConditioners' => AirConditionerController::class,
+            '/Heaters' => HeaterController::class,
+            '/Televisions' => TelevisionController::class,
+            '/Ladders' => LadderController::class,
+            '/PingPongTables' => PingPongTableController::class,
+            '/Microwaves' => MicrowaveController::class,
+            '/Fans' => FanController::class,
+            '/VaccumCleaners' => VaccumCleanerController::class,
+            '/CoatHangers' => CoatHangerController::class,
+            '/Shredders' => ShredderController::class,
+            '/Ovens' => OvenController::class,
+            '/WaterPurifiers' => WaterPurifierController::class,
+            '/TeaMakers' => TeaMakerController::class,
+            '/Samovars' => SamovarController::class,
+            '/Whiteboards' => WhiteboardController::class,
+            '/WaterDispensers' => WaterDispenserController::class,
+            '/Noticeboards' => NoticeboardController::class,
+            '/PaperCutters' => PaperCutterController::class,
+            '/SpringBindings' => SpringBindingController::class,
+            '/HotGlueBindings' => HotGlueBindingController::class,
+            '/SuggestionBoxes' => SuggestionBoxController::class,
+            '/Closets' => ClosetController::class,
+            '/LaminatingMachines' => LaminatingMachineController::class,
+            '/Libraries' => LibraryController::class,
+            '/Beds' => BedController::class,
+            '/FrontFurnitureTables' => FrontFurnitureTableController::class,
+            '/Books' => BookController::class,
+            '/WhiteboardHolders' => WhiteboardHolderController::class,
+            '/ShoeCabinets' => ShoeCabinetController::class,
+            '/Safes' => SafeController::class,
+        ]);
+
 
         //Personnels
         Route::resource('/Personnels', PersonnelController::class);
