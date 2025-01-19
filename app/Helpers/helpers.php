@@ -88,6 +88,7 @@ if (!defined('TRANSLATIONS')) {
         'mode' => 'حالت',
         'battery_type' => 'نوع باتری',
         'flashlight' => 'چراغ قوه',
+        'mihrab' => 'محراب',
     ]);
 }
 
