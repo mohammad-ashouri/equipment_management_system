@@ -152,6 +152,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست تب سنج', 'guard_name' => 'web'],
             ['name' => 'ایجاد تب سنج', 'guard_name' => 'web'],
             ['name' => 'ویرایش تب سنج', 'guard_name' => 'web'],
+
+            ['name' => 'لیست تابلو برق', 'guard_name' => 'web'],
+            ['name' => 'ایجاد تابلو برق', 'guard_name' => 'web'],
+            ['name' => 'ویرایش تابلو برق', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

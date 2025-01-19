@@ -650,6 +650,12 @@ class MenuMiddleware
                             'permission' => "لیست تب سنج",
                             'icon' => 'las la-thermometer-three-quarters',
                         ],
+                        [
+                            'title' => 'تابلو برق',
+                            'link' => '/ElectricPanels',
+                            'permission' => "لیست تابلو برق",
+                            'icon' => 'las la-bolt',
+                        ],
                     ]
                 ],
                 6 => [

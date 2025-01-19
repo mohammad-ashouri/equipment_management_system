@@ -85,6 +85,7 @@ if (!defined('TRANSLATIONS')) {
         'table' => 'میز',
         'library' => 'کتابخانه',
         'drawer_file_cabinet' => 'فایل کشویی',
+        'mode' => 'حالت',
     ]);
 }
 

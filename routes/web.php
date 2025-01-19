@@ -76,6 +76,7 @@ use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\ClosetController;
 use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
+use App\Http\Controllers\TechnicalFacilities\ElectricPanelController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
 use App\Http\Controllers\TechnicalFacilities\FrontFurnitureTableController;
@@ -278,6 +279,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/ShoeCabinets' => ShoeCabinetController::class,
             '/Safes' => SafeController::class,
             '/Thermometers' => ThermometerController::class,
+            '/ElectricPanels' => ElectricPanelController::class,
         ]);
 
 
