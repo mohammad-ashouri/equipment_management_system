@@ -79,6 +79,7 @@ use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
 use App\Http\Controllers\TechnicalFacilities\ElectricPanelController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
+use App\Http\Controllers\TechnicalFacilities\FlashlightController;
 use App\Http\Controllers\TechnicalFacilities\FrontFurnitureTableController;
 use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\HotGlueBindingController;
@@ -280,6 +281,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Safes' => SafeController::class,
             '/Thermometers' => ThermometerController::class,
             '/ElectricPanels' => ElectricPanelController::class,
+            '/Flashlights' => FlashlightController::class,
         ]);
 
 

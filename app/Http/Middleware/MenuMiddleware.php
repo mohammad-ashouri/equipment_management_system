@@ -656,6 +656,12 @@ class MenuMiddleware
                             'permission' => "لیست تابلو برق",
                             'icon' => 'las la-bolt',
                         ],
+                        [
+                            'title' => 'چراغ قوه',
+                            'link' => '/Flashlights',
+                            'permission' => "لیست چراغ قوه",
+                            'icon' => 'las la-sun',
+                        ],
                     ]
                 ],
                 6 => [
