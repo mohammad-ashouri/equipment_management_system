@@ -88,6 +88,7 @@ use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\LaminatingMachineController;
 use App\Http\Controllers\TechnicalFacilities\LibraryController;
 use App\Http\Controllers\TechnicalFacilities\MicrowaveController;
+use App\Http\Controllers\TechnicalFacilities\MihrabController;
 use App\Http\Controllers\TechnicalFacilities\NoticeboardController;
 use App\Http\Controllers\TechnicalFacilities\OvenController;
 use App\Http\Controllers\TechnicalFacilities\PaperCutterController;
@@ -282,6 +283,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Thermometers' => ThermometerController::class,
             '/ElectricPanels' => ElectricPanelController::class,
             '/Flashlights' => FlashlightController::class,
+            '/Mihrabs' => MihrabController::class,
         ]);
 
 

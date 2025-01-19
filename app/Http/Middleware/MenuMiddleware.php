@@ -662,6 +662,12 @@ class MenuMiddleware
                             'permission' => "لیست چراغ قوه",
                             'icon' => 'las la-sun',
                         ],
+                        [
+                            'title' => 'محراب',
+                            'link' => '/Mihrabs',
+                            'permission' => "لیست محراب",
+                            'icon' => 'las la-sun',
+                        ],
                     ]
                 ],
                 6 => [
