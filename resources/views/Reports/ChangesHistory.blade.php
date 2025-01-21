@@ -98,12 +98,12 @@
                                                             $searchTerm = Str::studly($index);
 
                                                             $result = array_filter($paths, function ($path) use ($searchTerm) {
-                                                                return stripos($path, $searchTerm) !== false;
+                                                                return preg_match('/\\\\' . preg_quote($searchTerm, '/') . '$/', $path);
                                                             });
+
                                                         @endphp
                                                         @if(!empty($result))
                                                             @php
-
                                                                 $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first()->toArray();
                                                                 if (array_key_exists($index,$originalArray)){
                                                                     $keyIndex = array_search($index, array_keys($originalArray));
