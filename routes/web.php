@@ -295,6 +295,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::get('/Personnels/{personnel}/equipments/edit/{equipmentId}', [EquipmentsController::class, 'editEquipment'])->name('Personnels.equipments.edit');
         Route::post('/Personnels/equipments/update', [EquipmentsController::class, 'updateEquipment'])->name('Personnels.equipments.update');
         Route::post('/Personnels/equipments/move', [EquipmentsController::class, 'moveEquipment'])->name('Personnels.equipments.move');
+        Route::post('/Personnels/equipments/delete', [EquipmentsController::class, 'deleteEquipment'])->name('Personnels.equipments.delete');
 
         //Reports
         Route::prefix('BackupDatabase')->group(function () {

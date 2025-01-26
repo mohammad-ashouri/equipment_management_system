@@ -55,6 +55,10 @@
                                             class="px-4 py-2 mr-1 bg-orange-500 text-white rounded-md hover:bg-orange-600 focus:outline-none focus:ring focus:border-orange-300 move-equipment">
                                         انتقال
                                     </button>
+                                    <button type="button" data-equipment-id="{{ $equipment->id }}"
+                                            class="px-4 py-2 mr-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300 delete-equipment">
+                                        حذف
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -155,6 +159,41 @@
                                 location.reload();
                             }, error: function (xhr, textStatus, errorThrown) {
                                 // console.log(xhr);
+                            }
+                        });
+                    }
+                });
+            });
+
+            $('.delete-equipment').click(function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'آیا مطمئن هستید؟',
+                    text: "این عملیات قابل بازگشت نیست",
+                    showCancelButton: true,
+                    confirmButtonText: 'تایید',
+                    cancelButtonText: 'لغو',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'POST',
+                            url: "/Personnels/equipments/delete",
+                            data: {
+                                'equipment_id': $(this).data('equipment-id'),
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (response) {
+                                if (response != 'success') throw new Error(response.message || 'خطا در عملیات');
+                                Swal.fire({
+                                    title: 'عملیات موفقیت آمیز بود',
+                                    icon: 'success'
+                                }).then(() => {
+                                    window.location.reload();
+                                });
+                            }, error: function (xhr, textStatus, errorThrown) {
+                                throw new Error(xhr.message || 'خطا در عملیات');
                             }
                         });
                     }

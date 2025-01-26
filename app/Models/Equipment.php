@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Models\Catalogs\Building;
 use App\Traits\ModelRelations;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Equipment extends Model
 {
-    use ModelRelations;
+    use ModelRelations,SoftDeletes;
 
     protected $table = 'equipments';
     protected $fillable = [
