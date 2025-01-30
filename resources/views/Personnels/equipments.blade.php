@@ -77,127 +77,125 @@
     </main>
 
     <script>
-        $(document).ready(function () {
-            $('#new-equipment').click(function (e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: 'انتخاب تجهیزات',
-                    html: `
+        $('#new-equipment').click(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'انتخاب تجهیزات',
+                html: `
                 <select id="equipment-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option disabled selected value="">انتخاب کنید</option>
                     @foreach ($equipmentTypes as $equipmentType)
-                    <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
+                <option value="{{ $equipmentType->id }}">{{ $equipmentType->persian_name }}</option>
                     @endforeach
-                    </select>
+                </select>
 `,
-                    showCancelButton: true,
-                    confirmButtonText: 'تایید',
-                    cancelButtonText: 'لغو',
-                    didOpen: () => {
-                        // اینجا Select2 را اعمال می‌کنیم
-                        $('#equipment-select').select2({
-                            dropdownParent: $('.swal2-popup') // تعیین والد برای dropdown
-                        });
-                    },
-                    preConfirm: () => {
-                        const selectedOption = document.getElementById('equipment-select').value;
-                        if (!selectedOption) {
-                            Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
-                        }
-                        return selectedOption;
+                showCancelButton: true,
+                confirmButtonText: 'تایید',
+                cancelButtonText: 'لغو',
+                didOpen: () => {
+                    // اینجا Select2 را اعمال می‌کنیم
+                    $('#equipment-select').select2({
+                        dropdownParent: $('.swal2-popup') // تعیین والد برای dropdown
+                    });
+                },
+                preConfirm: () => {
+                    const selectedOption = document.getElementById('equipment-select').value;
+                    if (!selectedOption) {
+                        Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
                     }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        const url = result.value;
-                        if (url) {
-                            window.location.href = 'equipments/new/' + url;
-                        }
+                    return selectedOption;
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const url = result.value;
+                    if (url) {
+                        window.location.href = 'equipments/new/' + url;
                     }
-                });
+                }
             });
+        });
 
-            $('.move-equipment').click(function (e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: 'انتخاب پرسنل',
-                    html: `
+        $('.move-equipment').click(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'انتخاب پرسنل',
+                html: `
                 <select id="personnel-select" class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option disabled selected value="">انتخاب کنید</option>
                     @foreach ($allPersonnels->get() as $personnel)
-                    <option value="{{ $personnel->id }}">{{ $personnel->first_name }} {{ $personnel->last_name }} - {{ $personnel->personnel_code }}</option>
+                <option value="{{ $personnel->id }}">{{ $personnel->first_name }} {{ $personnel->last_name }} - {{ $personnel->personnel_code }}</option>
                     @endforeach
-                    </select>
+                </select>
 `,
-                    showCancelButton: true,
-                    confirmButtonText: 'تایید',
-                    cancelButtonText: 'لغو',
-                    didOpen: () => {
-                        $('#personnel-select').select2({
-                            dropdownParent: $('.swal2-popup')
-                        });
-                    },
-                    preConfirm: () => {
-                        const selectedOption = document.getElementById('personnel-select').value;
-                        if (!selectedOption) {
-                            Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
+                showCancelButton: true,
+                confirmButtonText: 'تایید',
+                cancelButtonText: 'لغو',
+                didOpen: () => {
+                    $('#personnel-select').select2({
+                        dropdownParent: $('.swal2-popup')
+                    });
+                },
+                preConfirm: () => {
+                    const selectedOption = document.getElementById('personnel-select').value;
+                    if (!selectedOption) {
+                        Swal.showValidationMessage('لطفاً یک گزینه را انتخاب کنید');
+                    }
+                    return selectedOption;
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "/Personnels/equipments/move",
+                        data: {
+                            'equipment_id': $(this).data('equipment-id'),
+                            'personnel': result.value
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+                            location.reload();
+                        }, error: function (xhr, textStatus, errorThrown) {
+                            // console.log(xhr);
                         }
-                        return selectedOption;
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            type: 'POST',
-                            url: "/Personnels/equipments/move",
-                            data: {
-                                'equipment_id': $(this).data('equipment-id'),
-                                'personnel': result.value
-                            },
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            success: function (response) {
-                                location.reload();
-                            }, error: function (xhr, textStatus, errorThrown) {
-                                // console.log(xhr);
-                            }
-                        });
-                    }
-                });
+                    });
+                }
             });
+        });
 
-            $('.delete-equipment').click(function (e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: 'آیا مطمئن هستید؟',
-                    text: "این عملیات قابل بازگشت نیست",
-                    showCancelButton: true,
-                    confirmButtonText: 'تایید',
-                    cancelButtonText: 'لغو',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            type: 'POST',
-                            url: "/Personnels/equipments/delete",
-                            data: {
-                                'equipment_id': $(this).data('equipment-id'),
-                            },
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            success: function (response) {
-                                if (response != 'success') throw new Error(response.message || 'خطا در عملیات');
-                                Swal.fire({
-                                    title: 'عملیات موفقیت آمیز بود',
-                                    icon: 'success'
-                                }).then(() => {
-                                    window.location.reload();
-                                });
-                            }, error: function (xhr, textStatus, errorThrown) {
-                                throw new Error(xhr.message || 'خطا در عملیات');
-                            }
-                        });
-                    }
-                });
+        $('.delete-equipment').on('click', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: "این عملیات قابل بازگشت نیست",
+                showCancelButton: true,
+                confirmButtonText: 'تایید',
+                cancelButtonText: 'لغو',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "/Personnels/equipments/delete",
+                        data: {
+                            'equipment_id': $(this).data('equipment-id'),
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+                            if (response != 'success') throw new Error(response.message || 'خطا در عملیات');
+                            Swal.fire({
+                                title: 'عملیات موفقیت آمیز بود',
+                                icon: 'success'
+                            }).then(() => {
+                                window.location.reload();
+                            });
+                        }, error: function (xhr, textStatus, errorThrown) {
+                            throw new Error(xhr.message || 'خطا در عملیات');
+                        }
+                    });
+                }
             });
         });
     </script>
