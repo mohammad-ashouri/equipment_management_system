@@ -89,6 +89,7 @@ if (!defined('TRANSLATIONS')) {
         'battery_type' => 'نوع باتری',
         'flashlight' => 'چراغ قوه',
         'mihrab' => 'محراب',
+        'suitable_for' => 'مناسب برای',
     ]);
 }
 

@@ -668,6 +668,12 @@ class MenuMiddleware
                             'permission' => "لیست محراب",
                             'icon' => 'las la-sun',
                         ],
+                        [
+                            'title' => 'براکت',
+                            'link' => '/Brackets',
+                            'permission' => "لیست براکت",
+                            'icon' => 'lab la-umbraco',
+                        ],
                     ]
                 ],
                 6 => [
