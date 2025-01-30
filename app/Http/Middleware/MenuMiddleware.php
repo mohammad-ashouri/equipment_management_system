@@ -674,6 +674,12 @@ class MenuMiddleware
                             'permission' => "لیست براکت",
                             'icon' => 'lab la-umbraco',
                         ],
+                        [
+                            'title' => 'استند گلدان',
+                            'link' => '/FlowerPots',
+                            'permission' => "لیست استند گلدان",
+                            'icon' => 'las la-seedling',
+                        ],
                     ]
                 ],
                 6 => [

@@ -168,6 +168,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست براکت', 'guard_name' => 'web'],
             ['name' => 'ایجاد براکت', 'guard_name' => 'web'],
             ['name' => 'ویرایش براکت', 'guard_name' => 'web'],
+
+            ['name' => 'لیست استند گلدان', 'guard_name' => 'web'],
+            ['name' => 'ایجاد استند گلدان', 'guard_name' => 'web'],
+            ['name' => 'ویرایش استند گلدان', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];

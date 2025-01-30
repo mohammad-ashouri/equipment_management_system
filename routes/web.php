@@ -81,6 +81,7 @@ use App\Http\Controllers\TechnicalFacilities\ElectricPanelController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
 use App\Http\Controllers\TechnicalFacilities\FireExtinguisherController;
 use App\Http\Controllers\TechnicalFacilities\FlashlightController;
+use App\Http\Controllers\TechnicalFacilities\FlowerPotController;
 use App\Http\Controllers\TechnicalFacilities\FrontFurnitureTableController;
 use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\HotGlueBindingController;
@@ -286,6 +287,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Flashlights' => FlashlightController::class,
             '/Mihrabs' => MihrabController::class,
             '/Brackets' => BracketController::class,
+            '/FlowerPots' => FlowerPotController::class,
         ]);
 
 
