@@ -94,6 +94,7 @@ if (!defined('TRANSLATIONS')) {
         'refrigerator' => 'یخچال',
         'room_number' => 'شماره اتاق',
         'description' => 'توضیحات',
+        'mobile' => 'تلفن همراه',
     ]);
 }
 
