@@ -169,6 +169,20 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div>
+                            <label for="room_number"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">شماره
+                                اتاق </label>
+                            <input type="text" name="room_number" value="{{ $equipment->room_number }}"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                        </div>
+                        <div>
+                            <label for="description"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">توضیحات </label>
+                            <textarea type="text" name="description" rows="5"
+                                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            >{{ $equipment->description }}</textarea>
+                        </div>
                     </div>
                     @switch($equipment->equipmentType->name)
                         @case('case')

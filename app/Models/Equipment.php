@@ -13,7 +13,7 @@ class Equipment extends Model
 
     protected $table = 'equipments';
     protected $fillable = [
-        'personnel', 'equipment_type', 'property_code', 'delivery_date', 'info', 'description', 'status', 'adder', 'editor'
+        'personnel', 'equipment_type', 'property_code', 'delivery_date', 'info', 'description', 'room_number', 'status', 'adder', 'editor'
     ];
 
     public function equipmentType()
@@ -40,6 +40,8 @@ class Equipment extends Model
                 'property_code' => $equipment->property_code,
                 'delivery_date' => $equipment->delivery_date,
                 'building' => $equipment->building,
+                'room_number' => $equipment->room_number,
+                'description' => $equipment->description,
                 'info' => $equipment->info,
             ];
             ChangeHistory::create([
@@ -80,7 +82,7 @@ class Equipment extends Model
                 ]);
             } else {
                 $changedInfo = json_decode($changedData['info'], true);
-                unset($changedInfo['description'], $changedInfo['equipmentId']);
+                unset( $changedInfo['equipmentId']);
                 $changedData['info'] = json_encode($changedInfo);
 
                 // تبدیل JSON ها به آرایه برای مقایسه

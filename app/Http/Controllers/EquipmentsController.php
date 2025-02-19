@@ -70,6 +70,8 @@ class EquipmentsController extends Controller
         $equipment->delivery_date = $request->delivery_date;
         $equipment->equipment_type = $request->equipment_type;
         $equipment->building = $request->building;
+        $equipment->room_number = $request->room_number;
+        $equipment->description = $request->description;
         unset($input['building'], $input['personnel'], $input['property_code'], $input['equipment_type'], $input['_token']);
         $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();
@@ -126,6 +128,8 @@ class EquipmentsController extends Controller
         $equipment->property_code = $request->property_code;
         $equipment->delivery_date = $request->delivery_date;
         $equipment->building = $request->building;
+        $equipment->room_number = $request->room_number;
+        $equipment->description = $request->description;
         unset($input['_token']);
         $equipment->info = json_encode($input, true);
         $equipment->adder = $this->getMyUserId();

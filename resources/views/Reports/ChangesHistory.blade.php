@@ -60,10 +60,19 @@
                                                     کد اموال
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
+                                                    ساختمان
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
+                                                    شماره اتاق
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
                                                     ساختمان محل استقرار
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
                                                     اطلاعات
+                                                </th>
+                                                <th class="px-2 py-1  font-bold ">
+                                                    توضیحات
                                                 </th>
                                             </tr>
                                             <tr>
@@ -80,6 +89,12 @@
                                                 </td>
                                                 <td class="px-2 py-2">
                                                     {{ $changes['کد اموال'] }}
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    {{ Building::find($changes['ساختمان'])->name }}
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    {{ $changes['شماره اتاق'] }}
                                                 </td>
                                                 <td class="px-2 py-2">
                                                     {{ Building::find($changes['ساختمان']) ? Building::find($changes['ساختمان'])->name : null }}
@@ -151,6 +166,9 @@
                                                             @endforeach
                                                         @endif
                                                     @endforeach
+                                                </td>
+                                                <td class="px-2 py-2">
+                                                    {{ $changes['توضیحات'] }}
                                                 </td>
                                             </tr>
                                         </table>

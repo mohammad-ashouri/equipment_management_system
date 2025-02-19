@@ -90,11 +90,15 @@ if (!defined('TRANSLATIONS')) {
         'flashlight' => 'چراغ قوه',
         'mihrab' => 'محراب',
         'suitable_for' => 'مناسب برای',
+        'tank' => 'منبع',
+        'refrigerator' => 'یخچال',
+        'room_number' => 'شماره اتاق',
+        'description' => 'توضیحات',
     ]);
 }
 
 if (!function_exists('translateKeysToPersian')) {
-    function translateKeysToPersian($array)
+    function translateKeysToPersian($array): array
     {
         $translations = TRANSLATIONS;
         $translatedArray = [];
@@ -115,7 +119,7 @@ if (!function_exists('translateKeysToPersian')) {
 }
 
 if (!function_exists('translateKeysToEnglish')) {
-    function translateKeysToEnglish($array)
+    function translateKeysToEnglish($array): array
     {
         $translations = array_flip(TRANSLATIONS);
         $translatedArray = [];
