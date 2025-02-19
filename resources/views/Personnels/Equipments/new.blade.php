@@ -109,6 +109,7 @@
             'mihrab' => Mihrab::class,
             'bracket' => Bracket::class,
             'flower_pot' => FlowerPot::class,
+            'mobile' => Mobile::class,
         ];
         $equipmentTypeName = $equipmentType->name;
         $items = [];
