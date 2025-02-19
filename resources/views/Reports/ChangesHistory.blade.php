@@ -60,13 +60,10 @@
                                                     کد اموال
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
-                                                    ساختمان
+                                                    ساختمان محل استقرار
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
                                                     شماره اتاق
-                                                </th>
-                                                <th class="px-2 py-1  font-bold ">
-                                                    ساختمان محل استقرار
                                                 </th>
                                                 <th class="px-2 py-1  font-bold ">
                                                     اطلاعات
@@ -94,10 +91,7 @@
                                                     {{ Building::find($changes['ساختمان'])->name }}
                                                 </td>
                                                 <td class="px-2 py-2">
-                                                    {{ $changes['شماره اتاق'] }}
-                                                </td>
-                                                <td class="px-2 py-2">
-                                                    {{ Building::find($changes['ساختمان']) ? Building::find($changes['ساختمان'])->name : null }}
+                                                    {{ @$changes['شماره اتاق'] }}
                                                 </td>
                                                 <td class="px-2 py-2">
                                                     @php
@@ -168,7 +162,7 @@
                                                     @endforeach
                                                 </td>
                                                 <td class="px-2 py-2">
-                                                    {{ $changes['توضیحات'] }}
+                                                    {{ @$changes['توضیحات'] }}
                                                 </td>
                                             </tr>
                                         </table>

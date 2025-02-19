@@ -74,7 +74,7 @@
         <option value="" disabled selected>انتخاب کنید</option>
         @foreach($items[App\Models\HardwareEquipments\GraphicCard::class] as $item)
             <option value="{{ $item->id }}"
-                    @if($equipmentInfo['graphicCard']==$item->id) selected @endif>{{ $item->brandInfo->name}}
+                    @if(@$equipmentInfo['graphicCard']==$item->id) selected @endif>{{ $item->brandInfo->name}}
                 - {{ $item->model}} - {{ $item->ram_size }}</option>
         @endforeach
     </select>
@@ -87,7 +87,7 @@
         <option value="" disabled selected>انتخاب کنید</option>
         @foreach($items[App\Models\HardwareEquipments\Odd::class] as $item)
             <option value="{{ $item->id }}"
-                    @if($equipmentInfo['odd']==$item->id) selected @endif>{{ $item->brandInfo->name}}
+                    @if(@$equipmentInfo['odd']==$item->id) selected @endif>{{ $item->brandInfo->name}}
                 - {{ $item->model}}
                 - {{ $item->connectivity_type }}</option>
         @endforeach
