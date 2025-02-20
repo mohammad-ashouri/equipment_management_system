@@ -43,6 +43,8 @@
                                 </option>
                                 <option @if($internalHardDisk->capacity=="256GB") selected @endif value="256GB">256GB
                                 </option>
+                                <option @if($internalHardDisk->capacity=="320GB") selected @endif value="320GB">320GB
+                                </option>
                                 <option @if($internalHardDisk->capacity=="480GB") selected @endif value="480GB">480GB
                                 </option>
                                 <option @if($internalHardDisk->capacity=="500GB") selected @endif value="500GB">500GB

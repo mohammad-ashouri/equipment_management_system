@@ -39,6 +39,7 @@
                                 <option @if(old('capacity')=="128GB") selected @endif value="128GB">128GB</option>
                                 <option @if(old('capacity')=="250GB") selected @endif value="250GB">250GB</option>
                                 <option @if(old('capacity')=="256GB") selected @endif value="256GB">256GB</option>
+                                <option @if(old('capacity')=="320GB") selected @endif value="320GB">320GB</option>
                                 <option @if(old('capacity')=="480GB") selected @endif value="480GB">480GB</option>
                                 <option @if(old('capacity')=="500GB") selected @endif value="500GB">500GB</option>
                                 <option @if(old('capacity')=="512GB") selected @endif value="512GB">512GB</option>
