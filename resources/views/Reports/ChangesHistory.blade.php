@@ -1,4 +1,4 @@
-@php use App\Models\Catalogs\Building;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian;use function Sodium\add; @endphp
+@php use App\Models\Catalogs\Building;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Ram;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian;use function Sodium\add; @endphp
 @php @endphp
 @extends('layouts.PanelMaster')
 
@@ -111,7 +111,7 @@
                                                             });
 
                                                         @endphp
-                                                        @if(!empty($result))
+                                                        @if(!empty($result) and $info!='ندارد')
                                                             @php
                                                                 $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first()->toArray();
                                                                 if (array_key_exists($index,$originalArray)){
@@ -156,6 +156,20 @@
                                                                 {{ $equipmentInfo->type }}
                                                                 {{ $equipmentInfo->size }}
                                                                 ( کد اموال: {{ $info[$key]['property_code'] }} )
+                                                                <br/>
+                                                            @endforeach
+                                                        @elseif($searchTerm=='rams')
+                                                            @foreach($info as $key=>$ram)
+                                                                @php
+                                                                    $equipmentInfo=Ram::with('brandInfo')->whereId($internalHardDisk['id'])->first();
+                                                                @endphp
+                                                                رم
+                                                                = {{ $equipmentInfo->brandInfo->name }}
+                                                                {{ $equipmentInfo->model }}
+                                                                {{ $equipmentInfo->capacity }}
+                                                                {{ $equipmentInfo->connectivity_type }}
+                                                                {{ $equipmentInfo->type }}
+                                                                {{ $equipmentInfo->size }}
                                                                 <br/>
                                                             @endforeach
                                                         @endif
