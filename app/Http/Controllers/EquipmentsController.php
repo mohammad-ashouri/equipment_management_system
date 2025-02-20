@@ -32,7 +32,7 @@ class EquipmentsController extends Controller
     public function storeEquipment(Request $request)
     {
         $this->validate($request, [
-            'property_code' => 'nullable|string|unique:equipments,property_code',
+            'property_code' => 'nullable|string',
             'equipment_type' => 'required|integer|exists:equipment_types,id',
         ]);
         $input = $request->all();
@@ -93,7 +93,7 @@ class EquipmentsController extends Controller
     {
         $this->validate($request, [
             'equipmentId' => 'required|integer|exists:equipments,id',
-            'property_code' => "nullable|string|unique:equipments,property_code,$request->equipmentId,id",
+            'property_code' => "nullable|string",
         ]);
         $input = $request->all();
         $equipment = Equipment::find($request->equipmentId);
