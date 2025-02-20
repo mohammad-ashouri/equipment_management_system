@@ -30,7 +30,7 @@ class FixEquipmentTypesWithRoles extends Seeder
             ['name' => 'external_hard_disk', 'persian_name' => 'هارد اکسترنال', 'accessible_roles' => [1, 2]],
             ['name' => 'phone', 'persian_name' => 'تلفن رومیزی', 'accessible_roles' => [1, 2]],
             ['name' => 'television', 'persian_name' => 'تلوزیون', 'accessible_roles' => [1, 2]],
-            ['name' => 'mobile', 'persian_name' => 'موبایل', 'accessible_roles' => [1, 2]],
+            ['name' => 'mobile', 'persian_name' => 'تلفن همراه', 'accessible_roles' => [1, 2]],
             ['name' => 'tablet', 'persian_name' => 'تبلت', 'accessible_roles' => [1, 2]],
             ['name' => 'dvb', 'persian_name' => 'کارت DVB', 'accessible_roles' => [1, 2]],
             ['name' => 'camera_holder', 'persian_name' => 'پایه دوربین', 'accessible_roles' => [1, 2]],
