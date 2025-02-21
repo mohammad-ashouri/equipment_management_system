@@ -39,6 +39,7 @@
                                 <option @if(old('ram_size')=='512MB') selected @endif value="512MB">512MB</option>
                                 <option @if(old('ram_size')=='1GB') selected @endif value="1GB">1GB</option>
                                 <option @if(old('ram_size')=='2GB') selected @endif value="2GB">2GB</option>
+                                <option @if(old('ram_size')=='3GB') selected @endif value="3GB">3GB</option>
                                 <option @if(old('ram_size')=='4GB') selected @endif value="4GB">4GB</option>
                                 <option @if(old('ram_size')=='6GB') selected @endif value="6GB">6GB</option>
                                 <option @if(old('ram_size')=='8GB') selected @endif value="8GB">8GB</option>

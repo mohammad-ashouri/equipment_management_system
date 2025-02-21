@@ -103,6 +103,7 @@
                                     required>
                                 <option @if($motherboard->ram_slots_number=='2') selected @endif value="2">2</option>
                                 <option @if($motherboard->ram_slots_number=='4') selected @endif value="4">4</option>
+                                <option @if($motherboard->ram_slots_number=='8') selected @endif value="8">8</option>
                             </select>
                         </div>
                         <div>

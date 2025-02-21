@@ -26,7 +26,10 @@
                             <th class="px-6 py-3  font-bold ">ردیف</th>
                             <th class="px-6 py-3  font-bold ">برند</th>
                             <th class="px-6 py-3  font-bold ">مدل</th>
-                            <th class="px-6 py-3  font-bold ">ولتاژ</th>
+                            <th class="px-6 py-3  font-bold ">نسل</th>
+                            <th class="px-6 py-3  font-bold ">ظرفیت</th>
+                            <th class="px-6 py-3  font-bold ">تعداد کانال</th>
+                            <th class="px-6 py-3  font-bold ">فرکانس</th>
                             <th class="px-6 py-3  font-bold ">وضعیت</th>
                             <th class="px-6 py-3  font-bold ">کاربر ثبت کننده</th>
                             <th class="px-6 py-3  font-bold ">تاریخ ثبت</th>
@@ -46,7 +49,16 @@
                                     {{ $ram->model }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $ram->voltage }}
+                                    {{ $ram->type }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $ram->size }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $ram->channels }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $ram->frequency }}
                                 </td>
                                 <td class="px-6 py-4">
                                     @switch($ram->status)
