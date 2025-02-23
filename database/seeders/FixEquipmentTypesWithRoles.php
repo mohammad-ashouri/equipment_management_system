@@ -35,7 +35,7 @@ class FixEquipmentTypesWithRoles extends Seeder
             ['name' => 'dvb', 'persian_name' => 'کارت DVB', 'accessible_roles' => [1, 2]],
             ['name' => 'camera_holder', 'persian_name' => 'پایه دوربین', 'accessible_roles' => [1, 2]],
             ['name' => 'simcard', 'persian_name' => 'سیمکارت', 'accessible_roles' => [1, 2]],
-            ['name' => 'punch_wrench', 'persian_name' => 'آچار شبکه', 'accessible_roles' => [1, 2]],
+            ['name' => 'punch_wrench', 'persian_name' => 'آچار پانچ', 'accessible_roles' => [1, 2]],
             ['name' => 'socket_wrench', 'persian_name' => 'آچار سوکت', 'accessible_roles' => [1, 2]],
             ['name' => 'stripper_wrench', 'persian_name' => 'آچار استریپر', 'accessible_roles' => [1, 2]],
             ['name' => 'cable_tester', 'persian_name' => 'تستر شبکه', 'accessible_roles' => [1, 2]],
