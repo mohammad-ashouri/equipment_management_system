@@ -47,10 +47,10 @@
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    @can('ایجاد کارت شبکه')
+                    @can('ایجاد تلفن رومیزی')
                         <button type="submit"
                                 class="px-4 py-2 mr-3 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-300">
-                            ایجاد کارت شبکه
+                            ایجاد تلفن رومیزی
                         </button>
                     @endcan
                     <button id="backward_page" type="button"
