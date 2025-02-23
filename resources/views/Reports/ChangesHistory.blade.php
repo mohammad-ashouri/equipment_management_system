@@ -1,4 +1,4 @@
-@php use App\Models\Catalogs\Building;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Ram;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian;use function Sodium\add; @endphp
+@php use App\Models\Catalogs\Building;use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\HardwareEquipments\Ram;use App\Models\Personnel;use Faker\Provider\Person;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian;use function Sodium\add; @endphp
 @php @endphp
 @extends('layouts.PanelMaster')
 
@@ -44,9 +44,13 @@
                                     $changesNew=translateKeysToPersian(json_decode($items->new,true));
                                     $changesEdit=translateKeysToPersian(json_decode($items->edit,true));
                                     $changesDelete=translateKeysToPersian(json_decode($items->delete,true));
+
                                 @endphp
                                 <td class="px-2 py-2">
                                     @if(isset($changes['وضعیت']) and $changes['وضعیت']=='created')
+                                        @php
+                                            $personnelNew=Personnel::find($changes['پرسنل']);
+                                        @endphp
                                         <table
                                             class="w-full border-collapse rounded-lg overflow-hidden text-center datasheet">
                                             <tr class="bg-gradient-to-r from-red-400 to-yellow-500 items-center text-center text-white">
@@ -77,8 +81,8 @@
                                                     تحویل داده شد به
                                                     <a target="_blank" class="text-blue-600"
                                                        title="کلیک برای نمایش پرسنل"
-                                                       href="{{ route('Personnels.edit',$items->equipmentInfo->personnelInfo->id) }}">
-                                                        {{ $items->equipmentInfo->personnelInfo->first_name }} {{ $items->equipmentInfo->personnelInfo->last_name }}
+                                                       href="{{ route('Personnels.edit',$personnelNew->id) }}">
+                                                        {{ $personnelNew->first_name }} {{ $personnelNew->last_name }}
                                                     </a>
                                                 </td>
                                                 <td class="px-2 py-2">

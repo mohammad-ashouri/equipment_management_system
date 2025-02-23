@@ -111,6 +111,7 @@
             'flower_pot' => FlowerPot::class,
             'mobile' => Mobile::class,
             'camera' => Camera::class,
+            'kvm' => Kvm::class,
         ];
 
         $equipmentType = $equipment->equipmentType->name;
