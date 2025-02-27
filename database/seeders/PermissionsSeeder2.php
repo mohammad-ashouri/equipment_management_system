@@ -187,5 +187,25 @@ class PermissionsSeeder2 extends Seeder
 
         $role = Role::firstOrCreate(['name' => 'کارشناس اداری']);
         $role->givePermissionTo(Permission::whereIn('name', $arrayPermissionsForCheck)->where('guard_name', 'web')->get());
+
+
+        $permissions = [
+            ['name' => 'لیست رم دوربین', 'guard_name' => 'web'],
+            ['name' => 'ایجاد رم دوربین', 'guard_name' => 'web'],
+            ['name' => 'ویرایش رم دوربین', 'guard_name' => 'web'],
+        ];
+        $arrayPermissionsForCheck=[];
+        foreach ($permissions as $permission) {
+            $arrayPermissionsForCheck[]=$permission['name'];
+        }
+        Permission::whereIn('name', $arrayPermissionsForCheck)->where('guard_name', 'web')->delete();
+
+        Permission::insert($permissions);
+
+        $role = Role::firstOrCreate(['name' => 'ادمین کل']);
+        $role->givePermissionTo(Permission::whereIn('name', $arrayPermissionsForCheck)->where('guard_name', 'web')->get());
+
+        $role = Role::firstOrCreate(['name' => 'کارشناس فنی']);
+        $role->givePermissionTo(Permission::whereIn('name', $arrayPermissionsForCheck)->where('guard_name', 'web')->get());
     }
 }

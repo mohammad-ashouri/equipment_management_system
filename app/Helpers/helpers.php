@@ -96,6 +96,7 @@ if (!defined('TRANSLATIONS')) {
         'description' => 'توضیحات',
         'mobile' => 'تلفن همراه',
         'headset' => 'هدست',
+        'camera_ram' => 'رم دوربین',
     ]);
 }
 

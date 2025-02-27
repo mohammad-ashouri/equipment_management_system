@@ -414,6 +414,12 @@ class MenuMiddleware
                             'permission' => "لیست دوربین",
                             'icon' => 'las la-camera',
                         ],
+                        [
+                            'title' => 'رم دوربین',
+                            'link' => '/CameraRams',
+                            'permission' => "لیست رم دوربین",
+                            'icon' => 'las la-camera',
+                        ],
                     ]
                 ],
                 5 => [

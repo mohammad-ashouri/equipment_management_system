@@ -12,6 +12,7 @@ use App\Http\Controllers\DigitalEquipments\BatteryChargerController;
 use App\Http\Controllers\DigitalEquipments\CameraController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
 use App\Http\Controllers\DigitalEquipments\CameraLensController;
+use App\Http\Controllers\DigitalEquipments\CameraRamController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
@@ -288,6 +289,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Mihrabs' => MihrabController::class,
             '/Brackets' => BracketController::class,
             '/FlowerPots' => FlowerPotController::class,
+            '/CameraRams' => CameraRamController::class,
         ]);
 
 
