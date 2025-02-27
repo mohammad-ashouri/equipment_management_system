@@ -35,6 +35,11 @@
                                     class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
                                 <option value="" disabled selected>انتخاب کنید</option>
+                                <option @if(old('capacity')=="4GB") selected @endif value="4GB">4GB</option>
+                                <option @if(old('capacity')=="8GB") selected @endif value="8GB">8GB</option>
+                                <option @if(old('capacity')=="16GB") selected @endif value="16GB">16GB</option>
+                                <option @if(old('capacity')=="32GB") selected @endif value="32GB">32GB</option>
+                                <option @if(old('capacity')=="64GB") selected @endif value="64GB">64GB</option>
                                 <option @if(old('capacity')=="120GB") selected @endif value="120GB">120GB</option>
                                 <option @if(old('capacity')=="128GB") selected @endif value="128GB">128GB</option>
                                 <option @if(old('capacity')=="250GB") selected @endif value="250GB">250GB</option>
