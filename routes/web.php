@@ -57,6 +57,7 @@ use App\Http\Controllers\NetworkEquipments\CableTesterController;
 use App\Http\Controllers\NetworkEquipments\DongleController;
 use App\Http\Controllers\NetworkEquipments\KvmController;
 use App\Http\Controllers\NetworkEquipments\LantvController;
+use App\Http\Controllers\NetworkEquipments\LmbController;
 use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
 use App\Http\Controllers\NetworkEquipments\NvrController;
@@ -296,6 +297,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Pbxes' => PbxController::class,
             '/SatelliteSwitches' => SatelliteSwitchController::class,
             '/Nvrs' => NvrController::class,
+            '/Lmbs' => LmbController::class,
         ]);
 
 

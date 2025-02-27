@@ -262,6 +262,12 @@ class MenuMiddleware
                             'permission' => "لیست nvr",
                             'icon' => 'las la-video',
                         ],
+                        [
+                            'title' => 'lmb',
+                            'link' => '/Lmbs',
+                            'permission' => "لیست lmb",
+                            'icon' => 'las la-satellite-dish',
+                        ],
                     ]
                 ],
                 4 => [
