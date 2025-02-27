@@ -444,6 +444,12 @@ class MenuMiddleware
                             'permission' => "لیست سوییچ ماهواره",
                             'icon' => 'las la-satellite-dish',
                         ],
+                        [
+                            'title' => 'گیرنده دیجیتال',
+                            'link' => '/SetTopBoxes',
+                            'permission' => "لیست گیرنده دیجیتال",
+                            'icon' => 'las la-tv',
+                        ],
                     ]
                 ],
                 5 => [
