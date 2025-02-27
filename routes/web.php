@@ -25,6 +25,7 @@ use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\RecorderController;
 use App\Http\Controllers\DigitalEquipments\SatelliteDishController;
 use App\Http\Controllers\DigitalEquipments\SatelliteFinderController;
+use App\Http\Controllers\DigitalEquipments\SatelliteSwitchController;
 use App\Http\Controllers\DigitalEquipments\SimcardController;
 use App\Http\Controllers\DigitalEquipments\SoundCardController;
 use App\Http\Controllers\DigitalEquipments\SpeakerController;
@@ -292,6 +293,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/FlowerPots' => FlowerPotController::class,
             '/CameraRams' => CameraRamController::class,
             '/Pbxes' => PbxController::class,
+            '/SatelliteSwitches' => SatelliteSwitchController::class,
         ]);
 
 

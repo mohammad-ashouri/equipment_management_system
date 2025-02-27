@@ -197,6 +197,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست دستگاه سانترال', 'guard_name' => 'web'],
             ['name' => 'ایجاد دستگاه سانترال', 'guard_name' => 'web'],
             ['name' => 'ویرایش دستگاه سانترال', 'guard_name' => 'web'],
+
+            ['name' => 'لیست سوییچ ماهواره', 'guard_name' => 'web'],
+            ['name' => 'ایجاد سوییچ ماهواره', 'guard_name' => 'web'],
+            ['name' => 'ویرایش سوییچ ماهواره', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];
         foreach ($permissions as $permission) {

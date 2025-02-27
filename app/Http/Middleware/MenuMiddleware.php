@@ -426,6 +426,12 @@ class MenuMiddleware
                             'permission' => "لیست دستگاه سانترال",
                             'icon' => 'las la-phone',
                         ],
+                        [
+                            'title' => 'سوییچ ماهواره',
+                            'link' => '/SatelliteSwitches',
+                            'permission' => "لیست سوییچ ماهواره",
+                            'icon' => 'las la-satellite-dish',
+                        ],
                     ]
                 ],
                 5 => [

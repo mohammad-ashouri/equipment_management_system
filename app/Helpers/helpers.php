@@ -98,6 +98,7 @@ if (!defined('TRANSLATIONS')) {
         'headset' => 'هدست',
         'camera_ram' => 'رم دوربین',
         'pbx' => 'دستگاه سانترال',
+        'satellite_switches' => 'سوییچ ماهواره',
     ]);
 }
 
