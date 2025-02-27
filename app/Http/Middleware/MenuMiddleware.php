@@ -420,6 +420,12 @@ class MenuMiddleware
                             'permission' => "لیست رم دوربین",
                             'icon' => 'las la-camera',
                         ],
+                        [
+                            'title' => 'دستگاه سانترال',
+                            'link' => '/Pbxes',
+                            'permission' => "لیست دستگاه سانترال",
+                            'icon' => 'las la-phone',
+                        ],
                     ]
                 ],
                 5 => [

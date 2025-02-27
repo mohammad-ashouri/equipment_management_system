@@ -20,6 +20,7 @@ use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
 use App\Http\Controllers\DigitalEquipments\LaptopController;
 use App\Http\Controllers\DigitalEquipments\MicrophoneController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
+use App\Http\Controllers\DigitalEquipments\PbxController;
 use App\Http\Controllers\DigitalEquipments\PhoneController;
 use App\Http\Controllers\DigitalEquipments\RecorderController;
 use App\Http\Controllers\DigitalEquipments\SatelliteDishController;
@@ -290,6 +291,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Brackets' => BracketController::class,
             '/FlowerPots' => FlowerPotController::class,
             '/CameraRams' => CameraRamController::class,
+            '/Pbxes' => PbxController::class,
         ]);
 
 

@@ -193,6 +193,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست رم دوربین', 'guard_name' => 'web'],
             ['name' => 'ایجاد رم دوربین', 'guard_name' => 'web'],
             ['name' => 'ویرایش رم دوربین', 'guard_name' => 'web'],
+
+            ['name' => 'لیست دستگاه سانترال', 'guard_name' => 'web'],
+            ['name' => 'ایجاد دستگاه سانترال', 'guard_name' => 'web'],
+            ['name' => 'ویرایش دستگاه سانترال', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];
         foreach ($permissions as $permission) {

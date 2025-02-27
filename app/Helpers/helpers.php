@@ -97,6 +97,7 @@ if (!defined('TRANSLATIONS')) {
         'mobile' => 'تلفن همراه',
         'headset' => 'هدست',
         'camera_ram' => 'رم دوربین',
+        'pbx' => 'دستگاه سانترال',
     ]);
 }
 
