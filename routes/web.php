@@ -59,6 +59,7 @@ use App\Http\Controllers\NetworkEquipments\KvmController;
 use App\Http\Controllers\NetworkEquipments\LantvController;
 use App\Http\Controllers\NetworkEquipments\ModemController;
 use App\Http\Controllers\NetworkEquipments\NetworkCardController;
+use App\Http\Controllers\NetworkEquipments\NvrController;
 use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
@@ -294,6 +295,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/CameraRams' => CameraRamController::class,
             '/Pbxes' => PbxController::class,
             '/SatelliteSwitches' => SatelliteSwitchController::class,
+            '/Nvrs' => NvrController::class,
         ]);
 
 

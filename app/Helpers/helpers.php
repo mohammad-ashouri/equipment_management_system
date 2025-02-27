@@ -99,6 +99,7 @@ if (!defined('TRANSLATIONS')) {
         'camera_ram' => 'رم دوربین',
         'pbx' => 'دستگاه سانترال',
         'satellite_switches' => 'سوییچ ماهواره',
+        'nvr' => 'NVR',
     ]);
 }
 

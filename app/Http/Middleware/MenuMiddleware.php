@@ -256,6 +256,12 @@ class MenuMiddleware
                             'permission' => "لیست روتر",
                             'icon' => 'las la-route',
                         ],
+                        [
+                            'title' => 'NVR',
+                            'link' => '/Nvrs',
+                            'permission' => "لیست nvr",
+                            'icon' => 'las la-video',
+                        ],
                     ]
                 ],
                 4 => [

@@ -201,6 +201,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست سوییچ ماهواره', 'guard_name' => 'web'],
             ['name' => 'ایجاد سوییچ ماهواره', 'guard_name' => 'web'],
             ['name' => 'ویرایش سوییچ ماهواره', 'guard_name' => 'web'],
+
+            ['name' => 'لیست nvr', 'guard_name' => 'web'],
+            ['name' => 'ایجاد nvr', 'guard_name' => 'web'],
+            ['name' => 'ویرایش nvr', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];
         foreach ($permissions as $permission) {
