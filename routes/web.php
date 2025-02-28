@@ -19,6 +19,7 @@ use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
 use App\Http\Controllers\DigitalEquipments\LaptopController;
+use App\Http\Controllers\DigitalEquipments\LightController;
 use App\Http\Controllers\DigitalEquipments\LightHolderController;
 use App\Http\Controllers\DigitalEquipments\MicrophoneController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
@@ -304,6 +305,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/SetTopBoxes' => SetTopBoxController::class,
             '/LightHolders' => LightHolderController::class,
             '/BatteryCabinets' => BatteryCabinetController::class,
+            '/Lights' => LightController::class,
         ]);
 
 

@@ -103,6 +103,7 @@ if (!defined('TRANSLATIONS')) {
         'light_holder' => 'پایه نور',
         'battery_cabinet' => 'کابینت باتری',
         'channels_number' => 'تعداد کانال',
+        'light' => 'نور',
     ]);
 }
 

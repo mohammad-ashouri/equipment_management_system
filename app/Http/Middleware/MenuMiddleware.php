@@ -462,6 +462,12 @@ class MenuMiddleware
                             'permission' => "لیست کابینت باتری",
                             'icon' => 'las la-car-battery',
                         ],
+                        [
+                            'title' => 'نور',
+                            'link' => '/Lights',
+                            'permission' => "لیست نور",
+                            'icon' => 'las la-lightbulb',
+                        ],
                     ]
                 ],
                 5 => [
