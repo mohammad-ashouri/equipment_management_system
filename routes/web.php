@@ -8,6 +8,7 @@ use App\Http\Controllers\Catalogs\PublicationController;
 use App\Http\Controllers\Catalogs\RoleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DigitalEquipments\AttendanceSystemController;
+use App\Http\Controllers\DigitalEquipments\BatteryCabinetController;
 use App\Http\Controllers\DigitalEquipments\BatteryChargerController;
 use App\Http\Controllers\DigitalEquipments\CameraController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
@@ -302,6 +303,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Lmbs' => LmbController::class,
             '/SetTopBoxes' => SetTopBoxController::class,
             '/LightHolders' => LightHolderController::class,
+            '/BatteryCabinets' => BatteryCabinetController::class,
         ]);
 
 

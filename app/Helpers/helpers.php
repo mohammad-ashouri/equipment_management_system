@@ -101,6 +101,8 @@ if (!defined('TRANSLATIONS')) {
         'satellite_switches' => 'سوییچ ماهواره',
         'set_top_box' => 'گیرنده دیجیتال',
         'light_holder' => 'پایه نور',
+        'battery_cabinet' => 'کابینت باتری',
+        'channels_number' => 'تعداد کانال',
     ]);
 }
 
