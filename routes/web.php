@@ -18,6 +18,7 @@ use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
 use App\Http\Controllers\DigitalEquipments\LaptopController;
+use App\Http\Controllers\DigitalEquipments\LightHolderController;
 use App\Http\Controllers\DigitalEquipments\MicrophoneController;
 use App\Http\Controllers\DigitalEquipments\MobileController;
 use App\Http\Controllers\DigitalEquipments\PbxController;
@@ -300,6 +301,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Nvrs' => NvrController::class,
             '/Lmbs' => LmbController::class,
             '/SetTopBoxes' => SetTopBoxController::class,
+            '/LightHolders' => LightHolderController::class,
         ]);
 
 

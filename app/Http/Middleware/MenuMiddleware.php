@@ -450,6 +450,12 @@ class MenuMiddleware
                             'permission' => "لیست گیرنده دیجیتال",
                             'icon' => 'las la-tv',
                         ],
+                        [
+                            'title' => 'پایه نور',
+                            'link' => '/LightHolders',
+                            'permission' => "لیست پایه نور",
+                            'icon' => 'las la-pause',
+                        ],
                     ]
                 ],
                 5 => [

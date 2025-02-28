@@ -100,6 +100,7 @@ if (!defined('TRANSLATIONS')) {
         'pbx' => 'دستگاه سانترال',
         'satellite_switches' => 'سوییچ ماهواره',
         'set_top_box' => 'گیرنده دیجیتال',
+        'light_holder' => 'پایه نور',
     ]);
 }
 
