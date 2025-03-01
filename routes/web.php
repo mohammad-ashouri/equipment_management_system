@@ -327,6 +327,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         Route::get('/ChangeHistory/{personnel}/{equipmentId}', [HistoryController::class, 'index'])->name('History.index');
         Route::prefix('Equipments')->group(function () {
            Route::get('All', [EquipmentController::class, 'allEquipments'])->name('Equipments.all');
+           Route::get('Hardware', [EquipmentController::class, 'hardware'])->name('Equipments.hardware');
         });
         Route::resource('/Consumables',ConsumablesController::class);
     });

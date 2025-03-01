@@ -761,6 +761,12 @@ class MenuMiddleware
                             'permission' => "لیست اقلام مصرفی",
                             'icon' => 'las la-pen',
                         ],
+                        [
+                            'title' => 'اقلام سخت افزاری',
+                            'link' => '/Equipments/Hardware',
+                            'permission' => "لیست اقلام سخت افزاری",
+                            'icon' => 'las la-microchip',
+                        ],
                     ]
                 ],
                 9 => [
