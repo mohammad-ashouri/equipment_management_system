@@ -25,6 +25,6 @@ class Personnel extends Model
 
     public function equipments(): HasMany
     {
-        return $this->hasMany(Equipment::class, 'personnel', 'id');
+        return $this->hasMany(Equipment::class, 'personnel', 'id')->orderBy('equipment_type');
     }
 }

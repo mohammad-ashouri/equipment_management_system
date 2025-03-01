@@ -18,9 +18,12 @@ class EquipmentController extends Controller
 
     public function hardware()
     {
-        $persons=Personnel::with(['equipments'=>function ($query) {
-            $query->whereIn('equipment_type',[
-                1,2,3,4,5,6,7
+        $persons = Personnel::whereHas('equipments', function ($query) {
+            $query->whereIn('equipment_type', [1, 2, 3, 4, 5, 6, 7, 15]);
+        })
+            ->with(['equipments' => function ($query) {
+            $query->whereIn('equipment_type', [
+                1, 2, 3, 4, 5, 6, 7, 15
             ]);
         }])
             ->get();
