@@ -31,31 +31,49 @@
                             <th class=" px-3 py-3  font-bold no-filter ">اموال کیس</th>
                             <th class=" px-3 py-3  font-bold no-filter ">اموال مانیتور</th>
                             <th class=" px-3 py-3  font-bold no-filter ">اموال هارد</th>
-                            <th class=" px-3 py-3  font-bold no-filter ">شماره پلمپ</th>
+                            <th class=" px-3 py-3 font-bold no-filter ">شماره پلمپ</th>
                             <th class=" px-3 py-3  font-bold no-filter ">ساختمان</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($persons as $person)
                             @php
+                                $colors = [
+                                    // رنگ‌های آبی و سبز متعادل
+                                    'steelblue', 'teal', 'cadetblue', 'mediumturquoise', 'royalblue', 'deepskyblue',
+                                    'dodgerblue', 'cornflowerblue', 'darkcyan', 'darkturquoise', 'slateblue',
+
+                                    // رنگ‌های بنفش و صورتی متعادل
+                                    'darkorchid', 'mediumorchid', 'darkviolet', 'blueviolet', 'mediumpurple', 'orchid',
+                                    'plum', 'fuchsia', 'deeppink', 'palevioletred', 'crimson',
+
+                                    // رنگ‌های گرم و طبیعی
+                                    'sienna', 'chocolate', 'saddlebrown', 'peru', 'tan', 'goldenrod', 'darkgoldenrod',
+                                    'sandybrown', 'orangered', 'tomato', 'firebrick', 'darkred',
+
+                                    // رنگ‌های خاکستری و خنثی
+                                    'dimgray', 'dimgrey', 'slategray', 'darkslategray', 'gray', 'zinc'
+                                ];
+
                                 $monitors=$cases=$mouses=$keyboards=$headsets=$printers=$scanners=$phones=$monitorPropertyCodes=$casePropertyCodes=$caseSealCodes=[];
-                                foreach ($person->equipments as $equipment){
+                                foreach ($person->equipments as $key=>$equipment){
                                     $info=json_decode($equipment->info,true);
                                     switch ($equipment->equipment_type){
                                         case 1:
-                                            $monitors[]=Monitor::find($info['monitor']);
-                                            $monitorPropertyCodes[]=$equipment->property_code;
+                                            $monitors[]=['monitor'=>Monitor::find($info['monitor']),'color'=>$colors[$key]];
+                                            $monitorPropertyCodes[]=['code'=>$equipment->property_code,'color'=>$colors[$key]];
                                             break;
                                         case 2:
                                             $rams=[];
                                             foreach ($info['ram'] as $ram){
-                                                $rams[]=Ram::find($ram);
+                                                $rams[]=['ram'=>Ram::find($ram),'color'=>$colors[$key]];
                                             }
                                             $hards=[];
                                             foreach ($info['internalHardDisks'] as $hard){
                                                 $hards[]=[
                                                     'property_code'=> $hard['property_code'],
                                                     'hard'=> InternalHardDisk::find($hard['id']),
+                                                    'color'=>$colors[$key],
                                                 ];
                                             }
                                             $cases[]=[
@@ -68,27 +86,28 @@
                                                 'seal_code'=>$info['seal_code'],
                                                 'rams'=>$rams,
                                                 'hards'=>$hards,
+                                                'color'=>$colors[$key],
                                             ];
-                                            $casePropertyCodes[]=$equipment->property_code;
+                                            $casePropertyCodes[]=['code'=>$equipment->property_code,'color'=>$colors[$key]];
                                             $caseSealCodes[]= !empty($info['seal_code']) ? $info['seal_code'] : 'بدون کد';
                                             break;
                                         case 3:
-                                            $mouses[]=Mouse::find($info['mouse']);
+                                            $mouses[]=['mouse'=>Mouse::find($info['mouse']),'color'=>$colors[$key]];
                                             break;
                                         case 4:
-                                            $keyboards[]=Keyboard::find($info['keyboard']);
+                                            $keyboards[]=['keyboard'=>Keyboard::find($info['keyboard']),'color'=>$colors[$key]];
                                             break;
                                         case 5:
-                                            $headsets[]=Headset::find($info['headset']);
+                                            $headsets[]=['headset'=>Headset::find($info['headset']),'color'=>$colors[$key]];
                                             break;
                                         case 6:
-                                            $printers[]=Printer::find($info['printer']);
+                                            $printers[]=['printer'=>Printer::find($info['printer']),'color'=>$colors[$key]];
                                             break;
                                         case 7:
-                                            $scanners[]=Scanner::find($info['scanner']);
+                                            $scanners[]=['scanner'=>Scanner::find($info['scanner']),'color'=>$colors[$key]];
                                             break;
                                         case 15:
-                                            $phones[]=Phone::find($info['phone']);
+                                            $phones[]=['phone'=>Phone::find($info['phone']),'color'=>$colors[$key]];
                                             break;
                                     }
                                 }
@@ -97,10 +116,15 @@
                                 <td class="py-2">{{ $loop->iteration }}</td>
                                 <td class="py-2">{{ $person->personnel_code }}</td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            <tr class="border-b-4">
-                                                <td>
+                                            <tr>
+                                                <td style="background-color: {{ $case['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
                                                     {{ $case['case']->brandInfo->name }} {{ $case['case']->model }}
                                                 </td>
                                             </tr>
@@ -108,46 +132,65 @@
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            <tr class="border-b-4">
-                                                <td>
+                                            <tr>
+                                                <td style="background-color: {{ $case['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
                                                     {{ $case['motherboard']->brandInfo->name }} {{ $case['motherboard']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
-                                <td class="py-2">
-                                    <table>
+                                <td class="py-2"><table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            <tr class="border-b-4">
-                                                <td>
+                                            <tr>
+                                                <td style="background-color: {{ $case['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
                                                     {{ $case['cpu']->brandInfo->name }} {{ $case['cpu']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
-                                <td class="py-2">
-                                    <table>
+                                <td class="py-2"><table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            @if($case['graphicCard']!=null)
-                                                <tr class="border-b-4">
-                                                    <td>
+                                            @if($case['graphicCard'] != null)
+                                                <tr>
+                                                    <td style="background-color: {{ $case['color'] ?? '#333' }};
+                                                       border-radius: 5px;
+                                                       padding: 10px;
+                                                       overflow: hidden;
+                                                       clip-path: inset(0 round 5px);
+                                                       color: white;">
                                                         {{ $case['graphicCard']->brandInfo->name }} {{ $case['graphicCard']->model }}
                                                     </td>
                                                 </tr>
                                             @endif
                                         @endforeach
                                     </table>
+
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
                                             @if($case['odd']!=null)
-                                                <tr class="border-b-4">
-                                                    <td>
+                                                <tr>
+                                                    <td style="background-color: {{ $case['color'] }};
+                                                       border-radius: 5px;
+                                                       padding: 10px;
+                                                       overflow: hidden;
+                                                       clip-path: inset(0 round 5px);
+                                                       color: white;">
                                                         {{ $case['odd']->brandInfo->name }} {{ $case['odd']->model }}
                                                     </td>
                                                 </tr>
@@ -156,36 +199,52 @@
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
                                             @foreach($case['rams'] as $ram)
-                                                <tr class="border-b-4">
-                                                    <td>
-                                                        {{ $ram->brandInfo->name }} {{ $ram->model }}
+                                                <tr>
+                                                    <td style="background-color: {{ $ram['color'] }};
+                                                       border-radius: 5px;
+                                                       padding: 10px;
+                                                       overflow: hidden;
+                                                       clip-path: inset(0 round 5px);
+                                                       color: white;">
+                                                        {{ $ram['ram']->brandInfo->name }} {{ $ram['ram']->model }}
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         @endforeach
                                     </table>
+
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
                                             @foreach($case['hards'] as $hards)
-                                                <tr class="border-b-4">
-                                                    <td>
+                                                <tr>
+                                                    <td style="background-color: {{ $hards['color'] ?? '#333' }};
+                                                       border-radius: 5px;
+                                                       padding: 10px;
+                                                       overflow: hidden;
+                                                       clip-path: inset(0 round 5px);
+                                                       color: white;">
                                                         {{ $hards['hard']->brandInfo->name }} {{ $hards['hard']->model }}
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         @endforeach
                                     </table>
+
                                 </td>
-                                <td class="py-2">
-                                    <table>
+                                <td class="py-2"><table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            <tr class="border-b-4">
-                                                <td>
+                                            <tr>
+                                                <td style="background-color: {{ $case['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
                                                     {{ $case['power']->brandInfo->name }} {{ $case['power']->model }}
                                                 </td>
                                             </tr>
@@ -193,99 +252,146 @@
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($monitors as $monitor)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $monitor->brandInfo->name }} {{ $monitor->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $monitor['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $monitor['monitor']->brandInfo->name }} {{ $monitor['monitor']->model }} {{ $monitor['monitor']->size }}inch
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($keyboards as $keyboard)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $keyboard->brandInfo->name }} {{ $keyboard->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $keyboard['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $keyboard['keyboard']->brandInfo->name }} - {{ $keyboard['keyboard']->model }} - {{ $keyboard['keyboard']->connectivity_type }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($mouses as $mouse)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $mouse->brandInfo->name }} {{ $mouse->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $mouse['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $mouse['mouse']->brandInfo->name }} {{ $mouse['mouse']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($phones as $phone)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $phone->brandInfo->name }} {{ $phone->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $phone['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $phone['phone']->brandInfo->name }} {{ $phone['phone']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($printers as $printer)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $printer->brandInfo->name }} {{ $printer->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $printer['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $printer['printer']->brandInfo->name }} {{ $printer['printer']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($scanners as $scanner)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $scanner->brandInfo->name }} {{ $scanner->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $scanner['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $scanner['scanner']->brandInfo->name }} {{ $scanner['scanner']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
+
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($headsets as $headset)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ $headset->brandInfo->name }} {{ $headset->model }}
+                                            <tr>
+                                                <td style="background-color: {{ $headset['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $headset['headset']->brandInfo->name }} {{ $headset['headset']->model }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($casePropertyCodes as $casePropertyCode)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ isset($casePropertyCode) ? $casePropertyCode : null }}
+                                            <tr>
+                                                <td style="background-color: {{ $casePropertyCode['color'] }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $casePropertyCode['code'] ?? 'نامشخص' }}
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </table>
+
                                 </td>
                                 <td class="py-2">
-                                    <table>
+                                    <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($monitorPropertyCodes as $monitorPropertyCode)
-                                            <tr class="border-b-4">
-                                                <td>
-                                                    {{ isset($monitorPropertyCode) ? $monitorPropertyCode : null }}
+                                            <tr>
+                                                <td style="background-color: {{ $monitorPropertyCode['color'] ?? '#333' }};
+                                                   border-radius: 5px;
+                                                   padding: 10px;
+                                                   overflow: hidden;
+                                                   clip-path: inset(0 round 5px);
+                                                   color: white;">
+                                                    {{ $monitorPropertyCode['code'] ?? 'N/A' }}
                                                 </td>
                                             </tr>
                                         @endforeach
