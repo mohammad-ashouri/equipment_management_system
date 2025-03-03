@@ -104,6 +104,7 @@ if (!defined('TRANSLATIONS')) {
         'battery_cabinet' => 'کابینت باتری',
         'channels_number' => 'تعداد کانال',
         'light' => 'نور',
+        'camera_slider' => 'اسلایدر دوربین',
     ]);
 }
 

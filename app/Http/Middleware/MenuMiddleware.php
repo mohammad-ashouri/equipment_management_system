@@ -468,6 +468,12 @@ class MenuMiddleware
                             'permission' => "لیست نور",
                             'icon' => 'las la-lightbulb',
                         ],
+                        [
+                            'title' => 'اسلایدر دوربین',
+                            'link' => '/CameraSliders',
+                            'permission' => "لیست اسلایدر دوربین",
+                            'icon' => 'las la-expand-arrows-alt',
+                        ],
                     ]
                 ],
                 5 => [

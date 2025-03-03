@@ -14,6 +14,7 @@ use App\Http\Controllers\DigitalEquipments\CameraController;
 use App\Http\Controllers\DigitalEquipments\CameraHolderController;
 use App\Http\Controllers\DigitalEquipments\CameraLensController;
 use App\Http\Controllers\DigitalEquipments\CameraRamController;
+use App\Http\Controllers\DigitalEquipments\CameraSliderController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
@@ -306,6 +307,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/LightHolders' => LightHolderController::class,
             '/BatteryCabinets' => BatteryCabinetController::class,
             '/Lights' => LightController::class,
+            '/CameraSliders' => CameraSliderController::class,
         ]);
 
 

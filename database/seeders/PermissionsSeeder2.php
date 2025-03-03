@@ -226,6 +226,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'ایجاد نور', 'guard_name' => 'web'],
             ['name' => 'ویرایش نور', 'guard_name' => 'web'],
 
+            ['name' => 'لیست اسلایدر دوربین', 'guard_name' => 'web'],
+            ['name' => 'ایجاد اسلایدر دوربین', 'guard_name' => 'web'],
+            ['name' => 'ویرایش اسلایدر دوربین', 'guard_name' => 'web'],
+
             ['name' => 'لیست اقلام سخت افزاری', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];
