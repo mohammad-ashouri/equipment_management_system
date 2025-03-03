@@ -17,7 +17,6 @@
                             <th class=" px-6 py-3 font-bold no-filter">M.B</th>
                             <th class=" px-6 py-3 font-bold no-filter">CPU</th>
                             <th class=" px-6 py-3 font-bold no-filter">VGA</th>
-                            <th class=" px-6 py-3 font-bold no-filter">ODD</th>
                             <th class=" px-3 py-3  font-bold no-filter">RAM</th>
                             <th class=" px-3 py-3  font-bold no-filter">HARD</th>
                             <th class=" px-3 py-3  font-bold no-filter ">Power</th>
@@ -26,7 +25,6 @@
                             <th class=" px-3 py-3  font-bold no-filter ">Mouse</th>
                             <th class=" px-3 py-3  font-bold no-filter ">Telephone</th>
                             <th class=" px-3 py-3  font-bold no-filter ">Printer</th>
-                            <th class=" px-3 py-3  font-bold no-filter ">Scanner</th>
                             <th class=" px-3 py-3  font-bold no-filter ">Headset</th>
                             <th class=" px-3 py-3  font-bold no-filter ">اموال کیس</th>
                             <th class=" px-3 py-3  font-bold no-filter ">اموال مانیتور</th>
@@ -87,7 +85,6 @@
                                                 'motherboard'=>Motherboard::find($info['motherboard']),
                                                 'cpu'=>Cpu::find($info['cpu']),
                                                 'graphicCard' => (isset($info['graphicCard']) && $info['graphicCard'] != 'ندارد') ? GraphicCard::find($info['graphicCard']) : null,
-                                                'odd' => (isset($info['odd']) && $info['odd'] != 'ندارد') ? Odd::find($info['odd']) : null,
                                                 'seal_code'=>$info['seal_code'],
                                                 'rams'=>$rams,
                                                 'hards'=>$hards,
@@ -195,27 +192,10 @@
                                 <td class="py-2">
                                     <table style="border-collapse: separate; border-spacing: 5px;">
                                         @foreach($cases as $case)
-                                            @if($case['odd']!=null)
-                                                <tr>
-                                                    <td style="background-color: {{ $case['color'] }};
-                                                       border-radius: 5px;
-                                                       padding: 10px;
-                                                       overflow: hidden;
-                                                       clip-path: inset(0 round 5px);
-                                                       color: white;">
-                                                        {{ $case['odd']->brandInfo->name }} {{ $case['odd']->model }}
-                                                    </td>
-                                                </tr>
-                                            @endif
-                                        @endforeach
-                                    </table>
-                                </td>
-                                <td class="py-2">
-                                    <table style="border-collapse: separate; border-spacing: 5px;">
-                                        @foreach($cases as $case)
-                                            @foreach($case['rams'] as $ram)
-                                                <tr>
-                                                    <td style="background-color: {{ $ram['color'] }};
+                                            <tr>
+                                                    <td>
+                                                        @foreach($case['rams'] as $ram)
+                                                            <p style="background-color: {{ $ram['color'] }};
                                                        border-radius: 5px;
                                                        padding: 10px;
                                                        overflow: hidden;
@@ -223,9 +203,10 @@
                                                        color: white;">
                                                         {{ $ram['ram']->brandInfo->name }} {{ $ram['ram']->model }}
                                                         - {{ $ram['ram']->type }} - {{ $ram['ram']->size }}
+                                                            </p>
+                                                        @endforeach
                                                     </td>
-                                                </tr>
-                                            @endforeach
+                                            </tr>
                                         @endforeach
                                     </table>
 
@@ -354,24 +335,6 @@
                                             </tr>
                                         @endforeach
                                     </table>
-                                </td>
-                                <td class="py-2">
-                                    <table style="border-collapse: separate; border-spacing: 5px;">
-                                        @foreach($scanners as $key=>$scanner)
-                                            <tr>
-                                                <td style="background-color: {{ $scanner['color'] ?? '#333' }};
-                                                   border-radius: 5px;
-                                                   padding: 10px;
-                                                   overflow: hidden;
-                                                   clip-path: inset(0 round 5px);
-                                                   color: white;">
-                                                    {{ $scanner['scanner']->brandInfo->name }} {{ $scanner['scanner']->model }}
-                                                    - اموال: {{ $scannerPropertyCodes[$key] }}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-
                                 </td>
                                 <td class="py-2">
                                     <table style="border-collapse: separate; border-spacing: 5px;">

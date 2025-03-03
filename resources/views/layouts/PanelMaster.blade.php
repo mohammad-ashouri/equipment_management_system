@@ -207,41 +207,6 @@
                         }
                     },
                     {
-                        extend: 'excelHtml5',
-                        text: 'Excel',
-                        title: document.title,
-                        filename: function () {
-                            let date = new Date();
-                            let formattedDate = date.getFullYear() + '-' +
-                                (date.getMonth() + 1).toString().padStart(2, '0') + '-' +
-                                date.getDate().toString().padStart(2, '0') + '_' +
-                                date.getHours().toString().padStart(2, '0') + '-' +
-                                date.getMinutes().toString().padStart(2, '0');
-                            return document.title + '_' + formattedDate;
-                        },
-                        exportOptions: {
-                            columns: ':not(.action)',
-                            modifier: {
-                                page: 'all'
-                            }
-                        },
-                        customize: function (xlsx) {
-                            let sheet = xlsx.xl.worksheets['sheet1.xml'];
-                            $('row', sheet).each(function () {
-                                let seen = {};
-                                $('c', this).each(function () {
-                                    let cellValue = $('v', this).text();
-                                    if (seen[cellValue]) {
-                                        // اگر مقدار تکراری بود، در یک سلول ادغام شود
-                                        $(this).remove();
-                                    } else {
-                                        seen[cellValue] = true;
-                                    }
-                                });
-                            });
-                        }
-                    },
-                    {
                         extend: 'print',
                         exportOptions: {
                             columns: ':not(.action)'
