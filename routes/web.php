@@ -70,6 +70,7 @@ use App\Http\Controllers\NetworkEquipments\PunchWrenchController;
 use App\Http\Controllers\NetworkEquipments\RackControllers;
 use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
 use App\Http\Controllers\NetworkEquipments\RouterController;
+use App\Http\Controllers\NetworkEquipments\ServerController;
 use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
 use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
@@ -308,6 +309,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/BatteryCabinets' => BatteryCabinetController::class,
             '/Lights' => LightController::class,
             '/CameraSliders' => CameraSliderController::class,
+            '/Servers' => ServerController::class,
         ]);
 
 

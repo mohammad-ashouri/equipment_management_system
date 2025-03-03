@@ -105,6 +105,7 @@ if (!defined('TRANSLATIONS')) {
         'channels_number' => 'تعداد کانال',
         'light' => 'نور',
         'camera_slider' => 'اسلایدر دوربین',
+        'server' => 'سرور',
     ]);
 }
 

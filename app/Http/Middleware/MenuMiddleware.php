@@ -268,6 +268,12 @@ class MenuMiddleware
                             'permission' => "لیست lmb",
                             'icon' => 'las la-satellite-dish',
                         ],
+                        [
+                            'title' => 'سرور',
+                            'link' => '/Servers',
+                            'permission' => "لیست سرور",
+                            'icon' => 'las la-server',
+                        ],
                     ]
                 ],
                 4 => [
