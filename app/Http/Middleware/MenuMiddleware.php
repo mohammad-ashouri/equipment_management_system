@@ -274,6 +274,12 @@ class MenuMiddleware
                             'permission' => "لیست سرور",
                             'icon' => 'las la-server',
                         ],
+                        [
+                            'title' => 'Storage',
+                            'link' => '/Storages',
+                            'permission' => "لیست Storage",
+                            'icon' => 'las la-server',
+                        ],
                     ]
                 ],
                 4 => [

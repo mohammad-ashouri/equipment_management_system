@@ -72,6 +72,7 @@ use App\Http\Controllers\NetworkEquipments\RadioWirelessController;
 use App\Http\Controllers\NetworkEquipments\RouterController;
 use App\Http\Controllers\NetworkEquipments\ServerController;
 use App\Http\Controllers\NetworkEquipments\SocketWrenchController;
+use App\Http\Controllers\NetworkEquipments\StorageController;
 use App\Http\Controllers\NetworkEquipments\StripperWrenchController;
 use App\Http\Controllers\NetworkEquipments\SwitchController;
 use App\Http\Controllers\PersonnelController;
@@ -310,6 +311,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/Lights' => LightController::class,
             '/CameraSliders' => CameraSliderController::class,
             '/Servers' => ServerController::class,
+            '/Storages' => StorageController::class,
         ]);
 
 

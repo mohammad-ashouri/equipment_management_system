@@ -234,6 +234,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'ایجاد سرور', 'guard_name' => 'web'],
             ['name' => 'ویرایش سرور', 'guard_name' => 'web'],
 
+            ['name' => 'لیست Storage', 'guard_name' => 'web'],
+            ['name' => 'ایجاد Storage', 'guard_name' => 'web'],
+            ['name' => 'ویرایش Storage', 'guard_name' => 'web'],
+
             ['name' => 'لیست اقلام سخت افزاری', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];

@@ -123,6 +123,7 @@
             'light' => Light::class,
             'camera_sliders' => CameraSlider::class,
             'server' => Server::class,
+            'storage' => \App\Models\NetworkEquipments\Storage::class,
         ];
 
         $equipmentType = $equipment->equipmentType->name;
