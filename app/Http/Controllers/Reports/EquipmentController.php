@@ -16,7 +16,7 @@ class EquipmentController extends Controller
 //            ->whereNotIn('id',[1, 2, 3, 4, 5, 6, 7, 15])
             ->pluck('id')
             ->toArray();
-        $allEquipments = Equipment::whereIn('equipment_type', $equipmentTypes)->get();
+        $allEquipments = Equipment::whereIn('equipment_type', $equipmentTypes)->lazy();
         return view('Reports.AllEquipments', compact('allEquipments'));
     }
 
