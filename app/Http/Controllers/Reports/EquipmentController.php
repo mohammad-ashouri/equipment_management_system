@@ -13,7 +13,7 @@ class EquipmentController extends Controller
     {
         $equipmentTypes = EquipmentType::whereJsonContains('accessible_roles', $this->getMyRoleId())
             ->orderBy('persian_name')
-            ->whereNotIn('id',[1, 2, 3, 4, 5, 6, 7, 15])
+//            ->whereNotIn('id',[1, 2, 3, 4, 5, 6, 7, 15])
             ->pluck('id')
             ->toArray();
         $allEquipments = Equipment::whereIn('equipment_type', $equipmentTypes)->get();
