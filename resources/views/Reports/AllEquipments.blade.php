@@ -59,7 +59,7 @@
                                                 return basename(str_replace('\\', '/', $path)) === $searchTerm;
                                             });
                                         @endphp
-                                        @if(!empty($result) and $result!='ندارد')
+                                        @if(!empty($result) and $info!='ندارد')
                                             @php
                                                 $equipmentInfo=reset($result)::with('brandInfo')->whereId($info)->first();
                                                 if($equipmentInfo){
