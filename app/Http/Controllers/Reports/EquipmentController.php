@@ -18,6 +18,7 @@ class EquipmentController extends Controller
             ->toArray();
         $allEquipments = Equipment::whereIn('equipment_type', $equipmentTypes)->lazy();
         $internalHardDisks = Equipment::where('equipment_type', 2)
+            ->whereIn('equipment_type', $equipmentTypes)
             ->selectRaw("personnel, info->'internalHardDisks' as internalHardDisks, building")
             ->get();
         return view('Reports.AllEquipments', compact('allEquipments','internalHardDisks'));
