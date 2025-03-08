@@ -1,4 +1,4 @@
-@php use App\Models\HardwareEquipments\InternalHardDisk;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
+@php use App\Models\HardwareEquipments\InternalHardDisk;use App\Models\Personnel;use Illuminate\Support\Str;use Morilog\Jalali\Jalalian; @endphp
 @extends('layouts.PanelMaster')
 
 @section('content')
@@ -121,6 +121,35 @@
                                     {{ !empty($equipment->editor) ? Jalalian::fromDateTime($equipment->updated_at)->format('H:i:s Y/m/d') : null }}
                                 </td>
                             </tr>
+                        @endforeach
+                        @foreach($internalHardDisks as $internalHardDisk)
+                            @php
+                                $hardDisks=[];
+                                $hardDisksInfo=json_decode($internalHardDisk->internalharddisks,true);
+                                if ($internalHardDisk->internalharddisks == null){
+                                    continue;
+                                }
+                                foreach ($hardDisksInfo as $info){
+                                    $hardInfo=InternalHardDisk::find($info['id']);
+                                    $hardDisks[]=['info'=>$hardInfo->brandInfo->name. " - " . $hardInfo->model . " - " . $hardInfo->capacity,"property_code"=>$info['property_code']];
+                                }
+                                $personnel=Personnel::find($internalHardDisk->personnel);
+                            @endphp
+                            @foreach($hardDisks as $hardDisk)
+                                <tr class="odd:bg-gray-300 even:bg-white">
+                                    <td class="py-2">{{ $loop->iteration }}</td>
+                                    <td class="py-2">{{ $personnel->personnel_code }}
+                                        - {{ $personnel->first_name }} {{ $personnel->last_name }}</td>
+                                    <td class="py-2">هارد اینترنال</td>
+                                    <td class="py-2">{{ $hardDisk['property_code'] }}</td>
+                                    <td class="py-2"></td>
+                                    <td class="py-2 w-24">{{ $hardDisk['info'] }}</td>
+                                    <td class="px-6 py-4"></td>
+                                    <td class="px-6 py-4"></td>
+                                    <td class="px-6 py-4"></td>
+                                    <td class="px-6 py-4"></td>
+                                </tr>
+                            @endforeach
                         @endforeach
                         </tbody>
                     </table>

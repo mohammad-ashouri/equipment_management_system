@@ -17,7 +17,10 @@ class EquipmentController extends Controller
             ->pluck('id')
             ->toArray();
         $allEquipments = Equipment::whereIn('equipment_type', $equipmentTypes)->lazy();
-        return view('Reports.AllEquipments', compact('allEquipments'));
+        $internalHardDisks = Equipment::where('equipment_type', 2)
+            ->selectRaw("personnel, info->'internalHardDisks' as internalHardDisks, building")
+            ->get();
+        return view('Reports.AllEquipments', compact('allEquipments','internalHardDisks'));
     }
 
     public function hardware()
