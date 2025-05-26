@@ -88,6 +88,7 @@ use App\Http\Controllers\TechnicalFacilities\BracketController;
 use App\Http\Controllers\TechnicalFacilities\ChairController;
 use App\Http\Controllers\TechnicalFacilities\ClosetController;
 use App\Http\Controllers\TechnicalFacilities\CoatHangerController;
+use App\Http\Controllers\TechnicalFacilities\CouchController;
 use App\Http\Controllers\TechnicalFacilities\DrawerFileCabinetController;
 use App\Http\Controllers\TechnicalFacilities\ElectricPanelController;
 use App\Http\Controllers\TechnicalFacilities\FanController;
@@ -314,6 +315,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/BatteryCabinets' => BatteryCabinetController::class,
             '/Lights' => LightController::class,
             '/IranianCoolers' => IranianCoolerController::class,
+            '/Couches' => CouchController::class,
         ]);
 
 

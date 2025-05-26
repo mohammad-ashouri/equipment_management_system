@@ -758,6 +758,12 @@ class MenuMiddleware
                             'permission' => "لیست کولر آبی",
                             'icon' => 'las la-temperature-low',
                         ],
+                        [
+                            'title' => 'مبلمان',
+                            'link' => '/Couches',
+                            'permission' => "لیست مبلمان",
+                            'icon' => 'las la-couch',
+                        ],
                     ]
                 ],
                 6 => [
