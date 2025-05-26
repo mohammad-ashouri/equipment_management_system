@@ -15,6 +15,10 @@ class PermissionsSeeder2 extends Seeder
     public function run(): void
     {
         $permissions = [
+            ['name' => 'لیست کولر آبی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد کولر آبی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش کولر آبی', 'guard_name' => 'web'],
+
             ['name' => 'لیست کولر گازی', 'guard_name' => 'web'],
             ['name' => 'ایجاد کولر گازی', 'guard_name' => 'web'],
             ['name' => 'ویرایش کولر گازی', 'guard_name' => 'web'],

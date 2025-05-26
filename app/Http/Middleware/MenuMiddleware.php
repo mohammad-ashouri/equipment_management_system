@@ -752,6 +752,12 @@ class MenuMiddleware
                             'permission' => "لیست استند گلدان",
                             'icon' => 'las la-seedling',
                         ],
+                        [
+                            'title' => 'کولر آبی',
+                            'link' => '/IranianCoolers',
+                            'permission' => "لیست کولر آبی",
+                            'icon' => 'las la-temperature-low',
+                        ],
                     ]
                 ],
                 6 => [

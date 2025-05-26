@@ -97,6 +97,7 @@ use App\Http\Controllers\TechnicalFacilities\FlowerPotController;
 use App\Http\Controllers\TechnicalFacilities\FrontFurnitureTableController;
 use App\Http\Controllers\TechnicalFacilities\HeaterController;
 use App\Http\Controllers\TechnicalFacilities\HotGlueBindingController;
+use App\Http\Controllers\TechnicalFacilities\IranianCoolerController;
 use App\Http\Controllers\TechnicalFacilities\KeyBoxController;
 use App\Http\Controllers\TechnicalFacilities\LadderController;
 use App\Http\Controllers\TechnicalFacilities\LaminatingMachineController;
@@ -223,6 +224,9 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/RadioWirelesses' => RadioWirelessController::class,
             '/AccessPoints' => AccessPointController::class,
             '/Routers' => RouterController::class,
+            '/CameraSliders' => CameraSliderController::class,
+            '/Servers' => ServerController::class,
+            '/Storages' => StorageController::class,
         ]);
 
 
@@ -309,9 +313,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/LightHolders' => LightHolderController::class,
             '/BatteryCabinets' => BatteryCabinetController::class,
             '/Lights' => LightController::class,
-            '/CameraSliders' => CameraSliderController::class,
-            '/Servers' => ServerController::class,
-            '/Storages' => StorageController::class,
+            '/IranianCoolers' => IranianCoolerController::class,
         ]);
 
 
