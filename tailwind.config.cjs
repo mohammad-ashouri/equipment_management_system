@@ -4,10 +4,12 @@ module.exports = {
         themes: [ "wireframe"],
     },
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        "./resources/**/*.{blade.php,js,vue,css}",
+        "./resources/views/**/*.blade.php",
+        "./resources/js/**/*.{js,vue}",
+        "./resources/css/**/*.css",
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './node_modules/tw-elements/dist/js/**/*.js'
     ],
     theme: {
         extend: {
