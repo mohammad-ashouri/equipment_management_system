@@ -16,6 +16,7 @@ use App\Http\Controllers\DigitalEquipments\CameraLensController;
 use App\Http\Controllers\DigitalEquipments\CameraRamController;
 use App\Http\Controllers\DigitalEquipments\CameraSliderController;
 use App\Http\Controllers\DigitalEquipments\CctvController;
+use App\Http\Controllers\DigitalEquipments\DigitalPenController;
 use App\Http\Controllers\DigitalEquipments\DVBController;
 use App\Http\Controllers\DigitalEquipments\ExternalHardDiskController;
 use App\Http\Controllers\DigitalEquipments\FlashMemoryController;
@@ -257,6 +258,7 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
             '/BatteryChargers' => BatteryChargerController::class,
             '/Cameras' => CameraController::class,
             '/Laptops' => LaptopController::class,
+            '/DigitalPens' => DigitalPenController::class,
         ]);
 
 

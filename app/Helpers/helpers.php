@@ -135,6 +135,7 @@ if (!defined('TRANSLATIONS')) {
         'vaccum_cleaner' => 'جاروبرقی',
         'samovar' => 'سماور',
         'speaker' => 'اسپیکر',
+        'digital_pen' => 'قلم نوری',
     ]);
 }
 

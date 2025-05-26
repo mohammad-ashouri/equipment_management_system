@@ -486,6 +486,12 @@ class MenuMiddleware
                             'permission' => "لیست اسلایدر دوربین",
                             'icon' => 'las la-expand-arrows-alt',
                         ],
+                        [
+                            'title' => 'قلم نوری',
+                            'link' => '/DigitalPens',
+                            'permission' => "لیست قلم نوری",
+                            'icon' => 'las la-pen-alt',
+                        ],
                     ]
                 ],
                 5 => [
