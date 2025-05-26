@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\GetEquipmentsController;
 use App\Http\Controllers\Catalogs\BookSubjectController;
 use App\Http\Controllers\Catalogs\BrandController;
 use App\Http\Controllers\Catalogs\BuildingController;
@@ -156,7 +157,6 @@ Route::get('/', function () {
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::middleware(ThrottleRequests::class)->post('/login', [LoginController::class, 'login']);
 Route::get('/captcha', [LoginController::class, 'getCaptcha'])->name('captcha');
-
 
 //Panel Routes
 Route::middleware(['auth', MenuMiddleware::class])->group(function () {
@@ -338,10 +338,13 @@ Route::middleware(['auth', MenuMiddleware::class])->group(function () {
         });
         Route::get('/ChangeHistory/{personnel}/{equipmentId}', [HistoryController::class, 'index'])->name('History.index');
         Route::prefix('Equipments')->group(function () {
-           Route::get('All', [EquipmentController::class, 'allEquipments'])->name('Equipments.all');
-           Route::get('Hardware', [EquipmentController::class, 'hardware'])->name('Equipments.hardware');
+            Route::get('All', [EquipmentController::class, 'allEquipments'])->name('Equipments.all');
+            Route::get('Hardware', [EquipmentController::class, 'hardware'])->name('Equipments.hardware');
         });
-        Route::resource('/Consumables',ConsumablesController::class);
+        Route::resource('/Consumables', ConsumablesController::class);
+
+
     });
 });
 
+Route::get('get_equipments/{personnel_id}', [GetEquipmentsController::class, 'getEquipments']);
