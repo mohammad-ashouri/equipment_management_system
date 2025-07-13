@@ -123,6 +123,12 @@ class MenuMiddleware
                             'icon' => 'las la-ethernet',
                         ],
                         [
+                            'title' => 'رایتر اکسترنال',
+                            'link' => '/ExternalWriters',
+                            'permission' => "لیست رایتر اکسترنال",
+                            'icon' => 'las la-compact-disc',
+                        ],
+                        [
                             'title' => 'موس',
                             'link' => '/Mouses',
                             'permission' => "لیست موس",

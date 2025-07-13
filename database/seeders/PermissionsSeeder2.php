@@ -256,6 +256,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'ایجاد قلم نوری', 'guard_name' => 'web'],
             ['name' => 'ویرایش قلم نوری', 'guard_name' => 'web'],
 
+            ['name' => 'لیست رایتر اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'ایجاد رایتر اکسترنال', 'guard_name' => 'web'],
+            ['name' => 'ویرایش رایتر اکسترنال', 'guard_name' => 'web'],
+
             ['name' => 'لیست اقلام سخت افزاری', 'guard_name' => 'web'],
         ];
         $arrayPermissionsForCheck=[];

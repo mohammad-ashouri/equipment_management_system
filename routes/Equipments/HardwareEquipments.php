@@ -3,6 +3,7 @@
 use App\Http\Controllers\HardwareEquipments\CaseController;
 use App\Http\Controllers\HardwareEquipments\CopyMachineController;
 use App\Http\Controllers\HardwareEquipments\CpuController;
+use App\Http\Controllers\HardwareEquipments\ExternalWriterController;
 use App\Http\Controllers\HardwareEquipments\GraphicCardController;
 use App\Http\Controllers\HardwareEquipments\HeadsetController;
 use App\Http\Controllers\HardwareEquipments\InternalHardDiskController;
@@ -35,4 +36,5 @@ Route::resources([
     '/Scanners' => ScannerController::class,
     '/CopyMachines' => CopyMachineController::class,
     '/Voips' => VoipController::class,
+    '/ExternalWriters' => ExternalWriterController::class,
 ]);

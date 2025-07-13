@@ -137,6 +137,7 @@ if (!defined('TRANSLATIONS')) {
         'speaker' => 'اسپیکر',
         'digital_pen' => 'قلم نوری',
         'crossover' => 'کراس',
+        'external_writer' => 'رایتر اکسترنال',
     ]);
 }
 
