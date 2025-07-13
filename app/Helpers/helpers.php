@@ -136,6 +136,7 @@ if (!defined('TRANSLATIONS')) {
         'samovar' => 'سماور',
         'speaker' => 'اسپیکر',
         'digital_pen' => 'قلم نوری',
+        'crossover' => 'کراس',
     ]);
 }
 

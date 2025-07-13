@@ -496,7 +496,6 @@ class MenuMiddleware
                 ],
                 5 => [
                     'title' => 'تجهیزات پشتیبانی',
-                    'link' => '/SupportEquipments',
                     'permission' => "لیست تجهیزات پشتیبانی",
                     'icon' => 'las la-life-ring',
                     'childs' => [
@@ -773,13 +772,26 @@ class MenuMiddleware
                     ]
                 ],
                 6 => [
+                    'title' => 'دستگاه بدنسازی',
+                    'permission' => "لیست دستگاه بدنسازی",
+                    'icon' => 'las la-dumbbell',
+                    'childs' => [
+                        [
+                            'title' => 'کراس',
+                            'link' => '/Crossovers',
+                            'permission' => "لیست کراس",
+                            'icon' => 'las la-check',
+                        ],
+                    ]
+                ],
+                7 => [
                     'title' => 'مدیریت پرسنل',
                     'link' => '/Personnels',
                     'permission' => "لیست پرسنل",
                     'icon' => 'las la-users',
                     'childs' => []
                 ],
-                7 => [
+                8 => [
                     'title' => 'گزارشات',
                     'link' => '#',
                     'permission' => "گزارشات",

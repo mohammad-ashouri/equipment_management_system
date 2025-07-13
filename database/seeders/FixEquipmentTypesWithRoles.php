@@ -118,6 +118,7 @@ class FixEquipmentTypesWithRoles extends Seeder
             ['name' => 'iranian_cooler', 'persian_name' => 'کولر آبی', 'accessible_roles' => [1, 3]],
             ['name' => 'iranian_cooler', 'persian_name' => 'مبلمان', 'accessible_roles' => [1, 3]],
             ['name' => 'digital_pen', 'persian_name' => 'قلم نوری', 'accessible_roles' => [1, 2]],
+            ['name' => 'crossover', 'persian_name' => 'کراس', 'accessible_roles' => [1, 3]],
         ];
 
         foreach ($equipmentTypes as $type) {
