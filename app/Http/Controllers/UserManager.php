@@ -98,7 +98,7 @@ class UserManager extends Controller
         if ($validator->fails()) {
             return $this->alerts(false, 'userFounded', 'نام کاربری تکراری وارد شده است.');
         }
-        $last_id = User::latest()->first()->id;
+        $last_id = User::orderByDesc('id')->first()->id;
         $name = $request->input('name');
         $family = $request->input('family');
         $username = $request->input('username');
