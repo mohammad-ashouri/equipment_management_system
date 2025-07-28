@@ -24,8 +24,8 @@ class UserManager extends Controller
     {
         $userList = User::with('buildingInfo')->orderBy('id', 'asc')->paginate(10);
         $allRoles = Role::get();
-        $buildings= Building::whereStatus(1)->get();
-        return view('UserManager', compact('userList', 'allRoles','buildings'));
+        $buildings = Building::whereStatus(1)->get();
+        return view('UserManager', compact('userList', 'allRoles', 'buildings'));
     }
 
     public function ChangeUserActivationStatus(Request $request): \Illuminate\Http\JsonResponse
@@ -98,6 +98,7 @@ class UserManager extends Controller
         if ($validator->fails()) {
             return $this->alerts(false, 'userFounded', 'نام کاربری تکراری وارد شده است.');
         }
+        $last_id = User::latest()->first()->id;
         $name = $request->input('name');
         $family = $request->input('family');
         $username = $request->input('username');
@@ -107,6 +108,7 @@ class UserManager extends Controller
         $roomNumber = $request->input('roomNumber');
 
         $user = new User();
+        $user->id = $last_id+1;
         $user->name = $name;
         $user->family = $family;
         $user->username = $username;
