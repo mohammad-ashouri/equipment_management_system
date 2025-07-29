@@ -12,6 +12,7 @@
                         <tr class="bg-gradient-to-r from-blue-400 to-purple-500 items-center text-center text-white">
                             <th class=" px-6 py-3 w-9 font-bold ">ردیف</th>
                             <th class=" px-6 py-3 font-bold ">پرسنل</th>
+                            <th class=" px-6 py-3 font-bold ">ساختمان</th>
                             <th class=" px-6 py-3 font-bold ">نوع</th>
                             <th class=" px-6 py-3 font-bold ">کد اموال</th>
                             <th class=" px-6 py-3 font-bold ">تاریخ تحویل</th>
@@ -27,6 +28,7 @@
                             <tr class="odd:bg-gray-300 even:bg-white">
                                 <td class="py-2">{{ $loop->iteration }}</td>
                                 <td class="py-2">{{ $equipment->personnelInfo->personnel_code }}</td>
+                                <td class="py-2">{{ $equipment->buildingInfo->name }}</td>
                                 <td class="py-2">{{ $equipment->equipmentType->persian_name }}</td>
                                 <td class="py-2">{{ $equipment->property_code }}</td>
                                 <td class="py-2">{{ $equipment->delivery_date }}</td>
@@ -50,7 +52,7 @@
                                 }
                                 foreach ($hardDisksInfo as $info){
                                     $hardInfo=InternalHardDisk::find($info['id']);
-                                    $hardDisks[]=['info'=>$hardInfo->brandInfo->name. " - " . $hardInfo->model . " - " . $hardInfo->capacity,"property_code"=>$info['property_code']];
+                                    $hardDisks[]=['info'=>$hardInfo->brandInfo->name. " - " . $hardInfo->model . " - " . $hardInfo->capacity,"property_code"=>$info['property_code'],"building"=>$internalHardDisk->buildingInfo->name];
                                 }
                                 $personnel=Personnel::find($internalHardDisk->personnel);
                             @endphp
@@ -59,6 +61,7 @@
                                     <td class="py-2">{{ $loop->iteration }}</td>
                                     <td class="py-2">{{ $personnel->personnel_code }}
                                         - {{ $personnel->first_name }} {{ $personnel->last_name }}</td>
+                                    <td class="py-2">{{ $hardDisk['building'] }}</td>
                                     <td class="py-2">هارد اینترنال</td>
                                     <td class="py-2">{{ $hardDisk['property_code'] }}</td>
                                     <td class="py-2"></td>
