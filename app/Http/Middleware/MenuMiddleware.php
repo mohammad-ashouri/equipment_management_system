@@ -775,6 +775,12 @@ class MenuMiddleware
                             'permission' => "لیست مبلمان",
                             'icon' => 'las la-couch',
                         ],
+                        [
+                            'title' => 'ترولی پذیرایی',
+                            'link' => '/ServingTrolleys',
+                            'permission' => "لیست ترولی پذیرایی",
+                            'icon' => 'las la-chair',
+                        ],
                     ]
                 ],
                 6 => [

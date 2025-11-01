@@ -138,6 +138,7 @@ if (!defined('TRANSLATIONS')) {
         'digital_pen' => 'قلم نوری',
         'crossover' => 'کراس',
         'external_writer' => 'رایتر اکسترنال',
+        'serving_trolley' => 'ترولی پذیرایی',
     ]);
 }
 

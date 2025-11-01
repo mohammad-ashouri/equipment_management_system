@@ -41,6 +41,7 @@ use App\Http\Controllers\TechnicalFacilities\PingPongTableController;
 use App\Http\Controllers\TechnicalFacilities\RefrigeratorController;
 use App\Http\Controllers\TechnicalFacilities\SafeController;
 use App\Http\Controllers\TechnicalFacilities\SamovarController;
+use App\Http\Controllers\TechnicalFacilities\ServingTrolleyController;
 use App\Http\Controllers\TechnicalFacilities\ShoeCabinetController;
 use App\Http\Controllers\TechnicalFacilities\ShredderController;
 use App\Http\Controllers\TechnicalFacilities\SpringBindingController;
@@ -111,4 +112,5 @@ Route::resources([
     '/Lights' => LightController::class,
     '/IranianCoolers' => IranianCoolerController::class,
     '/Couches' => CouchController::class,
+    '/ServingTrolleys' => ServingTrolleyController::class,
 ]);

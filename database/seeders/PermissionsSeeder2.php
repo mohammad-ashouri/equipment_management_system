@@ -186,6 +186,10 @@ class PermissionsSeeder2 extends Seeder
             ['name' => 'لیست کراس', 'guard_name' => 'web'],
             ['name' => 'ایجاد کراس', 'guard_name' => 'web'],
             ['name' => 'ویرایش کراس', 'guard_name' => 'web'],
+
+            ['name' => 'لیست ترولی پذیرایی', 'guard_name' => 'web'],
+            ['name' => 'ایجاد ترولی پذیرایی', 'guard_name' => 'web'],
+            ['name' => 'ویرایش ترولی پذیرایی', 'guard_name' => 'web'],
         ];
 
         $arrayPermissionsForCheck=[];
