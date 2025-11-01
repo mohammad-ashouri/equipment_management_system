@@ -130,6 +130,7 @@
             'crossover' => Crossover::class,
             'external_writer' => ExternalWriter::class,
             'serving_trolley' => ServingTrolley::class,
+            'internal_hdd' => InternalHardDisk::class,
         ];
         $equipmentTypeName = $equipmentType->name;
         $items = [];

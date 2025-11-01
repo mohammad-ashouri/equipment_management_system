@@ -129,7 +129,7 @@
             'digital_pen' => DigitalPen::class,
             'crossover' => Crossover::class,
             'external_writer' => ExternalWriter::class,
-            'serving_trolley' => ServingTrolley::class,
+            'internal_hdd' => InternalHardDisk::class,
         ];
 
         $equipmentType = $equipment->equipmentType->name;

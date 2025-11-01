@@ -15,6 +15,7 @@ if (!defined('TRANSLATIONS')) {
         'modified' => 'تغییر یافته',
         'internalHardDisks' => 'هارد اینترنال',
         'internalHardDisk' => 'هارد اینترنال',
+        'internal_hdd' => 'هارد اینترنال',
         'internalHardDisk_property_code' => 'کد اموال هارد اینترنال',
         'case' => 'کیس',
         'power' => 'منبع تغذیه',
